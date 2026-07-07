@@ -1,5 +1,5 @@
 # Deep Learning (Basics to Advanced)
-
+## ***Introduction to DL***
 > *Deep Learning is basically the study of Neural Networks.*
 
 ## What are Neural Networks?
@@ -39,3 +39,4 @@ One of the properties of this function is that it eliminates negative output val
 >>From the graph we can observe, that all neural networks as well as traditional regression algos perform the same for small datasets. Whereas for larger datasets (higher value of m), large neural networks tend to perform better than the rest.
 >
 >This is because large neural networks are more complex and can learn and model tougher non linear relationships as compared to smaller NN's. 
+

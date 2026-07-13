@@ -1,8 +1,6 @@
 # Deep Learning (Basics to Advanced)
 ## ***Introduction to DL***
 > *Deep Learning is basically the study of Neural Networks.*
-
-## What are Neural Networks?
 > A **Neural Network** is made up of fundamental building blocks called neurons.
 >
 > A **neuron** is connected to one or many inputs and a **single** output.

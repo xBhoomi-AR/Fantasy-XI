@@ -90,6 +90,58 @@ CREATE TABLE IF NOT EXISTS processed.players (
 
 );
 
+
+CREATE TABLE IF NOT EXISTS processed.fixtures (
+
+    fixture_id INTEGER PRIMARY KEY,
+
+    code INTEGER UNIQUE,
+
+    pulse_id INTEGER UNIQUE,
+
+    season TEXT NOT NULL,
+
+    gameweek SMALLINT NOT NULL,
+
+    kickoff_time TIMESTAMP,
+
+    home_team_id INTEGER NOT NULL,
+
+    away_team_id INTEGER NOT NULL,
+
+    team_h_score SMALLINT,
+
+    team_a_score SMALLINT,
+
+    started BOOLEAN,
+
+    finished BOOLEAN,
+
+    finished_provisional BOOLEAN,
+
+    minutes SMALLINT,
+
+    team_h_difficulty SMALLINT,
+
+    team_a_difficulty SMALLINT,
+
+    stats_available BOOLEAN,
+
+    CONSTRAINT fk_home_team
+        FOREIGN KEY (home_team_id)
+        REFERENCES processed.teams(team_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_away_team
+        FOREIGN KEY (away_team_id)
+        REFERENCES processed.teams(team_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+
+);
+
+
 CREATE TABLE IF NOT EXISTS processed.gameweeks (
 
     gameweek SMALLINT PRIMARY KEY,

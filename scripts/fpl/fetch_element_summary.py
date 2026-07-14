@@ -37,7 +37,7 @@ for player in players:
 
             downloaded += 1
 
-            print(f"{player_id} ✓")
+            print(f"{player_id} Yes")
 
         else:
 

@@ -1,17 +1,21 @@
 import json
+import os
 from pathlib import Path
 
 import psycopg
+from dotenv import load_dotenv
 
 with open("data/raw/fpl/bootstrap_static.json", encoding="utf8") as f:
     data = json.load(f)
 
+load_dotenv()
+
 conn = psycopg.connect(
-    host="localhost",
-    dbname="FantasyXI",
-    user="postgres",
-    password="@fantasy123@",
-    port=5432
+    dbname=os.getenv("DB_NAME"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    host=os.getenv("DB_HOST"),
+    port=os.getenv("DB_PORT"),
 )
 
 cur = conn.cursor()

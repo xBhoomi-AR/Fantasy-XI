@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Local data
+data/raw/*.json
+
+# PostgreSQL backups
+database/backups/
+
+# Logs
+*.log

@@ -9,7 +9,7 @@ PROCESSED_DATA_DIR = DATA_DIR / "processed"
 DATABASE = {
     "host": "localhost",
     "port": 5432,
-    "database": "fantasy_xi",
+    "database": "Fantasy XI",
     "user": "postgres",
     "password": "pokefan22#"
 }

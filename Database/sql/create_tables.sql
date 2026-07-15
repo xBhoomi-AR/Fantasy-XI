@@ -82,6 +82,12 @@ CREATE TABLE IF NOT EXISTS processed.players (
 
     chance_of_playing_this_round SMALLINT,
 
+    photo TEXT,
+
+    news TEXT,
+
+    news_added TIMESTAMP,
+
     CONSTRAINT fk_team
         FOREIGN KEY (team_id)
         REFERENCES processed.teams(team_id)
@@ -295,6 +301,70 @@ CREATE TABLE IF NOT EXISTS processed.player_match_stats (
     CONSTRAINT fk_pms_opponent
         FOREIGN KEY (opponent_team_id)
         REFERENCES processed.teams(team_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+
+);
+
+CREATE TABLE IF NOT EXISTS processed.player_season_stats (
+
+    player_id INTEGER NOT NULL,
+
+    season TEXT NOT NULL,
+
+    minutes INTEGER,
+
+    starts SMALLINT,
+
+    total_points SMALLINT,
+
+    points_per_game DECIMAL(5,2),
+
+    goals_scored SMALLINT,
+
+    assists SMALLINT,
+
+    clean_sheets SMALLINT,
+
+    goals_conceded SMALLINT,
+
+    own_goals SMALLINT,
+
+    penalties_saved SMALLINT,
+
+    penalties_missed SMALLINT,
+
+    yellow_cards SMALLINT,
+
+    red_cards SMALLINT,
+
+    saves SMALLINT,
+
+    bonus SMALLINT,
+
+    bps INTEGER,
+
+    influence DECIMAL(8,2),
+
+    creativity DECIMAL(8,2),
+
+    threat DECIMAL(8,2),
+
+    ict_index DECIMAL(8,2),
+
+    expected_goals DECIMAL(8,3),
+
+    expected_assists DECIMAL(8,3),
+
+    expected_goal_involvements DECIMAL(8,3),
+
+    expected_goals_conceded DECIMAL(8,3),
+
+    PRIMARY KEY (player_id, season),
+
+    CONSTRAINT fk_pss_player
+        FOREIGN KEY (player_id)
+        REFERENCES processed.players(player_id)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 

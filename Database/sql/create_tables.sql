@@ -635,3 +635,329 @@ CREATE TABLE IF NOT EXISTS processed.team_season_stats (
         ON DELETE RESTRICT
 
 );
+
+CREATE TABLE IF NOT EXISTS processed.player_fbref_standard (
+
+    player_id INTEGER NOT NULL,
+
+    season TEXT NOT NULL,
+
+    matches_played SMALLINT,
+
+    starts SMALLINT,
+
+    minutes INTEGER,
+
+    minutes_90s DECIMAL(6,2),
+
+    goals SMALLINT,
+
+    assists SMALLINT,
+
+    goal_contributions SMALLINT,
+
+    non_penalty_goals SMALLINT,
+
+    penalty_goals SMALLINT,
+
+    penalty_attempts SMALLINT,
+
+    yellow_cards SMALLINT,
+
+    red_cards SMALLINT,
+
+    expected_goals DECIMAL(8,3),
+
+    non_penalty_expected_goals DECIMAL(8,3),
+
+    expected_assists DECIMAL(8,3),
+
+    progressive_carries SMALLINT,
+
+    progressive_passes SMALLINT,
+
+    progressive_passes_received SMALLINT,
+
+    PRIMARY KEY (player_id, season),
+
+    CONSTRAINT fk_pfs_player
+        FOREIGN KEY (player_id)
+        REFERENCES processed.players(player_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+
+);
+
+CREATE TABLE IF NOT EXISTS processed.player_fbref_shooting (
+
+    player_id INTEGER NOT NULL,
+
+    season TEXT NOT NULL,
+
+    shots SMALLINT,
+
+    shots_on_target SMALLINT,
+
+    shots_on_target_percentage DECIMAL(5,2),
+
+    shot_distance DECIMAL(5,2),
+
+    free_kick_shots SMALLINT,
+
+    penalty_goals SMALLINT,
+
+    penalty_attempts SMALLINT,
+
+    expected_goals DECIMAL(8,3),
+
+    non_penalty_expected_goals DECIMAL(8,3),
+
+    non_penalty_expected_goals_per_shot DECIMAL(8,4),
+
+    expected_goals_difference DECIMAL(8,3),
+
+    PRIMARY KEY (player_id, season),
+
+    CONSTRAINT fk_pfsh_player
+        FOREIGN KEY (player_id)
+        REFERENCES processed.players(player_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+
+);
+
+CREATE TABLE IF NOT EXISTS processed.player_fbref_passing (
+
+    player_id INTEGER NOT NULL,
+
+    season TEXT NOT NULL,
+
+    passes_attempted INTEGER,
+
+    passes_completed INTEGER,
+
+    pass_completion_percentage DECIMAL(5,2),
+
+    total_pass_distance INTEGER,
+
+    progressive_pass_distance INTEGER,
+
+    short_passes_attempted INTEGER,
+
+    short_passes_completed INTEGER,
+
+    medium_passes_attempted INTEGER,
+
+    medium_passes_completed INTEGER,
+
+    long_passes_attempted INTEGER,
+
+    long_passes_completed INTEGER,
+
+    key_passes SMALLINT,
+
+    final_third_passes SMALLINT,
+
+    penalty_area_passes SMALLINT,
+
+    crosses_into_penalty_area SMALLINT,
+
+    progressive_passes SMALLINT,
+
+    through_balls SMALLINT,
+
+    switches SMALLINT,
+
+    crosses SMALLINT,
+
+    corner_kicks SMALLINT,
+
+    throw_ins SMALLINT,
+
+    expected_assists DECIMAL(8,3),
+
+    shot_creating_actions SMALLINT,
+
+    goal_creating_actions SMALLINT,
+
+    PRIMARY KEY (player_id, season),
+
+    CONSTRAINT fk_pfp_player
+        FOREIGN KEY (player_id)
+        REFERENCES processed.players(player_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+
+);
+
+CREATE TABLE IF NOT EXISTS processed.player_fbref_possession (
+
+    player_id INTEGER NOT NULL,
+
+    season TEXT NOT NULL,
+
+    touches INTEGER,
+
+    touches_defensive_penalty_area INTEGER,
+
+    touches_defensive_third INTEGER,
+
+    touches_middle_third INTEGER,
+
+    touches_attacking_third INTEGER,
+
+    touches_attacking_penalty_area INTEGER,
+
+    live_ball_touches INTEGER,
+
+    take_ons_attempted SMALLINT,
+
+    take_ons_completed SMALLINT,
+
+    take_on_success_percentage DECIMAL(5,2),
+
+    carries INTEGER,
+
+    total_carry_distance INTEGER,
+
+    progressive_carry_distance INTEGER,
+
+    progressive_carries SMALLINT,
+
+    carries_into_final_third SMALLINT,
+
+    carries_into_penalty_area SMALLINT,
+
+    miscontrols SMALLINT,
+
+    dispossessed SMALLINT,
+
+    progressive_passes_received SMALLINT,
+
+    PRIMARY KEY (player_id, season),
+
+    CONSTRAINT fk_pfpos_player
+        FOREIGN KEY (player_id)
+        REFERENCES processed.players(player_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+
+);
+
+CREATE TABLE IF NOT EXISTS processed.player_fbref_defending (
+
+    player_id INTEGER NOT NULL,
+
+    season TEXT NOT NULL,
+
+    tackles SMALLINT,
+
+    tackles_won SMALLINT,
+
+    tackles_defensive_third SMALLINT,
+
+    tackles_middle_third SMALLINT,
+
+    tackles_attacking_third SMALLINT,
+
+    dribblers_tackled SMALLINT,
+
+    dribblers_challenged SMALLINT,
+
+    dribble_tackle_success_percentage DECIMAL(5,2),
+
+    blocks SMALLINT,
+
+    shots_blocked SMALLINT,
+
+    passes_blocked SMALLINT,
+
+    interceptions SMALLINT,
+
+    tackles_plus_interceptions SMALLINT,
+
+    clearances SMALLINT,
+
+    errors_leading_to_shot SMALLINT,
+
+    recoveries SMALLINT,
+
+    aerial_duels_won SMALLINT,
+
+    aerial_duels_lost SMALLINT,
+
+    aerial_duel_win_percentage DECIMAL(5,2),
+
+    PRIMARY KEY (player_id, season),
+
+    CONSTRAINT fk_pfd_player
+        FOREIGN KEY (player_id)
+        REFERENCES processed.players(player_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+
+);
+
+CREATE TABLE IF NOT EXISTS processed.player_fbref_goalkeeping (
+
+    player_id INTEGER NOT NULL,
+
+    season TEXT NOT NULL,
+
+    matches_played SMALLINT,
+
+    starts SMALLINT,
+
+    minutes INTEGER,
+
+    goals_against SMALLINT,
+
+    goals_against_per90 DECIMAL(6,3),
+
+    shots_on_target_against SMALLINT,
+
+    saves SMALLINT,
+
+    save_percentage DECIMAL(5,2),
+
+    clean_sheets SMALLINT,
+
+    clean_sheet_percentage DECIMAL(5,2),
+
+    penalty_kicks_faced SMALLINT,
+
+    penalty_kicks_saved SMALLINT,
+
+    post_shot_expected_goals DECIMAL(8,3),
+
+    post_shot_expected_goals_minus_goals_allowed DECIMAL(8,3),
+
+    crosses_faced SMALLINT,
+
+    crosses_stopped SMALLINT,
+
+    cross_stop_percentage DECIMAL(5,2),
+
+    defensive_actions_outside_penalty_area SMALLINT,
+
+    average_distance_defensive_actions DECIMAL(6,2),
+
+    passes_attempted INTEGER,
+
+    throws_attempted INTEGER,
+
+    launched_passes INTEGER,
+
+    launch_percentage DECIMAL(5,2),
+
+    average_pass_length DECIMAL(6,2),
+
+    PRIMARY KEY (player_id, season),
+
+    CONSTRAINT fk_pfg_player
+        FOREIGN KEY (player_id)
+        REFERENCES processed.players(player_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+
+);

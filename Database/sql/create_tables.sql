@@ -306,73 +306,11 @@ CREATE TABLE IF NOT EXISTS processed.player_match_stats (
 
 );
 
-CREATE TABLE IF NOT EXISTS processed.player_season_stats (
-
-    player_id INTEGER NOT NULL,
-
-    season TEXT NOT NULL,
-
-    minutes INTEGER,
-
-    starts SMALLINT,
-
-    total_points SMALLINT,
-
-    points_per_game DECIMAL(5,2),
-
-    goals_scored SMALLINT,
-
-    assists SMALLINT,
-
-    clean_sheets SMALLINT,
-
-    goals_conceded SMALLINT,
-
-    own_goals SMALLINT,
-
-    penalties_saved SMALLINT,
-
-    penalties_missed SMALLINT,
-
-    yellow_cards SMALLINT,
-
-    red_cards SMALLINT,
-
-    saves SMALLINT,
-
-    bonus SMALLINT,
-
-    bps INTEGER,
-
-    influence DECIMAL(8,2),
-
-    creativity DECIMAL(8,2),
-
-    threat DECIMAL(8,2),
-
-    ict_index DECIMAL(8,2),
-
-    expected_goals DECIMAL(8,3),
-
-    expected_assists DECIMAL(8,3),
-
-    expected_goal_involvements DECIMAL(8,3),
-
-    expected_goals_conceded DECIMAL(8,3),
-
-    PRIMARY KEY (player_id, season),
-
-    CONSTRAINT fk_pss_player
-        FOREIGN KEY (player_id)
-        REFERENCES processed.players(player_id)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT
-
-);
-
 CREATE TABLE IF NOT EXISTS processed.player_market_history (
 
     player_id INTEGER NOT NULL,
+
+    fixture_id INTEGER NOT NULL,
 
     gameweek SMALLINT NOT NULL,
 
@@ -380,38 +318,25 @@ CREATE TABLE IF NOT EXISTS processed.player_market_history (
 
     value SMALLINT,
 
-    cost_change_start SMALLINT,
-
-    cost_change_event SMALLINT,
-
-    selected_by_percent DECIMAL(5,2),
-
     transfers_in INTEGER,
 
     transfers_out INTEGER,
 
-    transfers_in_event INTEGER,
+    transfers_balance INTEGER,
 
-    transfers_out_event INTEGER,
-
-    status CHAR(1),
-
-    chance_of_playing_this_round SMALLINT,
-
-    chance_of_playing_next_round SMALLINT,
-
-    news TEXT,
-
-    news_added TIMESTAMP,
-
-    PRIMARY KEY (player_id, gameweek, season),
+    PRIMARY KEY (player_id, fixture_id),
 
     CONSTRAINT fk_pmh_player
         FOREIGN KEY (player_id)
         REFERENCES processed.players(player_id)
         ON UPDATE CASCADE
-        ON DELETE RESTRICT
+        ON DELETE RESTRICT,
 
+    CONSTRAINT fk_pmh_fixture
+        FOREIGN KEY (fixture_id)
+        REFERENCES processed.fixtures(fixture_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 );
 
 CREATE TABLE IF NOT EXISTS processed.player_fpl_season_stats (
@@ -622,89 +547,6 @@ CREATE TABLE IF NOT EXISTS processed.team_match_stats (
 
 );
 
-CREATE TABLE IF NOT EXISTS processed.team_season_stats (
-
-    team_id INTEGER NOT NULL,
-
-    season TEXT NOT NULL,
-
-    matches_played SMALLINT,
-
-    wins SMALLINT,
-
-    draws SMALLINT,
-
-    losses SMALLINT,
-
-    points SMALLINT,
-
-    league_position SMALLINT,
-
-    goals_for SMALLINT,
-
-    goals_against SMALLINT,
-
-    goal_difference SMALLINT,
-
-    expected_goal_difference DECIMAL(8,3),
-
-    clean_sheets SMALLINT,
-
-    possession DECIMAL(5,2),
-
-    shots INTEGER,
-
-    shots_on_target INTEGER,
-
-    xg DECIMAL(8,3),
-
-    xga DECIMAL(8,3),
-
-    key_passes INTEGER,
-
-    progressive_passes INTEGER,
-
-    progressive_carries INTEGER,
-
-    corners INTEGER,
-
-    fouls INTEGER,
-
-    yellow_cards SMALLINT,
-
-    red_cards SMALLINT,
-
-    passes_attempted INTEGER,
-
-    passes_completed INTEGER,
-
-    pass_completion DECIMAL(5,2),
-
-    touches INTEGER,
-
-    tackles INTEGER,
-
-    interceptions INTEGER,
-
-    clearances INTEGER,
-
-    recoveries INTEGER,
-
-    blocks INTEGER,
-
-    aerials_won INTEGER,
-
-    aerials_lost INTEGER,
-
-    PRIMARY KEY (team_id, season),
-
-    CONSTRAINT fk_tss_team
-        FOREIGN KEY (team_id)
-        REFERENCES processed.teams(team_id)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT
-
-);
 
 CREATE TABLE IF NOT EXISTS processed.player_fbref_standard (
 

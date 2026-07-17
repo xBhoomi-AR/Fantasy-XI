@@ -339,76 +339,6 @@ CREATE TABLE IF NOT EXISTS processed.player_market_history (
         ON DELETE RESTRICT
 );
 
-CREATE TABLE IF NOT EXISTS processed.player_fpl_season_stats (
-
-    player_id INTEGER NOT NULL,
-
-    season TEXT NOT NULL,
-
-    minutes INTEGER,
-
-    starts SMALLINT,
-
-    total_points SMALLINT,
-
-    goals_scored SMALLINT,
-
-    assists SMALLINT,
-
-    clean_sheets SMALLINT,
-
-    goals_conceded SMALLINT,
-
-    own_goals SMALLINT,
-
-    penalties_saved SMALLINT,
-
-    penalties_missed SMALLINT,
-
-    yellow_cards SMALLINT,
-
-    red_cards SMALLINT,
-
-    saves SMALLINT,
-
-    bonus SMALLINT,
-
-    bps INTEGER,
-
-    influence DECIMAL(8,2),
-
-    creativity DECIMAL(8,2),
-
-    threat DECIMAL(8,2),
-
-    ict_index DECIMAL(8,2),
-
-    expected_goals DECIMAL(8,3),
-
-    expected_assists DECIMAL(8,3),
-
-    expected_goal_involvements DECIMAL(8,3),
-
-    expected_goals_conceded DECIMAL(8,3),
-
-    recoveries SMALLINT,
-
-    tackles SMALLINT,
-
-    clearances_blocks_interceptions SMALLINT,
-
-    defensive_contribution SMALLINT,
-
-    PRIMARY KEY (player_id, season),
-
-    CONSTRAINT fk_pfss_player
-        FOREIGN KEY (player_id)
-        REFERENCES processed.players(player_id)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT
-
-);
-
 CREATE TABLE IF NOT EXISTS processed.player_understat_season_stats (
 
     player_id INTEGER NOT NULL,
@@ -425,27 +355,15 @@ CREATE TABLE IF NOT EXISTS processed.player_understat_season_stats (
 
     xg DECIMAL(8,3),
 
-    xg_per_shot DECIMAL(8,4),
-
-    shots_per90 DECIMAL(8,3),
-
-    goals_per90 DECIMAL(8,3),
-
     assists SMALLINT,
 
     key_passes SMALLINT,
 
     xa DECIMAL(8,3),
 
-    xa_per90 DECIMAL(8,3),
-
     xg_chain DECIMAL(8,3),
 
-    xg_chain_per90 DECIMAL(8,3),
-
     xg_buildup DECIMAL(8,3),
-
-    xg_buildup_per90 DECIMAL(8,3),
 
     npg SMALLINT,
 

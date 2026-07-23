@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-# File paths
+# Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 RESULTS_DIR = BASE_DIR / "results"
@@ -14,7 +14,7 @@ PREDICTIONS_FILE = (
 )
 
 
-# Load predictions
+# Read predictions
 df = pd.read_csv(PREDICTIONS_FILE)
 
 print("\n--- LSTM PREDICTION ANALYSIS ---")
@@ -25,10 +25,7 @@ print("\nColumns:")
 print(df.columns.tolist())
 
 
-# --------------------------------------------------
-# 1. Actual score distribution
-# --------------------------------------------------
-
+# Actual score distribution
 print("\n--- ACTUAL SCORE DISTRIBUTION ---")
 
 score_groups = {
@@ -53,10 +50,7 @@ for label, mask in score_groups.items():
     )
 
 
-# --------------------------------------------------
-# 2. Prediction distribution
-# --------------------------------------------------
-
+# Prediction distribution
 print("\n--- PREDICTION DISTRIBUTION ---")
 
 predictions = df["predicted_points"]
@@ -98,10 +92,7 @@ for percentile in [
     )
 
 
-# --------------------------------------------------
-# 3. Bias by score group
-# --------------------------------------------------
-
+# Bias for each score range
 print("\n--- PREDICTION BIAS BY ACTUAL SCORE ---")
 
 for label, mask in score_groups.items():
@@ -132,10 +123,7 @@ for label, mask in score_groups.items():
     )
 
 
-# --------------------------------------------------
-# 4. Performance for each gameweek
-# --------------------------------------------------
-
+# Results for each gameweek
 print("\n--- PERFORMANCE BY GAMEWEEK ---")
 
 gw_column = "target_gw"
@@ -169,10 +157,7 @@ for gw in sorted(
     )
 
 
-# --------------------------------------------------
-# 5. Correlation
-# --------------------------------------------------
-
+# Correlation
 print("\n--- PREDICTION CORRELATION ---")
 
 correlation = df[
@@ -188,10 +173,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# 6. Top player ranking analysis
-# --------------------------------------------------
-
+# Top player ranking
 print("\n--- TOP PLAYER RANKING ANALYSIS ---")
 
 TOP_N = 15
@@ -255,10 +237,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# 7. High scorer analysis
-# --------------------------------------------------
-
+# High scorers
 print("\n--- HIGH SCORER ANALYSIS ---")
 
 high_scorers = df[
@@ -304,10 +283,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# 8. Highest model predictions
-# --------------------------------------------------
-
+# Highest predictions
 print("\n--- HIGHEST MODEL PREDICTIONS ---")
 
 columns_to_show = [
@@ -331,10 +307,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# Save summary by gameweek
-# --------------------------------------------------
-
+# Save gameweek results
 gw_summary = []
 
 for gw in sorted(
@@ -382,10 +355,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# 9. Minutes analysis
-# --------------------------------------------------
-
+# Minutes played
 print("\n--- MINUTES / AVAILABILITY ANALYSIS ---")
 
 minute_groups = {
@@ -410,6 +380,7 @@ for label, mask in minute_groups.items():
     )
 
 
+# Score distribution for players who played 60+ mins
 print("\n--- SCORE DISTRIBUTION FOR 60+ MINUTE PLAYERS ---")
 
 played_60 = df[
@@ -435,3 +406,50 @@ for label, mask in {
         f"Count: {count:<5} "
         f"Percentage: {count / len(played_60) * 100:.2f}%"
     )
+
+
+# Ranking for players who played 60+ mins
+print("\n--- TOP-15 RANKING FOR 60+ MINUTE PLAYERS ---")
+
+total_overlap = 0
+total_players = 0
+
+for gw in sorted(df["target_gw"].unique()):
+
+    gw_data = df[
+        (df["target_gw"] == gw)
+        & (df["target_minutes"] >= 60)
+    ]
+
+    actual_top = gw_data.nlargest(
+        15,
+        "actual_points"
+    )
+
+    predicted_top = gw_data.nlargest(
+        15,
+        "predicted_points"
+    )
+
+    actual_ids = set(actual_top["element"])
+    predicted_ids = set(predicted_top["element"])
+
+    overlap = len(
+        actual_ids & predicted_ids
+    )
+
+    total_overlap += overlap
+    total_players += len(actual_ids)
+
+    print(
+        f"GW {gw} | "
+        f"Top-15 overlap: {overlap}/15"
+    )
+
+
+recall = total_overlap / total_players
+
+print(
+    f"\nOverall Top-15 recall "
+    f"(60+ minute players): {recall:.3f}"
+)

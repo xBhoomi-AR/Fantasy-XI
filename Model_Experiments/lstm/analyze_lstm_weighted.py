@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-# File paths
+# Paths for results and prediction file
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 RESULTS_DIR = BASE_DIR / "results"
@@ -14,7 +14,7 @@ PREDICTIONS_FILE = (
 )
 
 
-# Load predictions
+# Load the weighted LSTM predictions
 df = pd.read_csv(PREDICTIONS_FILE)
 
 print("\n--- LSTM PREDICTION ANALYSIS ---")
@@ -25,10 +25,7 @@ print("\nColumns:")
 print(df.columns.tolist())
 
 
-# --------------------------------------------------
-# 1. Actual score distribution
-# --------------------------------------------------
-
+# Check how the actual scores are distributed
 print("\n--- ACTUAL SCORE DISTRIBUTION ---")
 
 score_groups = {
@@ -53,10 +50,7 @@ for label, mask in score_groups.items():
     )
 
 
-# --------------------------------------------------
-# 2. Prediction distribution
-# --------------------------------------------------
-
+# Check the range and spread of model predictions
 print("\n--- PREDICTION DISTRIBUTION ---")
 
 predictions = df["predicted_points"]
@@ -98,10 +92,7 @@ for percentile in [
     )
 
 
-# --------------------------------------------------
-# 3. Bias by score group
-# --------------------------------------------------
-
+# Compare average prediction with actual points for each score group
 print("\n--- PREDICTION BIAS BY ACTUAL SCORE ---")
 
 for label, mask in score_groups.items():
@@ -132,10 +123,7 @@ for label, mask in score_groups.items():
     )
 
 
-# --------------------------------------------------
-# 4. Performance for each gameweek
-# --------------------------------------------------
-
+# Check MAE and RMSE separately for every test gameweek
 print("\n--- PERFORMANCE BY GAMEWEEK ---")
 
 gw_column = "target_gw"
@@ -169,10 +157,7 @@ for gw in sorted(
     )
 
 
-# --------------------------------------------------
-# 5. Correlation
-# --------------------------------------------------
-
+# Check how closely predictions follow actual scores
 print("\n--- PREDICTION CORRELATION ---")
 
 correlation = df[
@@ -188,10 +173,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# 6. Top player ranking analysis
-# --------------------------------------------------
-
+# Compare the actual and predicted top 15 players in each GW
 print("\n--- TOP PLAYER RANKING ANALYSIS ---")
 
 TOP_N = 15
@@ -255,10 +237,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# 7. High scorer analysis
-# --------------------------------------------------
-
+# Check how the model performs on players who actually scored 6+ points
 print("\n--- HIGH SCORER ANALYSIS ---")
 
 high_scorers = df[
@@ -304,10 +283,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# 8. Highest model predictions
-# --------------------------------------------------
-
+# Show the players given the highest predictions by the model
 print("\n--- HIGHEST MODEL PREDICTIONS ---")
 
 columns_to_show = [
@@ -331,10 +307,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# Save summary by gameweek
-# --------------------------------------------------
-
+# Save MAE and RMSE for each gameweek
 gw_summary = []
 
 for gw in sorted(
@@ -382,10 +355,7 @@ print(
 )
 
 
-# --------------------------------------------------
-# 9. Minutes analysis
-# --------------------------------------------------
-
+# Check how many target players actually played in that GW
 print("\n--- MINUTES / AVAILABILITY ANALYSIS ---")
 
 minute_groups = {
@@ -410,6 +380,7 @@ for label, mask in minute_groups.items():
     )
 
 
+# Look at score distribution only for players who played 60+ minutes
 print("\n--- SCORE DISTRIBUTION FOR 60+ MINUTE PLAYERS ---")
 
 played_60 = df[
@@ -435,3 +406,50 @@ for label, mask in {
         f"Count: {count:<5} "
         f"Percentage: {count / len(played_60) * 100:.2f}%"
     )
+
+
+# Check top 15 ranking only among players who played 60+ minutes
+print("\n--- TOP-15 RANKING FOR 60+ MINUTE PLAYERS ---")
+
+total_overlap = 0
+total_players = 0
+
+for gw in sorted(df["target_gw"].unique()):
+
+    gw_data = df[
+        (df["target_gw"] == gw)
+        & (df["target_minutes"] >= 60)
+    ]
+
+    actual_top = gw_data.nlargest(
+        15,
+        "actual_points"
+    )
+
+    predicted_top = gw_data.nlargest(
+        15,
+        "predicted_points"
+    )
+
+    actual_ids = set(actual_top["element"])
+    predicted_ids = set(predicted_top["element"])
+
+    overlap = len(
+        actual_ids & predicted_ids
+    )
+
+    total_overlap += overlap
+    total_players += len(actual_ids)
+
+    print(
+        f"GW {gw} | "
+        f"Top-15 overlap: {overlap}/15"
+    )
+
+
+recall = total_overlap / total_players
+
+print(
+    f"\nOverall Top-15 recall "
+    f"(60+ minute players): {recall:.3f}"
+)

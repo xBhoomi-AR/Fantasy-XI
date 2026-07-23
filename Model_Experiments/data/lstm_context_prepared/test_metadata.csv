@@ -1,0 +1,2518 @@
+element,name,target_gw,target_minutes,target_points
+1,David Raya Martín,37,90,6.0
+1,David Raya Martín,38,0,0.0
+2,Kepa Arrizabalaga Revuelta,37,0,0.0
+2,Kepa Arrizabalaga Revuelta,38,90,2.0
+3,Karl Hein,37,0,0.0
+3,Karl Hein,38,0,0.0
+4,Tommy Setford,37,0,0.0
+4,Tommy Setford,38,0,0.0
+5,Gabriel dos Santos Magalhães,37,90,6.0
+5,Gabriel dos Santos Magalhães,38,45,1.0
+6,William Saliba,37,90,8.0
+6,William Saliba,38,0,0.0
+7,Riccardo Calafiori,37,71,8.0
+7,Riccardo Calafiori,38,45,1.0
+8,Jurriën Timber,37,0,0.0
+8,Jurriën Timber,38,0,0.0
+9,Jakub Kiwior,37,0,0.0
+9,Jakub Kiwior,38,0,0.0
+10,Myles Lewis-Skelly,37,17,1.0
+10,Myles Lewis-Skelly,38,90,2.0
+11,Benjamin White,37,0,0.0
+11,Benjamin White,38,0,0.0
+12,Oleksandr Zinchenko,34,0,0.0
+12,Oleksandr Zinchenko,35,0,0.0
+12,Oleksandr Zinchenko,36,0,0.0
+12,Oleksandr Zinchenko,37,0,0.0
+12,Oleksandr Zinchenko,38,0,0.0
+13,Brayden Clarke,37,0,0.0
+13,Brayden Clarke,38,0,0.0
+14,Maldini Kacurri,37,0,0.0
+14,Maldini Kacurri,38,0,0.0
+15,Josh Nichols,37,0,0.0
+15,Josh Nichols,38,0,0.0
+16,Bukayo Saka,37,90,10.0
+16,Bukayo Saka,38,0,0.0
+17,Martin Ødegaard,37,90,3.0
+17,Martin Ødegaard,38,0,0.0
+18,Noni Madueke,37,0,0.0
+18,Noni Madueke,38,83,11.0
+19,Gabriel Martinelli Silva,37,1,1.0
+19,Gabriel Martinelli Silva,38,90,7.0
+20,Leandro Trossard,37,90,3.0
+20,Leandro Trossard,38,0,0.0
+21,Declan Rice,37,90,5.0
+21,Declan Rice,38,0,0.0
+22,Mikel Merino Zazón,37,0,0.0
+22,Mikel Merino Zazón,38,28,1.0
+23,Fábio Ferreira Vieira,37,0,0.0
+23,Fábio Ferreira Vieira,38,0,0.0
+24,Christian Nørgaard,37,0,0.0
+24,Christian Nørgaard,38,45,1.0
+25,Ethan Nwaneri,37,0,0.0
+25,Ethan Nwaneri,38,0,0.0
+26,Martín Zubimendi Ibáñez,37,1,1.0
+26,Martín Zubimendi Ibáñez,38,90,2.0
+27,Reiss Nelson,34,17,4.0
+27,Reiss Nelson,35,0,0.0
+27,Reiss Nelson,36,0,0.0
+27,Reiss Nelson,37,0,0.0
+27,Reiss Nelson,38,1,1.0
+28,Ismeal Kabia,37,0,0.0
+28,Ismeal Kabia,38,0,0.0
+29,Albert Sambi Lokonga,37,0,0.0
+29,Albert Sambi Lokonga,38,0,0.0
+30,Kai Havertz,37,72,8.0
+30,Kai Havertz,38,45,4.0
+31,Gabriel Fernando de Jesus,37,0,0.0
+31,Gabriel Fernando de Jesus,38,74,5.0
+32,Emiliano Martínez Romero,34,90,3.0
+32,Emiliano Martínez Romero,35,90,2.0
+32,Emiliano Martínez Romero,36,90,6.0
+32,Emiliano Martínez Romero,37,90,2.0
+32,Emiliano Martínez Romero,38,0,0.0
+33,Marco Bizot,34,0,0.0
+33,Marco Bizot,35,0,0.0
+33,Marco Bizot,36,0,0.0
+33,Marco Bizot,37,0,0.0
+33,Marco Bizot,38,90,2.0
+34,Joe Gauci,34,0,0.0
+34,Joe Gauci,35,0,0.0
+34,Joe Gauci,36,0,0.0
+34,Joe Gauci,37,0,0.0
+34,Joe Gauci,38,0,0.0
+35,Filip Marschall,34,0,0.0
+35,Filip Marschall,35,0,0.0
+35,Filip Marschall,36,0,0.0
+35,Filip Marschall,37,0,0.0
+35,Filip Marschall,38,0,0.0
+36,Matty Cash,34,90,2.0
+36,Matty Cash,35,90,5.0
+36,Matty Cash,36,79,1.0
+36,Matty Cash,37,90,0.0
+36,Matty Cash,38,45,1.0
+37,Lucas Digne,34,90,2.0
+37,Lucas Digne,35,0,0.0
+37,Lucas Digne,36,16,1.0
+37,Lucas Digne,37,90,4.0
+37,Lucas Digne,38,0,0.0
+38,Ezri Konsa Ngoyo,34,90,2.0
+38,Ezri Konsa Ngoyo,35,0,0.0
+38,Ezri Konsa Ngoyo,36,90,1.0
+38,Ezri Konsa Ngoyo,37,90,1.0
+38,Ezri Konsa Ngoyo,38,0,0.0
+39,Ian Maatsen,34,0,0.0
+39,Ian Maatsen,35,90,1.0
+39,Ian Maatsen,36,73,1.0
+39,Ian Maatsen,37,5,1.0
+39,Ian Maatsen,38,90,5.0
+40,Tyrone Mings,34,0,0.0
+40,Tyrone Mings,35,90,1.0
+40,Tyrone Mings,36,90,0.0
+40,Tyrone Mings,37,0,0.0
+40,Tyrone Mings,38,90,4.0
+41,Pau Torres,34,90,1.0
+41,Pau Torres,35,0,0.0
+41,Pau Torres,36,0,0.0
+41,Pau Torres,37,90,4.0
+41,Pau Torres,38,17,1.0
+42,Andrés García,34,0,0.0
+42,Andrés García,35,0,0.0
+42,Andrés García,36,0,0.0
+42,Andrés García,37,0,0.0
+42,Andrés García,38,45,1.0
+43,Álex Moreno Lopera,34,0,0.0
+43,Álex Moreno Lopera,35,0,0.0
+43,Álex Moreno Lopera,36,0,0.0
+43,Álex Moreno Lopera,37,0,0.0
+43,Álex Moreno Lopera,38,0,0.0
+44,Lamare Bogarde,34,73,2.0
+44,Lamare Bogarde,35,90,1.0
+44,Lamare Bogarde,36,10,1.0
+44,Lamare Bogarde,37,0,0.0
+44,Lamare Bogarde,38,72,2.0
+45,Lino da Cruz Sousa,34,0,0.0
+45,Lino da Cruz Sousa,35,0,0.0
+45,Lino da Cruz Sousa,36,0,0.0
+45,Lino da Cruz Sousa,37,0,0.0
+45,Lino da Cruz Sousa,38,0,0.0
+46,Yasin Özcan,34,0,0.0
+46,Yasin Özcan,35,0,0.0
+46,Yasin Özcan,36,0,0.0
+46,Yasin Özcan,37,0,0.0
+46,Yasin Özcan,38,0,0.0
+47,Morgan Rogers,34,90,2.0
+47,Morgan Rogers,35,90,1.0
+47,Morgan Rogers,36,90,2.0
+47,Morgan Rogers,37,90,12.0
+47,Morgan Rogers,38,0,0.0
+48,Youri Tielemans,34,73,2.0
+48,Youri Tielemans,35,90,2.0
+48,Youri Tielemans,36,90,4.0
+48,Youri Tielemans,37,89,2.0
+48,Youri Tielemans,38,17,1.0
+49,Leon Bailey,34,16,1.0
+49,Leon Bailey,35,5,1.0
+49,Leon Bailey,36,5,1.0
+49,Leon Bailey,37,0,0.0
+49,Leon Bailey,38,90,5.0
+50,Emiliano Buendía Stati,34,73,2.0
+50,Emiliano Buendía Stati,35,5,6.0
+50,Emiliano Buendía Stati,36,16,1.0
+50,Emiliano Buendía Stati,37,84,2.0
+50,Emiliano Buendía Stati,38,90,6.0
+51,Samuel Iling-Junior,34,0,0.0
+51,Samuel Iling-Junior,35,0,0.0
+51,Samuel Iling-Junior,36,0,0.0
+51,Samuel Iling-Junior,37,0,0.0
+51,Samuel Iling-Junior,38,0,0.0
+52,Jacob Ramsey,34,90,2.0
+52,Jacob Ramsey,35,1,1.0
+52,Jacob Ramsey,36,29,4.0
+52,Jacob Ramsey,37,90,9.0
+52,Jacob Ramsey,38,90,4.0
+53,Donyell Malen,34,0,0.0
+53,Donyell Malen,35,0,0.0
+53,Donyell Malen,36,0,0.0
+53,Donyell Malen,37,0,0.0
+53,Donyell Malen,38,0,0.0
+54,John McGinn,34,73,2.0
+54,John McGinn,35,0,0.0
+54,John McGinn,36,84,5.0
+54,John McGinn,37,89,6.0
+54,John McGinn,38,4,1.0
+55,Ross Barkley,34,16,1.0
+55,Ross Barkley,35,84,1.0
+55,Ross Barkley,36,79,9.0
+55,Ross Barkley,37,45,1.0
+55,Ross Barkley,38,85,5.0
+56,Enzo Barrenechea,34,0,0.0
+56,Enzo Barrenechea,35,0,0.0
+56,Enzo Barrenechea,36,0,0.0
+56,Enzo Barrenechea,37,0,0.0
+56,Enzo Barrenechea,38,0,0.0
+57,Lewis Dobbin,34,0,0.0
+57,Lewis Dobbin,35,0,0.0
+57,Lewis Dobbin,36,0,0.0
+57,Lewis Dobbin,37,0,0.0
+57,Lewis Dobbin,38,0,0.0
+58,Boubacar Kamara,34,0,0.0
+58,Boubacar Kamara,35,0,0.0
+58,Boubacar Kamara,36,0,0.0
+58,Boubacar Kamara,37,0,0.0
+58,Boubacar Kamara,38,0,0.0
+59,Amadou Onana,34,0,0.0
+59,Amadou Onana,35,0,0.0
+59,Amadou Onana,36,0,0.0
+59,Amadou Onana,37,0,0.0
+59,Amadou Onana,38,17,1.0
+60,Ben Broggio,34,0,0.0
+60,Ben Broggio,35,0,0.0
+60,Ben Broggio,36,0,0.0
+60,Ben Broggio,37,0,0.0
+60,Ben Broggio,38,0,0.0
+61,Leander Dendoncker,34,0,0.0
+61,Leander Dendoncker,35,0,0.0
+61,Leander Dendoncker,36,0,0.0
+61,Leander Dendoncker,37,0,0.0
+61,Leander Dendoncker,38,0,0.0
+62,Jamaldeen Jimoh-Aloba,34,0,0.0
+62,Jamaldeen Jimoh-Aloba,35,0,0.0
+62,Jamaldeen Jimoh-Aloba,36,0,0.0
+62,Jamaldeen Jimoh-Aloba,37,0,0.0
+62,Jamaldeen Jimoh-Aloba,38,0,0.0
+63,Kadan Young,34,0,0.0
+63,Kadan Young,35,0,0.0
+63,Kadan Young,36,0,0.0
+63,Kadan Young,37,0,0.0
+63,Kadan Young,38,0,0.0
+64,Ollie Watkins,34,79,2.0
+64,Ollie Watkins,35,30,1.0
+64,Ollie Watkins,36,90,9.0
+64,Ollie Watkins,37,90,15.0
+64,Ollie Watkins,38,90,13.0
+65,Zépiqueno Redmond,34,0,0.0
+65,Zépiqueno Redmond,35,0,0.0
+65,Zépiqueno Redmond,36,0,0.0
+65,Zépiqueno Redmond,37,0,0.0
+65,Zépiqueno Redmond,38,0,0.0
+83,Dango Ouattara,34,90,1.0
+83,Dango Ouattara,35,89,6.0
+83,Dango Ouattara,36,22,1.0
+83,Dango Ouattara,37,90,15.0
+83,Dango Ouattara,38,90,2.0
+101,Caoimhín Kelleher,34,90,2.0
+101,Caoimhín Kelleher,35,90,8.0
+101,Caoimhín Kelleher,36,90,3.0
+101,Caoimhín Kelleher,37,90,2.0
+101,Caoimhín Kelleher,38,90,6.0
+102,Ellery Balcombe,34,0,0.0
+102,Ellery Balcombe,35,0,0.0
+102,Ellery Balcombe,36,0,0.0
+102,Ellery Balcombe,37,0,0.0
+102,Ellery Balcombe,38,0,0.0
+103,Matthew Cox,34,0,0.0
+103,Matthew Cox,35,0,0.0
+103,Matthew Cox,36,0,0.0
+103,Matthew Cox,37,0,0.0
+103,Matthew Cox,38,0,0.0
+104,Julian Eyestone,34,0,0.0
+104,Julian Eyestone,35,0,0.0
+104,Julian Eyestone,36,0,0.0
+104,Julian Eyestone,37,0,0.0
+104,Julian Eyestone,38,0,0.0
+105,Hákon Rafn Valdimarsson,34,0,0.0
+105,Hákon Rafn Valdimarsson,35,0,0.0
+105,Hákon Rafn Valdimarsson,36,0,0.0
+105,Hákon Rafn Valdimarsson,37,0,0.0
+105,Hákon Rafn Valdimarsson,38,0,0.0
+106,Nathan Collins,34,90,2.0
+106,Nathan Collins,35,90,6.0
+106,Nathan Collins,36,90,1.0
+106,Nathan Collins,37,90,3.0
+106,Nathan Collins,38,90,3.0
+107,Keane Lewis-Potter,34,90,1.0
+107,Keane Lewis-Potter,35,90,11.0
+107,Keane Lewis-Potter,36,90,1.0
+107,Keane Lewis-Potter,37,90,1.0
+107,Keane Lewis-Potter,38,88,5.0
+108,Kristoffer Ajer,34,0,0.0
+108,Kristoffer Ajer,35,10,1.0
+108,Kristoffer Ajer,36,90,2.0
+108,Kristoffer Ajer,37,81,3.0
+108,Kristoffer Ajer,38,0,0.0
+109,Rico Henry,34,0,0.0
+109,Rico Henry,35,0,0.0
+109,Rico Henry,36,0,0.0
+109,Rico Henry,37,0,0.0
+109,Rico Henry,38,0,0.0
+110,Michael Kayode,34,90,1.0
+110,Michael Kayode,35,90,5.0
+110,Michael Kayode,36,90,1.0
+110,Michael Kayode,37,90,0.0
+110,Michael Kayode,38,90,2.0
+111,Ethan Pinnock,34,0,0.0
+111,Ethan Pinnock,35,0,0.0
+111,Ethan Pinnock,36,0,0.0
+111,Ethan Pinnock,37,0,0.0
+111,Ethan Pinnock,38,0,0.0
+112,Mads Roerslev Rasmussen,34,0,0.0
+112,Mads Roerslev Rasmussen,35,0,0.0
+112,Mads Roerslev Rasmussen,36,0,0.0
+112,Mads Roerslev Rasmussen,37,0,0.0
+112,Mads Roerslev Rasmussen,38,0,0.0
+113,Sepp van den Berg,34,90,0.0
+113,Sepp van den Berg,35,90,6.0
+113,Sepp van den Berg,36,0,0.0
+113,Sepp van den Berg,37,8,4.0
+113,Sepp van den Berg,38,90,4.0
+114,Benjamin Arthur,34,0,0.0
+114,Benjamin Arthur,35,0,0.0
+114,Benjamin Arthur,36,0,0.0
+114,Benjamin Arthur,37,0,0.0
+114,Benjamin Arthur,38,0,0.0
+115,Benjamin Fredrick,34,0,0.0
+115,Benjamin Fredrick,35,0,0.0
+115,Benjamin Fredrick,36,0,0.0
+115,Benjamin Fredrick,37,0,0.0
+115,Benjamin Fredrick,38,0,0.0
+116,Aaron Hickey,34,0,0.0
+116,Aaron Hickey,35,1,1.0
+116,Aaron Hickey,36,60,2.0
+116,Aaron Hickey,37,0,0.0
+116,Aaron Hickey,38,30,1.0
+117,Kim Ji-soo,34,0,0.0
+117,Kim Ji-soo,35,0,0.0
+117,Kim Ji-soo,36,0,0.0
+117,Kim Ji-soo,37,0,0.0
+117,Kim Ji-soo,38,0,0.0
+118,Jayden Meghoma,34,0,0.0
+118,Jayden Meghoma,35,0,0.0
+118,Jayden Meghoma,36,0,0.0
+118,Jayden Meghoma,37,0,0.0
+118,Jayden Meghoma,38,0,0.0
+119,Bryan Mbeumo,34,73,3.0
+119,Bryan Mbeumo,35,74,2.0
+119,Bryan Mbeumo,36,15,1.0
+119,Bryan Mbeumo,37,79,7.0
+119,Bryan Mbeumo,38,73,9.0
+120,Kevin Schade,34,72,2.0
+120,Kevin Schade,35,79,3.0
+120,Kevin Schade,36,90,2.0
+120,Kevin Schade,37,27,1.0
+120,Kevin Schade,38,90,7.0
+121,Mikkel Damsgaard,34,90,2.0
+121,Mikkel Damsgaard,35,90,11.0
+121,Mikkel Damsgaard,36,68,4.0
+121,Mikkel Damsgaard,37,90,2.0
+121,Mikkel Damsgaard,38,7,1.0
+122,Antoni Milambo,34,0,0.0
+122,Antoni Milambo,35,0,0.0
+122,Antoni Milambo,36,0,0.0
+122,Antoni Milambo,37,0,0.0
+122,Antoni Milambo,38,0,0.0
+123,Fábio Freitas Gouveia Carvalho,34,0,0.0
+123,Fábio Freitas Gouveia Carvalho,35,0,0.0
+123,Fábio Freitas Gouveia Carvalho,36,0,0.0
+123,Fábio Freitas Gouveia Carvalho,37,0,0.0
+123,Fábio Freitas Gouveia Carvalho,38,0,0.0
+124,Jordan Henderson,34,0,0.0
+124,Jordan Henderson,35,0,0.0
+124,Jordan Henderson,36,11,0.0
+124,Jordan Henderson,37,27,1.0
+124,Jordan Henderson,38,59,0.0
+125,Vitaly Janelt,34,0,0.0
+125,Vitaly Janelt,35,0,0.0
+125,Vitaly Janelt,36,29,1.0
+125,Vitaly Janelt,37,62,2.0
+125,Vitaly Janelt,38,90,1.0
+126,Mathias Jensen,34,90,10.0
+126,Mathias Jensen,35,90,3.0
+126,Mathias Jensen,36,90,4.0
+126,Mathias Jensen,37,62,2.0
+126,Mathias Jensen,38,82,2.0
+127,Gustavo Nunes Fernandes Gomes,34,0,0.0
+127,Gustavo Nunes Fernandes Gomes,35,0,0.0
+127,Gustavo Nunes Fernandes Gomes,36,0,0.0
+127,Gustavo Nunes Fernandes Gomes,37,0,0.0
+127,Gustavo Nunes Fernandes Gomes,38,0,0.0
+128,Frank Onyeka,34,0,0.0
+128,Frank Onyeka,35,0,0.0
+128,Frank Onyeka,36,0,0.0
+128,Frank Onyeka,37,0,0.0
+128,Frank Onyeka,38,0,0.0
+129,Yehor Yarmoliuk,34,90,4.0
+129,Yehor Yarmoliuk,35,90,3.0
+129,Yehor Yarmoliuk,36,78,2.0
+129,Yehor Yarmoliuk,37,88,8.0
+129,Yehor Yarmoliuk,38,0,0.0
+130,Romelle Donovan,34,0,0.0
+130,Romelle Donovan,35,0,0.0
+130,Romelle Donovan,36,0,0.0
+130,Romelle Donovan,37,0,0.0
+130,Romelle Donovan,38,0,0.0
+131,Yunus Emre Konak,34,0,0.0
+131,Yunus Emre Konak,35,0,0.0
+131,Yunus Emre Konak,36,0,0.0
+131,Yunus Emre Konak,37,0,0.0
+131,Yunus Emre Konak,38,0,0.0
+132,Paris Maghoma,34,0,0.0
+132,Paris Maghoma,35,0,0.0
+132,Paris Maghoma,36,0,0.0
+132,Paris Maghoma,37,0,0.0
+132,Paris Maghoma,38,0,0.0
+133,Myles Peart-Harris,34,0,0.0
+133,Myles Peart-Harris,35,0,0.0
+133,Myles Peart-Harris,36,0,0.0
+133,Myles Peart-Harris,37,0,0.0
+133,Myles Peart-Harris,38,0,0.0
+134,Ryan Trevitt,34,0,0.0
+134,Ryan Trevitt,35,0,0.0
+134,Ryan Trevitt,36,0,0.0
+134,Ryan Trevitt,37,0,0.0
+134,Ryan Trevitt,38,0,0.0
+135,Yoane Wissa,34,24,1.0
+135,Yoane Wissa,35,22,3.0
+135,Yoane Wissa,36,19,1.0
+135,Yoane Wissa,37,5,1.0
+135,Yoane Wissa,38,24,0.0
+136,Igor Thiago Nascimento Rodrigues,34,90,1.0
+136,Igor Thiago Nascimento Rodrigues,35,90,6.0
+136,Igor Thiago Nascimento Rodrigues,36,90,2.0
+136,Igor Thiago Nascimento Rodrigues,37,90,2.0
+136,Igor Thiago Nascimento Rodrigues,38,90,2.0
+137,Iwan Morgan,34,0,0.0
+137,Iwan Morgan,35,0,0.0
+137,Iwan Morgan,36,0,0.0
+137,Iwan Morgan,37,0,0.0
+137,Iwan Morgan,38,0,0.0
+242,Kiernan Dewsbury-Hall,34,90,8.0
+242,Kiernan Dewsbury-Hall,35,90,2.0
+242,Kiernan Dewsbury-Hall,36,90,5.0
+242,Kiernan Dewsbury-Hall,37,90,2.0
+242,Kiernan Dewsbury-Hall,38,83,2.0
+243,Tyrique George,34,25,1.0
+243,Tyrique George,35,0,0.0
+243,Tyrique George,36,10,1.0
+243,Tyrique George,37,17,1.0
+243,Tyrique George,38,28,1.0
+253,Dean Henderson,37,90,0.0
+253,Dean Henderson,38,90,2.0
+254,Walter Benítez,37,0,0.0
+254,Walter Benítez,38,0,0.0
+255,Remi Matthews,37,0,0.0
+255,Remi Matthews,38,0,0.0
+256,Daniel Muñoz Mejía,37,90,6.0
+256,Daniel Muñoz Mejía,38,45,1.0
+257,Maxence Lacroix,37,60,2.0
+257,Maxence Lacroix,38,0,0.0
+258,Tyrick Mitchell,37,90,1.0
+258,Tyrick Mitchell,38,45,1.0
+259,Borna Sosa,37,0,0.0
+259,Borna Sosa,38,0,0.0
+261,Chris Richards,37,29,0.0
+261,Chris Richards,38,0,0.0
+262,Chadi Riad Dnanou,37,73,2.0
+262,Chadi Riad Dnanou,38,90,3.0
+263,Nathaniel Clyne,37,0,0.0
+263,Nathaniel Clyne,38,90,1.0
+264,Rob Holding,37,0,0.0
+264,Rob Holding,38,0,0.0
+265,Caleb Kporha,37,0,0.0
+265,Caleb Kporha,38,0,0.0
+266,Eberechi Eze,37,72,3.0
+266,Eberechi Eze,38,15,1.0
+267,Ismaïla Sarr,37,90,7.0
+267,Ismaïla Sarr,38,45,1.0
+268,Cheick Doucouré,37,0,0.0
+268,Cheick Doucouré,38,0,0.0
+269,Romain Esse,37,0,0.0
+269,Romain Esse,38,0,0.0
+270,Will Hughes,37,0,0.0
+270,Will Hughes,38,90,2.0
+271,Daichi Kamada,37,90,4.0
+271,Daichi Kamada,38,45,1.0
+272,Jefferson Lerma Solís,37,16,0.0
+272,Jefferson Lerma Solís,38,90,4.0
+273,Adam Wharton,37,90,11.0
+273,Adam Wharton,38,16,1.0
+274,Asher Agbinone,37,0,0.0
+274,Asher Agbinone,38,0,0.0
+275,Naouirou Ahamada,37,0,0.0
+275,Naouirou Ahamada,38,0,0.0
+276,Justin Devenny,37,0,0.0
+276,Justin Devenny,38,90,2.0
+277,Malcolm Ebiowei,37,0,0.0
+277,Malcolm Ebiowei,38,0,0.0
+278,Jesurun Rak-Sakyi,37,0,0.0
+278,Jesurun Rak-Sakyi,38,0,0.0
+279,Matheus França de Oliveira,37,0,0.0
+279,Matheus França de Oliveira,38,0,0.0
+280,David Ozoh,37,0,0.0
+280,David Ozoh,38,0,0.0
+281,Kaden Rodney,37,0,0.0
+281,Kaden Rodney,38,0,0.0
+282,Franco Umeh-Chibueze,37,0,0.0
+282,Franco Umeh-Chibueze,38,0,0.0
+283,Jean-Philippe Mateta,37,29,1.0
+283,Jean-Philippe Mateta,38,13,6.0
+284,Eddie Nketiah,37,0,0.0
+284,Eddie Nketiah,38,0,0.0
+285,Odsonne Édouard,37,0,0.0
+285,Odsonne Édouard,38,0,0.0
+286,Zach Marsh,37,0,0.0
+286,Zach Marsh,38,0,0.0
+287,Jordan Pickford,34,90,1.0
+287,Jordan Pickford,35,90,1.0
+287,Jordan Pickford,36,90,3.0
+287,Jordan Pickford,37,90,1.0
+287,Jordan Pickford,38,90,2.0
+288,Mark Travers,34,0,0.0
+288,Mark Travers,35,0,0.0
+288,Mark Travers,36,0,0.0
+288,Mark Travers,37,0,0.0
+288,Mark Travers,38,0,0.0
+289,Harry Tyrer,34,0,0.0
+289,Harry Tyrer,35,0,0.0
+289,Harry Tyrer,36,0,0.0
+289,Harry Tyrer,37,0,0.0
+289,Harry Tyrer,38,0,0.0
+290,Jarrad Branthwaite,34,0,0.0
+290,Jarrad Branthwaite,35,0,0.0
+290,Jarrad Branthwaite,36,0,0.0
+290,Jarrad Branthwaite,37,0,0.0
+290,Jarrad Branthwaite,38,0,0.0
+291,James Tarkowski,34,90,3.0
+291,James Tarkowski,35,90,0.0
+291,James Tarkowski,36,90,15.0
+291,James Tarkowski,37,90,3.0
+291,James Tarkowski,38,90,3.0
+292,Vitalii Mykolenko,34,90,1.0
+292,Vitalii Mykolenko,35,90,1.0
+292,Vitalii Mykolenko,36,90,0.0
+292,Vitalii Mykolenko,37,90,1.0
+292,Vitalii Mykolenko,38,90,2.0
+293,Jake O'Brien,34,64,1.0
+293,Jake O'Brien,35,90,6.0
+293,Jake O'Brien,36,90,1.0
+293,Jake O'Brien,37,87,0.0
+293,Jake O'Brien,38,61,1.0
+294,Séamus Coleman,34,0,0.0
+294,Séamus Coleman,35,0,0.0
+294,Séamus Coleman,36,0,0.0
+294,Séamus Coleman,37,2,1.0
+294,Séamus Coleman,38,6,1.0
+295,Michael Keane,34,90,1.0
+295,Michael Keane,35,90,2.0
+295,Michael Keane,36,90,1.0
+295,Michael Keane,37,90,4.0
+295,Michael Keane,38,90,4.0
+296,Nathan Patterson,34,0,0.0
+296,Nathan Patterson,35,1,1.0
+296,Nathan Patterson,36,0,0.0
+296,Nathan Patterson,37,0,0.0
+296,Nathan Patterson,38,0,0.0
+297,Roman Dixon,34,0,0.0
+297,Roman Dixon,35,0,0.0
+297,Roman Dixon,36,0,0.0
+297,Roman Dixon,37,0,0.0
+297,Roman Dixon,38,0,0.0
+298,Reece Welch,34,0,0.0
+298,Reece Welch,35,0,0.0
+298,Reece Welch,36,0,0.0
+298,Reece Welch,37,0,0.0
+298,Reece Welch,38,0,0.0
+299,Iliman Ndiaye,34,90,2.0
+299,Iliman Ndiaye,35,90,2.0
+299,Iliman Ndiaye,36,90,2.0
+299,Iliman Ndiaye,37,90,2.0
+299,Iliman Ndiaye,38,90,2.0
+300,Dwight McNeil,34,64,2.0
+300,Dwight McNeil,35,0,0.0
+300,Dwight McNeil,36,0,0.0
+300,Dwight McNeil,37,2,1.0
+300,Dwight McNeil,38,0,0.0
+301,Carlos Alcaraz Durán,34,4,0.0
+301,Carlos Alcaraz Durán,35,1,1.0
+301,Carlos Alcaraz Durán,36,1,1.0
+301,Carlos Alcaraz Durán,37,0,0.0
+301,Carlos Alcaraz Durán,38,6,1.0
+302,Idrissa Gana Gueye,34,85,2.0
+302,Idrissa Gana Gueye,35,0,0.0
+302,Idrissa Gana Gueye,36,0,0.0
+302,Idrissa Gana Gueye,37,0,0.0
+302,Idrissa Gana Gueye,38,0,0.0
+303,James Garner,34,90,3.0
+303,James Garner,35,90,5.0
+303,James Garner,36,90,1.0
+303,James Garner,37,90,1.0
+303,James Garner,38,90,4.0
+304,Tim Iroegbunam,34,25,1.0
+304,Tim Iroegbunam,35,90,2.0
+304,Tim Iroegbunam,36,90,2.0
+304,Tim Iroegbunam,37,72,1.0
+304,Tim Iroegbunam,38,83,4.0
+305,Harrison Armstrong,34,0,0.0
+305,Harrison Armstrong,35,1,1.0
+305,Harrison Armstrong,36,0,0.0
+305,Harrison Armstrong,37,0,0.0
+305,Harrison Armstrong,38,28,1.0
+306,Callum Bates,34,0,0.0
+306,Callum Bates,35,0,0.0
+306,Callum Bates,36,0,0.0
+306,Callum Bates,37,0,0.0
+306,Callum Bates,38,0,0.0
+307,Coby Ebere,34,0,0.0
+307,Coby Ebere,35,0,0.0
+307,Coby Ebere,36,0,0.0
+307,Coby Ebere,37,0,0.0
+307,Coby Ebere,38,0,0.0
+308,Isaac Heath,34,0,0.0
+308,Isaac Heath,35,0,0.0
+308,Isaac Heath,36,0,0.0
+308,Isaac Heath,37,0,0.0
+308,Isaac Heath,38,0,0.0
+309,Jenson Metcalfe,34,0,0.0
+309,Jenson Metcalfe,35,0,0.0
+309,Jenson Metcalfe,36,0,0.0
+309,Jenson Metcalfe,37,0,0.0
+309,Jenson Metcalfe,38,0,0.0
+310,Thierno Barry,34,90,2.0
+310,Thierno Barry,35,26,11.0
+310,Thierno Barry,36,20,1.0
+310,Thierno Barry,37,17,1.0
+310,Thierno Barry,38,83,2.0
+311,Norberto Bercique Gomes Betuncal,34,0,0.0
+311,Norberto Bercique Gomes Betuncal,35,63,1.0
+311,Norberto Bercique Gomes Betuncal,36,69,8.0
+311,Norberto Bercique Gomes Betuncal,37,72,2.0
+311,Norberto Bercique Gomes Betuncal,38,6,1.0
+312,Youssef Ramalho Chermiti,34,0,0.0
+312,Youssef Ramalho Chermiti,35,0,0.0
+312,Youssef Ramalho Chermiti,36,0,0.0
+312,Youssef Ramalho Chermiti,37,0,0.0
+312,Youssef Ramalho Chermiti,38,0,0.0
+313,Martin Sherif,34,0,0.0
+313,Martin Sherif,35,0,0.0
+313,Martin Sherif,36,0,0.0
+313,Martin Sherif,37,0,0.0
+313,Martin Sherif,38,0,0.0
+314,Bernd Leno,34,90,7.0
+314,Bernd Leno,35,90,3.0
+314,Bernd Leno,36,90,3.0
+314,Bernd Leno,37,90,2.0
+314,Bernd Leno,38,90,6.0
+315,Steven Benda,34,0,0.0
+315,Steven Benda,35,0,0.0
+315,Steven Benda,36,0,0.0
+315,Steven Benda,37,0,0.0
+315,Steven Benda,38,0,0.0
+316,Antonee Robinson,34,9,1.0
+316,Antonee Robinson,35,90,1.0
+316,Antonee Robinson,36,90,1.0
+316,Antonee Robinson,37,90,12.0
+316,Antonee Robinson,38,90,6.0
+317,Joachim Andersen,34,90,11.0
+317,Joachim Andersen,35,90,3.0
+317,Joachim Andersen,36,51,-2.0
+317,Joachim Andersen,37,0,0.0
+317,Joachim Andersen,38,0,0.0
+318,Calvin Bassey,34,90,6.0
+318,Calvin Bassey,35,90,1.0
+318,Calvin Bassey,36,90,2.0
+318,Calvin Bassey,37,90,2.0
+318,Calvin Bassey,38,90,6.0
+319,Timothy Castagne,34,90,5.0
+319,Timothy Castagne,35,90,1.0
+319,Timothy Castagne,36,82,2.0
+319,Timothy Castagne,37,90,5.0
+319,Timothy Castagne,38,90,8.0
+320,Issa Diop,34,0,0.0
+320,Issa Diop,35,0,0.0
+320,Issa Diop,36,45,1.0
+320,Issa Diop,37,90,2.0
+320,Issa Diop,38,85,15.0
+321,Jorge Cuenca Barreno,34,0,0.0
+321,Jorge Cuenca Barreno,35,0,0.0
+321,Jorge Cuenca Barreno,36,0,0.0
+321,Jorge Cuenca Barreno,37,0,0.0
+321,Jorge Cuenca Barreno,38,4,0.0
+322,Kenny Tete,34,0,0.0
+322,Kenny Tete,35,0,0.0
+322,Kenny Tete,36,0,0.0
+322,Kenny Tete,37,0,0.0
+322,Kenny Tete,38,0,0.0
+323,Samuel Amissah,34,0,0.0
+323,Samuel Amissah,35,0,0.0
+323,Samuel Amissah,36,0,0.0
+323,Samuel Amissah,37,0,0.0
+323,Samuel Amissah,38,0,0.0
+324,Alex Iwobi,34,0,0.0
+324,Alex Iwobi,35,0,0.0
+324,Alex Iwobi,36,0,0.0
+324,Alex Iwobi,37,66,2.0
+324,Alex Iwobi,38,90,3.0
+325,Emile Smith Rowe,34,75,3.0
+325,Emile Smith Rowe,35,77,2.0
+325,Emile Smith Rowe,36,45,1.0
+325,Emile Smith Rowe,37,78,2.0
+325,Emile Smith Rowe,38,71,3.0
+326,Adama Traoré Diarra,34,0,0.0
+326,Adama Traoré Diarra,35,16,1.0
+326,Adama Traoré Diarra,36,0,0.0
+326,Adama Traoré Diarra,37,0,0.0
+326,Adama Traoré Diarra,38,0,0.0
+327,Andreas Hoelgebaum Pereira,34,0,0.0
+327,Andreas Hoelgebaum Pereira,35,0,0.0
+327,Andreas Hoelgebaum Pereira,36,0,0.0
+327,Andreas Hoelgebaum Pereira,37,0,0.0
+327,Andreas Hoelgebaum Pereira,38,0,0.0
+328,Ryan Sessegnon,34,80,11.0
+328,Ryan Sessegnon,35,0,0.0
+328,Ryan Sessegnon,36,0,0.0
+328,Ryan Sessegnon,37,0,0.0
+328,Ryan Sessegnon,38,0,0.0
+329,Harry Wilson,34,90,2.0
+329,Harry Wilson,35,63,2.0
+329,Harry Wilson,36,61,2.0
+329,Harry Wilson,37,11,1.0
+329,Harry Wilson,38,18,4.0
+330,Sander Berge,34,90,3.0
+330,Sander Berge,35,0,0.0
+330,Sander Berge,36,0,0.0
+330,Sander Berge,37,45,1.0
+330,Sander Berge,38,90,3.0
+331,Tom Cairney,34,0,0.0
+331,Tom Cairney,35,26,1.0
+331,Tom Cairney,36,75,2.0
+331,Tom Cairney,37,0,0.0
+331,Tom Cairney,38,30,6.0
+332,Saša Lukić,34,90,6.0
+332,Saša Lukić,35,90,1.0
+332,Saša Lukić,36,90,1.0
+332,Saša Lukić,37,90,5.0
+332,Saša Lukić,38,0,0.0
+333,Martial Godo,34,0,0.0
+333,Martial Godo,35,0,0.0
+333,Martial Godo,36,0,0.0
+333,Martial Godo,37,0,0.0
+333,Martial Godo,38,0,0.0
+334,Luke Harris,34,0,0.0
+334,Luke Harris,35,0,0.0
+334,Luke Harris,36,0,0.0
+334,Luke Harris,37,0,0.0
+334,Luke Harris,38,0,0.0
+335,Josh King,34,14,1.0
+335,Josh King,35,26,1.0
+335,Josh King,36,14,0.0
+335,Josh King,37,23,1.0
+335,Josh King,38,18,1.0
+336,Harrison Reed,34,0,0.0
+336,Harrison Reed,35,63,2.0
+336,Harrison Reed,36,0,0.0
+336,Harrison Reed,37,0,0.0
+336,Harrison Reed,38,0,0.0
+337,Raúl Jiménez Rodríguez,34,65,2.0
+337,Raúl Jiménez Rodríguez,35,72,2.0
+337,Raúl Jiménez Rodríguez,36,0,0.0
+337,Raúl Jiménez Rodríguez,37,23,1.0
+337,Raúl Jiménez Rodríguez,38,18,1.0
+338,Rodrigo Muniz Carvalho,34,24,1.0
+338,Rodrigo Muniz Carvalho,35,17,1.0
+338,Rodrigo Muniz Carvalho,36,90,1.0
+338,Rodrigo Muniz Carvalho,37,66,2.0
+338,Rodrigo Muniz Carvalho,38,71,2.0
+366,Alisson Becker,34,0,0.0
+366,Alisson Becker,35,0,0.0
+366,Alisson Becker,36,0,0.0
+366,Alisson Becker,37,0,0.0
+366,Alisson Becker,38,90,2.0
+367,Giorgi Mamardashvili,34,0,0.0
+367,Giorgi Mamardashvili,35,0,0.0
+367,Giorgi Mamardashvili,36,90,2.0
+367,Giorgi Mamardashvili,37,90,1.0
+367,Giorgi Mamardashvili,38,0,0.0
+368,Ármin Pécsi,34,0,0.0
+368,Ármin Pécsi,35,0,0.0
+368,Ármin Pécsi,36,0,0.0
+368,Ármin Pécsi,37,0,0.0
+368,Ármin Pécsi,38,0,0.0
+369,Freddie Woodman,34,90,3.0
+369,Freddie Woodman,35,90,2.0
+369,Freddie Woodman,36,0,0.0
+369,Freddie Woodman,37,0,0.0
+369,Freddie Woodman,38,0,0.0
+370,Jeremie Frimpong,34,31,1.0
+370,Jeremie Frimpong,35,74,1.0
+370,Jeremie Frimpong,36,90,2.0
+370,Jeremie Frimpong,37,0,0.0
+370,Jeremie Frimpong,38,16,1.0
+371,Milos Kerkez,34,3,1.0
+371,Milos Kerkez,35,31,1.0
+371,Milos Kerkez,36,90,2.0
+371,Milos Kerkez,37,90,0.0
+371,Milos Kerkez,38,7,1.0
+372,Andrew Robertson,34,86,8.0
+372,Andrew Robertson,35,58,0.0
+372,Andrew Robertson,36,0,0.0
+372,Andrew Robertson,37,0,0.0
+372,Andrew Robertson,38,82,2.0
+373,Virgil van Dijk,34,90,4.0
+373,Virgil van Dijk,35,90,1.0
+373,Virgil van Dijk,36,90,2.0
+373,Virgil van Dijk,37,90,14.0
+373,Virgil van Dijk,38,90,2.0
+374,Ibrahima Konaté,34,90,4.0
+374,Ibrahima Konaté,35,86,1.0
+374,Ibrahima Konaté,36,76,2.0
+374,Ibrahima Konaté,37,90,0.0
+374,Ibrahima Konaté,38,88,1.0
+375,Conor Bradley,34,0,0.0
+375,Conor Bradley,35,0,0.0
+375,Conor Bradley,36,0,0.0
+375,Conor Bradley,37,0,0.0
+375,Conor Bradley,38,0,0.0
+376,Joe Gomez,34,3,1.0
+376,Joe Gomez,35,0,0.0
+376,Joe Gomez,36,13,0.0
+376,Joe Gomez,37,65,0.0
+376,Joe Gomez,38,1,1.0
+377,Konstantinos Tsimikas,34,0,0.0
+377,Konstantinos Tsimikas,35,0,0.0
+377,Konstantinos Tsimikas,36,0,0.0
+377,Konstantinos Tsimikas,37,0,0.0
+377,Konstantinos Tsimikas,38,0,0.0
+378,Amara Nallo,34,0,0.0
+378,Amara Nallo,35,0,0.0
+378,Amara Nallo,36,0,0.0
+378,Amara Nallo,37,0,0.0
+378,Amara Nallo,38,0,0.0
+379,Rhys Williams,34,0,0.0
+379,Rhys Williams,35,0,0.0
+379,Rhys Williams,36,0,0.0
+379,Rhys Williams,37,0,0.0
+379,Rhys Williams,38,0,0.0
+380,Calvin Ramsay,34,0,0.0
+380,Calvin Ramsay,35,0,0.0
+380,Calvin Ramsay,36,0,0.0
+380,Calvin Ramsay,37,0,0.0
+380,Calvin Ramsay,38,0,0.0
+381,Mohamed Salah,34,58,1.0
+381,Mohamed Salah,35,0,0.0
+381,Mohamed Salah,36,0,0.0
+381,Mohamed Salah,37,16,1.0
+381,Mohamed Salah,38,73,6.0
+382,Florian Wirtz,34,90,8.0
+382,Florian Wirtz,35,90,2.0
+382,Florian Wirtz,36,0,0.0
+382,Florian Wirtz,37,24,1.0
+382,Florian Wirtz,38,17,1.0
+383,Luis Díaz Marulanda,34,0,0.0
+383,Luis Díaz Marulanda,35,0,0.0
+383,Luis Díaz Marulanda,36,0,0.0
+383,Luis Díaz Marulanda,37,0,0.0
+383,Luis Díaz Marulanda,38,0,0.0
+384,Cody Gakpo,34,90,2.0
+384,Cody Gakpo,35,90,6.0
+384,Cody Gakpo,36,76,2.0
+384,Cody Gakpo,37,73,2.0
+384,Cody Gakpo,38,90,2.0
+385,Federico Chiesa,34,0,0.0
+385,Federico Chiesa,35,3,1.0
+385,Federico Chiesa,36,13,1.0
+385,Federico Chiesa,37,24,1.0
+385,Federico Chiesa,38,0,0.0
+386,Alexis Mac Allister,34,90,13.0
+386,Alexis Mac Allister,35,90,2.0
+386,Alexis Mac Allister,36,90,1.0
+386,Alexis Mac Allister,37,90,4.0
+386,Alexis Mac Allister,38,90,1.0
+387,Dominik Szoboszlai,34,90,1.0
+387,Dominik Szoboszlai,35,90,13.0
+387,Dominik Szoboszlai,36,90,2.0
+387,Dominik Szoboszlai,37,90,9.0
+387,Dominik Szoboszlai,38,90,2.0
+388,Curtis Jones,34,86,7.0
+388,Curtis Jones,35,90,1.0
+388,Curtis Jones,36,90,2.0
+388,Curtis Jones,37,90,2.0
+388,Curtis Jones,38,90,10.0
+389,Harvey Elliott,34,0,0.0
+389,Harvey Elliott,35,0,0.0
+389,Harvey Elliott,36,0,0.0
+389,Harvey Elliott,37,0,0.0
+389,Harvey Elliott,38,0,0.0
+390,Ryan Gravenberch,34,11,1.0
+390,Ryan Gravenberch,35,90,2.0
+390,Ryan Gravenberch,36,90,10.0
+390,Ryan Gravenberch,37,65,2.0
+390,Ryan Gravenberch,38,82,2.0
+392,Endo Wataru,34,0,0.0
+392,Endo Wataru,35,0,0.0
+392,Endo Wataru,36,0,0.0
+392,Endo Wataru,37,0,0.0
+392,Endo Wataru,38,0,0.0
+393,Stefan Bajčetić Maquieira,34,0,0.0
+393,Stefan Bajčetić Maquieira,35,0,0.0
+393,Stefan Bajčetić Maquieira,36,0,0.0
+393,Stefan Bajčetić Maquieira,37,0,0.0
+393,Stefan Bajčetić Maquieira,38,0,0.0
+394,James McConnell,34,0,0.0
+394,James McConnell,35,0,0.0
+394,James McConnell,36,0,0.0
+394,James McConnell,37,0,0.0
+394,James McConnell,38,0,0.0
+395,Tyler Morton,34,0,0.0
+395,Tyler Morton,35,0,0.0
+395,Tyler Morton,36,0,0.0
+395,Tyler Morton,37,0,0.0
+395,Tyler Morton,38,0,0.0
+396,Trey Nyoni,34,0,0.0
+396,Trey Nyoni,35,0,0.0
+396,Trey Nyoni,36,0,0.0
+396,Trey Nyoni,37,0,0.0
+396,Trey Nyoni,38,7,1.0
+397,Darwin Núñez Ribeiro,34,0,0.0
+397,Darwin Núñez Ribeiro,35,0,0.0
+397,Darwin Núñez Ribeiro,36,0,0.0
+397,Darwin Núñez Ribeiro,37,0,0.0
+397,Darwin Núñez Ribeiro,38,0,0.0
+398,Jayden Danns,34,0,0.0
+398,Jayden Danns,35,0,0.0
+398,Jayden Danns,36,0,0.0
+398,Jayden Danns,37,0,0.0
+398,Jayden Danns,38,0,0.0
+400,Stefan Ortega Moreno,34,0,0.0
+400,Stefan Ortega Moreno,35,0,0.0
+400,Stefan Ortega Moreno,36,0,0.0
+400,Stefan Ortega Moreno,37,0,0.0
+400,Stefan Ortega Moreno,38,0,0.0
+419,Jack Grealish,34,0,0.0
+419,Jack Grealish,35,0,0.0
+419,Jack Grealish,36,0,0.0
+419,Jack Grealish,37,0,0.0
+419,Jack Grealish,38,0,0.0
+424,Oscar Bobb,34,14,1.0
+424,Oscar Bobb,35,26,1.0
+424,Oscar Bobb,36,28,1.0
+424,Oscar Bobb,37,78,2.0
+424,Oscar Bobb,38,71,3.0
+426,James McAtee,34,0,0.0
+426,James McAtee,35,90,2.0
+426,James McAtee,36,7,4.0
+426,James McAtee,37,6,1.0
+426,James McAtee,38,12,1.0
+431,Altay Bayındır,34,0,0.0
+431,Altay Bayındır,35,0,0.0
+431,Altay Bayındır,36,0,0.0
+431,Altay Bayındır,37,0,0.0
+431,Altay Bayındır,38,0,0.0
+432,André Onana,34,0,0.0
+432,André Onana,35,0,0.0
+432,André Onana,36,0,0.0
+432,André Onana,37,0,0.0
+432,André Onana,38,0,0.0
+433,Elyh Harrison,34,0,0.0
+433,Elyh Harrison,35,0,0.0
+433,Elyh Harrison,36,0,0.0
+433,Elyh Harrison,37,0,0.0
+433,Elyh Harrison,38,0,0.0
+434,Tom Heaton,34,0,0.0
+434,Tom Heaton,35,0,0.0
+434,Tom Heaton,36,0,0.0
+434,Tom Heaton,37,0,0.0
+434,Tom Heaton,38,0,0.0
+435,Dermot Mee,34,0,0.0
+435,Dermot Mee,35,0,0.0
+435,Dermot Mee,36,0,0.0
+435,Dermot Mee,37,0,0.0
+435,Dermot Mee,38,0,0.0
+436,Matthijs de Ligt,34,0,0.0
+436,Matthijs de Ligt,35,0,0.0
+436,Matthijs de Ligt,36,0,0.0
+436,Matthijs de Ligt,37,0,0.0
+436,Matthijs de Ligt,38,0,0.0
+437,Lisandro Martínez,34,0,0.0
+437,Lisandro Martínez,35,0,0.0
+437,Lisandro Martínez,36,90,6.0
+437,Lisandro Martínez,37,90,3.0
+437,Lisandro Martínez,38,90,6.0
+438,Noussair Mazraoui,34,45,1.0
+438,Noussair Mazraoui,35,0,0.0
+438,Noussair Mazraoui,36,90,11.0
+438,Noussair Mazraoui,37,0,0.0
+438,Noussair Mazraoui,38,73,6.0
+439,Diego León Blanco,34,0,0.0
+439,Diego León Blanco,35,0,0.0
+439,Diego León Blanco,36,0,0.0
+439,Diego León Blanco,37,0,0.0
+439,Diego León Blanco,38,0,0.0
+440,Diogo Dalot Teixeira,34,90,4.0
+440,Diogo Dalot Teixeira,35,90,1.0
+440,Diogo Dalot Teixeira,36,0,0.0
+440,Diogo Dalot Teixeira,37,90,1.0
+440,Diogo Dalot Teixeira,38,0,0.0
+441,Patrick Dorgu,34,0,0.0
+441,Patrick Dorgu,35,15,1.0
+441,Patrick Dorgu,36,25,1.0
+441,Patrick Dorgu,37,10,1.0
+441,Patrick Dorgu,38,61,18.0
+442,Harry Maguire,34,90,7.0
+442,Harry Maguire,35,90,1.0
+442,Harry Maguire,36,90,10.0
+442,Harry Maguire,37,90,3.0
+442,Harry Maguire,38,90,6.0
+443,Luke Shaw,34,72,5.0
+443,Luke Shaw,35,90,2.0
+443,Luke Shaw,36,90,6.0
+443,Luke Shaw,37,90,6.0
+443,Luke Shaw,38,81,6.0
+444,Leny Yoro,34,17,1.0
+444,Leny Yoro,35,1,1.0
+444,Leny Yoro,36,0,0.0
+444,Leny Yoro,37,0,0.0
+444,Leny Yoro,38,16,1.0
+445,Harry Amass,34,0,0.0
+445,Harry Amass,35,0,0.0
+445,Harry Amass,36,0,0.0
+445,Harry Amass,37,0,0.0
+445,Harry Amass,38,0,0.0
+446,Tyler Fredricson,34,0,0.0
+446,Tyler Fredricson,35,0,0.0
+446,Tyler Fredricson,36,0,0.0
+446,Tyler Fredricson,37,0,0.0
+446,Tyler Fredricson,38,0,0.0
+447,Ayden Heaven,34,90,2.0
+447,Ayden Heaven,35,90,1.0
+447,Ayden Heaven,36,0,0.0
+447,Ayden Heaven,37,0,0.0
+447,Ayden Heaven,38,0,0.0
+448,Tyrell Malacia,34,0,0.0
+448,Tyrell Malacia,35,0,0.0
+448,Tyrell Malacia,36,0,0.0
+448,Tyrell Malacia,37,0,0.0
+448,Tyrell Malacia,38,8,1.0
+449,Bruno Borges Fernandes,34,90,5.0
+449,Bruno Borges Fernandes,35,90,5.0
+449,Bruno Borges Fernandes,36,90,3.0
+449,Bruno Borges Fernandes,37,90,9.0
+449,Bruno Borges Fernandes,38,90,14.0
+450,Matheus Santos Carneiro da Cunha,34,0,0.0
+450,Matheus Santos Carneiro da Cunha,35,86,7.0
+450,Matheus Santos Carneiro da Cunha,36,90,2.0
+450,Matheus Santos Carneiro da Cunha,37,79,9.0
+450,Matheus Santos Carneiro da Cunha,38,0,0.0
+451,Marcus Rashford,34,0,0.0
+451,Marcus Rashford,35,0,0.0
+451,Marcus Rashford,36,0,0.0
+451,Marcus Rashford,37,0,0.0
+451,Marcus Rashford,38,0,0.0
+452,Amad Diallo,34,45,1.0
+452,Amad Diallo,35,45,1.0
+452,Amad Diallo,36,74,3.0
+452,Amad Diallo,37,90,2.0
+452,Amad Diallo,38,90,7.0
+454,Antony dos Santos,34,0,0.0
+454,Antony dos Santos,35,0,0.0
+454,Antony dos Santos,36,0,0.0
+454,Antony dos Santos,37,0,0.0
+454,Antony dos Santos,38,0,0.0
+455,Mason Mount,34,16,1.0
+455,Mason Mount,35,0,0.0
+455,Mason Mount,36,90,4.0
+455,Mason Mount,37,9,1.0
+455,Mason Mount,38,73,5.0
+456,Jadon Sancho,34,16,1.0
+456,Jadon Sancho,35,84,2.0
+456,Jadon Sancho,36,0,0.0
+456,Jadon Sancho,37,1,1.0
+456,Jadon Sancho,38,0,0.0
+457,Carlos Henrique Casimiro,34,90,12.0
+457,Carlos Henrique Casimiro,35,90,4.0
+457,Carlos Henrique Casimiro,36,0,0.0
+457,Carlos Henrique Casimiro,37,80,1.0
+457,Carlos Henrique Casimiro,38,0,0.0
+458,Kobbie Mainoo,34,90,4.0
+458,Kobbie Mainoo,35,90,9.0
+458,Kobbie Mainoo,36,90,5.0
+458,Kobbie Mainoo,37,90,4.0
+458,Kobbie Mainoo,38,90,2.0
+459,Manuel Ugarte Ribeiro,34,0,0.0
+459,Manuel Ugarte Ribeiro,35,0,0.0
+459,Manuel Ugarte Ribeiro,36,0,0.0
+459,Manuel Ugarte Ribeiro,37,0,0.0
+459,Manuel Ugarte Ribeiro,38,0,0.0
+460,Toby Collyer,34,0,0.0
+460,Toby Collyer,35,0,0.0
+460,Toby Collyer,36,0,0.0
+460,Toby Collyer,37,0,0.0
+460,Toby Collyer,38,0,0.0
+461,Jayce Fitzgerald,34,0,0.0
+461,Jayce Fitzgerald,35,0,0.0
+461,Jayce Fitzgerald,36,0,0.0
+461,Jayce Fitzgerald,37,0,0.0
+461,Jayce Fitzgerald,38,0,0.0
+462,Jack Fletcher,34,0,0.0
+462,Jack Fletcher,35,0,0.0
+462,Jack Fletcher,36,0,0.0
+462,Jack Fletcher,37,0,0.0
+462,Jack Fletcher,38,0,0.0
+463,Sékou Koné,34,0,0.0
+463,Sékou Koné,35,0,0.0
+463,Sékou Koné,36,0,0.0
+463,Sékou Koné,37,0,0.0
+463,Sékou Koné,38,0,0.0
+464,Jack Moorhouse,34,0,0.0
+464,Jack Moorhouse,35,0,0.0
+464,Jack Moorhouse,36,0,0.0
+464,Jack Moorhouse,37,0,0.0
+464,Jack Moorhouse,38,0,0.0
+465,Rasmus Højlund,34,0,0.0
+465,Rasmus Højlund,35,0,0.0
+465,Rasmus Højlund,36,0,0.0
+465,Rasmus Højlund,37,0,0.0
+465,Rasmus Højlund,38,0,0.0
+466,Joshua Zirkzee,34,2,0.0
+466,Joshua Zirkzee,35,3,1.0
+466,Joshua Zirkzee,36,64,1.0
+466,Joshua Zirkzee,37,10,1.0
+466,Joshua Zirkzee,38,16,1.0
+467,Chido Obi,34,0,0.0
+467,Chido Obi,35,0,0.0
+467,Chido Obi,36,0,0.0
+467,Chido Obi,37,0,0.0
+467,Chido Obi,38,0,0.0
+468,Ethan Wheatley,34,0,0.0
+468,Ethan Wheatley,35,0,0.0
+468,Ethan Wheatley,36,0,0.0
+468,Ethan Wheatley,37,0,0.0
+468,Ethan Wheatley,38,0,0.0
+469,Nick Pope,34,90,2.0
+469,Nick Pope,35,90,3.0
+469,Nick Pope,36,90,3.0
+469,Nick Pope,37,90,4.0
+469,Nick Pope,38,90,2.0
+471,Mark Gillespie,34,0,0.0
+471,Mark Gillespie,35,0,0.0
+471,Mark Gillespie,36,0,0.0
+471,Mark Gillespie,37,0,0.0
+471,Mark Gillespie,38,0,0.0
+472,Odysseas Vlachodimos,34,0,0.0
+472,Odysseas Vlachodimos,35,0,0.0
+472,Odysseas Vlachodimos,36,0,0.0
+472,Odysseas Vlachodimos,37,0,0.0
+472,Odysseas Vlachodimos,38,0,0.0
+473,Lewis Hall,34,0,0.0
+473,Lewis Hall,35,22,1.0
+473,Lewis Hall,36,90,2.0
+473,Lewis Hall,37,90,1.0
+473,Lewis Hall,38,90,1.0
+474,Fabian Schär,34,0,0.0
+474,Fabian Schär,35,0,0.0
+474,Fabian Schär,36,0,0.0
+474,Fabian Schär,37,0,0.0
+474,Fabian Schär,38,0,0.0
+475,Sven Botman,34,90,4.0
+475,Sven Botman,35,90,4.0
+475,Sven Botman,36,90,4.0
+475,Sven Botman,37,90,4.0
+475,Sven Botman,38,90,3.0
+476,Dan Burn,34,90,3.0
+476,Dan Burn,35,90,7.0
+476,Dan Burn,36,90,2.0
+476,Dan Burn,37,15,1.0
+476,Dan Burn,38,83,1.0
+477,Tino Livramento,34,0,0.0
+477,Tino Livramento,35,0,0.0
+477,Tino Livramento,36,0,0.0
+477,Tino Livramento,37,0,0.0
+477,Tino Livramento,38,0,0.0
+478,Kieran Trippier,34,0,0.0
+478,Kieran Trippier,35,0,0.0
+478,Kieran Trippier,36,1,1.0
+478,Kieran Trippier,37,84,2.0
+478,Kieran Trippier,38,0,0.0
+479,Emil Krafth,34,0,0.0
+479,Emil Krafth,35,0,0.0
+479,Emil Krafth,36,0,0.0
+479,Emil Krafth,37,0,0.0
+479,Emil Krafth,38,0,0.0
+480,Jamaal Lascelles,34,0,0.0
+480,Jamaal Lascelles,35,0,0.0
+480,Jamaal Lascelles,36,0,0.0
+480,Jamaal Lascelles,37,0,0.0
+480,Jamaal Lascelles,38,0,0.0
+481,Alex Murphy,34,0,0.0
+481,Alex Murphy,35,0,0.0
+481,Alex Murphy,36,0,0.0
+481,Alex Murphy,37,0,0.0
+481,Alex Murphy,38,6,1.0
+482,Harrison Ashby,34,0,0.0
+482,Harrison Ashby,35,0,0.0
+482,Harrison Ashby,36,0,0.0
+482,Harrison Ashby,37,0,0.0
+482,Harrison Ashby,38,0,0.0
+483,Miodrag Pivaš,34,0,0.0
+483,Miodrag Pivaš,35,0,0.0
+483,Miodrag Pivaš,36,0,0.0
+483,Miodrag Pivaš,37,0,0.0
+483,Miodrag Pivaš,38,0,0.0
+484,Matt Targett,34,0,0.0
+484,Matt Targett,35,0,0.0
+484,Matt Targett,36,0,0.0
+484,Matt Targett,37,0,0.0
+484,Matt Targett,38,0,0.0
+485,Anthony Gordon,34,0,0.0
+485,Anthony Gordon,35,0,0.0
+485,Anthony Gordon,36,0,0.0
+485,Anthony Gordon,37,0,0.0
+485,Anthony Gordon,38,0,0.0
+486,Anthony Elanga,34,4,1.0
+486,Anthony Elanga,35,0,0.0
+486,Anthony Elanga,36,0,0.0
+486,Anthony Elanga,37,5,1.0
+486,Anthony Elanga,38,24,1.0
+487,Harvey Barnes,34,24,1.0
+487,Harvey Barnes,35,22,6.0
+487,Harvey Barnes,36,29,7.0
+487,Harvey Barnes,37,74,5.0
+487,Harvey Barnes,38,45,1.0
+488,Bruno Guimarães Rodriguez Moura,34,74,2.0
+488,Bruno Guimarães Rodriguez Moura,35,90,6.0
+488,Bruno Guimarães Rodriguez Moura,36,90,6.0
+488,Bruno Guimarães Rodriguez Moura,37,90,4.0
+488,Bruno Guimarães Rodriguez Moura,38,65,1.0
+489,Jacob Murphy,34,65,2.0
+489,Jacob Murphy,35,67,8.0
+489,Jacob Murphy,36,60,3.0
+489,Jacob Murphy,37,15,1.0
+489,Jacob Murphy,38,45,1.0
+490,Joelinton Cássio Apolinário de Lira,34,0,0.0
+490,Joelinton Cássio Apolinário de Lira,35,90,4.0
+490,Joelinton Cássio Apolinário de Lira,36,90,2.0
+490,Joelinton Cássio Apolinário de Lira,37,0,0.0
+490,Joelinton Cássio Apolinário de Lira,38,0,0.0
+491,Sandro Tonali,34,90,2.0
+491,Sandro Tonali,35,90,1.0
+491,Sandro Tonali,36,90,2.0
+491,Sandro Tonali,37,52,1.0
+491,Sandro Tonali,38,0,0.0
+492,Antoñito Cordero Campillo,34,0,0.0
+492,Antoñito Cordero Campillo,35,0,0.0
+492,Antoñito Cordero Campillo,36,0,0.0
+492,Antoñito Cordero Campillo,37,0,0.0
+492,Antoñito Cordero Campillo,38,0,0.0
+494,Joe Willock,34,85,2.0
+494,Joe Willock,35,67,2.0
+494,Joe Willock,36,0,0.0
+494,Joe Willock,37,37,4.0
+494,Joe Willock,38,90,2.0
+495,Isaac Hayden,34,0,0.0
+495,Isaac Hayden,35,0,0.0
+495,Isaac Hayden,36,0,0.0
+495,Isaac Hayden,37,0,0.0
+495,Isaac Hayden,38,0,0.0
+496,Garang Kuol,34,0,0.0
+496,Garang Kuol,35,0,0.0
+496,Garang Kuol,36,0,0.0
+496,Garang Kuol,37,0,0.0
+496,Garang Kuol,38,0,0.0
+497,Lewis Miley,34,90,2.0
+497,Lewis Miley,35,90,2.0
+497,Lewis Miley,36,0,0.0
+497,Lewis Miley,37,0,0.0
+497,Lewis Miley,38,0,0.0
+498,Joe White,34,0,0.0
+498,Joe White,35,0,0.0
+498,Joe White,36,0,0.0
+498,Joe White,37,0,0.0
+498,Joe White,38,0,0.0
+499,Alexander Isak,34,78,8.0
+499,Alexander Isak,35,0,0.0
+499,Alexander Isak,36,23,1.0
+499,Alexander Isak,37,0,0.0
+499,Alexander Isak,38,0,0.0
+500,William Osula,34,65,2.0
+500,William Osula,35,67,9.0
+500,William Osula,36,70,2.0
+500,William Osula,37,84,13.0
+500,William Osula,38,65,2.0
+501,Sean Neave,34,0,0.0
+501,Sean Neave,35,0,0.0
+501,Sean Neave,36,0,0.0
+501,Sean Neave,37,0,0.0
+501,Sean Neave,38,13,1.0
+502,Matz Sels,34,90,7.0
+502,Matz Sels,35,90,8.0
+502,Matz Sels,36,90,3.0
+502,Matz Sels,37,90,2.0
+502,Matz Sels,38,90,3.0
+503,Carlos Miguel dos Santos Pereira,34,0,0.0
+503,Carlos Miguel dos Santos Pereira,35,0,0.0
+503,Carlos Miguel dos Santos Pereira,36,0,0.0
+503,Carlos Miguel dos Santos Pereira,37,0,0.0
+503,Carlos Miguel dos Santos Pereira,38,0,0.0
+504,Matt Turner,34,0,0.0
+504,Matt Turner,35,0,0.0
+504,Matt Turner,36,0,0.0
+504,Matt Turner,37,0,0.0
+504,Matt Turner,38,0,0.0
+505,Nikola Milenković,34,90,8.0
+505,Nikola Milenković,35,45,1.0
+505,Nikola Milenković,36,90,2.0
+505,Nikola Milenković,37,90,1.0
+505,Nikola Milenković,38,90,4.0
+506,Murillo Costa dos Santos,34,0,0.0
+506,Murillo Costa dos Santos,35,0,0.0
+506,Murillo Costa dos Santos,36,0,0.0
+506,Murillo Costa dos Santos,37,0,0.0
+506,Murillo Costa dos Santos,38,0,0.0
+507,Ola Aina,34,90,9.0
+507,Ola Aina,35,0,0.0
+507,Ola Aina,36,0,0.0
+507,Ola Aina,37,0,0.0
+507,Ola Aina,38,0,0.0
+508,Neco Williams,34,90,5.0
+508,Neco Williams,35,45,1.0
+508,Neco Williams,36,90,2.0
+508,Neco Williams,37,90,1.0
+508,Neco Williams,38,90,2.0
+509,David Mota Veiga Teixeira do Carmo,34,0,0.0
+509,David Mota Veiga Teixeira do Carmo,35,0,0.0
+509,David Mota Veiga Teixeira do Carmo,36,0,0.0
+509,David Mota Veiga Teixeira do Carmo,37,0,0.0
+509,David Mota Veiga Teixeira do Carmo,38,0,0.0
+510,Jair Paula da Cunha Filho,34,49,1.0
+510,Jair Paula da Cunha Filho,35,45,1.0
+510,Jair Paula da Cunha Filho,36,90,2.0
+510,Jair Paula da Cunha Filho,37,6,1.0
+510,Jair Paula da Cunha Filho,38,62,2.0
+511,Felipe Rodrigues da Silva,34,40,1.0
+511,Felipe Rodrigues da Silva,35,90,1.0
+511,Felipe Rodrigues da Silva,36,90,2.0
+511,Felipe Rodrigues da Silva,37,90,9.0
+511,Felipe Rodrigues da Silva,38,90,4.0
+512,Omar Richards,34,0,0.0
+512,Omar Richards,35,0,0.0
+512,Omar Richards,36,0,0.0
+512,Omar Richards,37,0,0.0
+512,Omar Richards,38,0,0.0
+513,Zach Abbott,34,0,0.0
+513,Zach Abbott,35,45,1.0
+513,Zach Abbott,36,0,0.0
+513,Zach Abbott,37,0,0.0
+513,Zach Abbott,38,0,0.0
+514,Willy Boly,34,0,0.0
+514,Willy Boly,35,0,0.0
+514,Willy Boly,36,0,0.0
+514,Willy Boly,37,0,0.0
+514,Willy Boly,38,0,0.0
+515,Morgan Gibbs-White,34,90,13.0
+515,Morgan Gibbs-White,35,20,4.0
+515,Morgan Gibbs-White,36,0,0.0
+515,Morgan Gibbs-White,37,90,7.0
+515,Morgan Gibbs-White,38,90,9.0
+516,Callum Hudson-Odoi,34,0,0.0
+516,Callum Hudson-Odoi,35,0,0.0
+516,Callum Hudson-Odoi,36,0,0.0
+516,Callum Hudson-Odoi,37,0,0.0
+516,Callum Hudson-Odoi,38,0,0.0
+517,Elliot Anderson,34,90,9.0
+517,Elliot Anderson,35,45,1.0
+517,Elliot Anderson,36,90,12.0
+517,Elliot Anderson,37,90,12.0
+517,Elliot Anderson,38,64,2.0
+518,João Pedro Ferreira da Silva,34,0,0.0
+518,João Pedro Ferreira da Silva,35,0,0.0
+518,João Pedro Ferreira da Silva,36,0,0.0
+518,João Pedro Ferreira da Silva,37,0,0.0
+518,João Pedro Ferreira da Silva,38,0,0.0
+519,Nicolás Domínguez,34,45,0.0
+519,Nicolás Domínguez,35,45,1.0
+519,Nicolás Domínguez,36,45,1.0
+519,Nicolás Domínguez,37,69,2.0
+519,Nicolás Domínguez,38,25,1.0
+520,Lewis O'Brien,34,0,0.0
+520,Lewis O'Brien,35,0,0.0
+520,Lewis O'Brien,36,0,0.0
+520,Lewis O'Brien,37,0,0.0
+520,Lewis O'Brien,38,0,0.0
+521,Ibrahim Sangaré,34,45,1.0
+521,Ibrahim Sangaré,35,0,0.0
+521,Ibrahim Sangaré,36,0,0.0
+521,Ibrahim Sangaré,37,20,1.0
+521,Ibrahim Sangaré,38,64,4.0
+522,Ryan Yates,34,23,0.0
+522,Ryan Yates,35,90,4.0
+522,Ryan Yates,36,45,0.0
+522,Ryan Yates,37,0,0.0
+522,Ryan Yates,38,25,1.0
+523,Eric da Silva Moreira,34,0,0.0
+523,Eric da Silva Moreira,35,0,0.0
+523,Eric da Silva Moreira,36,0,0.0
+523,Eric da Silva Moreira,37,0,0.0
+523,Eric da Silva Moreira,38,0,0.0
+524,Marko Stamenić,34,0,0.0
+524,Marko Stamenić,35,0,0.0
+524,Marko Stamenić,36,0,0.0
+524,Marko Stamenić,37,0,0.0
+524,Marko Stamenić,38,0,0.0
+525,Chris Wood,34,87,7.0
+525,Chris Wood,35,24,1.0
+525,Chris Wood,36,17,1.0
+525,Chris Wood,37,69,2.0
+525,Chris Wood,38,61,2.0
+526,Igor Jesus Maciel da Cruz,34,66,14.0
+526,Igor Jesus Maciel da Cruz,35,45,5.0
+526,Igor Jesus Maciel da Cruz,36,82,1.0
+526,Igor Jesus Maciel da Cruz,37,83,2.0
+526,Igor Jesus Maciel da Cruz,38,90,2.0
+527,Taiwo Awoniyi,34,2,4.0
+527,Taiwo Awoniyi,35,90,16.0
+527,Taiwo Awoniyi,36,72,2.0
+527,Taiwo Awoniyi,37,20,1.0
+527,Taiwo Awoniyi,38,28,0.0
+528,Anthony Patterson,34,0,0.0
+528,Anthony Patterson,35,0,0.0
+528,Anthony Patterson,36,0,0.0
+528,Anthony Patterson,37,0,0.0
+528,Anthony Patterson,38,0,0.0
+529,Simon Moore,34,0,0.0
+529,Simon Moore,35,0,0.0
+529,Simon Moore,36,0,0.0
+529,Simon Moore,37,0,0.0
+529,Simon Moore,38,0,0.0
+530,Blondy Nna Noukeu,34,0,0.0
+530,Blondy Nna Noukeu,35,0,0.0
+530,Blondy Nna Noukeu,36,0,0.0
+530,Blondy Nna Noukeu,37,0,0.0
+530,Blondy Nna Noukeu,38,0,0.0
+531,Daniel Ballard,34,90,0.0
+531,Daniel Ballard,35,23,-2.0
+531,Daniel Ballard,36,0,0.0
+531,Daniel Ballard,37,0,0.0
+531,Daniel Ballard,38,0,0.0
+532,Trai Hume,34,90,-2.0
+532,Trai Hume,35,90,2.0
+532,Trai Hume,36,89,6.0
+532,Trai Hume,37,59,1.0
+532,Trai Hume,38,90,8.0
+533,Aji Alese,34,0,0.0
+533,Aji Alese,35,0,0.0
+533,Aji Alese,36,0,0.0
+533,Aji Alese,37,0,0.0
+533,Aji Alese,38,0,0.0
+534,Joe Anderson,34,0,0.0
+534,Joe Anderson,35,0,0.0
+534,Joe Anderson,36,0,0.0
+534,Joe Anderson,37,0,0.0
+534,Joe Anderson,38,0,0.0
+535,Dennis Cirkin,34,0,0.0
+535,Dennis Cirkin,35,18,0.0
+535,Dennis Cirkin,36,0,0.0
+535,Dennis Cirkin,37,0,0.0
+535,Dennis Cirkin,38,0,0.0
+536,Leo Fuhr Hjelde,34,0,0.0
+536,Leo Fuhr Hjelde,35,0,0.0
+536,Leo Fuhr Hjelde,36,0,0.0
+536,Leo Fuhr Hjelde,37,0,0.0
+536,Leo Fuhr Hjelde,38,0,0.0
+537,Niall Huggins,34,0,0.0
+537,Niall Huggins,35,0,0.0
+537,Niall Huggins,36,0,0.0
+537,Niall Huggins,37,0,0.0
+537,Niall Huggins,38,0,0.0
+538,Zak Johnson,34,0,0.0
+538,Zak Johnson,35,0,0.0
+538,Zak Johnson,36,0,0.0
+538,Zak Johnson,37,0,0.0
+538,Zak Johnson,38,0,0.0
+539,Luke O'Nien,34,0,0.0
+539,Luke O'Nien,35,0,0.0
+539,Luke O'Nien,36,0,0.0
+539,Luke O'Nien,37,67,4.0
+539,Luke O'Nien,38,90,6.0
+540,Timothée Pembélé,34,0,0.0
+540,Timothée Pembélé,35,0,0.0
+540,Timothée Pembélé,36,0,0.0
+540,Timothée Pembélé,37,0,0.0
+540,Timothée Pembélé,38,0,0.0
+541,Reinildo Mandava,34,45,1.0
+541,Reinildo Mandava,35,71,2.0
+541,Reinildo Mandava,36,90,8.0
+541,Reinildo Mandava,37,90,2.0
+541,Reinildo Mandava,38,90,2.0
+542,Jenson Seelt,34,0,0.0
+542,Jenson Seelt,35,0,0.0
+542,Jenson Seelt,36,0,0.0
+542,Jenson Seelt,37,0,0.0
+542,Jenson Seelt,38,0,0.0
+543,Simon Adingra,34,0,0.0
+543,Simon Adingra,35,0,0.0
+543,Simon Adingra,36,0,0.0
+543,Simon Adingra,37,0,0.0
+543,Simon Adingra,38,0,0.0
+544,Habib Diarra,34,64,1.0
+544,Habib Diarra,35,18,1.0
+544,Habib Diarra,36,0,0.0
+544,Habib Diarra,37,13,4.0
+544,Habib Diarra,38,29,0.0
+545,Patrick Roberts,34,0,0.0
+545,Patrick Roberts,35,0,0.0
+545,Patrick Roberts,36,0,0.0
+545,Patrick Roberts,37,0,0.0
+545,Patrick Roberts,38,0,0.0
+546,Milan Aleksić,34,0,0.0
+546,Milan Aleksić,35,0,0.0
+546,Milan Aleksić,36,0,0.0
+546,Milan Aleksić,37,0,0.0
+546,Milan Aleksić,38,0,0.0
+547,Enzo Le Fée,34,90,2.0
+547,Enzo Le Fée,35,90,4.0
+547,Enzo Le Fée,36,90,3.0
+547,Enzo Le Fée,37,90,13.0
+547,Enzo Le Fée,38,90,5.0
+548,Romaine Mundle,34,0,0.0
+548,Romaine Mundle,35,0,0.0
+548,Romaine Mundle,36,0,0.0
+548,Romaine Mundle,37,0,0.0
+548,Romaine Mundle,38,0,0.0
+549,Dan Neil,34,0,0.0
+549,Dan Neil,35,0,0.0
+549,Dan Neil,36,0,0.0
+549,Dan Neil,37,0,0.0
+549,Dan Neil,38,0,0.0
+550,Ian Poveda-Ocampo,34,0,0.0
+550,Ian Poveda-Ocampo,35,0,0.0
+550,Ian Poveda-Ocampo,36,0,0.0
+550,Ian Poveda-Ocampo,37,0,0.0
+550,Ian Poveda-Ocampo,38,0,0.0
+551,Chris Rigg,34,45,1.0
+551,Chris Rigg,35,0,0.0
+551,Chris Rigg,36,0,0.0
+551,Chris Rigg,37,13,4.0
+551,Chris Rigg,38,1,1.0
+552,Noah Sadiki,34,90,2.0
+552,Noah Sadiki,35,71,2.0
+552,Noah Sadiki,36,90,5.0
+552,Noah Sadiki,37,76,2.0
+552,Noah Sadiki,38,90,1.0
+553,Chemsdine Talbi,34,0,0.0
+553,Chemsdine Talbi,35,90,2.0
+553,Chemsdine Talbi,36,78,3.0
+553,Chemsdine Talbi,37,30,1.0
+553,Chemsdine Talbi,38,0,0.0
+554,Abdoullah Ba,34,0,0.0
+554,Abdoullah Ba,35,0,0.0
+554,Abdoullah Ba,36,0,0.0
+554,Abdoullah Ba,37,0,0.0
+554,Abdoullah Ba,38,0,0.0
+555,Alan Browne,34,0,0.0
+555,Alan Browne,35,0,0.0
+555,Alan Browne,36,0,0.0
+555,Alan Browne,37,0,0.0
+555,Alan Browne,38,0,0.0
+556,Pierre Ekwah Elimby,34,0,0.0
+556,Pierre Ekwah Elimby,35,0,0.0
+556,Pierre Ekwah Elimby,36,0,0.0
+556,Pierre Ekwah Elimby,37,0,0.0
+556,Pierre Ekwah Elimby,38,0,0.0
+557,Harrison Jones,34,0,0.0
+557,Harrison Jones,35,0,0.0
+557,Harrison Jones,36,0,0.0
+557,Harrison Jones,37,0,0.0
+557,Harrison Jones,38,0,0.0
+558,Jay Matete,34,0,0.0
+558,Jay Matete,35,0,0.0
+558,Jay Matete,36,0,0.0
+558,Jay Matete,37,0,0.0
+558,Jay Matete,38,0,0.0
+559,Nectarios Triantis,34,0,0.0
+559,Nectarios Triantis,35,0,0.0
+559,Nectarios Triantis,36,0,0.0
+559,Nectarios Triantis,37,0,0.0
+559,Nectarios Triantis,38,0,0.0
+560,Wilson Isidor,34,25,1.0
+560,Wilson Isidor,35,18,1.0
+560,Wilson Isidor,36,0,0.0
+560,Wilson Isidor,37,13,5.0
+560,Wilson Isidor,38,29,1.0
+561,Eliezer Mayenda Dossou,34,0,0.0
+561,Eliezer Mayenda Dossou,35,0,0.0
+561,Eliezer Mayenda Dossou,36,1,1.0
+561,Eliezer Mayenda Dossou,37,0,0.0
+561,Eliezer Mayenda Dossou,38,0,0.0
+562,Ahmed Abdullahi,34,0,0.0
+562,Ahmed Abdullahi,35,0,0.0
+562,Ahmed Abdullahi,36,0,0.0
+562,Ahmed Abdullahi,37,0,0.0
+562,Ahmed Abdullahi,38,0,0.0
+563,Luís Hemir Silva Semedo,34,0,0.0
+563,Luís Hemir Silva Semedo,35,0,0.0
+563,Luís Hemir Silva Semedo,36,0,0.0
+563,Luís Hemir Silva Semedo,37,0,0.0
+563,Luís Hemir Silva Semedo,38,0,0.0
+564,Nazarii Rusyn,34,0,0.0
+564,Nazarii Rusyn,35,0,0.0
+564,Nazarii Rusyn,36,0,0.0
+564,Nazarii Rusyn,37,0,0.0
+564,Nazarii Rusyn,38,0,0.0
+565,Guglielmo Vicario,34,0,0.0
+565,Guglielmo Vicario,35,0,0.0
+565,Guglielmo Vicario,36,0,0.0
+565,Guglielmo Vicario,37,0,0.0
+565,Guglielmo Vicario,38,0,0.0
+566,Brandon Austin,34,0,0.0
+566,Brandon Austin,35,0,0.0
+566,Brandon Austin,36,0,0.0
+566,Brandon Austin,37,0,0.0
+566,Brandon Austin,38,0,0.0
+567,Antonín Kinský,34,90,6.0
+567,Antonín Kinský,35,90,2.0
+567,Antonín Kinský,36,90,3.0
+567,Antonín Kinský,37,90,1.0
+567,Antonín Kinský,38,90,5.0
+568,Pedro Porro Sauceda,34,90,8.0
+568,Pedro Porro Sauceda,35,90,4.0
+568,Pedro Porro Sauceda,36,90,1.0
+568,Pedro Porro Sauceda,37,90,0.0
+568,Pedro Porro Sauceda,38,90,10.0
+569,Cristian Romero,34,0,0.0
+569,Cristian Romero,35,0,0.0
+569,Cristian Romero,36,0,0.0
+569,Cristian Romero,37,0,0.0
+569,Cristian Romero,38,0,0.0
+570,Kevin Danso,34,90,5.0
+570,Kevin Danso,35,90,3.0
+570,Kevin Danso,36,90,3.0
+570,Kevin Danso,37,90,3.0
+570,Kevin Danso,38,90,8.0
+571,Ben Davies,34,0,0.0
+571,Ben Davies,35,0,0.0
+571,Ben Davies,36,0,0.0
+571,Ben Davies,37,0,0.0
+571,Ben Davies,38,0,0.0
+572,Radu Drăgușin,34,1,1.0
+572,Radu Drăgușin,35,0,0.0
+572,Radu Drăgușin,36,0,0.0
+572,Radu Drăgușin,37,0,0.0
+572,Radu Drăgușin,38,1,1.0
+573,Djed Spence,34,90,8.0
+573,Djed Spence,35,23,1.0
+573,Djed Spence,36,5,1.0
+573,Djed Spence,37,21,1.0
+573,Djed Spence,38,90,6.0
+574,Destiny Udogie,34,0,0.0
+574,Destiny Udogie,35,90,2.0
+574,Destiny Udogie,36,84,2.0
+574,Destiny Udogie,37,68,0.0
+574,Destiny Udogie,38,89,7.0
+575,Micky van de Ven,34,90,6.0
+575,Micky van de Ven,35,90,2.0
+575,Micky van de Ven,36,90,2.0
+575,Micky van de Ven,37,90,0.0
+575,Micky van de Ven,38,90,6.0
+576,Ashley Phillips,34,0,0.0
+576,Ashley Phillips,35,0,0.0
+576,Ashley Phillips,36,0,0.0
+576,Ashley Phillips,37,0,0.0
+576,Ashley Phillips,38,0,0.0
+577,Takai Kōta,34,0,0.0
+577,Takai Kōta,35,0,0.0
+577,Takai Kōta,36,0,0.0
+577,Takai Kōta,37,0,0.0
+577,Takai Kōta,38,0,0.0
+578,Luka Vušković,34,0,0.0
+578,Luka Vušković,35,0,0.0
+578,Luka Vušković,36,0,0.0
+578,Luka Vušković,37,0,0.0
+578,Luka Vušković,38,0,0.0
+579,Son Heung-min,34,0,0.0
+579,Son Heung-min,35,0,0.0
+579,Son Heung-min,36,0,0.0
+579,Son Heung-min,37,0,0.0
+579,Son Heung-min,38,0,0.0
+580,Brennan Johnson,37,45,1.0
+580,Brennan Johnson,38,0,0.0
+581,James Maddison,34,0,0.0
+581,James Maddison,35,0,0.0
+581,James Maddison,36,5,1.0
+581,James Maddison,37,21,1.0
+581,James Maddison,38,8,1.0
+582,Mohammed Kudus,34,0,0.0
+582,Mohammed Kudus,35,0,0.0
+582,Mohammed Kudus,36,0,0.0
+582,Mohammed Kudus,37,0,0.0
+582,Mohammed Kudus,38,0,0.0
+583,Dejan Kulusevski,34,0,0.0
+583,Dejan Kulusevski,35,0,0.0
+583,Dejan Kulusevski,36,0,0.0
+583,Dejan Kulusevski,37,0,0.0
+583,Dejan Kulusevski,38,0,0.0
+584,Mathys Tel,34,45,1.0
+584,Mathys Tel,35,90,5.0
+584,Mathys Tel,36,84,9.0
+584,Mathys Tel,37,90,2.0
+584,Mathys Tel,38,72,3.0
+585,Rodrigo Bentancur,34,90,4.0
+585,Rodrigo Bentancur,35,66,2.0
+585,Rodrigo Bentancur,36,80,5.0
+585,Rodrigo Bentancur,37,90,2.0
+585,Rodrigo Bentancur,38,81,5.0
+586,Lucas Bergvall,34,27,1.0
+586,Lucas Bergvall,35,1,1.0
+586,Lucas Bergvall,36,9,1.0
+586,Lucas Bergvall,37,0,0.0
+586,Lucas Bergvall,38,0,0.0
+587,Yves Bissouma,34,61,3.0
+587,Yves Bissouma,35,23,1.0
+587,Yves Bissouma,36,0,0.0
+587,Yves Bissouma,37,0,0.0
+587,Yves Bissouma,38,0,0.0
+588,Wilson Odobert,34,0,0.0
+588,Wilson Odobert,35,0,0.0
+588,Wilson Odobert,36,0,0.0
+588,Wilson Odobert,37,0,0.0
+588,Wilson Odobert,38,0,0.0
+589,Manor Solomon,34,0,0.0
+589,Manor Solomon,35,0,0.0
+589,Manor Solomon,36,0,0.0
+589,Manor Solomon,37,0,0.0
+589,Manor Solomon,38,0,0.0
+590,Bryan Gil Salvatierra,34,0,0.0
+590,Bryan Gil Salvatierra,35,0,0.0
+590,Bryan Gil Salvatierra,36,0,0.0
+590,Bryan Gil Salvatierra,37,0,0.0
+590,Bryan Gil Salvatierra,38,0,0.0
+591,Archie Gray,34,0,0.0
+591,Archie Gray,35,0,0.0
+591,Archie Gray,36,0,0.0
+591,Archie Gray,37,0,0.0
+591,Archie Gray,38,8,1.0
+592,Mikey Moore,34,0,0.0
+592,Mikey Moore,35,0,0.0
+592,Mikey Moore,36,0,0.0
+592,Mikey Moore,37,0,0.0
+592,Mikey Moore,38,0,0.0
+593,Pape Matar Sarr,34,0,0.0
+593,Pape Matar Sarr,35,1,1.0
+593,Pape Matar Sarr,36,0,0.0
+593,Pape Matar Sarr,37,21,4.0
+593,Pape Matar Sarr,38,17,0.0
+594,Yang Min-hyeok,34,0,0.0
+594,Yang Min-hyeok,35,0,0.0
+594,Yang Min-hyeok,36,0,0.0
+594,Yang Min-hyeok,37,0,0.0
+594,Yang Min-hyeok,38,0,0.0
+595,Callum Olusesi,34,0,0.0
+595,Callum Olusesi,35,0,0.0
+595,Callum Olusesi,36,0,0.0
+595,Callum Olusesi,37,0,0.0
+595,Callum Olusesi,38,0,0.0
+596,Dominic Solanke-Mitchell,34,39,1.0
+596,Dominic Solanke-Mitchell,35,0,0.0
+596,Dominic Solanke-Mitchell,36,0,0.0
+596,Dominic Solanke-Mitchell,37,0,0.0
+596,Dominic Solanke-Mitchell,38,0,0.0
+597,Richarlison de Andrade,34,50,4.0
+597,Richarlison de Andrade,35,90,9.0
+597,Richarlison de Andrade,36,90,2.0
+597,Richarlison de Andrade,37,90,7.0
+597,Richarlison de Andrade,38,72,2.0
+598,Will Lankshear,34,0,0.0
+598,Will Lankshear,35,0,0.0
+598,Will Lankshear,36,0,0.0
+598,Will Lankshear,37,0,0.0
+598,Will Lankshear,38,0,0.0
+599,Dane Scarlett,34,0,0.0
+599,Dane Scarlett,35,0,0.0
+599,Dane Scarlett,36,0,0.0
+599,Dane Scarlett,37,0,0.0
+599,Dane Scarlett,38,0,0.0
+600,Alphonse Areola,34,0,0.0
+600,Alphonse Areola,35,0,0.0
+600,Alphonse Areola,36,0,0.0
+600,Alphonse Areola,37,0,0.0
+600,Alphonse Areola,38,0,0.0
+601,Wes Foderingham,34,0,0.0
+601,Wes Foderingham,35,0,0.0
+601,Wes Foderingham,36,0,0.0
+601,Wes Foderingham,37,0,0.0
+601,Wes Foderingham,38,0,0.0
+602,Krisztián Hegyi,34,0,0.0
+602,Krisztián Hegyi,35,0,0.0
+602,Krisztián Hegyi,36,0,0.0
+602,Krisztián Hegyi,37,0,0.0
+602,Krisztián Hegyi,38,0,0.0
+603,El Hadji Malick Diouf,34,90,2.0
+603,El Hadji Malick Diouf,35,73,1.0
+603,El Hadji Malick Diouf,36,90,2.0
+603,El Hadji Malick Diouf,37,90,0.0
+603,El Hadji Malick Diouf,38,90,6.0
+604,Emerson Palmieri dos Santos,34,0,0.0
+604,Emerson Palmieri dos Santos,35,0,0.0
+604,Emerson Palmieri dos Santos,36,0,0.0
+604,Emerson Palmieri dos Santos,37,0,0.0
+604,Emerson Palmieri dos Santos,38,0,0.0
+605,Maximilian Kilman,34,0,0.0
+605,Maximilian Kilman,35,0,0.0
+605,Maximilian Kilman,36,0,0.0
+605,Maximilian Kilman,37,0,0.0
+605,Maximilian Kilman,38,0,0.0
+606,Konstantinos Mavropanos,34,90,4.0
+606,Konstantinos Mavropanos,35,90,-1.0
+606,Konstantinos Mavropanos,36,90,4.0
+606,Konstantinos Mavropanos,37,90,3.0
+606,Konstantinos Mavropanos,38,90,8.0
+607,Nayef Aguerd,34,0,0.0
+607,Nayef Aguerd,35,0,0.0
+607,Nayef Aguerd,36,0,0.0
+607,Nayef Aguerd,37,0,0.0
+607,Nayef Aguerd,38,0,0.0
+608,Ollie Scarles,34,0,0.0
+608,Ollie Scarles,35,2,0.0
+608,Ollie Scarles,36,0,0.0
+608,Ollie Scarles,37,0,0.0
+608,Ollie Scarles,38,0,0.0
+609,Jean-Clair Todibo,34,1,1.0
+609,Jean-Clair Todibo,35,0,0.0
+609,Jean-Clair Todibo,36,90,1.0
+609,Jean-Clair Todibo,37,25,0.0
+609,Jean-Clair Todibo,38,0,0.0
+610,Aaron Wan-Bissaka,34,0,0.0
+610,Aaron Wan-Bissaka,35,25,1.0
+610,Aaron Wan-Bissaka,36,90,2.0
+610,Aaron Wan-Bissaka,37,62,1.0
+610,Aaron Wan-Bissaka,38,0,0.0
+611,Kaelan Casey,34,0,0.0
+611,Kaelan Casey,35,0,0.0
+611,Kaelan Casey,36,0,0.0
+611,Kaelan Casey,37,0,0.0
+611,Kaelan Casey,38,0,0.0
+612,Lucas Tolentino Coelho de Lima,34,0,0.0
+612,Lucas Tolentino Coelho de Lima,35,0,0.0
+612,Lucas Tolentino Coelho de Lima,36,0,0.0
+612,Lucas Tolentino Coelho de Lima,37,0,0.0
+612,Lucas Tolentino Coelho de Lima,38,0,0.0
+613,Tomáš Souček,34,90,10.0
+613,Tomáš Souček,35,90,2.0
+613,Tomáš Souček,36,90,2.0
+613,Tomáš Souček,37,62,1.0
+613,Tomáš Souček,38,90,3.0
+615,Crysencio Summerville,34,90,2.0
+615,Crysencio Summerville,35,87,1.0
+615,Crysencio Summerville,36,90,1.0
+615,Crysencio Summerville,37,90,2.0
+615,Crysencio Summerville,38,90,6.0
+616,Edson Álvarez Velázquez,34,0,0.0
+616,Edson Álvarez Velázquez,35,0,0.0
+616,Edson Álvarez Velázquez,36,0,0.0
+616,Edson Álvarez Velázquez,37,0,0.0
+616,Edson Álvarez Velázquez,38,0,0.0
+617,Maxwel Cornet,34,0,0.0
+617,Maxwel Cornet,35,0,0.0
+617,Maxwel Cornet,36,0,0.0
+617,Maxwel Cornet,37,0,0.0
+617,Maxwel Cornet,38,0,0.0
+618,Guido Rodríguez,34,0,0.0
+618,Guido Rodríguez,35,0,0.0
+618,Guido Rodríguez,36,0,0.0
+618,Guido Rodríguez,37,0,0.0
+618,Guido Rodríguez,38,0,0.0
+619,Luis Guilherme Lira dos Santos,34,0,0.0
+619,Luis Guilherme Lira dos Santos,35,0,0.0
+619,Luis Guilherme Lira dos Santos,36,0,0.0
+619,Luis Guilherme Lira dos Santos,37,0,0.0
+619,Luis Guilherme Lira dos Santos,38,0,0.0
+620,George Earthy,34,0,0.0
+620,George Earthy,35,0,0.0
+620,George Earthy,36,0,0.0
+620,George Earthy,37,0,0.0
+620,George Earthy,38,0,0.0
+621,Andy Irving,34,0,0.0
+621,Andy Irving,35,0,0.0
+621,Andy Irving,36,0,0.0
+621,Andy Irving,37,0,0.0
+621,Andy Irving,38,0,0.0
+622,Lewis Orford,34,0,0.0
+622,Lewis Orford,35,0,0.0
+622,Lewis Orford,36,0,0.0
+622,Lewis Orford,37,0,0.0
+622,Lewis Orford,38,0,0.0
+623,Freddie Potts,34,11,1.0
+623,Freddie Potts,35,0,0.0
+623,Freddie Potts,36,0,0.0
+623,Freddie Potts,37,0,0.0
+623,Freddie Potts,38,0,0.0
+624,Jarrod Bowen,34,90,10.0
+624,Jarrod Bowen,35,87,2.0
+624,Jarrod Bowen,36,90,2.0
+624,Jarrod Bowen,37,90,2.0
+624,Jarrod Bowen,38,90,12.0
+625,Niclas Füllkrug,34,0,0.0
+625,Niclas Füllkrug,35,0,0.0
+625,Niclas Füllkrug,36,0,0.0
+625,Niclas Füllkrug,37,0,0.0
+625,Niclas Füllkrug,38,0,0.0
+626,Callum Marshall,34,0,0.0
+626,Callum Marshall,35,0,0.0
+626,Callum Marshall,36,0,0.0
+626,Callum Marshall,37,0,0.0
+626,Callum Marshall,38,0,0.0
+627,Sam Johnstone,37,0,0.0
+627,Sam Johnstone,38,0,0.0
+628,José Malheiro de Sá,37,90,3.0
+628,José Malheiro de Sá,38,90,6.0
+629,Daniel Bentley,37,0,0.0
+629,Daniel Bentley,38,0,0.0
+630,Tom King,34,0,0.0
+630,Tom King,35,0,0.0
+630,Tom King,36,0,0.0
+630,Tom King,37,0,0.0
+630,Tom King,38,0,0.0
+631,Emmanuel Agbadou,37,0,0.0
+631,Emmanuel Agbadou,38,0,0.0
+632,Matt Doherty,37,0,0.0
+632,Matt Doherty,38,0,0.0
+633,Hugo Bueno López,37,5,1.0
+633,Hugo Bueno López,38,16,1.0
+634,Yerson Mosquera Valdelamar,37,90,2.0
+634,Yerson Mosquera Valdelamar,38,90,3.0
+635,Rodrigo Martins Gomes,37,84,2.0
+635,Rodrigo Martins Gomes,38,81,2.0
+636,Santiago Ignacio Bueno,37,90,2.0
+636,Santiago Ignacio Bueno,38,90,2.0
+637,Toti Gomes,37,0,0.0
+637,Toti Gomes,38,24,1.0
+638,Ki-Jana Hoever,37,0,0.0
+638,Ki-Jana Hoever,38,0,0.0
+639,Bastien Meupiyou Menadjou,37,0,0.0
+639,Bastien Meupiyou Menadjou,38,0,0.0
+640,Pedro Cardoso de Lima,37,5,1.0
+640,Pedro Cardoso de Lima,38,8,1.0
+641,Alfie Pond,37,0,0.0
+641,Alfie Pond,38,0,0.0
+642,Hwang Hee-chan,37,78,5.0
+642,Hwang Hee-chan,38,90,1.0
+643,André Trindade da Costa Neto,37,90,3.0
+643,André Trindade da Costa Neto,38,90,4.0
+644,Jean-Ricner Bellegarde,37,11,1.0
+644,Jean-Ricner Bellegarde,38,0,0.0
+645,Fer López González,37,0,0.0
+645,Fer López González,38,0,0.0
+646,João Victor Gomes da Silva,37,90,2.0
+646,João Victor Gomes da Silva,38,0,0.0
+647,Gonçalo Manuel Ganchinho Guedes,37,0,0.0
+647,Gonçalo Manuel Ganchinho Guedes,38,0,0.0
+648,Marshall Munetsi,37,0,0.0
+648,Marshall Munetsi,38,0,0.0
+649,Boubacar Traoré,37,0,0.0
+649,Boubacar Traoré,38,0,0.0
+650,Tawanda Chirewa,37,0,0.0
+650,Tawanda Chirewa,38,0,0.0
+651,Tom Edozie,37,0,0.0
+651,Tom Edozie,38,0,0.0
+652,Enso González Medina,37,0,0.0
+652,Enso González Medina,38,0,0.0
+653,Joe Hodge,37,0,0.0
+653,Joe Hodge,38,0,0.0
+654,Jørgen Strand Larsen,37,60,2.0
+654,Jørgen Strand Larsen,38,76,2.0
+655,Fábio Soares Silva,37,0,0.0
+655,Fábio Soares Silva,38,0,0.0
+656,Saša Kalajdžić,37,0,0.0
+656,Saša Kalajdžić,38,0,0.0
+657,Leon Chiwome,37,0,0.0
+657,Leon Chiwome,38,0,0.0
+658,Nathan Fraser,37,0,0.0
+658,Nathan Fraser,38,0,0.0
+659,Kyle Walker-Peters,34,90,2.0
+659,Kyle Walker-Peters,35,64,1.0
+659,Kyle Walker-Peters,36,0,0.0
+659,Kyle Walker-Peters,37,0,0.0
+659,Kyle Walker-Peters,38,90,6.0
+661,Hugo Ekitiké,34,0,0.0
+661,Hugo Ekitiké,35,0,0.0
+661,Hugo Ekitiké,36,0,0.0
+661,Hugo Ekitiké,37,0,0.0
+661,Hugo Ekitiké,38,0,0.0
+662,Cristhian Mosquera,37,90,6.0
+662,Cristhian Mosquera,38,90,4.0
+663,Jhon Arias,37,0,0.0
+663,Jhon Arias,38,0,0.0
+664,Benjamin Lecomte,34,0,0.0
+664,Benjamin Lecomte,35,0,0.0
+664,Benjamin Lecomte,36,0,0.0
+664,Benjamin Lecomte,37,0,0.0
+664,Benjamin Lecomte,38,0,0.0
+666,Viktor Gyökeres,37,17,1.0
+666,Viktor Gyökeres,38,7,1.0
+667,Adam Aznou,34,0,0.0
+667,Adam Aznou,35,0,0.0
+667,Adam Aznou,36,0,0.0
+667,Adam Aznou,37,0,0.0
+667,Adam Aznou,38,0,0.0
+668,Granit Xhaka,34,90,1.0
+668,Granit Xhaka,35,90,9.0
+668,Granit Xhaka,36,90,5.0
+668,Granit Xhaka,37,90,2.0
+668,Granit Xhaka,38,90,1.0
+669,Dan Ndoye,34,0,0.0
+669,Dan Ndoye,35,0,0.0
+669,Dan Ndoye,36,0,0.0
+669,Dan Ndoye,37,0,0.0
+669,Dan Ndoye,38,0,0.0
+670,Robin Roefs,34,90,0.0
+670,Robin Roefs,35,90,3.0
+670,Robin Roefs,36,90,6.0
+670,Robin Roefs,37,90,3.0
+670,Robin Roefs,38,90,2.0
+671,Callum Wilson,34,9,4.0
+671,Callum Wilson,35,25,1.0
+671,Callum Wilson,36,5,1.0
+671,Callum Wilson,37,90,2.0
+671,Callum Wilson,38,45,5.0
+673,João Maria Lobo Alves Palhares Costa Palhinha Gonçalves,34,28,9.0
+673,João Maria Lobo Alves Palhares Costa Palhinha Gonçalves,35,90,2.0
+673,João Maria Lobo Alves Palhares Costa Palhinha Gonçalves,36,90,3.0
+673,João Maria Lobo Alves Palhares Costa Palhinha Gonçalves,37,68,4.0
+673,João Maria Lobo Alves Palhares Costa Palhinha Gonçalves,38,90,12.0
+674,Aaron Ramsdale,34,0,0.0
+674,Aaron Ramsdale,35,0,0.0
+674,Aaron Ramsdale,36,0,0.0
+674,Aaron Ramsdale,37,0,0.0
+674,Aaron Ramsdale,38,0,0.0
+675,Angus Gunn,34,0,0.0
+675,Angus Gunn,35,0,0.0
+675,Angus Gunn,36,0,0.0
+675,Angus Gunn,37,0,0.0
+675,Angus Gunn,38,0,0.0
+677,Evann Guessand,37,1,1.0
+677,Evann Guessand,38,28,1.0
+678,Arthur Masuaku,34,0,0.0
+678,Arthur Masuaku,35,0,0.0
+678,Arthur Masuaku,36,0,0.0
+678,Arthur Masuaku,37,0,0.0
+678,Arthur Masuaku,38,0,0.0
+679,Mads Hermansen,34,90,2.0
+679,Mads Hermansen,35,90,2.0
+679,Mads Hermansen,36,90,2.0
+679,Mads Hermansen,37,90,5.0
+679,Mads Hermansen,38,90,7.0
+681,Benjamin Sesko,34,87,8.0
+681,Benjamin Sesko,35,45,5.0
+681,Benjamin Sesko,36,0,0.0
+681,Benjamin Sesko,37,0,0.0
+681,Benjamin Sesko,38,0,0.0
+682,David Møller Wolfe,37,84,2.0
+682,David Møller Wolfe,38,73,2.0
+683,Omar Alderete,34,90,0.0
+683,Omar Alderete,35,90,4.0
+683,Omar Alderete,36,90,8.0
+683,Omar Alderete,37,22,1.0
+683,Omar Alderete,38,0,0.0
+684,Malick Thiaw,34,90,2.0
+684,Malick Thiaw,35,90,2.0
+684,Malick Thiaw,36,90,2.0
+684,Malick Thiaw,37,90,2.0
+684,Malick Thiaw,38,90,1.0
+686,Rio Ngumoha,34,0,0.0
+686,Rio Ngumoha,35,15,1.0
+686,Rio Ngumoha,36,66,6.0
+686,Rio Ngumoha,37,90,2.0
+686,Rio Ngumoha,38,72,2.0
+688,James Wright,34,0,0.0
+688,James Wright,35,0,0.0
+688,James Wright,36,0,0.0
+688,James Wright,37,0,0.0
+688,James Wright,38,0,0.0
+689,Seung-Soo Park,34,0,0.0
+689,Seung-Soo Park,35,0,0.0
+689,Seung-Soo Park,36,0,0.0
+689,Seung-Soo Park,37,0,0.0
+689,Seung-Soo Park,38,0,0.0
+690,Rio Cardines,37,0,0.0
+690,Rio Cardines,38,90,2.0
+692,Giovanni Leoni,34,0,0.0
+692,Giovanni Leoni,35,0,0.0
+692,Giovanni Leoni,36,0,0.0
+692,Giovanni Leoni,37,0,0.0
+692,Giovanni Leoni,38,0,0.0
+693,Omari Hutchinson,34,66,3.0
+693,Omari Hutchinson,35,10,1.0
+693,Omari Hutchinson,36,26,1.0
+693,Omari Hutchinson,37,69,2.0
+693,Omari Hutchinson,38,77,5.0
+694,Nordi Mukiele,34,90,0.0
+694,Nordi Mukiele,35,90,11.0
+694,Nordi Mukiele,36,90,6.0
+694,Nordi Mukiele,37,90,2.0
+694,Nordi Mukiele,38,90,4.0
+695,Jackson Tchatchoua,37,0,0.0
+695,Jackson Tchatchoua,38,0,0.0
+696,Arnaud Kalimuendo,34,0,0.0
+696,Arnaud Kalimuendo,35,0,0.0
+696,Arnaud Kalimuendo,36,0,0.0
+696,Arnaud Kalimuendo,37,0,0.0
+696,Arnaud Kalimuendo,38,0,0.0
+699,Douglas Luiz Soares de Paulo,34,16,0.0
+699,Douglas Luiz Soares de Paulo,35,0,0.0
+699,Douglas Luiz Soares de Paulo,36,10,1.0
+699,Douglas Luiz Soares de Paulo,37,1,1.0
+699,Douglas Luiz Soares de Paulo,38,72,2.0
+700,Max Dowman,37,0,0.0
+700,Max Dowman,38,61,3.0
+701,Triston Rowe,34,0,0.0
+701,Triston Rowe,35,0,0.0
+701,Triston Rowe,36,0,0.0
+701,Triston Rowe,37,0,0.0
+701,Triston Rowe,38,0,0.0
+702,Bradley Burrowes,34,0,0.0
+702,Bradley Burrowes,35,0,0.0
+702,Bradley Burrowes,36,0,0.0
+702,Bradley Burrowes,37,0,0.0
+702,Bradley Burrowes,38,0,0.0
+703,Sam Proctor,34,0,0.0
+703,Sam Proctor,35,0,0.0
+703,Sam Proctor,36,0,0.0
+703,Sam Proctor,37,0,0.0
+703,Sam Proctor,38,0,0.0
+704,Tyler Onyango,34,0,0.0
+704,Tyler Onyango,35,0,0.0
+704,Tyler Onyango,36,0,0.0
+704,Tyler Onyango,37,0,0.0
+704,Tyler Onyango,38,0,0.0
+705,Elijah Campbell,34,0,0.0
+705,Elijah Campbell,35,0,0.0
+705,Elijah Campbell,36,0,0.0
+705,Elijah Campbell,37,0,0.0
+705,Elijah Campbell,38,0,0.0
+707,Tyler Dibling,34,0,0.0
+707,Tyler Dibling,35,0,0.0
+707,Tyler Dibling,36,0,0.0
+707,Tyler Dibling,37,0,0.0
+707,Tyler Dibling,38,0,0.0
+708,Mateus Gonçalo Espanha Fernandes,34,90,2.0
+708,Mateus Gonçalo Espanha Fernandes,35,90,4.0
+708,Mateus Gonçalo Espanha Fernandes,36,90,2.0
+708,Mateus Gonçalo Espanha Fernandes,37,90,4.0
+708,Mateus Gonçalo Espanha Fernandes,38,90,9.0
+709,Ladislav Krejcí,37,90,2.0
+709,Ladislav Krejcí,38,65,6.0
+710,Travis Patterson,34,0,0.0
+710,Travis Patterson,35,0,0.0
+710,Travis Patterson,36,0,0.0
+710,Travis Patterson,37,0,0.0
+710,Travis Patterson,38,0,0.0
+711,Andre Harriman-Annous,37,0,0.0
+711,Andre Harriman-Annous,38,0,0.0
+712,Yéremy Pino Santos,37,45,1.0
+712,Yéremy Pino Santos,38,45,4.0
+714,Nick Woltemade,34,15,1.0
+714,Nick Woltemade,35,0,0.0
+714,Nick Woltemade,36,60,2.0
+714,Nick Woltemade,37,74,8.0
+714,Nick Woltemade,38,77,2.0
+715,John Victor Maciel Furtado,34,0,0.0
+715,John Victor Maciel Furtado,35,0,0.0
+715,John Victor Maciel Furtado,36,0,0.0
+715,John Victor Maciel Furtado,37,0,0.0
+715,John Victor Maciel Furtado,38,0,0.0
+716,Nicolò Savona,34,0,0.0
+716,Nicolò Savona,35,0,0.0
+716,Nicolò Savona,36,0,0.0
+716,Nicolò Savona,37,0,0.0
+716,Nicolò Savona,38,0,0.0
+717,Xavi Simons,34,62,3.0
+717,Xavi Simons,35,0,0.0
+717,Xavi Simons,36,0,0.0
+717,Xavi Simons,37,0,0.0
+717,Xavi Simons,38,0,0.0
+718,Soungoutou Magassa,34,0,0.0
+718,Soungoutou Magassa,35,2,1.0
+718,Soungoutou Magassa,36,0,0.0
+718,Soungoutou Magassa,37,0,0.0
+718,Soungoutou Magassa,38,0,0.0
+719,Victor Lindelöf,34,0,0.0
+719,Victor Lindelöf,35,90,1.0
+719,Victor Lindelöf,36,73,1.0
+719,Victor Lindelöf,37,45,1.0
+719,Victor Lindelöf,38,72,2.0
+720,Tolu Arokodare,37,18,1.0
+720,Tolu Arokodare,38,24,1.0
+723,Jaydee Canvot,37,90,3.0
+723,Jaydee Canvot,38,0,0.0
+724,Lutsharel Geertruida,34,0,0.0
+724,Lutsharel Geertruida,35,0,0.0
+724,Lutsharel Geertruida,36,90,6.0
+724,Lutsharel Geertruida,37,90,2.0
+724,Lutsharel Geertruida,38,90,1.0
+725,Piero Hincapié,37,18,1.0
+725,Piero Hincapié,38,90,2.0
+726,Randal Kolo Muani,34,45,1.0
+726,Randal Kolo Muani,35,66,1.0
+726,Randal Kolo Muani,36,90,2.0
+726,Randal Kolo Muani,37,68,2.0
+726,Randal Kolo Muani,38,17,1.0
+727,Samuel Chukwueze,34,75,3.0
+727,Samuel Chukwueze,35,63,2.0
+727,Samuel Chukwueze,36,61,2.0
+727,Samuel Chukwueze,37,11,1.0
+727,Samuel Chukwueze,38,0,0.0
+728,Merlin Röhl,34,0,0.0
+728,Merlin Röhl,35,90,5.0
+728,Merlin Röhl,36,79,2.0
+728,Merlin Röhl,37,87,9.0
+728,Merlin Röhl,38,61,2.0
+729,Luis Eduardo Soares da Silva,34,0,0.0
+729,Luis Eduardo Soares da Silva,35,0,0.0
+729,Luis Eduardo Soares da Silva,36,0,0.0
+729,Luis Eduardo Soares da Silva,37,0,0.0
+729,Luis Eduardo Soares da Silva,38,0,0.0
+730,Brian Brobbey,34,90,2.0
+730,Brian Brobbey,35,71,1.0
+730,Brian Brobbey,36,90,2.0
+730,Brian Brobbey,37,76,7.0
+730,Brian Brobbey,38,60,5.0
+731,Kevin Santos Lopes de Macedo,34,0,0.0
+731,Kevin Santos Lopes de Macedo,35,0,0.0
+731,Kevin Santos Lopes de Macedo,36,28,1.0
+731,Kevin Santos Lopes de Macedo,37,45,1.0
+731,Kevin Santos Lopes de Macedo,38,59,4.0
+732,Christantus Uche,37,0,0.0
+732,Christantus Uche,38,0,0.0
+733,Senne Lammens,34,90,3.0
+733,Senne Lammens,35,90,2.0
+733,Senne Lammens,36,90,9.0
+733,Senne Lammens,37,90,1.0
+733,Senne Lammens,38,90,6.0
+734,Dilane Bakwa,34,0,0.0
+734,Dilane Bakwa,35,79,7.0
+734,Dilane Bakwa,36,63,3.0
+734,Dilane Bakwa,37,20,1.0
+734,Dilane Bakwa,38,0,0.0
+735,Bertrand Traoré,34,0,0.0
+735,Bertrand Traoré,35,0,0.0
+735,Bertrand Traoré,36,0,0.0
+735,Bertrand Traoré,37,0,0.0
+735,Bertrand Traoré,38,0,0.0
+737,Jonah Kusi-Asare,34,0,0.0
+737,Jonah Kusi-Asare,35,12,1.0
+737,Jonah Kusi-Asare,36,7,1.0
+737,Jonah Kusi-Asare,37,0,0.0
+737,Jonah Kusi-Asare,38,0,0.0
+738,Lukasz Fabianski,34,0,0.0
+738,Lukasz Fabianski,35,0,0.0
+738,Lukasz Fabianski,36,0,0.0
+738,Lukasz Fabianski,37,0,0.0
+738,Lukasz Fabianski,38,0,0.0
+745,Jun'ai Byfield,34,0,0.0
+745,Jun'ai Byfield,35,0,0.0
+745,Jun'ai Byfield,36,0,0.0
+745,Jun'ai Byfield,37,0,0.0
+745,Jun'ai Byfield,38,0,0.0
+746,Kieran Morrison,34,0,0.0
+746,Kieran Morrison,35,0,0.0
+746,Kieran Morrison,36,0,0.0
+746,Kieran Morrison,37,0,0.0
+746,Kieran Morrison,38,0,0.0
+747,Ezra Mayers,34,0,0.0
+747,Ezra Mayers,35,0,0.0
+747,Ezra Mayers,36,0,0.0
+747,Ezra Mayers,37,0,0.0
+747,Ezra Mayers,38,0,0.0
+748,Josh Dasilva,34,0,0.0
+748,Josh Dasilva,35,1,1.0
+748,Josh Dasilva,36,0,0.0
+748,Josh Dasilva,37,1,1.0
+748,Josh Dasilva,38,0,0.0
+749,Mateus Mané,37,90,11.0
+749,Mateus Mané,38,90,2.0
+750,James Rowswell,34,0,0.0
+750,James Rowswell,35,0,0.0
+750,James Rowswell,36,0,0.0
+750,James Rowswell,37,0,0.0
+750,James Rowswell,38,0,0.0
+751,Yusuf Akhamrich,34,0,0.0
+751,Yusuf Akhamrich,35,0,0.0
+751,Yusuf Akhamrich,36,0,0.0
+751,Yusuf Akhamrich,37,0,0.0
+751,Yusuf Akhamrich,38,0,0.0
+752,Airidas Golambeckis,34,0,0.0
+752,Airidas Golambeckis,35,0,0.0
+752,Airidas Golambeckis,36,0,0.0
+752,Airidas Golambeckis,37,0,0.0
+752,Airidas Golambeckis,38,0,0.0
+753,John Ruddy,34,0,0.0
+753,John Ruddy,35,0,0.0
+753,John Ruddy,36,0,0.0
+753,John Ruddy,37,0,0.0
+753,John Ruddy,38,0,0.0
+754,George Hemmings,34,0,0.0
+754,George Hemmings,35,0,0.0
+754,George Hemmings,36,0,0.0
+754,George Hemmings,37,0,0.0
+754,George Hemmings,38,0,0.0
+755,Shea Lacey,34,0,0.0
+755,Shea Lacey,35,0,0.0
+755,Shea Lacey,36,0,0.0
+755,Shea Lacey,37,0,0.0
+755,Shea Lacey,38,28,1.0
+757,Ronnie Hollingshead,34,0,0.0
+757,Ronnie Hollingshead,35,0,0.0
+757,Ronnie Hollingshead,36,0,0.0
+757,Ronnie Hollingshead,37,0,0.0
+757,Ronnie Hollingshead,38,0,0.0
+758,Mohamadou Kanté,34,0,0.0
+758,Mohamadou Kanté,35,0,0.0
+758,Mohamadou Kanté,36,0,0.0
+758,Mohamadou Kanté,37,27,0.0
+758,Mohamadou Kanté,38,2,1.0
+759,Marli Salmon,37,0,0.0
+759,Marli Salmon,38,0,0.0
+760,Wellity Lucky,34,0,0.0
+760,Wellity Lucky,35,0,0.0
+760,Wellity Lucky,36,0,0.0
+760,Wellity Lucky,37,0,0.0
+760,Wellity Lucky,38,0,0.0
+762,Joél Drakes-Thomas,37,0,0.0
+762,Joél Drakes-Thomas,38,0,0.0
+765,Leo Shahar,34,0,0.0
+765,Leo Shahar,35,0,0.0
+765,Leo Shahar,36,0,0.0
+765,Leo Shahar,37,0,0.0
+765,Leo Shahar,38,0,0.0
+766,Saheed Olagunju,37,0,0.0
+766,Saheed Olagunju,38,0,0.0
+767,Luke Rawlings,37,0,0.0
+767,Luke Rawlings,38,0,0.0
+768,Leon Routh,34,0,0.0
+768,Leon Routh,35,0,0.0
+768,Leon Routh,36,0,0.0
+768,Leon Routh,37,0,0.0
+768,Leon Routh,38,0,0.0
+769,Bendito Mantato,34,0,0.0
+769,Bendito Mantato,35,0,0.0
+769,Bendito Mantato,36,0,0.0
+769,Bendito Mantato,37,0,0.0
+769,Bendito Mantato,38,0,0.0
+770,Seth Ridgeon,34,0,0.0
+770,Seth Ridgeon,35,0,0.0
+770,Seth Ridgeon,36,0,0.0
+770,Seth Ridgeon,37,0,0.0
+770,Seth Ridgeon,38,0,0.0
+771,Tyler Fletcher,34,0,0.0
+771,Tyler Fletcher,35,0,0.0
+771,Tyler Fletcher,36,0,0.0
+771,Tyler Fletcher,37,0,0.0
+771,Tyler Fletcher,38,16,1.0
+772,Sam Alabi,34,0,0.0
+772,Sam Alabi,35,0,0.0
+772,Sam Alabi,36,0,0.0
+772,Sam Alabi,37,0,0.0
+772,Sam Alabi,38,0,0.0
+773,Dean Benamar,37,0,0.0
+773,Dean Benamar,38,0,0.0
+774,Jenson Jones,34,0,0.0
+774,Jenson Jones,35,0,0.0
+774,Jenson Jones,36,0,0.0
+774,Jenson Jones,37,0,0.0
+774,Jenson Jones,38,0,0.0
+775,Tymur Tutierov,34,0,0.0
+775,Tymur Tutierov,35,0,0.0
+775,Tymur Tutierov,36,0,0.0
+775,Tymur Tutierov,37,0,0.0
+775,Tymur Tutierov,38,0,0.0
+777,Temple Ojinnaka,37,0,0.0
+777,Temple Ojinnaka,38,0,0.0
+778,Ethan Sutherland,37,0,0.0
+778,Ethan Sutherland,38,0,0.0
+779,Braiden Graham,34,0,0.0
+779,Braiden Graham,35,0,0.0
+779,Braiden Graham,36,0,0.0
+779,Braiden Graham,37,0,0.0
+779,Braiden Graham,38,0,0.0
+780,Ben Casey,37,0,0.0
+780,Ben Casey,38,0,0.0
+781,TJ Carroll,34,0,0.0
+781,TJ Carroll,35,0,0.0
+781,TJ Carroll,36,0,0.0
+781,TJ Carroll,37,0,0.0
+781,TJ Carroll,38,0,0.0
+785,Pablo Felipe Pereira de Jesus,34,80,2.0
+785,Pablo Felipe Pereira de Jesus,35,90,2.0
+785,Pablo Felipe Pereira de Jesus,36,23,1.0
+785,Pablo Felipe Pereira de Jesus,37,27,1.0
+785,Pablo Felipe Pereira de Jesus,38,45,1.0
+786,Alfie McNally,34,0,0.0
+786,Alfie McNally,35,0,0.0
+786,Alfie McNally,36,0,0.0
+786,Alfie McNally,37,0,0.0
+786,Alfie McNally,38,0,0.0
+788,Godwill Kukonki,34,0,0.0
+788,Godwill Kukonki,35,0,0.0
+788,Godwill Kukonki,36,0,0.0
+788,Godwill Kukonki,37,0,0.0
+788,Godwill Kukonki,38,0,0.0
+790,Lucá Williams-Barnett,34,0,0.0
+790,Lucá Williams-Barnett,35,0,0.0
+790,Lucá Williams-Barnett,36,0,0.0
+790,Lucá Williams-Barnett,37,0,0.0
+790,Lucá Williams-Barnett,38,0,0.0
+791,Valentín Castellanos,34,78,1.0
+791,Valentín Castellanos,35,64,1.0
+791,Valentín Castellanos,36,66,1.0
+791,Valentín Castellanos,37,64,6.0
+791,Valentín Castellanos,38,87,8.0
+792,Alysson Edward Franco da Rocha dos Santos,34,0,0.0
+792,Alysson Edward Franco da Rocha dos Santos,35,0,0.0
+792,Alysson Edward Franco da Rocha dos Santos,36,0,0.0
+792,Alysson Edward Franco da Rocha dos Santos,37,0,0.0
+792,Alysson Edward Franco da Rocha dos Santos,38,0,0.0
+793,George King,37,0,0.0
+793,George King,38,0,0.0
+796,Conor Gallagher,34,90,4.0
+796,Conor Gallagher,35,90,9.0
+796,Conor Gallagher,36,90,2.0
+796,Conor Gallagher,37,90,2.0
+796,Conor Gallagher,38,81,3.0
+797,Kaye Furo,34,0,0.0
+797,Kaye Furo,35,1,1.0
+797,Kaye Furo,36,0,0.0
+797,Kaye Furo,37,0,0.0
+797,Kaye Furo,38,0,0.0
+798,Danny Imray,37,0,0.0
+798,Danny Imray,38,0,0.0
+800,Djiamgone Jocelin Ta Bi,34,0,0.0
+800,Djiamgone Jocelin Ta Bi,35,0,0.0
+800,Djiamgone Jocelin Ta Bi,36,0,0.0
+800,Djiamgone Jocelin Ta Bi,37,0,0.0
+800,Djiamgone Jocelin Ta Bi,38,0,0.0
+802,Keiber Lamadrid,34,0,0.0
+802,Keiber Lamadrid,35,0,0.0
+802,Keiber Lamadrid,36,0,0.0
+802,Keiber Lamadrid,37,0,0.0
+802,Keiber Lamadrid,38,0,0.0
+804,João Victor de Souza Menezes,34,0,0.0
+804,João Victor de Souza Menezes,35,0,0.0
+804,João Victor de Souza Menezes,36,0,0.0
+804,João Victor de Souza Menezes,37,0,0.0
+804,João Victor de Souza Menezes,38,0,0.0
+805,Lorenzo Lucca,34,0,0.0
+805,Lorenzo Lucca,35,0,0.0
+805,Lorenzo Lucca,36,7,1.0
+805,Lorenzo Lucca,37,0,0.0
+805,Lorenzo Lucca,38,0,0.0
+808,Tammy Abraham,34,10,1.0
+808,Tammy Abraham,35,59,1.0
+808,Tammy Abraham,36,0,0.0
+808,Tammy Abraham,37,0,0.0
+808,Tammy Abraham,38,0,0.0
+809,Jerome Abbey,37,0,0.0
+809,Jerome Abbey,38,16,1.0
+810,Luka Bentt,34,0,0.0
+810,Luka Bentt,35,0,0.0
+810,Luka Bentt,36,0,0.0
+810,Luka Bentt,37,0,0.0
+810,Luka Bentt,38,0,0.0
+811,Rio Kyerematen,34,0,0.0
+811,Rio Kyerematen,35,0,0.0
+811,Rio Kyerematen,36,0,0.0
+811,Rio Kyerematen,37,0,0.0
+811,Rio Kyerematen,38,0,0.0
+812,Melker Ellborg,34,0,0.0
+812,Melker Ellborg,35,0,0.0
+812,Melker Ellborg,36,0,0.0
+812,Melker Ellborg,37,0,0.0
+812,Melker Ellborg,38,0,0.0
+813,Nilson Angulo,34,0,0.0
+813,Nilson Angulo,35,0,0.0
+813,Nilson Angulo,36,11,1.0
+813,Nilson Angulo,37,76,2.0
+813,Nilson Angulo,38,60,1.0
+814,Luca Netz,34,23,1.0
+814,Luca Netz,35,90,4.0
+814,Luca Netz,36,82,2.0
+814,Luca Netz,37,83,1.0
+814,Luca Netz,38,27,1.0
+815,Axel Disasi,34,90,3.0
+815,Axel Disasi,35,90,1.0
+815,Axel Disasi,36,84,2.0
+815,Axel Disasi,37,90,1.0
+815,Axel Disasi,38,90,6.0
+816,Angel Gomes,37,0,0.0
+816,Angel Gomes,38,65,2.0
+817,Adam Armstrong,37,71,2.0
+817,Adam Armstrong,38,73,7.0
+818,James Wilson,34,0,0.0
+818,James Wilson,35,0,0.0
+818,James Wilson,36,0,0.0
+818,James Wilson,37,0,0.0
+818,James Wilson,38,0,0.0
+819,Ollie Shield,34,0,0.0
+819,Ollie Shield,35,0,0.0
+819,Ollie Shield,36,0,0.0
+819,Ollie Shield,37,0,0.0
+819,Ollie Shield,38,0,0.0
+821,Jack Whittaker,35,0,0.0
+821,Jack Whittaker,36,0,0.0
+821,Jack Whittaker,37,0,0.0
+821,Jack Whittaker,38,0,0.0
+822,Jaydon Jones,35,0,0.0
+822,Jaydon Jones,36,0,0.0
+822,Jaydon Jones,37,0,0.0
+822,Jaydon Jones,38,0,0.0
+823,Joshua Stephenson,36,0,0.0
+823,Joshua Stephenson,37,0,0.0
+823,Joshua Stephenson,38,0,0.0
+824,Conor McManus,36,0,0.0
+824,Conor McManus,37,0,0.0
+824,Conor McManus,38,0,0.0
+825,Finlay Herrick,36,0,0.0
+825,Finlay Herrick,37,0,0.0
+825,Finlay Herrick,38,0,0.0
+826,Riley Owen,37,0,0.0
+826,Riley Owen,38,0,0.0
+827,Jim Thwaites,38,0,0.0
+828,Alfie Brooks,38,0,0.0

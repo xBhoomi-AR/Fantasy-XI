@@ -1,0 +1,44 @@
+value
+fixture_count
+has_home_fixture
+has_away_fixture
+team_Arsenal
+team_Aston Villa
+team_Bournemouth
+team_Brentford
+team_Brighton
+team_Burnley
+team_Chelsea
+team_Crystal Palace
+team_Everton
+team_Fulham
+team_Leeds
+team_Liverpool
+team_Man City
+team_Man Utd
+team_Newcastle
+team_Nott'm Forest
+team_Spurs
+team_Sunderland
+team_West Ham
+team_Wolves
+opponent_1
+opponent_2
+opponent_3
+opponent_4
+opponent_5
+opponent_6
+opponent_7
+opponent_8
+opponent_9
+opponent_10
+opponent_11
+opponent_12
+opponent_13
+opponent_14
+opponent_15
+opponent_16
+opponent_17
+opponent_18
+opponent_19
+opponent_20

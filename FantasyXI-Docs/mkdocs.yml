@@ -1,0 +1,17 @@
+site_name: FantasyXI Documentation
+
+theme:
+  name: material
+
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: purple
+
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+
+nav:
+  - Home: index.md
+  - Overview: overview.md

@@ -1,0 +1,120 @@
+Prediction Range + Calibration Audit
+====================================
+
+Joined rows: 29,675
+Note: the current prediction pipeline clips predictions to the range 0-20, so the predicted maximum is bounded by that clipping rule.
+
+Raw Range:
+Actual target_points min/max: -3.000 / 24.000
+Predicted_points min/max: 0.000 / 13.486
+
+Distribution:
+           mean  median   std   p25   p75   p90   p95    p99    min    max
+metric                                                                    
+actual    1.155   0.000 2.351 0.000 1.000 4.000 6.000 11.000 -3.000 24.000
+predicted 2.097   0.525 2.611 0.070 4.105 6.040 7.205  9.615  0.000 13.486
+
+High-Score Compression by Actual Range:
+metric     n  actual_mean  predicted_mean  actual_min  actual_max  predicted_min  predicted_max   mae
+   0-2 25461        0.356           1.461      -3.000       2.000          0.000         13.245 1.125
+   3-5  2154        3.748           5.252       3.000       5.000          0.093         11.491 1.840
+   6-9  1550        7.077           6.363       6.000       9.000          0.175         12.457 1.742
+   10+   510       12.139           7.597      10.000      24.000          2.725         13.486 4.584
+
+High-Scorer Recovery for Actual 10+ Players:
+N: 510
+Mean predicted_points: 7.597
+Median predicted_points: 7.356
+Maximum predicted_points: 13.486
+Predicted >= 8: 40.39%
+Predicted >= 10: 15.29%
+Predicted >= 12: 1.76%
+
+Actual Top-10 Players by Gameweek:
+Mean predicted_points of actual top 10: 7.976
+Median predicted_points of actual top 10: 8.018
+Mean count with prediction >= 8: 4.79 / 10
+
+Prediction Deciles:
+  metric    n  predicted_mean  actual_mean  predicted_min  predicted_max
+decile_1 5935           0.005        0.006          0.000          0.034
+decile_2 2968           0.071        0.009          0.034          0.116
+decile_3 2967           0.180        0.022          0.116          0.257
+decile_4 2968           0.373        0.037          0.257          0.525
+decile_5 2967           0.879        0.151          0.525          1.445
+decile_6 2967           2.463        0.943          1.446          3.443
+decile_7 2968           4.091        2.306          3.443          4.686
+decile_8 2967           5.317        3.148          4.686          6.040
+decile_9 2968           7.590        4.927          6.041         13.486
+
+Actual GW1 top 10 and predictions:
+actual_rank, player_id, player, position, actual_points, predicted_points
+1, 531, Ward-Prowse, DEF, 17.0, 6.351
+2, 430, Dennis, FWD, 13.0, 10.600
+3, 525, Kudus, FWD, 13.0, 8.512
+4, 597, Lewis-Skelly, FWD, 13.0, 8.406
+5, 7, Jorginho, DEF, 13.0, 7.006
+6, 410, Longstaff, DEF, 11.0, 8.202
+7, 1, Fábio Vieira, GK, 10.0, 7.345
+8, 582, O'Brien, MID, 10.0, 6.645
+9, 164, D.D.Fofana, MID, 10.0, 6.492
+10, 427, C.Miguel, MID, 10.0, 6.271
+
+Actual GW10 top 10 and predictions:
+actual_rank, player_id, player, position, actual_points, predicted_points
+1, 169, Gallagher, MID, 16.0, 10.305
+2, 328, M.Salah, MID, 14.0, 6.331
+3, 430, Dennis, FWD, 13.0, 10.716
+4, 21, Tierney, MID, 13.0, 7.639
+5, 457, Bree, MID, 12.0, 7.380
+6, 5, Hein, DEF, 12.0, 6.825
+7, 390, A.Murphy, MID, 11.0, 6.969
+8, 417, Tonali, MID, 10.0, 6.860
+9, 381, McTominay, MID, 10.0, 6.849
+10, 329, Mac Allister, MID, 10.0, 5.796
+
+Actual GW20 top 10 and predictions:
+actual_rank, player_id, player, position, actual_points, predicted_points
+1, 136, Mitoma, FWD, 17.0, 11.818
+2, 684, Hardy, DEF, 17.0, 11.239
+3, 21, Tierney, MID, 17.0, 9.594
+4, 54, Rogers, MID, 15.0, 8.204
+5, 166, Dewsbury-Hall, MID, 12.0, 5.702
+6, 749, Postecoglou, FWD, 12.0, 4.760
+7, 642, André, MID, 11.0, 10.326
+8, 237, Y. Chermiti, MID, 11.0, 8.525
+9, 633, Merino, DEF, 11.0, 7.281
+10, 125, Gross, MID, 11.0, 5.032
+
+Actual GW30 top 10 and predictions:
+actual_rank, player_id, player, position, actual_points, predicted_points
+1, 606, Alves, DEF, 12.0, 6.308
+2, 55, Sinisalo, MID, 12.0, 4.879
+3, 485, Devine, MID, 11.0, 10.263
+4, 387, Shaw, MID, 11.0, 8.025
+5, 723, Sadi, DEF, 11.0, 7.002
+6, 146, Verbruggen, DEF, 11.0, 6.767
+7, 74, O.Dango, DEF, 11.0, 6.606
+8, 6, J.Timber, DEF, 11.0, 6.558
+9, 261, Baggott, DEF, 10.0, 7.551
+10, 507, Veliz, DEF, 10.0, 7.263
+
+Actual GW38 top 10 and predictions:
+actual_rank, player_id, player, position, actual_points, predicted_points
+1, 441, Panzo, DEF, 18.0, 8.860
+2, 320, Endo, DEF, 15.0, 9.292
+3, 449, Yates, MID, 14.0, 4.737
+4, 64, Cook, FWD, 13.0, 7.931
+5, 673, Fitzgerald, MID, 12.0, 7.826
+6, 624, Begovic, FWD, 12.0, 5.590
+7, 18, Saliba, MID, 11.0, 7.727
+8, 568, Muric, DEF, 10.0, 9.080
+9, 388, Wan-Bissaka, MID, 10.0, 8.493
+10, 84, Travers, MID, 10.0, 7.062
+
+Calibration / Compression Check:
+Are predictions heavily compressed compared with actual points? No; predicted std is 1.111x actual std.
+Can the model meaningfully distinguish high-scoring players? Yes, with limitations; Prediction std / actual std = 1.111; top decile actual mean minus bottom decile actual mean = 4.921; actual 10+ players have mean prediction 7.597, with 40.39% predicted >= 8.
+Is compression severe enough to make predictions unsuitable for downstream RL ranking input? No, but calibration limitations should be understood.
+
+FINAL VERDICT: SAFE TO FREEZE

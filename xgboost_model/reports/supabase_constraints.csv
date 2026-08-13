@@ -1,0 +1,538 @@
+﻿table_schema,table_name,constraint_type,column_name,foreign_table_schema,foreign_table_name,foreign_column_name
+auth,audit_log_entries,CHECK,,,,
+auth,audit_log_entries,CHECK,,,,
+auth,audit_log_entries,PRIMARY KEY,id,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,CHECK,,,,
+auth,custom_oauth_providers,PRIMARY KEY,id,,,
+auth,custom_oauth_providers,UNIQUE,identifier,,,
+auth,flow_state,CHECK,,,,
+auth,flow_state,CHECK,,,,
+auth,flow_state,CHECK,,,,
+auth,flow_state,CHECK,,,,
+auth,flow_state,PRIMARY KEY,id,,,
+auth,identities,CHECK,,,,
+auth,identities,CHECK,,,,
+auth,identities,CHECK,,,,
+auth,identities,CHECK,,,,
+auth,identities,CHECK,,,,
+auth,identities,FOREIGN KEY,user_id,,,
+auth,identities,PRIMARY KEY,id,,,
+auth,identities,UNIQUE,provider,,,
+auth,identities,UNIQUE,provider_id,,,
+auth,instances,CHECK,,,,
+auth,instances,PRIMARY KEY,id,,,
+auth,mfa_amr_claims,CHECK,,,,
+auth,mfa_amr_claims,CHECK,,,,
+auth,mfa_amr_claims,CHECK,,,,
+auth,mfa_amr_claims,CHECK,,,,
+auth,mfa_amr_claims,CHECK,,,,
+auth,mfa_amr_claims,FOREIGN KEY,session_id,,,
+auth,mfa_amr_claims,PRIMARY KEY,id,,,
+auth,mfa_amr_claims,UNIQUE,authentication_method,,,
+auth,mfa_amr_claims,UNIQUE,session_id,,,
+auth,mfa_challenges,CHECK,,,,
+auth,mfa_challenges,CHECK,,,,
+auth,mfa_challenges,CHECK,,,,
+auth,mfa_challenges,CHECK,,,,
+auth,mfa_challenges,FOREIGN KEY,factor_id,,,
+auth,mfa_challenges,PRIMARY KEY,id,,,
+auth,mfa_factors,CHECK,,,,
+auth,mfa_factors,CHECK,,,,
+auth,mfa_factors,CHECK,,,,
+auth,mfa_factors,CHECK,,,,
+auth,mfa_factors,CHECK,,,,
+auth,mfa_factors,CHECK,,,,
+auth,mfa_factors,FOREIGN KEY,user_id,,,
+auth,mfa_factors,PRIMARY KEY,id,,,
+auth,mfa_factors,UNIQUE,last_challenged_at,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,CHECK,,,,
+auth,oauth_authorizations,FOREIGN KEY,client_id,,,
+auth,oauth_authorizations,FOREIGN KEY,user_id,,,
+auth,oauth_authorizations,PRIMARY KEY,id,,,
+auth,oauth_authorizations,UNIQUE,authorization_code,,,
+auth,oauth_authorizations,UNIQUE,authorization_id,,,
+auth,oauth_client_states,CHECK,,,,
+auth,oauth_client_states,CHECK,,,,
+auth,oauth_client_states,CHECK,,,,
+auth,oauth_client_states,PRIMARY KEY,id,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,CHECK,,,,
+auth,oauth_clients,PRIMARY KEY,id,,,
+auth,oauth_consents,CHECK,,,,
+auth,oauth_consents,CHECK,,,,
+auth,oauth_consents,CHECK,,,,
+auth,oauth_consents,CHECK,,,,
+auth,oauth_consents,CHECK,,,,
+auth,oauth_consents,CHECK,,,,
+auth,oauth_consents,CHECK,,,,
+auth,oauth_consents,CHECK,,,,
+auth,oauth_consents,FOREIGN KEY,client_id,,,
+auth,oauth_consents,FOREIGN KEY,user_id,,,
+auth,oauth_consents,PRIMARY KEY,id,,,
+auth,oauth_consents,UNIQUE,client_id,,,
+auth,oauth_consents,UNIQUE,user_id,,,
+auth,one_time_tokens,CHECK,,,,
+auth,one_time_tokens,CHECK,,,,
+auth,one_time_tokens,CHECK,,,,
+auth,one_time_tokens,CHECK,,,,
+auth,one_time_tokens,CHECK,,,,
+auth,one_time_tokens,CHECK,,,,
+auth,one_time_tokens,CHECK,,,,
+auth,one_time_tokens,CHECK,,,,
+auth,one_time_tokens,FOREIGN KEY,user_id,,,
+auth,one_time_tokens,PRIMARY KEY,id,,,
+auth,refresh_tokens,CHECK,,,,
+auth,refresh_tokens,FOREIGN KEY,session_id,,,
+auth,refresh_tokens,PRIMARY KEY,id,,,
+auth,refresh_tokens,UNIQUE,token,,,
+auth,saml_providers,CHECK,,,,
+auth,saml_providers,CHECK,,,,
+auth,saml_providers,CHECK,,,,
+auth,saml_providers,CHECK,,,,
+auth,saml_providers,CHECK,,,,
+auth,saml_providers,CHECK,,,,
+auth,saml_providers,CHECK,,,,
+auth,saml_providers,FOREIGN KEY,sso_provider_id,,,
+auth,saml_providers,PRIMARY KEY,id,,,
+auth,saml_providers,UNIQUE,entity_id,,,
+auth,saml_relay_states,CHECK,,,,
+auth,saml_relay_states,CHECK,,,,
+auth,saml_relay_states,CHECK,,,,
+auth,saml_relay_states,CHECK,,,,
+auth,saml_relay_states,FOREIGN KEY,flow_state_id,,,
+auth,saml_relay_states,FOREIGN KEY,sso_provider_id,,,
+auth,saml_relay_states,PRIMARY KEY,id,,,
+auth,sessions,CHECK,,,,
+auth,sessions,CHECK,,,,
+auth,sessions,CHECK,,,,
+auth,sessions,FOREIGN KEY,oauth_client_id,,,
+auth,sessions,FOREIGN KEY,user_id,,,
+auth,sessions,PRIMARY KEY,id,,,
+auth,sso_domains,CHECK,,,,
+auth,sso_domains,CHECK,,,,
+auth,sso_domains,CHECK,,,,
+auth,sso_domains,CHECK,,,,
+auth,sso_domains,FOREIGN KEY,sso_provider_id,,,
+auth,sso_domains,PRIMARY KEY,id,,,
+auth,sso_providers,CHECK,,,,
+auth,sso_providers,CHECK,,,,
+auth,sso_providers,PRIMARY KEY,id,,,
+auth,users,CHECK,,,,
+auth,users,CHECK,,,,
+auth,users,CHECK,,,,
+auth,users,CHECK,,,,
+auth,users,PRIMARY KEY,id,,,
+auth,users,UNIQUE,phone,,,
+auth,webauthn_challenges,CHECK,,,,
+auth,webauthn_challenges,CHECK,,,,
+auth,webauthn_challenges,CHECK,,,,
+auth,webauthn_challenges,CHECK,,,,
+auth,webauthn_challenges,CHECK,,,,
+auth,webauthn_challenges,CHECK,,,,
+auth,webauthn_challenges,FOREIGN KEY,user_id,,,
+auth,webauthn_challenges,PRIMARY KEY,id,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,CHECK,,,,
+auth,webauthn_credentials,FOREIGN KEY,user_id,,,
+auth,webauthn_credentials,PRIMARY KEY,id,,,
+processed,fixtures,CHECK,,,,
+processed,fixtures,CHECK,,,,
+processed,fixtures,CHECK,,,,
+processed,fixtures,CHECK,,,,
+processed,fixtures,CHECK,,,,
+processed,fixtures,FOREIGN KEY,away_team_id,processed,teams,team_id
+processed,fixtures,FOREIGN KEY,home_team_id,processed,teams,team_id
+processed,fixtures,PRIMARY KEY,fixture_id,processed,fixtures,fixture_id
+processed,fixtures,PRIMARY KEY,fixture_id,processed,fixtures,season
+processed,fixtures,PRIMARY KEY,season,processed,fixtures,season
+processed,fixtures,PRIMARY KEY,season,processed,fixtures,fixture_id
+processed,fixtures,UNIQUE,code,processed,fixtures,code
+processed,gameweeks,CHECK,,,,
+processed,gameweeks,CHECK,,,,
+processed,gameweeks,PRIMARY KEY,gameweek,processed,gameweeks,gameweek
+processed,gameweeks,PRIMARY KEY,gameweek,processed,gameweeks,season
+processed,gameweeks,PRIMARY KEY,season,processed,gameweeks,gameweek
+processed,gameweeks,PRIMARY KEY,season,processed,gameweeks,season
+processed,gameweeks,UNIQUE,gameweek,processed,gameweeks,gameweek
+processed,gameweeks,UNIQUE,gameweek,processed,gameweeks,season
+processed,gameweeks,UNIQUE,season,processed,gameweeks,gameweek
+processed,gameweeks,UNIQUE,season,processed,gameweeks,season
+processed,player_fbref_defending,CHECK,,,,
+processed,player_fbref_defending,CHECK,,,,
+processed,player_fbref_defending,CHECK,,,,
+processed,player_fbref_defending,FOREIGN KEY,player_id,processed,players,player_id
+processed,player_fbref_defending,PRIMARY KEY,fbref_name,processed,player_fbref_defending,season
+processed,player_fbref_defending,PRIMARY KEY,fbref_name,processed,player_fbref_defending,fbref_name
+processed,player_fbref_defending,PRIMARY KEY,fbref_name,processed,player_fbref_defending,squad
+processed,player_fbref_defending,PRIMARY KEY,season,processed,player_fbref_defending,fbref_name
+processed,player_fbref_defending,PRIMARY KEY,season,processed,player_fbref_defending,squad
+processed,player_fbref_defending,PRIMARY KEY,season,processed,player_fbref_defending,season
+processed,player_fbref_defending,PRIMARY KEY,squad,processed,player_fbref_defending,fbref_name
+processed,player_fbref_defending,PRIMARY KEY,squad,processed,player_fbref_defending,squad
+processed,player_fbref_defending,PRIMARY KEY,squad,processed,player_fbref_defending,season
+processed,player_fbref_defending,UNIQUE,fbref_name,processed,player_fbref_defending,squad
+processed,player_fbref_defending,UNIQUE,fbref_name,processed,player_fbref_defending,season
+processed,player_fbref_defending,UNIQUE,fbref_name,processed,player_fbref_defending,fbref_name
+processed,player_fbref_defending,UNIQUE,season,processed,player_fbref_defending,season
+processed,player_fbref_defending,UNIQUE,season,processed,player_fbref_defending,fbref_name
+processed,player_fbref_defending,UNIQUE,season,processed,player_fbref_defending,squad
+processed,player_fbref_defending,UNIQUE,squad,processed,player_fbref_defending,squad
+processed,player_fbref_defending,UNIQUE,squad,processed,player_fbref_defending,season
+processed,player_fbref_defending,UNIQUE,squad,processed,player_fbref_defending,fbref_name
+processed,player_fbref_goalkeeping,CHECK,,,,
+processed,player_fbref_goalkeeping,CHECK,,,,
+processed,player_fbref_goalkeeping,CHECK,,,,
+processed,player_fbref_goalkeeping,FOREIGN KEY,player_id,processed,players,player_id
+processed,player_fbref_goalkeeping,PRIMARY KEY,fbref_name,processed,player_fbref_goalkeeping,season
+processed,player_fbref_goalkeeping,PRIMARY KEY,fbref_name,processed,player_fbref_goalkeeping,squad
+processed,player_fbref_goalkeeping,PRIMARY KEY,fbref_name,processed,player_fbref_goalkeeping,fbref_name
+processed,player_fbref_goalkeeping,PRIMARY KEY,season,processed,player_fbref_goalkeeping,fbref_name
+processed,player_fbref_goalkeeping,PRIMARY KEY,season,processed,player_fbref_goalkeeping,squad
+processed,player_fbref_goalkeeping,PRIMARY KEY,season,processed,player_fbref_goalkeeping,season
+processed,player_fbref_goalkeeping,PRIMARY KEY,squad,processed,player_fbref_goalkeeping,squad
+processed,player_fbref_goalkeeping,PRIMARY KEY,squad,processed,player_fbref_goalkeeping,season
+processed,player_fbref_goalkeeping,PRIMARY KEY,squad,processed,player_fbref_goalkeeping,fbref_name
+processed,player_fbref_goalkeeping,UNIQUE,fbref_name,processed,player_fbref_goalkeeping,squad
+processed,player_fbref_goalkeeping,UNIQUE,fbref_name,processed,player_fbref_goalkeeping,season
+processed,player_fbref_goalkeeping,UNIQUE,fbref_name,processed,player_fbref_goalkeeping,fbref_name
+processed,player_fbref_goalkeeping,UNIQUE,season,processed,player_fbref_goalkeeping,season
+processed,player_fbref_goalkeeping,UNIQUE,season,processed,player_fbref_goalkeeping,squad
+processed,player_fbref_goalkeeping,UNIQUE,season,processed,player_fbref_goalkeeping,fbref_name
+processed,player_fbref_goalkeeping,UNIQUE,squad,processed,player_fbref_goalkeeping,season
+processed,player_fbref_goalkeeping,UNIQUE,squad,processed,player_fbref_goalkeeping,squad
+processed,player_fbref_goalkeeping,UNIQUE,squad,processed,player_fbref_goalkeeping,fbref_name
+processed,player_fbref_match_logs,CHECK,,,,
+processed,player_fbref_match_logs,CHECK,,,,
+processed,player_fbref_match_logs,CHECK,,,,
+processed,player_fbref_match_logs,PRIMARY KEY,id,processed,player_fbref_match_logs,id
+processed,player_fbref_match_logs,UNIQUE,fbref_player_id,processed,player_fbref_match_logs,matchup
+processed,player_fbref_match_logs,UNIQUE,fbref_player_id,processed,player_fbref_match_logs,season
+processed,player_fbref_match_logs,UNIQUE,fbref_player_id,processed,player_fbref_match_logs,fbref_player_id
+processed,player_fbref_match_logs,UNIQUE,fbref_player_id,processed,player_fbref_match_logs,gameweek_date
+processed,player_fbref_match_logs,UNIQUE,gameweek_date,processed,player_fbref_match_logs,matchup
+processed,player_fbref_match_logs,UNIQUE,gameweek_date,processed,player_fbref_match_logs,fbref_player_id
+processed,player_fbref_match_logs,UNIQUE,gameweek_date,processed,player_fbref_match_logs,gameweek_date
+processed,player_fbref_match_logs,UNIQUE,gameweek_date,processed,player_fbref_match_logs,season
+processed,player_fbref_match_logs,UNIQUE,matchup,processed,player_fbref_match_logs,matchup
+processed,player_fbref_match_logs,UNIQUE,matchup,processed,player_fbref_match_logs,season
+processed,player_fbref_match_logs,UNIQUE,matchup,processed,player_fbref_match_logs,fbref_player_id
+processed,player_fbref_match_logs,UNIQUE,matchup,processed,player_fbref_match_logs,gameweek_date
+processed,player_fbref_match_logs,UNIQUE,season,processed,player_fbref_match_logs,matchup
+processed,player_fbref_match_logs,UNIQUE,season,processed,player_fbref_match_logs,fbref_player_id
+processed,player_fbref_match_logs,UNIQUE,season,processed,player_fbref_match_logs,season
+processed,player_fbref_match_logs,UNIQUE,season,processed,player_fbref_match_logs,gameweek_date
+processed,player_fbref_passing,CHECK,,,,
+processed,player_fbref_passing,CHECK,,,,
+processed,player_fbref_passing,CHECK,,,,
+processed,player_fbref_passing,FOREIGN KEY,player_id,processed,players,player_id
+processed,player_fbref_passing,PRIMARY KEY,fbref_name,processed,player_fbref_passing,season
+processed,player_fbref_passing,PRIMARY KEY,fbref_name,processed,player_fbref_passing,squad
+processed,player_fbref_passing,PRIMARY KEY,fbref_name,processed,player_fbref_passing,fbref_name
+processed,player_fbref_passing,PRIMARY KEY,season,processed,player_fbref_passing,fbref_name
+processed,player_fbref_passing,PRIMARY KEY,season,processed,player_fbref_passing,squad
+processed,player_fbref_passing,PRIMARY KEY,season,processed,player_fbref_passing,season
+processed,player_fbref_passing,PRIMARY KEY,squad,processed,player_fbref_passing,fbref_name
+processed,player_fbref_passing,PRIMARY KEY,squad,processed,player_fbref_passing,squad
+processed,player_fbref_passing,PRIMARY KEY,squad,processed,player_fbref_passing,season
+processed,player_fbref_passing,UNIQUE,fbref_name,processed,player_fbref_passing,season
+processed,player_fbref_passing,UNIQUE,fbref_name,processed,player_fbref_passing,fbref_name
+processed,player_fbref_passing,UNIQUE,fbref_name,processed,player_fbref_passing,squad
+processed,player_fbref_passing,UNIQUE,season,processed,player_fbref_passing,season
+processed,player_fbref_passing,UNIQUE,season,processed,player_fbref_passing,squad
+processed,player_fbref_passing,UNIQUE,season,processed,player_fbref_passing,fbref_name
+processed,player_fbref_passing,UNIQUE,squad,processed,player_fbref_passing,squad
+processed,player_fbref_passing,UNIQUE,squad,processed,player_fbref_passing,fbref_name
+processed,player_fbref_passing,UNIQUE,squad,processed,player_fbref_passing,season
+processed,player_fbref_possession,CHECK,,,,
+processed,player_fbref_possession,CHECK,,,,
+processed,player_fbref_possession,CHECK,,,,
+processed,player_fbref_possession,FOREIGN KEY,player_id,processed,players,player_id
+processed,player_fbref_possession,PRIMARY KEY,fbref_name,processed,player_fbref_possession,squad
+processed,player_fbref_possession,PRIMARY KEY,fbref_name,processed,player_fbref_possession,fbref_name
+processed,player_fbref_possession,PRIMARY KEY,fbref_name,processed,player_fbref_possession,season
+processed,player_fbref_possession,PRIMARY KEY,season,processed,player_fbref_possession,fbref_name
+processed,player_fbref_possession,PRIMARY KEY,season,processed,player_fbref_possession,season
+processed,player_fbref_possession,PRIMARY KEY,season,processed,player_fbref_possession,squad
+processed,player_fbref_possession,PRIMARY KEY,squad,processed,player_fbref_possession,squad
+processed,player_fbref_possession,PRIMARY KEY,squad,processed,player_fbref_possession,fbref_name
+processed,player_fbref_possession,PRIMARY KEY,squad,processed,player_fbref_possession,season
+processed,player_fbref_possession,UNIQUE,fbref_name,processed,player_fbref_possession,squad
+processed,player_fbref_possession,UNIQUE,fbref_name,processed,player_fbref_possession,fbref_name
+processed,player_fbref_possession,UNIQUE,fbref_name,processed,player_fbref_possession,season
+processed,player_fbref_possession,UNIQUE,season,processed,player_fbref_possession,season
+processed,player_fbref_possession,UNIQUE,season,processed,player_fbref_possession,fbref_name
+processed,player_fbref_possession,UNIQUE,season,processed,player_fbref_possession,squad
+processed,player_fbref_possession,UNIQUE,squad,processed,player_fbref_possession,squad
+processed,player_fbref_possession,UNIQUE,squad,processed,player_fbref_possession,season
+processed,player_fbref_possession,UNIQUE,squad,processed,player_fbref_possession,fbref_name
+processed,player_fbref_shooting,CHECK,,,,
+processed,player_fbref_shooting,CHECK,,,,
+processed,player_fbref_shooting,CHECK,,,,
+processed,player_fbref_shooting,FOREIGN KEY,player_id,processed,players,player_id
+processed,player_fbref_shooting,PRIMARY KEY,fbref_name,processed,player_fbref_shooting,fbref_name
+processed,player_fbref_shooting,PRIMARY KEY,fbref_name,processed,player_fbref_shooting,season
+processed,player_fbref_shooting,PRIMARY KEY,fbref_name,processed,player_fbref_shooting,squad
+processed,player_fbref_shooting,PRIMARY KEY,season,processed,player_fbref_shooting,fbref_name
+processed,player_fbref_shooting,PRIMARY KEY,season,processed,player_fbref_shooting,season
+processed,player_fbref_shooting,PRIMARY KEY,season,processed,player_fbref_shooting,squad
+processed,player_fbref_shooting,PRIMARY KEY,squad,processed,player_fbref_shooting,squad
+processed,player_fbref_shooting,PRIMARY KEY,squad,processed,player_fbref_shooting,fbref_name
+processed,player_fbref_shooting,PRIMARY KEY,squad,processed,player_fbref_shooting,season
+processed,player_fbref_shooting,UNIQUE,fbref_name,processed,player_fbref_shooting,fbref_name
+processed,player_fbref_shooting,UNIQUE,fbref_name,processed,player_fbref_shooting,season
+processed,player_fbref_shooting,UNIQUE,fbref_name,processed,player_fbref_shooting,squad
+processed,player_fbref_shooting,UNIQUE,season,processed,player_fbref_shooting,squad
+processed,player_fbref_shooting,UNIQUE,season,processed,player_fbref_shooting,season
+processed,player_fbref_shooting,UNIQUE,season,processed,player_fbref_shooting,fbref_name
+processed,player_fbref_shooting,UNIQUE,squad,processed,player_fbref_shooting,season
+processed,player_fbref_shooting,UNIQUE,squad,processed,player_fbref_shooting,squad
+processed,player_fbref_shooting,UNIQUE,squad,processed,player_fbref_shooting,fbref_name
+processed,player_fbref_standard,CHECK,,,,
+processed,player_fbref_standard,CHECK,,,,
+processed,player_fbref_standard,CHECK,,,,
+processed,player_fbref_standard,FOREIGN KEY,player_id,processed,players,player_id
+processed,player_fbref_standard,PRIMARY KEY,fbref_name,processed,player_fbref_standard,squad
+processed,player_fbref_standard,PRIMARY KEY,fbref_name,processed,player_fbref_standard,season
+processed,player_fbref_standard,PRIMARY KEY,fbref_name,processed,player_fbref_standard,fbref_name
+processed,player_fbref_standard,PRIMARY KEY,season,processed,player_fbref_standard,fbref_name
+processed,player_fbref_standard,PRIMARY KEY,season,processed,player_fbref_standard,season
+processed,player_fbref_standard,PRIMARY KEY,season,processed,player_fbref_standard,squad
+processed,player_fbref_standard,PRIMARY KEY,squad,processed,player_fbref_standard,fbref_name
+processed,player_fbref_standard,PRIMARY KEY,squad,processed,player_fbref_standard,season
+processed,player_fbref_standard,PRIMARY KEY,squad,processed,player_fbref_standard,squad
+processed,player_fbref_standard,UNIQUE,fbref_name,processed,player_fbref_standard,season
+processed,player_fbref_standard,UNIQUE,fbref_name,processed,player_fbref_standard,squad
+processed,player_fbref_standard,UNIQUE,fbref_name,processed,player_fbref_standard,fbref_name
+processed,player_fbref_standard,UNIQUE,season,processed,player_fbref_standard,season
+processed,player_fbref_standard,UNIQUE,season,processed,player_fbref_standard,fbref_name
+processed,player_fbref_standard,UNIQUE,season,processed,player_fbref_standard,squad
+processed,player_fbref_standard,UNIQUE,squad,processed,player_fbref_standard,season
+processed,player_fbref_standard,UNIQUE,squad,processed,player_fbref_standard,squad
+processed,player_fbref_standard,UNIQUE,squad,processed,player_fbref_standard,fbref_name
+processed,player_identity,CHECK,,,,
+processed,player_identity,PRIMARY KEY,fpl_id,processed,player_identity,fpl_id
+processed,player_identity,UNIQUE,understat_id,processed,player_identity,understat_id
+processed,player_identity_history,CHECK,,,,
+processed,player_identity_history,CHECK,,,,
+processed,player_identity_history,PRIMARY KEY,fpl_id,processed,player_identity_history,season
+processed,player_identity_history,PRIMARY KEY,fpl_id,processed,player_identity_history,fpl_id
+processed,player_identity_history,PRIMARY KEY,season,processed,player_identity_history,season
+processed,player_identity_history,PRIMARY KEY,season,processed,player_identity_history,fpl_id
+processed,player_market_history,CHECK,,,,
+processed,player_market_history,CHECK,,,,
+processed,player_market_history,CHECK,,,,
+processed,player_market_history,CHECK,,,,
+processed,player_market_history,FOREIGN KEY,fixture_id,processed,fixtures,fixture_id
+processed,player_market_history,FOREIGN KEY,fixture_id,processed,fixtures,season
+processed,player_market_history,FOREIGN KEY,player_id,processed,players,player_id
+processed,player_market_history,FOREIGN KEY,season,processed,fixtures,season
+processed,player_market_history,FOREIGN KEY,season,processed,fixtures,fixture_id
+processed,player_market_history,PRIMARY KEY,fixture_id,processed,player_market_history,fixture_id
+processed,player_market_history,PRIMARY KEY,fixture_id,processed,player_market_history,season
+processed,player_market_history,PRIMARY KEY,fixture_id,processed,player_market_history,player_id
+processed,player_market_history,PRIMARY KEY,player_id,processed,player_market_history,season
+processed,player_market_history,PRIMARY KEY,player_id,processed,player_market_history,player_id
+processed,player_market_history,PRIMARY KEY,player_id,processed,player_market_history,fixture_id
+processed,player_market_history,PRIMARY KEY,season,processed,player_market_history,fixture_id
+processed,player_market_history,PRIMARY KEY,season,processed,player_market_history,season
+processed,player_market_history,PRIMARY KEY,season,processed,player_market_history,player_id
+processed,player_market_history,UNIQUE,gameweek,processed,player_market_history,season
+processed,player_market_history,UNIQUE,gameweek,processed,player_market_history,gameweek
+processed,player_market_history,UNIQUE,gameweek,processed,player_market_history,player_id
+processed,player_market_history,UNIQUE,player_id,processed,player_market_history,player_id
+processed,player_market_history,UNIQUE,player_id,processed,player_market_history,season
+processed,player_market_history,UNIQUE,player_id,processed,player_market_history,gameweek
+processed,player_market_history,UNIQUE,season,processed,player_market_history,player_id
+processed,player_market_history,UNIQUE,season,processed,player_market_history,season
+processed,player_market_history,UNIQUE,season,processed,player_market_history,gameweek
+processed,player_match_stats,CHECK,,,,
+processed,player_match_stats,CHECK,,,,
+processed,player_match_stats,CHECK,,,,
+processed,player_match_stats,CHECK,,,,
+processed,player_match_stats,CHECK,,,,
+processed,player_match_stats,CHECK,,,,
+processed,player_match_stats,FOREIGN KEY,fixture_id,processed,fixtures,season
+processed,player_match_stats,FOREIGN KEY,fixture_id,processed,fixtures,fixture_id
+processed,player_match_stats,FOREIGN KEY,opponent_team_id,processed,teams,team_id
+processed,player_match_stats,FOREIGN KEY,player_id,processed,players,player_id
+processed,player_match_stats,FOREIGN KEY,season,processed,fixtures,fixture_id
+processed,player_match_stats,FOREIGN KEY,season,processed,fixtures,season
+processed,player_match_stats,FOREIGN KEY,team_id,processed,teams,team_id
+processed,player_match_stats,PRIMARY KEY,fixture_id,processed,player_match_stats,fixture_id
+processed,player_match_stats,PRIMARY KEY,fixture_id,processed,player_match_stats,player_id
+processed,player_match_stats,PRIMARY KEY,fixture_id,processed,player_match_stats,season
+processed,player_match_stats,PRIMARY KEY,player_id,processed,player_match_stats,player_id
+processed,player_match_stats,PRIMARY KEY,player_id,processed,player_match_stats,fixture_id
+processed,player_match_stats,PRIMARY KEY,player_id,processed,player_match_stats,season
+processed,player_match_stats,PRIMARY KEY,season,processed,player_match_stats,season
+processed,player_match_stats,PRIMARY KEY,season,processed,player_match_stats,fixture_id
+processed,player_match_stats,PRIMARY KEY,season,processed,player_match_stats,player_id
+processed,player_source_mapping,CHECK,,,,
+processed,player_source_mapping,CHECK,,,,
+processed,player_source_mapping,CHECK,,,,
+processed,player_source_mapping,PRIMARY KEY,season,processed,player_source_mapping,source
+processed,player_source_mapping,PRIMARY KEY,season,processed,player_source_mapping,season
+processed,player_source_mapping,PRIMARY KEY,season,processed,player_source_mapping,source_player_id
+processed,player_source_mapping,PRIMARY KEY,source,processed,player_source_mapping,season
+processed,player_source_mapping,PRIMARY KEY,source,processed,player_source_mapping,source_player_id
+processed,player_source_mapping,PRIMARY KEY,source,processed,player_source_mapping,source
+processed,player_source_mapping,PRIMARY KEY,source_player_id,processed,player_source_mapping,source
+processed,player_source_mapping,PRIMARY KEY,source_player_id,processed,player_source_mapping,season
+processed,player_source_mapping,PRIMARY KEY,source_player_id,processed,player_source_mapping,source_player_id
+processed,player_understat_history,CHECK,,,,
+processed,player_understat_history,CHECK,,,,
+processed,player_understat_history,PRIMARY KEY,fpl_id,processed,player_understat_history,fpl_id
+processed,player_understat_history,PRIMARY KEY,fpl_id,processed,player_understat_history,season
+processed,player_understat_history,PRIMARY KEY,season,processed,player_understat_history,fpl_id
+processed,player_understat_history,PRIMARY KEY,season,processed,player_understat_history,season
+processed,players,CHECK,,,,
+processed,players,CHECK,,,,
+processed,players,CHECK,,,,
+processed,players,CHECK,,,,
+processed,players,CHECK,,,,
+processed,players,FOREIGN KEY,team_id,processed,teams,team_id
+processed,players,PRIMARY KEY,player_id,processed,players,player_id
+processed,players,UNIQUE,code,processed,players,code
+processed,players,UNIQUE,understat_id,processed,players,understat_id
+processed,team_history,CHECK,,,,
+processed,team_history,CHECK,,,,
+processed,team_history,PRIMARY KEY,season,processed,team_history,team_id
+processed,team_history,PRIMARY KEY,season,processed,team_history,season
+processed,team_history,PRIMARY KEY,team_id,processed,team_history,team_id
+processed,team_history,PRIMARY KEY,team_id,processed,team_history,season
+processed,teams,CHECK,,,,
+processed,teams,CHECK,,,,
+processed,teams,CHECK,,,,
+processed,teams,PRIMARY KEY,team_id,processed,teams,team_id
+processed,teams,UNIQUE,code,processed,teams,code
+processed,teams,UNIQUE,pulse_id,processed,teams,pulse_id
+realtime,messages,CHECK,,,,
+realtime,messages,CHECK,,,,
+realtime,messages,CHECK,,,,
+realtime,messages,CHECK,,,,
+realtime,messages,CHECK,,,,
+realtime,messages,CHECK,,,,
+realtime,messages,PRIMARY KEY,id,,,
+realtime,messages,PRIMARY KEY,inserted_at,,,
+realtime,schema_migrations,CHECK,,,,
+realtime,schema_migrations,PRIMARY KEY,version,,,
+realtime,subscription,CHECK,,,,
+realtime,subscription,CHECK,,,,
+realtime,subscription,CHECK,,,,
+realtime,subscription,CHECK,,,,
+realtime,subscription,CHECK,,,,
+realtime,subscription,CHECK,,,,
+realtime,subscription,CHECK,,,,
+realtime,subscription,CHECK,,,,
+realtime,subscription,PRIMARY KEY,id,,,
+storage,buckets,CHECK,,,,
+storage,buckets,CHECK,,,,
+storage,buckets,CHECK,,,,
+storage,buckets,PRIMARY KEY,id,,,
+storage,buckets_analytics,CHECK,,,,
+storage,buckets_analytics,CHECK,,,,
+storage,buckets_analytics,CHECK,,,,
+storage,buckets_analytics,CHECK,,,,
+storage,buckets_analytics,CHECK,,,,
+storage,buckets_analytics,CHECK,,,,
+storage,buckets_analytics,PRIMARY KEY,id,,,
+storage,objects,CHECK,,,,
+storage,objects,FOREIGN KEY,bucket_id,,,
+storage,objects,PRIMARY KEY,id,,,
+storage,s3_multipart_uploads,CHECK,,,,
+storage,s3_multipart_uploads,CHECK,,,,
+storage,s3_multipart_uploads,CHECK,,,,
+storage,s3_multipart_uploads,CHECK,,,,
+storage,s3_multipart_uploads,CHECK,,,,
+storage,s3_multipart_uploads,CHECK,,,,
+storage,s3_multipart_uploads,CHECK,,,,
+storage,s3_multipart_uploads,FOREIGN KEY,bucket_id,,,
+storage,s3_multipart_uploads,PRIMARY KEY,id,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,CHECK,,,,
+storage,s3_multipart_uploads_parts,FOREIGN KEY,bucket_id,,,
+storage,s3_multipart_uploads_parts,FOREIGN KEY,upload_id,,,
+storage,s3_multipart_uploads_parts,PRIMARY KEY,id,,,
+vault,secrets,CHECK,,,,
+vault,secrets,CHECK,,,,
+vault,secrets,CHECK,,,,
+vault,secrets,CHECK,,,,
+vault,secrets,CHECK,,,,
+vault,secrets,PRIMARY KEY,id,,,

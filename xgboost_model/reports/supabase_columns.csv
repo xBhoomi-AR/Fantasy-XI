@@ -1,0 +1,743 @@
+﻿table_schema,table_name,ordinal_position,column_name,data_type,udt_name,is_nullable
+auth,audit_log_entries,1,instance_id,uuid,uuid,YES
+auth,audit_log_entries,2,id,uuid,uuid,NO
+auth,audit_log_entries,3,payload,json,json,YES
+auth,audit_log_entries,4,created_at,timestamp with time zone,timestamptz,YES
+auth,audit_log_entries,5,ip_address,character varying,varchar,NO
+auth,custom_oauth_providers,1,id,uuid,uuid,NO
+auth,custom_oauth_providers,2,provider_type,text,text,NO
+auth,custom_oauth_providers,3,identifier,text,text,NO
+auth,custom_oauth_providers,4,name,text,text,NO
+auth,custom_oauth_providers,5,client_id,text,text,NO
+auth,custom_oauth_providers,6,client_secret,text,text,NO
+auth,custom_oauth_providers,7,acceptable_client_ids,ARRAY,_text,NO
+auth,custom_oauth_providers,8,scopes,ARRAY,_text,NO
+auth,custom_oauth_providers,9,pkce_enabled,boolean,bool,NO
+auth,custom_oauth_providers,10,attribute_mapping,jsonb,jsonb,NO
+auth,custom_oauth_providers,11,authorization_params,jsonb,jsonb,NO
+auth,custom_oauth_providers,12,enabled,boolean,bool,NO
+auth,custom_oauth_providers,13,email_optional,boolean,bool,NO
+auth,custom_oauth_providers,14,issuer,text,text,YES
+auth,custom_oauth_providers,15,discovery_url,text,text,YES
+auth,custom_oauth_providers,16,skip_nonce_check,boolean,bool,NO
+auth,custom_oauth_providers,17,cached_discovery,jsonb,jsonb,YES
+auth,custom_oauth_providers,18,discovery_cached_at,timestamp with time zone,timestamptz,YES
+auth,custom_oauth_providers,19,authorization_url,text,text,YES
+auth,custom_oauth_providers,20,token_url,text,text,YES
+auth,custom_oauth_providers,21,userinfo_url,text,text,YES
+auth,custom_oauth_providers,22,jwks_uri,text,text,YES
+auth,custom_oauth_providers,23,created_at,timestamp with time zone,timestamptz,NO
+auth,custom_oauth_providers,24,updated_at,timestamp with time zone,timestamptz,NO
+auth,custom_oauth_providers,25,custom_claims_allowlist,ARRAY,_text,NO
+auth,flow_state,1,id,uuid,uuid,NO
+auth,flow_state,2,user_id,uuid,uuid,YES
+auth,flow_state,3,auth_code,text,text,YES
+auth,flow_state,4,code_challenge_method,USER-DEFINED,code_challenge_method,YES
+auth,flow_state,5,code_challenge,text,text,YES
+auth,flow_state,6,provider_type,text,text,NO
+auth,flow_state,7,provider_access_token,text,text,YES
+auth,flow_state,8,provider_refresh_token,text,text,YES
+auth,flow_state,9,created_at,timestamp with time zone,timestamptz,YES
+auth,flow_state,10,updated_at,timestamp with time zone,timestamptz,YES
+auth,flow_state,11,authentication_method,text,text,NO
+auth,flow_state,12,auth_code_issued_at,timestamp with time zone,timestamptz,YES
+auth,flow_state,13,invite_token,text,text,YES
+auth,flow_state,14,referrer,text,text,YES
+auth,flow_state,15,oauth_client_state_id,uuid,uuid,YES
+auth,flow_state,16,linking_target_id,uuid,uuid,YES
+auth,flow_state,17,email_optional,boolean,bool,NO
+auth,identities,1,provider_id,text,text,NO
+auth,identities,2,user_id,uuid,uuid,NO
+auth,identities,3,identity_data,jsonb,jsonb,NO
+auth,identities,4,provider,text,text,NO
+auth,identities,5,last_sign_in_at,timestamp with time zone,timestamptz,YES
+auth,identities,6,created_at,timestamp with time zone,timestamptz,YES
+auth,identities,7,updated_at,timestamp with time zone,timestamptz,YES
+auth,identities,8,email,text,text,YES
+auth,identities,9,id,uuid,uuid,NO
+auth,instances,1,id,uuid,uuid,NO
+auth,instances,2,uuid,uuid,uuid,YES
+auth,instances,3,raw_base_config,text,text,YES
+auth,instances,4,created_at,timestamp with time zone,timestamptz,YES
+auth,instances,5,updated_at,timestamp with time zone,timestamptz,YES
+auth,mfa_amr_claims,1,session_id,uuid,uuid,NO
+auth,mfa_amr_claims,2,created_at,timestamp with time zone,timestamptz,NO
+auth,mfa_amr_claims,3,updated_at,timestamp with time zone,timestamptz,NO
+auth,mfa_amr_claims,4,authentication_method,text,text,NO
+auth,mfa_amr_claims,5,id,uuid,uuid,NO
+auth,mfa_challenges,1,id,uuid,uuid,NO
+auth,mfa_challenges,2,factor_id,uuid,uuid,NO
+auth,mfa_challenges,3,created_at,timestamp with time zone,timestamptz,NO
+auth,mfa_challenges,4,verified_at,timestamp with time zone,timestamptz,YES
+auth,mfa_challenges,5,ip_address,inet,inet,NO
+auth,mfa_challenges,6,otp_code,text,text,YES
+auth,mfa_challenges,7,web_authn_session_data,jsonb,jsonb,YES
+auth,mfa_factors,1,id,uuid,uuid,NO
+auth,mfa_factors,2,user_id,uuid,uuid,NO
+auth,mfa_factors,3,friendly_name,text,text,YES
+auth,mfa_factors,4,factor_type,USER-DEFINED,factor_type,NO
+auth,mfa_factors,5,status,USER-DEFINED,factor_status,NO
+auth,mfa_factors,6,created_at,timestamp with time zone,timestamptz,NO
+auth,mfa_factors,7,updated_at,timestamp with time zone,timestamptz,NO
+auth,mfa_factors,8,secret,text,text,YES
+auth,mfa_factors,9,phone,text,text,YES
+auth,mfa_factors,10,last_challenged_at,timestamp with time zone,timestamptz,YES
+auth,mfa_factors,11,web_authn_credential,jsonb,jsonb,YES
+auth,mfa_factors,12,web_authn_aaguid,uuid,uuid,YES
+auth,mfa_factors,13,last_webauthn_challenge_data,jsonb,jsonb,YES
+auth,oauth_authorizations,1,id,uuid,uuid,NO
+auth,oauth_authorizations,2,authorization_id,text,text,NO
+auth,oauth_authorizations,3,client_id,uuid,uuid,NO
+auth,oauth_authorizations,4,user_id,uuid,uuid,YES
+auth,oauth_authorizations,5,redirect_uri,text,text,NO
+auth,oauth_authorizations,6,scope,text,text,NO
+auth,oauth_authorizations,7,state,text,text,YES
+auth,oauth_authorizations,8,resource,text,text,YES
+auth,oauth_authorizations,9,code_challenge,text,text,YES
+auth,oauth_authorizations,10,code_challenge_method,USER-DEFINED,code_challenge_method,YES
+auth,oauth_authorizations,11,response_type,USER-DEFINED,oauth_response_type,NO
+auth,oauth_authorizations,12,status,USER-DEFINED,oauth_authorization_status,NO
+auth,oauth_authorizations,13,authorization_code,text,text,YES
+auth,oauth_authorizations,14,created_at,timestamp with time zone,timestamptz,NO
+auth,oauth_authorizations,15,expires_at,timestamp with time zone,timestamptz,NO
+auth,oauth_authorizations,16,approved_at,timestamp with time zone,timestamptz,YES
+auth,oauth_authorizations,17,nonce,text,text,YES
+auth,oauth_client_states,1,id,uuid,uuid,NO
+auth,oauth_client_states,2,provider_type,text,text,NO
+auth,oauth_client_states,3,code_verifier,text,text,YES
+auth,oauth_client_states,4,created_at,timestamp with time zone,timestamptz,NO
+auth,oauth_clients,1,id,uuid,uuid,NO
+auth,oauth_clients,3,client_secret_hash,text,text,YES
+auth,oauth_clients,4,registration_type,USER-DEFINED,oauth_registration_type,NO
+auth,oauth_clients,5,redirect_uris,text,text,NO
+auth,oauth_clients,6,grant_types,text,text,NO
+auth,oauth_clients,7,client_name,text,text,YES
+auth,oauth_clients,8,client_uri,text,text,YES
+auth,oauth_clients,9,logo_uri,text,text,YES
+auth,oauth_clients,10,created_at,timestamp with time zone,timestamptz,NO
+auth,oauth_clients,11,updated_at,timestamp with time zone,timestamptz,NO
+auth,oauth_clients,12,deleted_at,timestamp with time zone,timestamptz,YES
+auth,oauth_clients,13,client_type,USER-DEFINED,oauth_client_type,NO
+auth,oauth_clients,14,token_endpoint_auth_method,text,text,NO
+auth,oauth_consents,1,id,uuid,uuid,NO
+auth,oauth_consents,2,user_id,uuid,uuid,NO
+auth,oauth_consents,3,client_id,uuid,uuid,NO
+auth,oauth_consents,4,scopes,text,text,NO
+auth,oauth_consents,5,granted_at,timestamp with time zone,timestamptz,NO
+auth,oauth_consents,6,revoked_at,timestamp with time zone,timestamptz,YES
+auth,one_time_tokens,1,id,uuid,uuid,NO
+auth,one_time_tokens,2,user_id,uuid,uuid,NO
+auth,one_time_tokens,3,token_type,USER-DEFINED,one_time_token_type,NO
+auth,one_time_tokens,4,token_hash,text,text,NO
+auth,one_time_tokens,5,relates_to,text,text,NO
+auth,one_time_tokens,6,created_at,timestamp without time zone,timestamp,NO
+auth,one_time_tokens,7,updated_at,timestamp without time zone,timestamp,NO
+auth,refresh_tokens,1,instance_id,uuid,uuid,YES
+auth,refresh_tokens,2,id,bigint,int8,NO
+auth,refresh_tokens,3,token,character varying,varchar,YES
+auth,refresh_tokens,4,user_id,character varying,varchar,YES
+auth,refresh_tokens,5,revoked,boolean,bool,YES
+auth,refresh_tokens,6,created_at,timestamp with time zone,timestamptz,YES
+auth,refresh_tokens,7,updated_at,timestamp with time zone,timestamptz,YES
+auth,refresh_tokens,8,parent,character varying,varchar,YES
+auth,refresh_tokens,9,session_id,uuid,uuid,YES
+auth,saml_providers,1,id,uuid,uuid,NO
+auth,saml_providers,2,sso_provider_id,uuid,uuid,NO
+auth,saml_providers,3,entity_id,text,text,NO
+auth,saml_providers,4,metadata_xml,text,text,NO
+auth,saml_providers,5,metadata_url,text,text,YES
+auth,saml_providers,6,attribute_mapping,jsonb,jsonb,YES
+auth,saml_providers,7,created_at,timestamp with time zone,timestamptz,YES
+auth,saml_providers,8,updated_at,timestamp with time zone,timestamptz,YES
+auth,saml_providers,9,name_id_format,text,text,YES
+auth,saml_relay_states,1,id,uuid,uuid,NO
+auth,saml_relay_states,2,sso_provider_id,uuid,uuid,NO
+auth,saml_relay_states,3,request_id,text,text,NO
+auth,saml_relay_states,4,for_email,text,text,YES
+auth,saml_relay_states,5,redirect_to,text,text,YES
+auth,saml_relay_states,7,created_at,timestamp with time zone,timestamptz,YES
+auth,saml_relay_states,8,updated_at,timestamp with time zone,timestamptz,YES
+auth,saml_relay_states,9,flow_state_id,uuid,uuid,YES
+auth,schema_migrations,1,version,character varying,varchar,NO
+auth,sessions,1,id,uuid,uuid,NO
+auth,sessions,2,user_id,uuid,uuid,NO
+auth,sessions,3,created_at,timestamp with time zone,timestamptz,YES
+auth,sessions,4,updated_at,timestamp with time zone,timestamptz,YES
+auth,sessions,5,factor_id,uuid,uuid,YES
+auth,sessions,6,aal,USER-DEFINED,aal_level,YES
+auth,sessions,7,not_after,timestamp with time zone,timestamptz,YES
+auth,sessions,8,refreshed_at,timestamp without time zone,timestamp,YES
+auth,sessions,9,user_agent,text,text,YES
+auth,sessions,10,ip,inet,inet,YES
+auth,sessions,11,tag,text,text,YES
+auth,sessions,12,oauth_client_id,uuid,uuid,YES
+auth,sessions,13,refresh_token_hmac_key,text,text,YES
+auth,sessions,14,refresh_token_counter,bigint,int8,YES
+auth,sessions,15,scopes,text,text,YES
+auth,sso_domains,1,id,uuid,uuid,NO
+auth,sso_domains,2,sso_provider_id,uuid,uuid,NO
+auth,sso_domains,3,domain,text,text,NO
+auth,sso_domains,4,created_at,timestamp with time zone,timestamptz,YES
+auth,sso_domains,5,updated_at,timestamp with time zone,timestamptz,YES
+auth,sso_providers,1,id,uuid,uuid,NO
+auth,sso_providers,2,resource_id,text,text,YES
+auth,sso_providers,3,created_at,timestamp with time zone,timestamptz,YES
+auth,sso_providers,4,updated_at,timestamp with time zone,timestamptz,YES
+auth,sso_providers,5,disabled,boolean,bool,YES
+auth,users,1,instance_id,uuid,uuid,YES
+auth,users,2,id,uuid,uuid,NO
+auth,users,3,aud,character varying,varchar,YES
+auth,users,4,role,character varying,varchar,YES
+auth,users,5,email,character varying,varchar,YES
+auth,users,6,encrypted_password,character varying,varchar,YES
+auth,users,7,email_confirmed_at,timestamp with time zone,timestamptz,YES
+auth,users,8,invited_at,timestamp with time zone,timestamptz,YES
+auth,users,9,confirmation_token,character varying,varchar,YES
+auth,users,10,confirmation_sent_at,timestamp with time zone,timestamptz,YES
+auth,users,11,recovery_token,character varying,varchar,YES
+auth,users,12,recovery_sent_at,timestamp with time zone,timestamptz,YES
+auth,users,13,email_change_token_new,character varying,varchar,YES
+auth,users,14,email_change,character varying,varchar,YES
+auth,users,15,email_change_sent_at,timestamp with time zone,timestamptz,YES
+auth,users,16,last_sign_in_at,timestamp with time zone,timestamptz,YES
+auth,users,17,raw_app_meta_data,jsonb,jsonb,YES
+auth,users,18,raw_user_meta_data,jsonb,jsonb,YES
+auth,users,19,is_super_admin,boolean,bool,YES
+auth,users,20,created_at,timestamp with time zone,timestamptz,YES
+auth,users,21,updated_at,timestamp with time zone,timestamptz,YES
+auth,users,22,phone,text,text,YES
+auth,users,23,phone_confirmed_at,timestamp with time zone,timestamptz,YES
+auth,users,24,phone_change,text,text,YES
+auth,users,25,phone_change_token,character varying,varchar,YES
+auth,users,26,phone_change_sent_at,timestamp with time zone,timestamptz,YES
+auth,users,27,confirmed_at,timestamp with time zone,timestamptz,YES
+auth,users,28,email_change_token_current,character varying,varchar,YES
+auth,users,29,email_change_confirm_status,smallint,int2,YES
+auth,users,30,banned_until,timestamp with time zone,timestamptz,YES
+auth,users,31,reauthentication_token,character varying,varchar,YES
+auth,users,32,reauthentication_sent_at,timestamp with time zone,timestamptz,YES
+auth,users,33,is_sso_user,boolean,bool,NO
+auth,users,34,deleted_at,timestamp with time zone,timestamptz,YES
+auth,users,35,is_anonymous,boolean,bool,NO
+auth,webauthn_challenges,1,id,uuid,uuid,NO
+auth,webauthn_challenges,2,user_id,uuid,uuid,YES
+auth,webauthn_challenges,3,challenge_type,text,text,NO
+auth,webauthn_challenges,4,session_data,jsonb,jsonb,NO
+auth,webauthn_challenges,5,created_at,timestamp with time zone,timestamptz,NO
+auth,webauthn_challenges,6,expires_at,timestamp with time zone,timestamptz,NO
+auth,webauthn_credentials,1,id,uuid,uuid,NO
+auth,webauthn_credentials,2,user_id,uuid,uuid,NO
+auth,webauthn_credentials,3,credential_id,bytea,bytea,NO
+auth,webauthn_credentials,4,public_key,bytea,bytea,NO
+auth,webauthn_credentials,5,attestation_type,text,text,NO
+auth,webauthn_credentials,6,aaguid,uuid,uuid,YES
+auth,webauthn_credentials,7,sign_count,bigint,int8,NO
+auth,webauthn_credentials,8,transports,jsonb,jsonb,NO
+auth,webauthn_credentials,9,backup_eligible,boolean,bool,NO
+auth,webauthn_credentials,10,backed_up,boolean,bool,NO
+auth,webauthn_credentials,11,friendly_name,text,text,NO
+auth,webauthn_credentials,12,created_at,timestamp with time zone,timestamptz,NO
+auth,webauthn_credentials,13,updated_at,timestamp with time zone,timestamptz,NO
+auth,webauthn_credentials,14,last_used_at,timestamp with time zone,timestamptz,YES
+extensions,pg_stat_statements,1,userid,oid,oid,YES
+extensions,pg_stat_statements,2,dbid,oid,oid,YES
+extensions,pg_stat_statements,3,toplevel,boolean,bool,YES
+extensions,pg_stat_statements,4,queryid,bigint,int8,YES
+extensions,pg_stat_statements,5,query,text,text,YES
+extensions,pg_stat_statements,6,plans,bigint,int8,YES
+extensions,pg_stat_statements,7,total_plan_time,double precision,float8,YES
+extensions,pg_stat_statements,8,min_plan_time,double precision,float8,YES
+extensions,pg_stat_statements,9,max_plan_time,double precision,float8,YES
+extensions,pg_stat_statements,10,mean_plan_time,double precision,float8,YES
+extensions,pg_stat_statements,11,stddev_plan_time,double precision,float8,YES
+extensions,pg_stat_statements,12,calls,bigint,int8,YES
+extensions,pg_stat_statements,13,total_exec_time,double precision,float8,YES
+extensions,pg_stat_statements,14,min_exec_time,double precision,float8,YES
+extensions,pg_stat_statements,15,max_exec_time,double precision,float8,YES
+extensions,pg_stat_statements,16,mean_exec_time,double precision,float8,YES
+extensions,pg_stat_statements,17,stddev_exec_time,double precision,float8,YES
+extensions,pg_stat_statements,18,rows,bigint,int8,YES
+extensions,pg_stat_statements,19,shared_blks_hit,bigint,int8,YES
+extensions,pg_stat_statements,20,shared_blks_read,bigint,int8,YES
+extensions,pg_stat_statements,21,shared_blks_dirtied,bigint,int8,YES
+extensions,pg_stat_statements,22,shared_blks_written,bigint,int8,YES
+extensions,pg_stat_statements,23,local_blks_hit,bigint,int8,YES
+extensions,pg_stat_statements,24,local_blks_read,bigint,int8,YES
+extensions,pg_stat_statements,25,local_blks_dirtied,bigint,int8,YES
+extensions,pg_stat_statements,26,local_blks_written,bigint,int8,YES
+extensions,pg_stat_statements,27,temp_blks_read,bigint,int8,YES
+extensions,pg_stat_statements,28,temp_blks_written,bigint,int8,YES
+extensions,pg_stat_statements,29,shared_blk_read_time,double precision,float8,YES
+extensions,pg_stat_statements,30,shared_blk_write_time,double precision,float8,YES
+extensions,pg_stat_statements,31,local_blk_read_time,double precision,float8,YES
+extensions,pg_stat_statements,32,local_blk_write_time,double precision,float8,YES
+extensions,pg_stat_statements,33,temp_blk_read_time,double precision,float8,YES
+extensions,pg_stat_statements,34,temp_blk_write_time,double precision,float8,YES
+extensions,pg_stat_statements,35,wal_records,bigint,int8,YES
+extensions,pg_stat_statements,36,wal_fpi,bigint,int8,YES
+extensions,pg_stat_statements,37,wal_bytes,numeric,numeric,YES
+extensions,pg_stat_statements,38,jit_functions,bigint,int8,YES
+extensions,pg_stat_statements,39,jit_generation_time,double precision,float8,YES
+extensions,pg_stat_statements,40,jit_inlining_count,bigint,int8,YES
+extensions,pg_stat_statements,41,jit_inlining_time,double precision,float8,YES
+extensions,pg_stat_statements,42,jit_optimization_count,bigint,int8,YES
+extensions,pg_stat_statements,43,jit_optimization_time,double precision,float8,YES
+extensions,pg_stat_statements,44,jit_emission_count,bigint,int8,YES
+extensions,pg_stat_statements,45,jit_emission_time,double precision,float8,YES
+extensions,pg_stat_statements,46,jit_deform_count,bigint,int8,YES
+extensions,pg_stat_statements,47,jit_deform_time,double precision,float8,YES
+extensions,pg_stat_statements,48,stats_since,timestamp with time zone,timestamptz,YES
+extensions,pg_stat_statements,49,minmax_stats_since,timestamp with time zone,timestamptz,YES
+extensions,pg_stat_statements_info,1,dealloc,bigint,int8,YES
+extensions,pg_stat_statements_info,2,stats_reset,timestamp with time zone,timestamptz,YES
+processed,fbref_mapping_temp,1,fbref_name,text,text,YES
+processed,fbref_mapping_temp,2,fbref_player_id,text,text,YES
+processed,fbref_mapping_temp,3,player_id,integer,int4,YES
+processed,fixtures,1,fixture_id,integer,int4,NO
+processed,fixtures,2,code,integer,int4,YES
+processed,fixtures,3,pulse_id,integer,int4,YES
+processed,fixtures,4,season,text,text,NO
+processed,fixtures,5,gameweek,smallint,int2,NO
+processed,fixtures,6,kickoff_time,timestamp without time zone,timestamp,YES
+processed,fixtures,7,home_team_id,integer,int4,NO
+processed,fixtures,8,away_team_id,integer,int4,NO
+processed,fixtures,9,team_h_score,smallint,int2,YES
+processed,fixtures,10,team_a_score,smallint,int2,YES
+processed,fixtures,11,started,boolean,bool,YES
+processed,fixtures,12,finished,boolean,bool,YES
+processed,fixtures,13,finished_provisional,boolean,bool,YES
+processed,fixtures,14,minutes,smallint,int2,YES
+processed,fixtures,15,team_h_difficulty,smallint,int2,YES
+processed,fixtures,16,team_a_difficulty,smallint,int2,YES
+processed,fixtures,17,stats_available,boolean,bool,YES
+processed,gameweeks,1,gameweek,smallint,int2,NO
+processed,gameweeks,2,season,text,text,NO
+processed,gameweeks,3,name,text,text,YES
+processed,gameweeks,4,deadline_time,timestamp without time zone,timestamp,YES
+processed,gameweeks,5,average_score,smallint,int2,YES
+processed,gameweeks,6,highest_score,smallint,int2,YES
+processed,gameweeks,7,highest_scoring_entry,integer,int4,YES
+processed,gameweeks,8,finished,boolean,bool,YES
+processed,gameweeks,9,data_checked,boolean,bool,YES
+processed,gameweeks,10,is_previous,boolean,bool,YES
+processed,gameweeks,11,is_current,boolean,bool,YES
+processed,gameweeks,12,is_next,boolean,bool,YES
+processed,gameweeks,13,cup_leagues_created,boolean,bool,YES
+processed,gameweeks,14,h2h_ko_matches_created,boolean,bool,YES
+processed,gameweeks,15,can_enter,boolean,bool,YES
+processed,gameweeks,16,can_manage,boolean,bool,YES
+processed,gameweeks,17,released,boolean,bool,YES
+processed,gameweeks,18,ranked_count,bigint,int8,YES
+processed,gameweeks,19,transfers_made,bigint,int8,YES
+processed,gameweeks,20,most_selected,text,text,YES
+processed,gameweeks,21,most_transferred_in,text,text,YES
+processed,gameweeks,22,top_element,integer,int4,YES
+processed,gameweeks,23,top_element_info,text,text,YES
+processed,player_fbref_defending,1,player_id,integer,int4,YES
+processed,player_fbref_defending,2,season,text,text,NO
+processed,player_fbref_defending,3,tackles,smallint,int2,YES
+processed,player_fbref_defending,4,tackles_won,smallint,int2,YES
+processed,player_fbref_defending,5,tackles_defensive_third,smallint,int2,YES
+processed,player_fbref_defending,6,tackles_middle_third,smallint,int2,YES
+processed,player_fbref_defending,7,tackles_attacking_third,smallint,int2,YES
+processed,player_fbref_defending,8,dribblers_tackled,smallint,int2,YES
+processed,player_fbref_defending,9,dribblers_challenged,smallint,int2,YES
+processed,player_fbref_defending,10,dribble_tackle_success_percentage,numeric,numeric,YES
+processed,player_fbref_defending,11,blocks,smallint,int2,YES
+processed,player_fbref_defending,12,shots_blocked,smallint,int2,YES
+processed,player_fbref_defending,13,passes_blocked,smallint,int2,YES
+processed,player_fbref_defending,14,interceptions,smallint,int2,YES
+processed,player_fbref_defending,15,tackles_plus_interceptions,smallint,int2,YES
+processed,player_fbref_defending,16,clearances,smallint,int2,YES
+processed,player_fbref_defending,17,errors_leading_to_shot,smallint,int2,YES
+processed,player_fbref_defending,18,recoveries,smallint,int2,YES
+processed,player_fbref_defending,19,aerial_duels_won,smallint,int2,YES
+processed,player_fbref_defending,20,aerial_duels_lost,smallint,int2,YES
+processed,player_fbref_defending,21,aerial_duel_win_percentage,numeric,numeric,YES
+processed,player_fbref_defending,22,fbref_name,text,text,NO
+processed,player_fbref_defending,23,squad,text,text,NO
+processed,player_fbref_goalkeeping,1,player_id,integer,int4,YES
+processed,player_fbref_goalkeeping,2,season,text,text,NO
+processed,player_fbref_goalkeeping,3,matches_played,smallint,int2,YES
+processed,player_fbref_goalkeeping,4,starts,smallint,int2,YES
+processed,player_fbref_goalkeeping,5,minutes,integer,int4,YES
+processed,player_fbref_goalkeeping,6,goals_against,smallint,int2,YES
+processed,player_fbref_goalkeeping,7,goals_against_per90,numeric,numeric,YES
+processed,player_fbref_goalkeeping,8,shots_on_target_against,smallint,int2,YES
+processed,player_fbref_goalkeeping,9,saves,smallint,int2,YES
+processed,player_fbref_goalkeeping,10,save_percentage,numeric,numeric,YES
+processed,player_fbref_goalkeeping,11,clean_sheets,smallint,int2,YES
+processed,player_fbref_goalkeeping,12,clean_sheet_percentage,numeric,numeric,YES
+processed,player_fbref_goalkeeping,13,penalty_kicks_faced,smallint,int2,YES
+processed,player_fbref_goalkeeping,14,penalty_kicks_saved,smallint,int2,YES
+processed,player_fbref_goalkeeping,15,post_shot_expected_goals,numeric,numeric,YES
+processed,player_fbref_goalkeeping,16,post_shot_expected_goals_minus_goals_allowed,numeric,numeric,YES
+processed,player_fbref_goalkeeping,17,crosses_faced,smallint,int2,YES
+processed,player_fbref_goalkeeping,18,crosses_stopped,smallint,int2,YES
+processed,player_fbref_goalkeeping,19,cross_stop_percentage,numeric,numeric,YES
+processed,player_fbref_goalkeeping,20,defensive_actions_outside_penalty_area,smallint,int2,YES
+processed,player_fbref_goalkeeping,21,average_distance_defensive_actions,numeric,numeric,YES
+processed,player_fbref_goalkeeping,22,passes_attempted,integer,int4,YES
+processed,player_fbref_goalkeeping,23,throws_attempted,integer,int4,YES
+processed,player_fbref_goalkeeping,24,launched_passes,integer,int4,YES
+processed,player_fbref_goalkeeping,25,launch_percentage,numeric,numeric,YES
+processed,player_fbref_goalkeeping,26,average_pass_length,numeric,numeric,YES
+processed,player_fbref_goalkeeping,27,fbref_name,text,text,NO
+processed,player_fbref_goalkeeping,28,squad,text,text,NO
+processed,player_fbref_match_logs,1,id,integer,int4,NO
+processed,player_fbref_match_logs,2,player_id,integer,int4,YES
+processed,player_fbref_match_logs,3,fbref_player_id,text,text,NO
+processed,player_fbref_match_logs,4,fbref_player_name,text,text,YES
+processed,player_fbref_match_logs,5,season,text,text,NO
+processed,player_fbref_match_logs,6,gameweek_date,date,date,YES
+processed,player_fbref_match_logs,7,matchup,text,text,YES
+processed,player_fbref_match_logs,8,venue,text,text,YES
+processed,player_fbref_match_logs,9,result,text,text,YES
+processed,player_fbref_match_logs,10,minutes,integer,int4,YES
+processed,player_fbref_match_logs,11,shots,real,float4,YES
+processed,player_fbref_match_logs,12,shots_on_target,real,float4,YES
+processed,player_fbref_match_logs,13,shot_xg,real,float4,YES
+processed,player_fbref_match_logs,14,shot_npxg,real,float4,YES
+processed,player_fbref_match_logs,15,shot_xg_per_shot,real,float4,YES
+processed,player_fbref_match_logs,16,passes_completed,real,float4,YES
+processed,player_fbref_match_logs,17,passes_attempted,real,float4,YES
+processed,player_fbref_match_logs,18,key_passes,real,float4,YES
+processed,player_fbref_match_logs,19,progressive_passes,real,float4,YES
+processed,player_fbref_match_logs,20,passes_into_final_third,real,float4,YES
+processed,player_fbref_match_logs,21,crosses,real,float4,YES
+processed,player_fbref_match_logs,22,touches,real,float4,YES
+processed,player_fbref_match_logs,23,carries,real,float4,YES
+processed,player_fbref_match_logs,24,progressive_carries,real,float4,YES
+processed,player_fbref_match_logs,25,carries_into_final_third,real,float4,YES
+processed,player_fbref_match_logs,26,carries_into_penalty_area,real,float4,YES
+processed,player_fbref_match_logs,27,take_ons_attempted,real,float4,YES
+processed,player_fbref_match_logs,28,take_ons_successful,real,float4,YES
+processed,player_fbref_match_logs,29,tackles,real,float4,YES
+processed,player_fbref_match_logs,30,tackles_won,real,float4,YES
+processed,player_fbref_match_logs,31,interceptions,real,float4,YES
+processed,player_fbref_match_logs,32,blocks,real,float4,YES
+processed,player_fbref_match_logs,33,clearances,real,float4,YES
+processed,player_fbref_match_logs,34,errors,real,float4,YES
+processed,player_fbref_match_logs,35,scraped_at,timestamp without time zone,timestamp,YES
+processed,player_fbref_passing,1,player_id,integer,int4,YES
+processed,player_fbref_passing,2,season,text,text,NO
+processed,player_fbref_passing,3,passes_attempted,integer,int4,YES
+processed,player_fbref_passing,4,passes_completed,integer,int4,YES
+processed,player_fbref_passing,5,pass_completion_percentage,numeric,numeric,YES
+processed,player_fbref_passing,6,total_pass_distance,integer,int4,YES
+processed,player_fbref_passing,7,progressive_pass_distance,integer,int4,YES
+processed,player_fbref_passing,8,short_passes_attempted,integer,int4,YES
+processed,player_fbref_passing,9,short_passes_completed,integer,int4,YES
+processed,player_fbref_passing,10,medium_passes_attempted,integer,int4,YES
+processed,player_fbref_passing,11,medium_passes_completed,integer,int4,YES
+processed,player_fbref_passing,12,long_passes_attempted,integer,int4,YES
+processed,player_fbref_passing,13,long_passes_completed,integer,int4,YES
+processed,player_fbref_passing,14,key_passes,smallint,int2,YES
+processed,player_fbref_passing,15,final_third_passes,smallint,int2,YES
+processed,player_fbref_passing,16,penalty_area_passes,smallint,int2,YES
+processed,player_fbref_passing,17,crosses_into_penalty_area,smallint,int2,YES
+processed,player_fbref_passing,18,progressive_passes,smallint,int2,YES
+processed,player_fbref_passing,19,through_balls,smallint,int2,YES
+processed,player_fbref_passing,20,switches,smallint,int2,YES
+processed,player_fbref_passing,21,crosses,smallint,int2,YES
+processed,player_fbref_passing,22,corner_kicks,smallint,int2,YES
+processed,player_fbref_passing,23,throw_ins,smallint,int2,YES
+processed,player_fbref_passing,24,expected_assists,numeric,numeric,YES
+processed,player_fbref_passing,25,shot_creating_actions,smallint,int2,YES
+processed,player_fbref_passing,26,goal_creating_actions,smallint,int2,YES
+processed,player_fbref_passing,27,fbref_name,text,text,NO
+processed,player_fbref_passing,28,squad,text,text,NO
+processed,player_fbref_possession,1,player_id,integer,int4,YES
+processed,player_fbref_possession,2,season,text,text,NO
+processed,player_fbref_possession,3,touches,integer,int4,YES
+processed,player_fbref_possession,4,touches_defensive_penalty_area,integer,int4,YES
+processed,player_fbref_possession,5,touches_defensive_third,integer,int4,YES
+processed,player_fbref_possession,6,touches_middle_third,integer,int4,YES
+processed,player_fbref_possession,7,touches_attacking_third,integer,int4,YES
+processed,player_fbref_possession,8,touches_attacking_penalty_area,integer,int4,YES
+processed,player_fbref_possession,9,live_ball_touches,integer,int4,YES
+processed,player_fbref_possession,10,take_ons_attempted,smallint,int2,YES
+processed,player_fbref_possession,11,take_ons_completed,smallint,int2,YES
+processed,player_fbref_possession,12,take_on_success_percentage,numeric,numeric,YES
+processed,player_fbref_possession,13,carries,integer,int4,YES
+processed,player_fbref_possession,14,total_carry_distance,integer,int4,YES
+processed,player_fbref_possession,15,progressive_carry_distance,integer,int4,YES
+processed,player_fbref_possession,16,progressive_carries,smallint,int2,YES
+processed,player_fbref_possession,17,carries_into_final_third,smallint,int2,YES
+processed,player_fbref_possession,18,carries_into_penalty_area,smallint,int2,YES
+processed,player_fbref_possession,19,miscontrols,smallint,int2,YES
+processed,player_fbref_possession,20,dispossessed,smallint,int2,YES
+processed,player_fbref_possession,21,progressive_passes_received,smallint,int2,YES
+processed,player_fbref_possession,22,fbref_name,text,text,NO
+processed,player_fbref_possession,23,squad,text,text,NO
+processed,player_fbref_shooting,1,player_id,integer,int4,YES
+processed,player_fbref_shooting,2,season,text,text,NO
+processed,player_fbref_shooting,3,shots,smallint,int2,YES
+processed,player_fbref_shooting,4,shots_on_target,smallint,int2,YES
+processed,player_fbref_shooting,5,shots_on_target_percentage,numeric,numeric,YES
+processed,player_fbref_shooting,6,shot_distance,numeric,numeric,YES
+processed,player_fbref_shooting,7,free_kick_shots,smallint,int2,YES
+processed,player_fbref_shooting,8,penalty_goals,smallint,int2,YES
+processed,player_fbref_shooting,9,penalty_attempts,smallint,int2,YES
+processed,player_fbref_shooting,10,expected_goals,numeric,numeric,YES
+processed,player_fbref_shooting,11,non_penalty_expected_goals,numeric,numeric,YES
+processed,player_fbref_shooting,12,non_penalty_expected_goals_per_shot,numeric,numeric,YES
+processed,player_fbref_shooting,13,expected_goals_difference,numeric,numeric,YES
+processed,player_fbref_shooting,14,fbref_name,text,text,NO
+processed,player_fbref_shooting,15,squad,text,text,NO
+processed,player_fbref_standard,1,player_id,integer,int4,YES
+processed,player_fbref_standard,2,season,text,text,NO
+processed,player_fbref_standard,3,matches_played,smallint,int2,YES
+processed,player_fbref_standard,4,starts,smallint,int2,YES
+processed,player_fbref_standard,5,minutes,integer,int4,YES
+processed,player_fbref_standard,6,minutes_90s,numeric,numeric,YES
+processed,player_fbref_standard,7,goals,smallint,int2,YES
+processed,player_fbref_standard,8,assists,smallint,int2,YES
+processed,player_fbref_standard,9,goal_contributions,smallint,int2,YES
+processed,player_fbref_standard,10,non_penalty_goals,smallint,int2,YES
+processed,player_fbref_standard,11,penalty_goals,smallint,int2,YES
+processed,player_fbref_standard,12,penalty_attempts,smallint,int2,YES
+processed,player_fbref_standard,13,yellow_cards,smallint,int2,YES
+processed,player_fbref_standard,14,red_cards,smallint,int2,YES
+processed,player_fbref_standard,15,expected_goals,numeric,numeric,YES
+processed,player_fbref_standard,16,non_penalty_expected_goals,numeric,numeric,YES
+processed,player_fbref_standard,17,expected_assists,numeric,numeric,YES
+processed,player_fbref_standard,18,progressive_carries,smallint,int2,YES
+processed,player_fbref_standard,19,progressive_passes,smallint,int2,YES
+processed,player_fbref_standard,20,progressive_passes_received,smallint,int2,YES
+processed,player_fbref_standard,21,fbref_name,text,text,NO
+processed,player_fbref_standard,22,squad,text,text,NO
+processed,player_identity,1,fpl_id,integer,int4,NO
+processed,player_identity,2,understat_id,integer,int4,YES
+processed,player_identity,3,fpl_name,text,text,YES
+processed,player_identity,4,understat_name,text,text,YES
+processed,player_identity,5,fpl_team,text,text,YES
+processed,player_identity,6,understat_team,text,text,YES
+processed,player_identity,7,position,text,text,YES
+processed,player_identity,8,understat_last_season,text,text,YES
+processed,player_identity,9,confidence,real,float4,YES
+processed,player_identity,10,created_at,timestamp without time zone,timestamp,YES
+processed,player_identity_history,1,season,text,text,NO
+processed,player_identity_history,2,fpl_id,integer,int4,NO
+processed,player_identity_history,3,first_name,text,text,YES
+processed,player_identity_history,4,second_name,text,text,YES
+processed,player_identity_history,5,full_name,text,text,YES
+processed,player_identity_history,6,web_name,text,text,YES
+processed,player_identity_history,7,team_id,integer,int4,YES
+processed,player_identity_history,8,element_type,integer,int4,YES
+processed,player_market_history,1,player_id,integer,int4,NO
+processed,player_market_history,2,fixture_id,integer,int4,NO
+processed,player_market_history,3,gameweek,smallint,int2,NO
+processed,player_market_history,4,season,text,text,NO
+processed,player_market_history,5,value,smallint,int2,YES
+processed,player_market_history,6,transfers_in,integer,int4,YES
+processed,player_market_history,7,transfers_out,integer,int4,YES
+processed,player_market_history,8,transfers_balance,integer,int4,YES
+processed,player_match_stats,1,player_id,integer,int4,NO
+processed,player_match_stats,2,fixture_id,integer,int4,NO
+processed,player_match_stats,3,team_id,integer,int4,NO
+processed,player_match_stats,4,opponent_team_id,integer,int4,NO
+processed,player_match_stats,5,gameweek,smallint,int2,NO
+processed,player_match_stats,6,season,text,text,NO
+processed,player_match_stats,7,was_home,boolean,bool,YES
+processed,player_match_stats,8,position,character varying,varchar,YES
+processed,player_match_stats,9,started,boolean,bool,YES
+processed,player_match_stats,10,minutes,smallint,int2,YES
+processed,player_match_stats,11,total_points,smallint,int2,YES
+processed,player_match_stats,12,goals_scored,smallint,int2,YES
+processed,player_match_stats,13,assists,smallint,int2,YES
+processed,player_match_stats,14,expected_goals,numeric,numeric,YES
+processed,player_match_stats,15,expected_assists,numeric,numeric,YES
+processed,player_match_stats,16,expected_goal_involvements,numeric,numeric,YES
+processed,player_match_stats,17,shots,smallint,int2,YES
+processed,player_match_stats,18,key_passes,smallint,int2,YES
+processed,player_match_stats,19,clean_sheets,smallint,int2,YES
+processed,player_match_stats,20,goals_conceded,smallint,int2,YES
+processed,player_match_stats,21,expected_goals_conceded,numeric,numeric,YES
+processed,player_match_stats,22,saves,smallint,int2,YES
+processed,player_match_stats,23,recoveries,smallint,int2,YES
+processed,player_match_stats,24,tackles,smallint,int2,YES
+processed,player_match_stats,25,clearances_blocks_interceptions,smallint,int2,YES
+processed,player_match_stats,26,defensive_contribution,smallint,int2,YES
+processed,player_match_stats,27,yellow_cards,smallint,int2,YES
+processed,player_match_stats,28,red_cards,smallint,int2,YES
+processed,player_match_stats,29,own_goals,smallint,int2,YES
+processed,player_match_stats,30,penalties_saved,smallint,int2,YES
+processed,player_match_stats,31,penalties_missed,smallint,int2,YES
+processed,player_match_stats,32,bonus,smallint,int2,YES
+processed,player_match_stats,33,bps,smallint,int2,YES
+processed,player_match_stats,34,influence,numeric,numeric,YES
+processed,player_match_stats,35,creativity,numeric,numeric,YES
+processed,player_match_stats,36,threat,numeric,numeric,YES
+processed,player_match_stats,37,ict_index,numeric,numeric,YES
+processed,player_match_stats,38,npxg,real,float4,YES
+processed,player_match_stats,39,xg,real,float4,YES
+processed,player_match_stats,40,xa,real,float4,YES
+processed,player_match_stats,41,xgi,real,float4,YES
+processed,player_match_stats,42,understat_position,character varying,varchar,YES
+processed,player_source_mapping,1,source,text,text,NO
+processed,player_source_mapping,2,source_player_id,integer,int4,NO
+processed,player_source_mapping,3,season,text,text,NO
+processed,player_source_mapping,4,internal_player_id,integer,int4,YES
+processed,player_understat_history,1,season,text,text,NO
+processed,player_understat_history,2,fpl_id,integer,int4,NO
+processed,player_understat_history,3,fpl_name,text,text,YES
+processed,player_understat_history,4,understat_id,integer,int4,YES
+processed,player_understat_history,5,understat_name,text,text,YES
+processed,player_understat_history,6,understat_team,text,text,YES
+processed,player_understat_history,7,position,text,text,YES
+processed,player_understat_history,8,confidence,numeric,numeric,YES
+processed,player_understat_history,9,created_at,timestamp without time zone,timestamp,YES
+processed,players,1,player_id,integer,int4,NO
+processed,players,2,code,integer,int4,YES
+processed,players,3,team_id,integer,int4,NO
+processed,players,4,first_name,text,text,YES
+processed,players,5,second_name,text,text,YES
+processed,players,6,player_name,text,text,NO
+processed,players,7,web_name,text,text,YES
+processed,players,8,fbref_name,text,text,YES
+processed,players,9,understat_name,text,text,YES
+processed,players,10,fbref_player_id,text,text,YES
+processed,players,11,understat_player_id,text,text,YES
+processed,players,12,position,text,text,NO
+processed,players,13,position_code,smallint,int2,NO
+processed,players,14,nationality,text,text,YES
+processed,players,15,date_of_birth,date,date,YES
+processed,players,16,status,character,bpchar,YES
+processed,players,17,chance_of_playing_next_round,smallint,int2,YES
+processed,players,18,chance_of_playing_this_round,smallint,int2,YES
+processed,players,19,photo,text,text,YES
+processed,players,20,news,text,text,YES
+processed,players,21,news_added,timestamp without time zone,timestamp,YES
+processed,players,22,understat_id,integer,int4,YES
+processed,team_history,1,season,text,text,NO
+processed,team_history,2,team_id,integer,int4,NO
+processed,team_history,3,team_name,text,text,YES
+processed,team_history,4,short_name,text,text,YES
+processed,team_history,5,understat_name,text,text,YES
+processed,team_history,6,fbref_name,text,text,YES
+processed,teams,1,team_id,integer,int4,NO
+processed,teams,2,code,integer,int4,YES
+processed,teams,3,pulse_id,integer,int4,YES
+processed,teams,4,team_name,text,text,NO
+processed,teams,5,short_name,text,text,NO
+processed,teams,6,fbref_name,text,text,YES
+processed,teams,7,understat_name,text,text,YES
+processed,teams,8,position,smallint,int2,YES
+processed,teams,9,played,smallint,int2,YES
+processed,teams,10,wins,smallint,int2,YES
+processed,teams,11,draws,smallint,int2,YES
+processed,teams,12,losses,smallint,int2,YES
+processed,teams,13,points,smallint,int2,YES
+processed,teams,14,form,numeric,numeric,YES
+processed,teams,15,strength,smallint,int2,YES
+processed,teams,16,strength_overall_home,smallint,int2,YES
+processed,teams,17,strength_overall_away,smallint,int2,YES
+processed,teams,18,strength_attack_home,smallint,int2,YES
+processed,teams,19,strength_attack_away,smallint,int2,YES
+processed,teams,20,strength_defence_home,smallint,int2,YES
+processed,teams,21,strength_defence_away,smallint,int2,YES
+realtime,messages,1,topic,text,text,NO
+realtime,messages,2,extension,text,text,NO
+realtime,messages,3,payload,jsonb,jsonb,YES
+realtime,messages,4,event,text,text,YES
+realtime,messages,5,private,boolean,bool,YES
+realtime,messages,6,updated_at,timestamp without time zone,timestamp,NO
+realtime,messages,7,inserted_at,timestamp without time zone,timestamp,NO
+realtime,messages,8,id,uuid,uuid,NO
+realtime,messages,9,binary_payload,bytea,bytea,YES
+realtime,schema_migrations,1,version,bigint,int8,NO
+realtime,schema_migrations,2,inserted_at,timestamp without time zone,timestamp,YES
+realtime,subscription,1,id,bigint,int8,NO
+realtime,subscription,2,subscription_id,uuid,uuid,NO
+realtime,subscription,3,entity,regclass,regclass,NO
+realtime,subscription,4,filters,ARRAY,_user_defined_filter,NO
+realtime,subscription,5,claims,jsonb,jsonb,NO
+realtime,subscription,6,claims_role,regrole,regrole,NO
+realtime,subscription,7,created_at,timestamp without time zone,timestamp,NO
+realtime,subscription,8,action_filter,text,text,YES
+realtime,subscription,9,selected_columns,ARRAY,_text,YES
+storage,buckets,1,id,text,text,NO
+storage,buckets,2,name,text,text,NO
+storage,buckets,3,owner,uuid,uuid,YES
+storage,buckets,4,created_at,timestamp with time zone,timestamptz,YES
+storage,buckets,5,updated_at,timestamp with time zone,timestamptz,YES
+storage,buckets,6,public,boolean,bool,YES
+storage,buckets,7,avif_autodetection,boolean,bool,YES
+storage,buckets,8,file_size_limit,bigint,int8,YES
+storage,buckets,9,allowed_mime_types,ARRAY,_text,YES
+storage,buckets,10,owner_id,text,text,YES
+storage,buckets,11,type,USER-DEFINED,buckettype,NO
+storage,buckets_analytics,1,name,text,text,NO
+storage,buckets_analytics,2,type,USER-DEFINED,buckettype,NO
+storage,buckets_analytics,3,format,text,text,NO
+storage,buckets_analytics,4,created_at,timestamp with time zone,timestamptz,NO
+storage,buckets_analytics,5,updated_at,timestamp with time zone,timestamptz,NO
+storage,buckets_analytics,6,id,uuid,uuid,NO
+storage,buckets_analytics,7,deleted_at,timestamp with time zone,timestamptz,YES
+storage,buckets_vectors,1,id,text,text,NO
+storage,buckets_vectors,2,type,USER-DEFINED,buckettype,NO
+storage,buckets_vectors,3,created_at,timestamp with time zone,timestamptz,NO
+storage,buckets_vectors,4,updated_at,timestamp with time zone,timestamptz,NO
+storage,migrations,1,id,integer,int4,NO
+storage,migrations,2,name,character varying,varchar,NO
+storage,migrations,3,hash,character varying,varchar,NO
+storage,migrations,4,executed_at,timestamp without time zone,timestamp,YES
+storage,objects,1,id,uuid,uuid,NO
+storage,objects,2,bucket_id,text,text,YES
+storage,objects,3,name,text,text,YES
+storage,objects,4,owner,uuid,uuid,YES
+storage,objects,5,created_at,timestamp with time zone,timestamptz,YES
+storage,objects,6,updated_at,timestamp with time zone,timestamptz,YES
+storage,objects,7,last_accessed_at,timestamp with time zone,timestamptz,YES
+storage,objects,8,metadata,jsonb,jsonb,YES
+storage,objects,9,path_tokens,ARRAY,_text,YES
+storage,objects,10,version,text,text,YES
+storage,objects,11,owner_id,text,text,YES
+storage,objects,12,user_metadata,jsonb,jsonb,YES
+storage,s3_multipart_uploads,1,id,text,text,NO
+storage,s3_multipart_uploads,2,in_progress_size,bigint,int8,NO
+storage,s3_multipart_uploads,3,upload_signature,text,text,NO
+storage,s3_multipart_uploads,4,bucket_id,text,text,NO
+storage,s3_multipart_uploads,5,key,text,text,NO
+storage,s3_multipart_uploads,6,version,text,text,NO
+storage,s3_multipart_uploads,7,owner_id,text,text,YES
+storage,s3_multipart_uploads,8,created_at,timestamp with time zone,timestamptz,NO
+storage,s3_multipart_uploads,9,user_metadata,jsonb,jsonb,YES
+storage,s3_multipart_uploads,10,metadata,jsonb,jsonb,YES
+storage,s3_multipart_uploads_parts,1,id,uuid,uuid,NO
+storage,s3_multipart_uploads_parts,2,upload_id,text,text,NO
+storage,s3_multipart_uploads_parts,3,size,bigint,int8,NO
+storage,s3_multipart_uploads_parts,4,part_number,integer,int4,NO
+storage,s3_multipart_uploads_parts,5,bucket_id,text,text,NO
+storage,s3_multipart_uploads_parts,6,key,text,text,NO
+storage,s3_multipart_uploads_parts,7,etag,text,text,NO
+storage,s3_multipart_uploads_parts,8,owner_id,text,text,YES
+storage,s3_multipart_uploads_parts,9,version,text,text,NO
+storage,s3_multipart_uploads_parts,10,created_at,timestamp with time zone,timestamptz,NO
+storage,vector_indexes,1,id,text,text,NO
+storage,vector_indexes,2,name,text,text,NO
+storage,vector_indexes,3,bucket_id,text,text,NO
+storage,vector_indexes,4,data_type,text,text,NO
+storage,vector_indexes,5,dimension,integer,int4,NO
+storage,vector_indexes,6,distance_metric,text,text,NO
+storage,vector_indexes,7,metadata_configuration,jsonb,jsonb,YES
+storage,vector_indexes,8,created_at,timestamp with time zone,timestamptz,NO
+storage,vector_indexes,9,updated_at,timestamp with time zone,timestamptz,NO
+vault,decrypted_secrets,1,id,uuid,uuid,YES
+vault,decrypted_secrets,2,name,text,text,YES
+vault,decrypted_secrets,3,description,text,text,YES
+vault,decrypted_secrets,4,secret,text,text,YES
+vault,decrypted_secrets,5,decrypted_secret,text,text,YES
+vault,decrypted_secrets,6,key_id,uuid,uuid,YES
+vault,decrypted_secrets,7,nonce,bytea,bytea,YES
+vault,decrypted_secrets,8,created_at,timestamp with time zone,timestamptz,YES
+vault,decrypted_secrets,9,updated_at,timestamp with time zone,timestamptz,YES
+vault,secrets,1,id,uuid,uuid,NO
+vault,secrets,2,name,text,text,YES
+vault,secrets,3,description,text,text,NO
+vault,secrets,4,secret,text,text,NO
+vault,secrets,5,key_id,uuid,uuid,YES
+vault,secrets,6,nonce,bytea,bytea,YES
+vault,secrets,7,created_at,timestamp with time zone,timestamptz,NO
+vault,secrets,8,updated_at,timestamp with time zone,timestamptz,NO

@@ -1,0 +1,867 @@
+﻿player_id,code,team_id,first_name,second_name,player_name,web_name,fbref_name,understat_name,fbref_player_id,understat_player_id,position,position_code,nationality,date_of_birth,status,chance_of_playing_next_round,chance_of_playing_this_round,photo,news,news_added,understat_id
+731,560552,2,Kevin,Santos Lopes de Macedo,Kevin Santos Lopes de Macedo,A. Garcia,,,,,MID,3,,,a,100,100,560552.jpg,,2026-02-22 23:00:10.122821,14030
+592,499721,3,Mikey,Moore,Mikey Moore,J.Araujo,,,,,MID,3,,,a,0,0,499721.jpg,,2025-08-11 01:19:38.328172,
+702,645618,3,Bradley,Burrowes,Bradley Burrowes,Harris,,,,,MID,3,,,a,,,645618.jpg,,,13870
+713,551483,3,Álex,Jiménez Sánchez,Álex Jiménez Sánchez,Soler,,,,,DEF,2,,,a,100,0,551483.jpg,,2026-05-08 14:00:11.002926,12168
+722,216055,3,Florentino Ibrain,Morris Luís,Florentino Ibrain Morris Luís,Adu-Adjei,,,,,MID,3,,,a,,,216055.jpg,,,8969
+727,218328,3,Samuel,Chukwueze,Samuel Chukwueze,McKenna,,,,,MID,3,,,a,100,100,218328.jpg,,2026-02-20 16:30:09.110337,7208
+728,513466,3,Merlin,Röhl,Merlin Röhl,Silcott-Duberry,,,,,MID,3,,,a,100,100,513466.jpg,,2025-11-21 15:00:09.732749,11331
+314,80201,4,Bernd,Leno,Bernd Leno,Carvalho,,,,,GK,1,,,i,,,80201.jpg,Shoulder injury - Expected back 01 Jun,,181
+338,244042,4,Rodrigo,Muniz Carvalho,Rodrigo Muniz Carvalho,Van den Berg,,,,,FWD,4,,,a,100,100,244042.jpg,,2025-11-08 19:00:09.014811,10717
+602,483364,4,Krisztián,Hegyi,Krisztián Hegyi,Trevitt,,,,,GK,1,,,u,0,0,483364.jpg,Loaned to Exeter City,2026-01-15 12:52:30.178628,
+759,616065,4,Marli,Salmon,Marli Salmon,Eyestone,,,,,DEF,2,,,a,,,616065.jpg,,,
+628,149065,5,José,Malheiro de Sá,José Malheiro de Sá,F.Kadıoğlu,,,,,GK,1,,,i,100,100,149065.jpg,Toe Injury - Expected back 01 Jun,2026-05-01 15:00:10.548658,9740
+629,79602,5,Daniel,Bentley,Daniel Bentley,O'Riley,,,,,GK,1,,,a,100,100,79602.jpg,,2026-01-15 19:30:10.431067,11361
+854,,2,Finley,Munroe,Finley Munroe,Munroe,,,,,DEF,2,,,a,,,,,,
+865,,2,Kadan,Young,Kadan Young,Young,,,,,MID,3,,,a,,,,,,
+866,,2,Lander,Emery,Lander Emery,Emery,,,,,GK,1,,,a,,,,,,
+849,,3,Michael,Dacosta Gonzalez,Michael Dacosta Gonzalez,Dacosta Gonzalez,,,,,MID,3,,,a,,,,,,
+663,230376,5,Jhon,Arias,Jhon Arias,Samuels,,,,,MID,3,,,u,0,0,230376.jpg,Loaned to Dundee,2026-02-08 15:58:03.708628,13741
+855,,3,Callan,McKenna,Callan McKenna,McKenna,,,,,GK,1,,,a,,,,,,
+864,,4,Yunus,Konak,Yunus Konak,Konak,,,,,MID,3,,,a,,,,,,
+843,,5,Samy,Chouchane,Samy Chouchane,Chouchane,,,,,MID,3,,,a,,,,,,
+845,,5,Odeluga,Offiah,Odeluga Offiah,Offiah,,,,,DEF,2,,,a,,,,,,
+861,,5,Noël,Atom,Noël Atom,Atom,,,,,DEF,2,,,a,,,,,,
+847,,7,Teddy,Sharman-Lowe,Teddy Sharman-Lowe,Sharman-Lowe,,,,,GK,1,,,a,,,,,,
+851,,7,Tyrique,George,Tyrique George,George,,,,,FWD,4,,,a,,,,,,
+852,,7,Kiano,Dyer,Kiano Dyer,Dyer,,,,,MID,3,,,a,,,,,,
+858,,7,Ted,Curd,Ted Curd,Curd,,,,,GK,1,,,a,,,,,,
+859,,7,Zak,Sturge,Zak Sturge,Sturge,,,,,DEF,2,,,a,,,,,,
+5,226597,1,Gabriel,dos Santos Magalhães,Gabriel dos Santos Magalhães,Hein,,,,,DEF,2,,,u,100,100,226597.jpg,Loaned to Real Valladolid,2026-03-24 00:00:10.555559,5613
+52,232653,2,Jacob,Ramsey,Jacob Ramsey,Pau,,,,,MID,3,,,a,100,100,232653.jpg,,2026-02-25 08:00:07.432091,8941
+56,491287,2,Enzo,Barrenechea,Enzo Barrenechea,Sousa,,,,,MID,3,,,u,0,0,491287.jpg,Loaned to  Bristol Rovers,2025-07-22 13:50:13.193555,
+57,461421,2,Lewis,Dobbin,Lewis Dobbin,Tielemans,,,,,MID,3,,,a,0,0,461421.jpg,,2025-08-26 13:44:19.058961,
+60,577731,3,Ben,Broggio,Ben Broggio,Adams,,,,,MID,3,,,a,0,0,577731.jpg,,2026-02-06 22:47:15.874946,
+61,151589,3,Leander,Dendoncker,Leander Dendoncker,Anthony,,,,,MID,3,,,u,0,0,151589.jpg,Season long loan to Burnley,2025-08-20 13:31:56.822248,
+63,537403,3,Kadan,Young,Kadan Young,Christie,,,,,MID,3,,,i,0,0,537403.jpg,Groin Injury - Expected back 01 Jun,2026-02-06 22:47:15.909676,
+65,576756,3,Zépiqueno,Redmond,Zépiqueno Redmond,Enes Ünal,,,,,FWD,4,,,i,0,0,576756.jpg,Knee injury - Expected back 01 Jun,2025-09-02 13:26:36.441136,
+102,235448,4,Ellery,Balcombe,Ellery Balcombe,Onyeka,,,,,GK,1,,,u,,,235448.jpg,Loaned to FC Augsburg,,
+757,516875,4,Ronnie,Hollingshead,Ronnie Hollingshead,Kayode,,,,,GK,1,,,a,,,516875.jpg,,,
+681,485711,5,Benjamin,Sesko,Benjamin Sesko,McConville,,,,,FWD,4,,,u,50,50,485711.jpg,Loaned to Norwich City,2026-05-03 23:00:09.426303,11974
+739,590039,5,Divine,Mukasa,Divine Mukasa,Hürzeler,,,,,MID,3,,,a,0,0,590039.jpg,,2026-02-06 22:50:57.523825,14055
+795,597320,5,Harry,Howell,Harry Howell,Harry Howell,,,,,MID,3,,,a,,,597320.jpg,,,13584
+560,437505,6,Wilson,Isidor,Wilson Isidor,Neto,,,,,FWD,4,,,a,100,100,437505.jpg,,2026-01-04 21:30:13.190592,7148
+575,491279,6,Micky,van de Ven,Micky van de Ven,Wiley,,,,,DEF,2,,,u,100,100,491279.jpg,Loaned to Strasbourg,2026-03-06 05:30:08.287295,10050
+581,172780,6,James,Maddison,James Maddison,Jørgensen,,,,,MID,3,,,a,100,100,172780.jpg,,2025-08-08 13:57:59.638052,6818
+740,566213,6,Stephen,Mfuni,Stephen Mfuni,Maresca,,,,,DEF,2,,,a,0,0,566213.jpg,,2026-02-06 22:50:57.507882,
+774,232356,6,Jenson,Jones,Jenson Jones,Anselmino,,,,,DEF,2,,,a,,,232356.jpg,,,
+781,618027,6,TJ,Carroll,TJ Carroll,Mheuka,,,,,DEF,2,,,a,,,618027.jpg,,,
+445,577974,7,Harry,Amass,Harry Amass,Turner,,,,,DEF,2,,,a,0,0,577974.jpg,,2025-09-02 13:39:58.762783,
+647,181284,7,Gonçalo Manuel,Ganchinho Guedes,Gonçalo Manuel Ganchinho Guedes,Rodney,,,,,MID,3,,,a,0,0,181284.jpg,,2025-08-11 01:21:19.226169,
+666,224117,7,Viktor,Gyökeres,Viktor Gyökeres,Kporha,,,,,FWD,4,,,a,100,100,224117.jpg,,2025-11-01 18:00:08.84775,7254
+676,503714,7,Lesley,Ugochukwu,Lesley Ugochukwu,Marsh,,,,,MID,3,,,a,100,100,503714.jpg,,2025-09-14 22:00:08.706775,9451
+730,441264,7,Brian,Brobbey,Brian Brobbey,Esse,,,,,FWD,4,,,a,100,100,441264.jpg,,2026-02-23 01:30:11.824581,9789
+450,430871,8,Matheus,Santos Carneiro da Cunha,Matheus Santos Carneiro da Cunha,Alcaraz,,,,,MID,3,,,a,100,100,430871.jpg,,2026-04-28 00:00:08.134591,7080
+582,460842,8,Mohammed,Kudus,Mohammed Kudus,O'Brien,,,,,MID,3,,,a,0,0,460842.jpg,,2026-01-04 21:30:13.23786,12027
+603,613804,8,El Hadji Malick,Diouf,El Hadji Malick Diouf,Armstrong,,,,,DEF,2,,,u,100,100,613804.jpg,Loaned to Derby County,2025-12-13 14:30:12.025609,13723
+624,178186,8,Jarrod,Bowen,Jarrod Bowen,Begovic,,,,,FWD,4,,,a,,,178186.jpg,,,1776
+246,532605,9,Andrey,Nascimento dos Santos,Andrey Nascimento dos Santos,Harris,,,,,MID,3,,,u,100,100,532605.jpg,Season long loan to Birmingham City,2026-02-07 22:00:08.90605,11808
+247,491007,9,Dário,Luís Essugo,Dário Luís Essugo,Iwobi,,,,,MID,3,,,a,100,100,491007.jpg,,2026-01-23 15:00:08.712004,13094
+22,195384,1,Mikel,Merino Zazón,Mikel Merino Zazón,Tomiyasu,,,,,MID,3,,,i,100,75,195384.jpg,Knee injury - Expected back 01 Jun,2026-02-02 11:30:08.998402,5304
+756,678552,1,Malcom,DaCosta,Malcom DaCosta,Porter,,,,,MID,3,,,a,,,678552.jpg,,,
+66,69752,3,Norberto,Murara Neto,Norberto Murara Neto,Faivre,,,,,GK,1,,,u,0,0,69752.jpg,Loaned to Brest,2025-08-11 01:25:12.553868,
+67,457569,3,Đorđe,Petrović,Đorđe Petrović,H.Traorè,,,,,GK,1,,,u,,,457569.jpg,Season long loan to A.J.Auxerre,,12032
+68,444172,3,Will,Dennis,Will Dennis,Hill,,,,,GK,1,,,a,0,0,444172.jpg,,2026-01-02 17:00:09.176943,
+69,568791,3,Callan,McKenna,Callan McKenna,Jebbison,,,,,GK,1,,,a,,,568791.jpg,,,
+70,495145,3,Alex,Paulsen,Alex Paulsen,Kerkez,,,,,GK,1,,,a,0,0,495145.jpg,,2025-08-27 12:50:21.648936,
+71,477580,3,Illia,Zabarnyi,Illia Zabarnyi,Kluivert,,,,,DEF,2,,,a,0,0,477580.jpg,,2025-08-12 13:14:36.02817,
+75,541462,3,Matai,Akinmboni,Matai Akinmboni,Paulsen,,,,,DEF,2,,,u,100,100,541462.jpg,Loaned to Auckland FC,2026-02-13 11:30:08.40958,
+76,518906,3,Owen,Bevan,Owen Bevan,Philip,,,,,DEF,2,,,u,,,518906.jpg,Season-long loan to Napoli,,
+78,436893,3,Julián,Araujo Zúñiga,Julián Araujo Zúñiga,Semenyo,,,,,DEF,2,,,a,0,0,436893.jpg,,2026-01-02 18:38:26.036808,
+79,223911,3,Chris,Mepham,Chris Mepham,Senesi,,,,,DEF,2,,,a,0,0,223911.jpg,,2025-09-02 12:54:34.562307,
+89,168991,4,Philip,Billing,Philip Billing,Damsgaard,,,,,MID,3,,,a,0,0,168991.jpg,,2025-08-27 12:49:57.472718,
+91,224995,4,Luis,Sinisterra Lucumí,Luis Sinisterra Lucumí,Flekken,,,,,MID,3,,,a,0,0,224995.jpg,,2025-08-26 13:43:19.913048,
+92,441240,4,Romain,Faivre,Romain Faivre,Henry,,,,,MID,3,,,a,0,0,441240.jpg,,2026-02-06 22:47:52.516051,
+93,424044,4,Hamed,Traorè,Hamed Traorè,Hickey,,,,,MID,3,,,a,0,0,424044.jpg,,2025-09-02 12:54:34.582455,6986
+94,550596,4,Dominic,Sadi,Dominic Sadi,Janelt,,,,,MID,3,,,i,0,0,550596.jpg,Heel Injury - Expected back 01 Jun,2025-09-22 21:51:49.974133,
+95,530121,4,Zain,Silcott-Duberry,Zain Silcott-Duberry,Jensen,,,,,MID,3,,,a,0,0,530121.jpg,,2025-09-22 21:51:49.994072,
+99,590760,4,Daniel,Adu-Adjei,Daniel Adu-Adjei,Mbeumo,,,,,FWD,4,,,a,0,0,590760.jpg,,2025-09-22 21:19:25.247985,
+134,591357,5,Ryan,Trevitt,Ryan Trevitt,Milner,,,,,MID,3,,,a,0,0,591357.jpg,,2025-08-11 01:07:54.335986,
+782,40383,6,Fraser,Forster,Fraser Forster,Samuels-Smith,,,,,GK,1,,,a,,,40383.jpg,,,
+579,85971,9,Son,Heung-min,Son Heung-min,Sessegnon,,,,,MID,3,,,a,0,0,85971.jpg,,2025-08-11 01:22:33.649224,
+271,209400,10,Daichi,Kamada,Daichi Kamada,Harness,,,,,MID,3,,,u,100,100,209400.jpg,Loaned to Derby County,2025-12-15 01:30:08.425663,6145
+273,496221,10,Adam,Wharton,Adam Wharton,Humphreys,,,,,MID,3,,,u,100,100,496221.jpg,Loaned to Wycombe,2026-04-17 15:00:07.598432,12409
+274,579075,10,Asher,Agbinone,Asher Agbinone,Hutchinson,,,,,MID,3,,,a,,,579075.jpg,,,
+275,466117,10,Naouirou,Ahamada,Naouirou Ahamada,Johnson,,,,,MID,3,,,a,0,0,466117.jpg,,2026-01-07 20:34:29.281491,
+276,489706,10,Justin,Devenny,Justin Devenny,Ladapo,,,,,MID,3,,,u,100,100,489706.jpg,Mutual termination of contract,2026-01-30 16:30:09.359129,13038
+277,450535,10,Malcolm,Ebiowei,Malcolm Ebiowei,Luongo,,,,,MID,3,,,a,0,0,450535.jpg,,2025-08-11 01:12:01.633662,
+278,450542,10,Jesurun,Rak-Sakyi,Jesurun Rak-Sakyi,Morsy,,,,,MID,3,,,a,0,0,450542.jpg,,2026-02-02 23:17:59.310313,
+279,536694,10,Matheus,França de Oliveira,Matheus França de Oliveira,Ndaba,,,,,MID,3,,,u,0,0,536694.jpg,Permanent transfer to Kilmarnock,2025-08-10 22:30:04.849181,
+280,531989,10,David,Ozoh,David Ozoh,Slicker,,,,,MID,3,,,a,0,0,531989.jpg,,2025-07-30 14:07:45.618291,
+806,436416,6,Christos,Mandas,Christos Mandas,Estève,,,,,GK,1,,,a,,,436416.jpg,,,
+820,644593,7,Kian,McMahon-Brown,Kian McMahon-Brown,Harrison,,,,,MID,3,,,a,,,644593.jpg,,,
+735,110504,1,Bertrand,Traoré,Bertrand Traoré,Arteta,,,,,MID,3,,,a,100,100,110504.jpg,,2026-03-04 10:30:08.528765,695
+103,503300,4,Matthew,Cox,Matthew Cox,Peart-Harris,,,,,GK,1,,,u,0,0,503300.jpg,Loaned to Swansea City,2026-01-16 15:17:51.432656,
+104,535017,4,Julian,Eyestone,Julian Eyestone,Pinnock,,,,,GK,1,,,a,,,535017.jpg,,,
+111,231065,4,Ethan,Pinnock,Ethan Pinnock,Yarmoliuk,,,,,DEF,2,,,a,100,100,231065.jpg,,2025-08-18 08:00:05.393517,9678
+112,226956,4,Mads,Roerslev Rasmussen,Mads Roerslev Rasmussen,Zanka,,,,,DEF,2,,,u,0,0,226956.jpg,Joined Anderlecht,2025-08-22 14:17:15.662878,
+113,444765,5,Sepp,van den Berg,Sepp van den Berg,Adingra,,,,,DEF,2,,,a,100,100,444765.jpg,,2025-12-27 22:00:11.19558,10721
+114,622536,5,Benjamin,Arthur,Benjamin Arthur,Baker-Boaitey,,,,,DEF,2,,,u,0,0,622536.jpg,Loaned to Port Vale,2026-02-06 22:48:24.603753,
+115,612534,5,Benjamin,Fredrick,Benjamin Fredrick,Baleba,,,,,DEF,2,,,a,0,0,612534.jpg,,2025-09-22 21:16:59.169077,
+116,472713,5,Aaron,Hickey,Aaron Hickey,Barco,,,,,DEF,2,,,u,100,100,472713.jpg,Loaned to Sevilla,2026-02-21 19:30:08.807049,8942
+118,499717,5,Jayden,Meghoma,Jayden Meghoma,Cozier-Duberry,,,,,DEF,2,,,u,0,0,499717.jpg,Loaned to Blackburn Rovers,2025-08-19 13:37:28.261506,
+119,446008,5,Bryan,Mbeumo,Bryan Mbeumo,Dahoud,,,,,MID,3,,,u,100,100,446008.jpg,Transferred to Eintracht Frankfurt,2026-04-20 12:00:07.778297,6552
+122,543295,5,Antoni,Milambo,Antoni Milambo,Estupiñan,,,,,MID,3,,,a,0,0,543295.jpg,,2025-10-16 08:00:09.362049,13780
+124,56979,5,Jordan,Henderson,Jordan Henderson,Gilmour,,,,,MID,3,,,u,100,100,56979.jpg,Transferred to Napoli,2026-04-11 20:30:08.72746,605
+125,204580,5,Vitaly,Janelt,Vitaly Janelt,Gross,,,,,MID,3,,,u,100,100,204580.jpg,Permanent transfer to Borussia Dortmund,2026-02-28 22:00:07.860819,9680
+126,207283,5,Mathias,Jensen,Mathias Jensen,Hinshelwood,,,,,MID,3,,,a,,,207283.jpg,,,7166
+127,626464,5,Gustavo,Nunes Fernandes Gomes,Gustavo Nunes Fernandes Gomes,I.Osman,,,,,MID,3,,,u,0,0,626464.jpg,Loaned to Feyenoord,2026-01-23 16:43:23.38028,
+129,508395,5,Yehor,Yarmoliuk,Yehor Yarmoliuk,João Pedro,,,,,MID,3,,,a,100,100,508395.jpg,,2025-10-25 23:00:07.80303,11772
+130,606689,5,Romelle,Donovan,Romelle Donovan,Kozlowski,,,,,MID,3,,,u,,,606689.jpg,Permanent transfer to Gaziantep FK,,14217
+819,494556,7,Ollie,Shield,Ollie Shield,Samuels-Smith,,,,,DEF,2,,,a,,,494556.jpg,,,
+131,628204,5,Yunus Emre,Konak,Yunus Emre Konak,Lamptey,,,,,MID,3,,,d,0,0,628204.jpg,Knee injury - 75% chance of playing,2026-01-16 15:17:51.447836,
+132,220695,5,Paris,Maghoma,Paris Maghoma,March,,,,,MID,3,,,i,0,0,220695.jpg,Knee injury - Expected back 01 Jun,2026-01-27 16:47:33.569182,
+133,450539,5,Myles,Peart-Harris,Myles Peart-Harris,Mazilu,,,,,MID,3,,,u,0,0,450539.jpg,Has joined Vitesse Arnhem on loan for the rest of the season,2026-01-15 12:49:06.966037,10205
+121,440089,10,Mikkel,Damsgaard,Mikkel Damsgaard,Enciso,,,,,MID,3,,,a,100,100,440089.jpg,,2026-03-20 14:00:08.942254,8859
+281,530318,10,Kaden,Rodney,Kaden Rodney,Taylor,,,,,MID,3,,,a,,,530318.jpg,,,11033
+283,231747,10,Jean-Philippe,Mateta,Jean-Philippe Mateta,Walton,,,,,FWD,4,,,a,100,100,231747.jpg,,2026-02-06 15:30:09.42601,5735
+284,205533,10,Eddie,Nketiah,Eddie Nketiah,Woolfenden,,,,,FWD,4,,,a,0,0,205533.jpg,,2026-01-01 21:00:11.323499,6482
+359,536119,10,Charlie,Crew,Charlie Crew,Phillips,,,,,MID,3,,,i,0,0,536119.jpg,Foot injury - Expected back 01 Jun,2025-08-11 01:12:36.647868,
+568,441164,10,Pedro,Porro Sauceda,Pedro Porro Sauceda,Muric,,,,,DEF,2,,,i,100,100,441164.jpg,Shoulder injury - Expected back 01 Jun,2026-01-28 04:30:09.124754,6912
+569,221632,10,Cristian,Romero,Cristian Romero,Jaden,,,,,DEF,2,,,i,0,0,221632.jpg,Knee injury - Expected back 01 Jun,2026-04-12 21:30:08.466916,7218
+583,445044,10,Dejan,Kulusevski,Dejan Kulusevski,Townsend,,,,,MID,3,,,d,0,0,445044.jpg,Hamstring injury - 25% chance of playing,2025-07-21 10:00:05.109205,
+810,559610,10,Luka,Bentt,Luka Bentt,King,,,,,MID,3,,,a,,,559610.jpg,,,
+824,587433,11,Conor,McManus,Conor McManus,Danns,,,,,DEF,2,,,a,,,587433.jpg,,,
+32,98980,2,Emiliano,Martínez Romero,Emiliano Martínez Romero,Cash,,,,,GK,1,,,a,100,100,98980.jpg,,2026-04-12 21:30:08.032006,4401
+50,195546,2,Emiliano,Buendía Stati,Emiliano Buendía Stati,Nedeljkovic,,,,,MID,3,,,u,100,100,195546.jpg,Loaned to RB Leipzig,2026-03-16 00:00:09.650848,2203
+136,502500,5,Igor Thiago,Nascimento Rodrigues,Igor Thiago Nascimento Rodrigues,Mitoma,,,,,FWD,4,,,a,100,100,502500.jpg,,2025-12-18 01:30:08.634916,13222
+138,49262,5,Jason,Steele,Jason Steele,O’Mahony,,,,,GK,1,,,u,,,49262.jpg,Season long to Portsmouth,,
+140,209288,5,Tom,McGill,Tom McGill,Peupion,,,,,GK,1,,,u,,,209288.jpg,Loaned to ADO Den Haag,,
+141,472739,5,Carl,Rushworth,Carl Rushworth,Sarmiento,,,,,GK,1,,,u,0,0,472739.jpg,Loaned to Burnley,2025-07-25 14:54:18.206318,
+142,240514,5,Kjell,Scherpen,Kjell Scherpen,Steele,,,,,GK,1,,,d,0,0,240514.jpg,Hand injury - 75% chance of playing,2025-07-25 14:53:26.96179,
+147,204214,5,Pervis,Estupiñán Tenorio,Pervis Estupiñán Tenorio,Webster,,,,,DEF,2,,,a,0,0,204214.jpg,,2025-07-24 10:14:09.955203,
+150,232792,6,Tariq,Lamptey,Tariq Lamptey,Andrey Santos,,,,,DEF,2,,,u,0,0,232792.jpg,Has joined Strasbourg on a season-long loan,2025-09-02 12:06:29.254107,
+153,110735,6,Adam,Webster,Adam Webster,B.Badiashile,,,,,DEF,2,,,a,0,0,110735.jpg,,2025-08-08 14:30:04.202011,
+154,439135,6,Eiran,Cashin,Eiran Cashin,Bergström,,,,,DEF,2,,,a,0,0,439135.jpg,,2025-07-28 11:50:54.390347,
+155,589100,6,Jacob,Slater,Jacob Slater,Bettinelli,,,,,DEF,2,,,a,0,0,589100.jpg,,2025-09-22 21:52:58.46237,
+159,109345,6,Solly,March,Solly March,Chalobah,,,,,MID,3,,,a,100,100,109345.jpg,,2026-04-20 12:00:07.808781,6049
+156,547720,8,Charlie,Tasker,Charlie Tasker,Broja,,,,,DEF,2,,,a,,,547720.jpg,,,
+690,590014,9,Rio,Cardines,Rio Cardines,Amissah,,,,,MID,3,,,a,100,100,590014.jpg,,2026-02-19 15:30:08.207988,13777
+631,516939,10,Emmanuel,Agbadou,Emmanuel Agbadou,J.Clarke,,,,,DEF,2,,,a,0,0,516939.jpg,,2026-02-08 15:58:03.693568,10856
+632,87835,10,Matt,Doherty,Matt Doherty,Ogbene,,,,,DEF,2,,,i,0,0,87835.jpg,Achilles injury - Expected back 01 Jun,2026-05-22 19:00:08.222316,6852
+799,658013,10,Charlie,Stevens,Charlie Stevens,Boniface,,,,,MID,3,,,a,,,658013.jpg,,,
+117,570241,11,Kim,Ji-soo,Kim Ji-soo,Buonanotte,,,,,DEF,2,,,a,0,0,570241.jpg,,2025-09-22 21:16:59.154227,
+285,199670,11,Odsonne,Édouard,Odsonne Édouard,B.Soumaré,,,,,FWD,4,,,a,0,0,199670.jpg,,2025-08-28 17:00:07.862344,3697
+286,576980,11,Zach,Marsh,Zach Marsh,Cannon,,,,,FWD,4,,,u,,,576980.jpg,Loaned to Stoke City,,
+288,229600,11,Mark,Travers,Mark Travers,Coady,,,,,GK,1,,,a,100,100,229600.jpg,,2026-02-24 10:30:07.70539,
+289,447325,11,Harry,Tyrer,Harry Tyrer,Daka,,,,,GK,1,,,a,0,0,447325.jpg,,2026-01-19 15:34:17.511601,
+290,480455,11,Jarrad,Branthwaite,Jarrad Branthwaite,De Cordova-Reid,,,,,DEF,2,,,i,0,0,480455.jpg,Muscle injury - Expected back 01 Jun,2026-04-19 22:30:08.159788,8476
+291,17761,11,James,Tarkowski,James Tarkowski,Faes,,,,,DEF,2,,,a,100,100,17761.jpg,,2026-03-17 23:30:09.582702,1665
+295,106611,11,Michael,Keane,Michael Keane,Justin,,,,,DEF,2,,,a,100,100,106611.jpg,,2026-01-07 23:00:09.480891,1653
+301,502697,11,Carlos,Alcaraz Durán,Carlos Alcaraz Durán,Okoli,,,,,MID,3,,,a,100,100,502697.jpg,,2026-02-24 10:30:07.721437,11297
+302,80801,11,Idrissa Gana,Gueye,Idrissa Gana Gueye,Ricardo,,,,,MID,3,,,a,50,50,80801.jpg,,2026-05-05 13:30:10.197878,668
+303,232928,11,James,Garner,James Garner,Souttar,,,,,MID,3,,,u,,,232928.jpg,Season long loan to Sheffield United,,7438
+305,609873,11,Harrison,Armstrong,Harrison Armstrong,Thomas,,,,,MID,3,,,a,100,100,609873.jpg,,2025-09-02 11:36:28.006606,12757
+306,547801,11,Callum,Bates,Callum Bates,Vardy,,,,,MID,3,,,a,,,547801.jpg,,,
+307,504296,11,Coby,Ebere,Coby Ebere,Vestergaard,,,,,MID,3,,,a,,,504296.jpg,,,
+308,496279,11,Isaac,Heath,Isaac Heath,Ward,,,,,MID,3,,,a,0,0,496279.jpg,,2025-09-02 12:26:54.658601,
+501,599303,11,Sean,Neave,Sean Neave,Skipp,,,,,FWD,4,,,a,,,599303.jpg,,,13532
+570,135720,11,Kevin,Danso,Kevin Danso,A.Fatawu,,,,,DEF,2,,,i,100,100,135720.jpg,Knee injury - Expected back 01 Jun,2026-02-02 00:30:11.097727,5261
+694,200834,11,Nordi,Mukiele,Nordi Mukiele,Cartwright,,,,,DEF,2,,,a,100,100,200834.jpg,,2026-02-22 23:00:10.030803,5659
+754,577285,11,George,Hemmings,George Hemmings,Van Nistelrooy,,,,,MID,3,,,a,,,577285.jpg,,,14193
+792,653481,11,Alysson Edward Franco,da Rocha dos Santos,Alysson Edward Franco da Rocha dos Santos,Monga,,,,,MID,3,,,a,0,0,653481.jpg,,2026-05-14 16:30:10.342832,14446
+793,591384,1,George,King,George King,Jack Henry-Francis,,,,,DEF,2,,,a,,,591384.jpg,,,
+834,616286,4,Ryan,Kavuma-McQueen,Ryan Kavuma-McQueen,Arthur,,,,,MID,3,,,a,,,616286.jpg,,,
+49,215711,2,Leon,Bailey,Leon Bailey,Mings,,,,,MID,3,,,a,100,100,215711.jpg,,2025-08-20 13:31:56.843157,5221
+62,559962,3,Jamaldeen,Jimoh-Aloba,Jamaldeen Jimoh-Aloba,Brooks,,,,,MID,3,,,a,0,0,559962.jpg,,2026-02-06 22:47:15.891521,13310
+712,488024,3,Yéremy,Pino Santos,Yéremy Pino Santos,Akinmboni,,,,,MID,3,,,a,100,100,488024.jpg,,2025-09-20 23:30:07.351615,9024
+780,631106,4,Ben,Casey,Ben Casey,Morgan,,,,,FWD,4,,,a,,,631106.jpg,,,
+165,516211,6,Abdallah,Sima,Abdallah Sima,Deivid,,,,,MID,3,,,u,0,0,516211.jpg,Loaned to Santos,2025-09-02 12:06:29.290672,
+166,509416,6,Yasin,Ayari,Yasin Ayari,Dewsbury-Hall,,,,,MID,3,,,a,100,100,509416.jpg,,2026-03-03 13:30:09.861024,11385
+171,441192,6,Jeremy,Sarmiento Morante,Jeremy Sarmiento Morante,Gusto,,,,,MID,3,,,a,0,0,441192.jpg,,2026-01-27 16:47:58.618791,
+172,549074,6,Tom,Watson,Tom Watson,James,,,,,MID,3,,,a,0,0,549074.jpg,,2026-02-02 13:42:58.389602,14029
+174,611695,6,Malick,Yalcouyé,Malick Yalcouyé,Lavia,,,,,MID,3,,,a,0,0,611695.jpg,,2025-08-15 12:03:00.771795,
+176,550141,6,Adrian,Mazilu,Adrian Mazilu,M.Sarr,,,,,MID,3,,,u,0,0,550141.jpg,Permanent move to RC Lens,2025-09-22 21:46:15.598017,
+177,513834,6,Andrew,Moran,Andrew Moran,Madueke,,,,,MID,3,,,a,0,0,513834.jpg,,2025-08-22 14:16:38.542849,
+179,487117,6,Evan,Ferguson,Evan Ferguson,Mudryk,,,,,FWD,4,,,s,0,0,487117.jpg,Suspended - unknown return date,2025-07-24 10:13:22.396984,
+180,608181,6,Stefanos,Tzimas,Stefanos Tzimas,N.Jackson,,,,,FWD,4,,,s,0,0,608181.jpg,Suspended until 23 Aug,2025-12-04 09:00:09.057817,14028
+181,647850,6,Charalampos,Kostoulas,Charalampos Kostoulas,Nkunku,,,,,FWD,4,,,a,,,647850.jpg,,,14118
+773,643426,8,Dean,Benamar,Dean Benamar,Heath,,,,,DEF,2,,,a,,,643426.jpg,,,
+803,499857,8,Teddy,Sharman-Lowe,Teddy Sharman-Lowe,Welch,,,,,GK,1,,,a,,,499857.jpg,,,
+282,574398,10,Franco,Umeh-Chibueze,Franco Umeh-Chibueze,Tuanzebe,,,,,MID,3,,,a,0,0,574398.jpg,,2025-09-22 21:43:58.439788,
+743,611912,10,Landon,Emenalo,Landon Emenalo,McKenna,,,,,MID,3,,,a,,,611912.jpg,,,
+315,428971,12,Steven,Benda,Steven Benda,Clark,,,,,GK,1,,,u,0,0,428971.jpg,Transferred to RB Salzburg,2026-02-04 16:15:48.090995,
+316,169528,12,Antonee,Robinson,Antonee Robinson,Darwin,,,,,DEF,2,,,a,100,100,169528.jpg,,2026-02-22 23:00:09.450858,8940
+317,174874,12,Joachim,Andersen,Joachim Andersen,Diogo J.,,,,,DEF,2,,,a,0,0,174874.jpg,,2026-05-09 20:30:09.152036,6314
+318,232892,12,Calvin,Bassey,Calvin Bassey,Doak,,,,,DEF,2,,,u,100,100,232892.jpg,Loaned to Middlesbrough,2026-03-27 11:30:11.698772,11728
+319,166477,12,Timothy,Castagne,Timothy Castagne,Elliott,,,,,DEF,2,,,a,,,166477.jpg,,,6157
+320,219924,12,Issa,Diop,Issa Diop,Endo,,,,,DEF,2,,,a,,,219924.jpg,,,3203
+321,246301,12,Jorge,Cuenca Barreno,Jorge Cuenca Barreno,Gakpo,,,,,DEF,2,,,a,,,246301.jpg,,,8489
+322,167074,12,Kenny,Tete,Kenny Tete,Gomez,,,,,DEF,2,,,a,100,100,167074.jpg,,2026-03-20 15:00:09.39877,5973
+323,591385,12,Samuel,Amissah,Samuel Amissah,Gravenberch,,,,,DEF,2,,,s,,,591385.jpg,Suspended until 23 Aug,,
+324,153133,12,Alex,Iwobi,Alex Iwobi,Jones,,,,,MID,3,,,a,100,100,153133.jpg,,2026-04-18 18:00:09.137454,500
+833,671606,14,Mathis,Eboué,Mathis Eboué,Ogunneye,,,,,MID,3,,,a,,,671606.jpg,,,
+325,209289,12,Emile,Smith Rowe,Emile Smith Rowe,Kelleher,,,,,MID,3,,,a,100,100,209289.jpg,,2026-03-16 00:00:09.774637,7230
+326,159533,12,Adama,Traoré Diarra,Adama Traoré Diarra,Konaté,,,,,MID,3,,,a,25,25,159533.jpg,,2026-05-11 00:00:11.146616,900
+327,156689,12,Andreas,Hoelgebaum Pereira,Andreas Hoelgebaum Pereira,Luis Díaz,,,,,MID,3,,,a,0,0,156689.jpg,,2025-09-02 13:24:11.133813,
+328,184349,12,Ryan,Sessegnon,Ryan Sessegnon,M.Salah,,,,,MID,3,,,a,100,75,184349.jpg,,2026-04-28 00:00:07.995394,6837
+36,199796,2,Matty,Cash,Matty Cash,Digne,,,,,DEF,2,,,a,100,100,199796.jpg,,2026-03-05 00:00:08.20582,8864
+37,101188,2,Lucas,Digne,Lucas Digne,Dobbin,,,,,DEF,2,,,u,100,100,101188.jpg,Permanent transfer to West Bromwich Albion,2025-10-23 13:30:07.954318,1823
+47,244850,2,Morgan,Rogers,Morgan Rogers,Martinez,,,,,MID,3,,,s,100,100,244850.jpg,Suspended until 23 Aug,2025-08-10 22:00:04.458365,12412
+674,225321,4,Aaron,Ramsdale,Aaron Ramsdale,Maghoma,,,,,GK,1,,,a,,,225321.jpg,,,5603
+705,491745,4,Elijah,Campbell,Elijah Campbell,Arthur,,,,,DEF,2,,,a,0,0,491745.jpg,,2026-02-06 22:49:41.85749,
+786,505079,4,Alfie,McNally,Alfie McNally,Benjamin Fredrick,,,,,GK,1,,,a,,,505079.jpg,,,
+200,444180,7,Jaidon,Anthony,Jaidon Anthony,Guéhi,,,,,MID,3,,,i,100,100,444180.jpg,Eye Injury - Expected back 01 Jun,2025-10-07 11:30:07.662899,10746
+201,183751,7,Manuel,Benson Hedilazio,Manuel Benson Hedilazio,Henderson,,,,,MID,3,,,a,0,0,183751.jpg,,2025-09-22 21:45:34.872207,
+202,179458,7,Jacob,Bruun Larsen,Jacob Bruun Larsen,Holding,,,,,MID,3,,,u,100,100,179458.jpg,Loaned to Sheffield United,2025-09-14 22:00:08.065375,5355
+203,578614,7,Enock,Agyei,Enock Agyei,Hughes,,,,,MID,3,,,a,,,578614.jpg,,,
+205,172567,7,Josh,Cullen,Josh Cullen,Kamada,,,,,MID,3,,,a,0,0,172567.jpg,,2025-12-27 22:00:11.404644,1018
+206,174592,7,Marcus,Edwards,Marcus Edwards,Lerma,,,,,MID,3,,,a,100,100,174592.jpg,,2026-03-12 16:30:09.774276,13730
+207,465527,7,Hannibal,Mejbri,Hannibal Mejbri,Mateta,,,,,MID,3,,,a,100,100,465527.jpg,,2026-05-14 16:30:09.81349,9558
+208,487702,7,Luca,Koleosho,Luca Koleosho,M.França,,,,,MID,3,,,a,0,0,487702.jpg,,2025-08-22 14:15:37.649817,
+209,167887,7,Josh,Laurent,Josh Laurent,Matthews,,,,,MID,3,,,a,100,100,167887.jpg,,2026-03-21 19:00:09.962836,13728
+210,469272,7,Loum,Tchaouna,Loum Tchaouna,Mitchell,,,,,MID,3,,,a,,,469272.jpg,,,9977
+211,447715,7,Aaron,Ramsey,Aaron Ramsey,Muñoz,,,,,MID,3,,,a,0,0,447715.jpg,,2025-09-02 12:51:25.540742,
+212,576323,7,Oluwaseun,Adewumi,Oluwaseun Adewumi,Ozoh,,,,,MID,3,,,u,0,0,576323.jpg,Season long loan to Derby County,2025-08-15 12:03:26.649417,
+213,551206,7,Jaydon,Banel,Jaydon Banel,Rak-Sakyi,,,,,MID,3,,,u,0,0,551206.jpg,Loaned to Sheffield United,2026-01-30 16:34:44.759908,14281
+214,437748,7,Mike,Trésor Ndayishimiye,Mike Trésor Ndayishimiye,Schlupp,,,,,MID,3,,,u,100,100,437748.jpg,Loaned to Celtic,2026-03-12 16:30:09.782279,12094
+622,518442,9,Lewis,Orford,Lewis Orford,Berge,,,,,MID,3,,,a,0,0,518442.jpg,,2025-09-02 12:14:36.944075,
+198,180804,11,Axel,Tuanzebe,Axel Tuanzebe,Edouard,,,,,DEF,2,,,a,100,100,180804.jpg,,2026-02-10 15:00:10.247449,934
+616,213999,11,Edson,Álvarez Velázquez,Edson Álvarez Velázquez,Nelson,,,,,MID,3,,,u,0,0,213999.jpg,Loaned to Oxford United,2025-08-26 13:45:35.07393,
+329,153682,12,Harry,Wilson,Harry Wilson,Mac Allister,,,,,MID,3,,,i,100,100,153682.jpg,Lack of match fitness - Expected back 16 Aug,2026-03-01 22:00:07.600147,5596
+331,76357,12,Tom,Cairney,Tom Cairney,Morton,,,,,MID,3,,,a,100,100,76357.jpg,,2026-02-09 18:00:10.428796,6835
+332,212314,12,Saša,Lukić,Saša Lukić,N.Phillips,,,,,MID,3,,,u,100,100,212314.jpg,Loaned to Derby County,2026-01-17 18:30:08.687153,1537
+333,573062,12,Martial,Godo,Martial Godo,Quansah,,,,,MID,3,,,a,0,0,573062.jpg,,2025-09-02 13:30:29.210428,
+334,515024,12,Luke,Harris,Luke Harris,R.Williams,,,,,MID,3,,,u,0,0,515024.jpg,Loaned to Morecambe,2025-07-28 11:48:41.571901,
+335,577725,12,Josh,King,Josh King,Robertson,,,,,MID,3,,,a,100,100,577725.jpg,,2026-01-01 21:30:11.885073,12410
+639,560248,1,Bastien,Meupiyou Menadjou,Bastien Meupiyou Menadjou,Setford,,,,,DEF,2,,,a,0,0,560248.jpg,,2025-07-23 18:49:36.204721,
+787,565863,6,Sam,Chambers,Sam Chambers,Genesis Antwi,,,,,MID,3,,,a,,,565863.jpg,,,
+199,208912,7,Joe,Worrall,Joe Worrall,Eze,,,,,DEF,2,,,a,100,100,208912.jpg,,2026-01-22 20:00:06.97957,10756
+215,431639,7,Zian,Flemming,Zian Flemming,Ward,,,,,FWD,4,,,a,100,100,431639.jpg,,2026-03-12 16:30:09.790733,13729
+216,492831,7,Zeki,Amdouni,Zeki Amdouni,Wharton,,,,,FWD,4,,,i,100,100,492831.jpg,Concussion - Expected back 01 Jun,2025-08-10 22:00:04.567659,11701
+645,643135,7,Fer,López González,Fer López González,Devenny,,,,,MID,3,,,a,0,0,643135.jpg,,2026-01-27 16:47:01.662371,13200
+741,600882,7,Harry,Gray,Harry Gray,Glasner,,,,,FWD,4,,,a,0,0,600882.jpg,,2026-01-16 15:18:53.201761,
+217,435973,8,Lyle,Foster,Lyle Foster,A.Doucoure,,,,,FWD,4,,,a,100,100,435973.jpg,,2025-12-13 14:30:11.187944,7498
+218,44699,8,Ashley,Barnes,Ashley Barnes,Beto,,,,,FWD,4,,,a,,,44699.jpg,,,4422
+219,220598,8,Michael,Obafemi,Michael Obafemi,Branthwaite,,,,,FWD,4,,,i,0,0,220598.jpg,Hamstring injury - Expected back 01 Jul,2025-09-02 12:51:25.55523,
+220,215059,8,Robert,Lynch Sánchez,Robert Lynch Sánchez,Calvert-Lewin,,,,,GK,1,,,a,100,100,215059.jpg,,2026-05-04 20:30:09.448691,9098
+336,153366,12,Harrison,Reed,Harrison Reed,Szoboszlai,,,,,MID,3,,,a,100,100,153366.jpg,,2026-04-09 16:30:10.820873,910
+337,102057,12,Raúl,Jiménez Rodríguez,Raúl Jiménez Rodríguez,Tsimikas,,,,,FWD,4,,,a,100,100,102057.jpg,,2025-10-29 18:00:08.542122,4105
+339,437495,12,Illan,Meslier,Illan Meslier,Virgil,,,,,GK,1,,,a,,,437495.jpg,,,
+636,231480,12,Santiago,Ignacio Bueno,Santiago Ignacio Bueno,Chiesa,,,,,DEF,2,,,a,100,100,231480.jpg,,2025-12-29 19:30:09.98094,10945
+669,456512,12,Dan,Ndoye,Dan Ndoye,Davies,,,,,MID,3,,,a,100,75,456512.jpg,,2026-05-01 15:00:10.570574,8662
+688,481283,12,James,Wright,James Wright,Nyoni,,,,,GK,1,,,a,,,481283.jpg,,,
+692,647681,12,Giovanni,Leoni,Giovanni Leoni,Nallo,,,,,DEF,2,,,a,0,0,647681.jpg,,2025-09-24 06:00:06.281394,
+709,431248,12,Ladislav,Krejcí,Ladislav Krejcí,Danns,,,,,DEF,2,,,u,100,100,431248.jpg,Loaned to Sunderland,2026-04-18 18:00:09.35193,12721
+340,97846,13,Alex,Cairns,Alex Cairns,Akanji,,,,,GK,1,,,a,,,97846.jpg,,,
+341,59735,13,Karl,Darlow,Karl Darlow,Aké,,,,,GK,1,,,a,,,59735.jpg,,,780
+342,226182,13,Jayden,Bogle,Jayden Bogle,Bernardo,,,,,DEF,2,,,a,100,75,226182.jpg,,2026-05-12 11:00:09.907503,9205
+343,222694,13,Pascal,Struijk,Pascal Struijk,Bobb,,,,,DEF,2,,,a,100,75,222694.jpg,,2026-05-08 15:30:09.162205,8717
+344,434752,13,Jaka,Bijol,Jaka Bijol,Carson,,,,,DEF,2,,,a,100,100,434752.jpg,,2026-04-29 15:30:09.745549,6807
+345,437738,13,Sebastiaan,Bornauw,Sebastiaan Bornauw,De Bruyne,,,,,DEF,2,,,a,100,100,437738.jpg,,2026-01-11 22:30:10.606564,7791
+347,243526,13,Gabriel,Gudmundsson,Gabriel Gudmundsson,Ederson M.,,,,,DEF,2,,,a,0,0,243526.jpg,,2026-04-26 22:30:07.928706,9944
+348,214225,13,Joe,Rodon,Joe Rodon,Foden,,,,,DEF,2,,,a,100,100,214225.jpg,,2026-04-05 21:30:09.244398,6377
+349,492368,13,Isaac,Schmidt,Isaac Schmidt,Grealish,,,,,DEF,2,,,a,0,0,492368.jpg,,2025-09-02 12:00:32.361624,
+350,427637,13,Brenden,Aaronson,Brenden Aaronson,Gvardiol,,,,,MID,3,,,a,100,75,427637.jpg,,2026-05-17 22:00:09.557301,10751
+351,492859,13,Wilfried,Gnonto,Wilfried Gnonto,Haaland,,,,,MID,3,,,a,100,100,492859.jpg,,2025-09-18 14:30:08.147956,11155
+352,221399,13,Jack,Harrison,Jack Harrison,J.Alvarez,,,,,MID,3,,,u,0,0,221399.jpg,Transferred to Atletico Madrid,2026-01-19 15:40:40.404385,8720
+353,200617,13,Daniel,James,Daniel James,João Cancelo,,,,,MID,3,,,u,100,100,200617.jpg,Permanent transfer to Saudi club Al-Hilal,2026-04-08 15:30:07.85617,5595
+354,199598,13,Ethan,Ampadu,Ethan Ampadu,Kovačić,,,,,MID,3,,,a,100,100,199598.jpg,,2026-05-15 14:30:09.952299,6369
+355,248937,13,Sam,Greenwood,Sam Greenwood,Lewis,,,,,MID,3,,,a,0,0,248937.jpg,,2025-09-02 12:00:32.393623,
+356,486520,13,Ilia,Gruev,Ilia Gruev,Matheus N.,,,,,MID,3,,,a,0,0,486520.jpg,,2026-04-24 17:30:09.489939,8000
+357,433952,13,Largie,Ramazani,Largie Ramazani,McAtee,,,,,MID,3,,,a,0,0,433952.jpg,,2025-09-02 12:00:32.377624,
+358,248056,13,Tanaka,Ao,Tanaka Ao,Ortega Moreno,,,,,MID,3,,,a,100,100,248056.jpg,,2025-08-24 01:30:06.493361,13834
+360,462635,13,Joe,Gelhardt,Joe Gelhardt,Rodrigo,,,,,MID,3,,,a,0,0,462635.jpg,,2025-08-11 11:07:52.207439,
+361,470294,13,Darko,Gyabi,Darko Gyabi,Rúben,,,,,MID,3,,,a,0,0,470294.jpg,,2025-09-02 13:38:58.066167,
+363,106617,13,Patrick,Bamford,Patrick Bamford,Walker,,,,,FWD,4,,,u,0,0,106617.jpg,Loaned to Milan,2025-09-02 12:00:32.408955,
+571,115556,13,Ben,Davies,Ben Davies,Savinho,,,,,DEF,2,,,a,0,0,115556.jpg,,2026-01-17 18:30:08.916445,660
+838,577978,7,Rhys,Chadwick,Rhys Chadwick,Acheampong,,,,,MID,3,,,a,,,577978.jpg,,,
+837,643970,11,Jayden,Lienou,Jayden Lienou,Nallo,,,,,DEF,2,,,a,,,643970.jpg,,,
+839,592740,12,Alfie,Cresswell,Alfie Cresswell,Martins,,,,,MID,3,,,a,,,592740.jpg,,,
+186,192290,1,Connor,Roberts,Connor Roberts,Sterling,,,,,DEF,2,,,a,100,75,192290.jpg,,2025-08-22 12:30:06.986449,
+40,149484,2,Tyrone,Mings,Tyrone Mings,Hause,,,,,DEF,2,,,a,100,100,149484.jpg,,2026-04-12 21:30:08.045496,1024
+41,244954,2,Pau,Torres,Pau Torres,Iling Jr,,,,,DEF,2,,,u,100,100,244954.jpg,Season long loan to Bologna,2025-12-12 00:00:09.857457,6221
+48,166989,2,Youri,Tielemans,Youri Tielemans,McGinn,,,,,MID,3,,,a,100,100,166989.jpg,,2026-01-26 04:00:07.415161,5956
+55,88894,2,Ross,Barkley,Ross Barkley,Sinisalo,,,,,MID,3,,,u,100,100,88894.jpg,Permanent transfer to Celtic,2025-11-30 22:30:09.043798,592
+64,178301,3,Ollie,Watkins,Ollie Watkins,Cook,,,,,FWD,4,,,s,100,100,178301.jpg,Suspended until 30 Aug,2026-01-29 23:00:09.533353,8865
+763,516234,5,Charlie,Gray,Charlie Gray,Cashin,,,,,MID,3,,,a,,,516234.jpg,,,
+183,518030,6,Max,Weiß,Max Weiß,Petrović,,,,,GK,1,,,u,,,518030.jpg,Loaned to Strasbourg,,13731
+184,489571,6,Etienne,Green,Etienne Green,Renato Veiga,,,,,GK,1,,,u,0,0,489571.jpg,Loaned to Juventus,2025-09-02 12:51:25.510909,
+185,51943,6,Václav,Hladký,Václav Hladký,Sánchez,,,,,GK,1,,,a,,,51943.jpg,,,
+187,58621,6,Kyle,Walker,Kyle Walker,Tosin,,,,,DEF,2,,,a,100,100,58621.jpg,,2025-12-06 20:00:09.097987,638
+189,461567,6,Owen,Dodgson,Owen Dodgson,W.Fofana,,,,,DEF,2,,,i,0,0,461567.jpg,Muscle injury - Expected back 01 Jun,2025-08-11 01:08:30.737822,
+190,478969,7,Hjalmar,Ekdal,Hjalmar Ekdal,Ahamada,,,,,DEF,2,,,u,,,478969.jpg,Loaned to Rennes,,11704
+193,461188,7,Bashir,Humphreys,Bashir Humphreys,C.Doucouré,,,,,DEF,2,,,i,100,100,461188.jpg,Knee injury - Expected back 01 Jun,2025-12-05 17:00:09.488823,11243
+194,241231,7,Jordan,Beyer,Jordan Beyer,C.Richards,,,,,DEF,2,,,a,0,0,241231.jpg,,2025-08-22 12:30:07.019474,
+196,450072,7,Shurandy,Sambo,Shurandy Sambo,Clyne,,,,,DEF,2,,,d,0,0,450072.jpg,Illness - 75% chance of playing,2025-08-19 13:36:42.853472,
+197,519895,7,Oliver,Sonne,Oliver Sonne,Ebiowei,,,,,DEF,2,,,u,0,0,519895.jpg,Season long loan to Oxford United,2026-02-02 13:40:27.470555,13726
+191,477717,9,Maxime,Estève,Maxime Estève,Andersen,,,,,DEF,2,,,a,100,100,477717.jpg,,2026-01-15 19:30:09.554033,9487
+267,232185,10,Ismaïla,Sarr,Ismaïla Sarr,Davis,,,,,MID,3,,,a,100,100,232185.jpg,,2025-11-30 22:30:09.281464,5675
+192,494960,11,Quilindschy,Hartman,Quilindschy Hartman,J.Ayew,,,,,DEF,2,,,a,,,494960.jpg,,,13727
+625,91889,13,Niclas,Füllkrug,Niclas Füllkrug,Gündogan,,,,,FWD,4,,,a,0,0,91889.jpg,,2026-01-02 18:40:36.22066,6098
+626,565431,13,Callum,Marshall,Callum Marshall,Kaboré,,,,,FWD,4,,,u,0,0,565431.jpg,Loaned to Benfica,2026-01-08 10:37:12.178122,12359
+672,551210,13,Jorrel,Hato,Jorrel Hato,Simpson-Pusey,,,,,DEF,2,,,a,100,100,551210.jpg,,2025-12-29 19:00:09.929576,13776
+675,107265,13,Angus,Gunn,Angus Gunn,Wilson-Esbrand,,,,,GK,1,,,u,100,100,107265.jpg,Loaned to Stoke City,2025-10-31 00:00:09.154875,5544
+703,564505,13,Sam,Proctor,Sam Proctor,Alleyne,,,,,GK,1,,,a,,,564505.jpg,,,
+732,660392,13,Christantus,Uche,Christantus Uche,Khusanov,,,,,FWD,4,,,a,,,660392.jpg,,,12726
+785,530335,13,Pablo Felipe,Pereira de Jesus,Pablo Felipe Pereira de Jesus,Echeverri,,,,,FWD,4,,,a,100,100,530335.jpg,,2026-02-11 13:00:10.46381,14290
+364,565297,14,Mateo,Joseph Fernández-Regatillo,Mateo Joseph Fernández-Regatillo,Amad,,,,,FWD,4,,,a,0,0,565297.jpg,,2025-08-11 11:07:32.622877,
+365,174594,14,Lukas,Nmecha,Lukas Nmecha,Antony,,,,,FWD,4,,,u,100,100,174594.jpg,Loaned to Real Betis,2026-01-29 15:30:09.161752,6544
+830,677945,7,Will,Wright,Will Wright,Tauriainen,,,,,FWD,4,,,a,,,677945.jpg,,,
+366,116535,14,Alisson,Becker,Alisson Becker,B.Fernandes,,,,,GK,1,,,a,100,75,116535.jpg,,2026-03-20 18:00:09.865488,1257
+367,449027,14,Giorgi,Mamardashvili,Giorgi Mamardashvili,Bayindir,,,,,GK,1,,,a,100,100,449027.jpg,,2026-04-19 22:30:08.194343,9693
+808,173879,16,Tammy,Abraham,Tammy Abraham,Sels,,,,,FWD,4,,,a,,,173879.jpg,,,702
+832,718875,20,Talla,Ndiaye,Talla Ndiaye,Okoduwa,,,,,DEF,2,,,a,,,718875.jpg,,,
+657,589507,1,Leon,Chiwome,Leon Chiwome,Kacurri,,,,,FWD,4,,,u,100,100,589507.jpg,Loaned to Bromley,2025-07-21 10:00:05.148649,
+601,82143,5,Wes,Foderingham,Wes Foderingham,Moran,,,,,GK,1,,,u,0,0,82143.jpg,Loaned to Stoke City,2025-09-11 13:43:36.667461,
+221,508479,8,Filip,Jörgensen,Filip Jörgensen,Coleman,,,,,GK,1,,,i,100,100,508479.jpg,Thigh injury - Expected back 01 Jun,2026-03-15 12:30:10.053086,9272
+222,549939,8,Mike,Penders,Mike Penders,Gana,,,,,GK,1,,,a,0,0,549939.jpg,,2025-07-28 11:48:06.001822,
+223,471798,8,Gabriel,Słonina,Gabriel Słonina,Garner,,,,,GK,1,,,a,,,471798.jpg,,,
+224,179268,8,Marc,Cucurella Saseta,Marc Cucurella Saseta,Harrison,,,,,DEF,2,,,a,100,100,179268.jpg,,2026-02-11 13:00:09.713531,7134
+225,225796,8,Reece,James,Reece James,Holgate,,,,,DEF,2,,,u,100,100,225796.jpg,Loaned to West Bromwich Albion,2026-03-17 08:30:10.494517,8067
+235,244851,8,Cole,Palmer,Cole Palmer,Pickford,,,,,MID,3,,,a,100,100,244851.jpg,,2026-01-22 01:30:07.085135,8497
+237,448047,8,Enzo,Fernández,Enzo Fernández,Y. Chermiti,,,,,MID,3,,,a,100,100,448047.jpg,,2026-04-04 08:30:09.435637,11356
+577,553299,8,Takai,Kōta,Takai Kōta,Lindstrøm,,,,,DEF,2,,,i,0,0,553299.jpg,Groin Injury - Expected back 01 Jun,2026-01-02 18:40:16.158468,
+287,111234,11,Jordan,Pickford,Jordan Pickford,Choudhury,,,,,GK,1,,,u,,,111234.jpg,Loaned to Sheffield United,,741
+368,586268,14,Ármin,Pécsi,Ármin Pécsi,Casemiro,,,,,GK,1,,,a,,,586268.jpg,,,
+369,155503,14,Freddie,Woodman,Freddie Woodman,Dalot,,,,,GK,1,,,a,,,155503.jpg,,,852
+370,216094,14,Jeremie,Frimpong,Jeremie Frimpong,Eriksen,,,,,DEF,2,,,a,100,75,216094.jpg,,2026-05-16 17:30:09.34274,9328
+371,544877,14,Milos,Kerkez,Milos Kerkez,Evans,,,,,DEF,2,,,a,100,100,544877.jpg,,2026-05-01 10:00:09.519335,11709
+372,122798,14,Andrew,Robertson,Andrew Robertson,Garnacho,,,,,DEF,2,,,a,,,122798.jpg,,,1688
+373,97032,14,Virgil,van Dijk,Virgil van Dijk,Hannibal,,,,,DEF,2,,,u,,,97032.jpg,Permanent move to Burnley,,833
+374,204716,14,Ibrahima,Konaté,Ibrahima Konaté,Heaton,,,,,DEF,2,,,a,100,100,204716.jpg,,2026-01-23 11:00:09.438636,6326
+375,492777,14,Conor,Bradley,Conor Bradley,Højlund,,,,,DEF,2,,,a,0,0,492777.jpg,,2026-01-09 17:30:11.990256,10120
+376,171287,14,Joe,Gomez,Joe Gomez,Lindelof,,,,,DEF,2,,,a,100,100,171287.jpg,,2026-04-17 12:30:08.389302,987
+377,214285,14,Konstantinos,Tsimikas,Konstantinos Tsimikas,Maguire,,,,,DEF,2,,,a,0,0,214285.jpg,,2025-09-22 09:16:54.545563,
+378,611926,14,Amara,Nallo,Amara Nallo,Mainoo,,,,,DEF,2,,,a,100,100,611926.jpg,,2025-10-30 11:30:08.685763,
+379,219937,14,Rhys,Williams,Rhys Williams,Malacia,,,,,DEF,2,,,u,,,219937.jpg,Loaned to PSV,,
+380,489580,14,Calvin,Ramsay,Calvin Ramsay,Martinez,,,,,DEF,2,,,i,,,489580.jpg,Knee injury - Expected back 01 Jun,,
+381,118748,14,Mohamed,Salah,Mohamed Salah,McTominay,,,,,MID,3,,,u,100,100,118748.jpg,Transferred to Napoli,2026-04-25 22:30:09.424675,1250
+382,494595,14,Florian,Wirtz,Florian Wirtz,Mount,,,,,MID,3,,,a,100,100,494595.jpg,,2026-05-14 13:30:10.754598,8397
+572,493125,14,Radu,Drăgușin,Radu Drăgușin,Yoro,,,,,DEF,2,,,a,100,100,493125.jpg,,2025-07-21 10:00:05.088977,9105
+593,482442,14,Pape Matar,Sarr,Pape Matar Sarr,De Ligt,,,,,MID,3,,,d,100,100,482442.jpg,Knock - 50% chance of playing,2026-04-24 14:30:09.185437,9021
+648,433312,14,Marshall,Munetsi,Marshall Munetsi,Wheatley,,,,,MID,3,,,u,0,0,433312.jpg,Loaned to Walsall,2025-12-04 10:30:09.80817,7908
+658,531363,14,Nathan,Fraser,Nathan Fraser,Heaven,,,,,FWD,4,,,a,,,531363.jpg,,,
+670,498016,14,Robin,Roefs,Robin Roefs,Amass,,,,,GK,1,,,a,100,100,498016.jpg,,2026-03-04 10:30:08.443155,13712
+691,177815,14,Dominic,Calvert-Lewin,Dominic Calvert-Lewin,Kukonki,,,,,FWD,4,,,a,100,100,177815.jpg,,2026-03-13 23:30:10.190086,5555
+761,604988,14,Freddie,Simmonds,Freddie Simmonds,Harrison,,,,,DEF,2,,,a,,,604988.jpg,,,
+776,647960,14,Oliver,Pimlott,Oliver Pimlott,Obi,,,,,MID,3,,,a,,,647960.jpg,,,
+777,514362,14,Temple,Ojinnaka,Temple Ojinnaka,Fredricson,,,,,MID,3,,,a,0,0,514362.jpg,,2026-02-06 22:51:28.266989,
+827,576634,17,Jim,Thwaites,Jim Thwaites,Sasnauskas,,,,,MID,3,,,a,,,576634.jpg,,,
+73,54469,1,Adam,Smith,Adam Smith,Neto,,,,,DEF,2,,,a,100,100,54469.jpg,,2025-08-31 01:00:07.918421,825
+233,577016,2,Josh,Acheampong,Josh Acheampong,Onana,,,,,DEF,2,,,a,100,100,577016.jpg,,2025-09-24 11:30:08.237944,12535
+74,494521,3,Adrien,Truffert,Adrien Truffert,O.Dango,,,,,DEF,2,,,i,,,494521.jpg,Groin Injury - Expected back 01 Jun,,8640
+695,523705,6,Jackson,Tchatchoua,Jackson Tchatchoua,Rak-Sakyi,,,,,DEF,2,,,a,,,523705.jpg,,,12113
+650,497606,7,Tawanda,Chirewa,Tawanda Chirewa,Lacroix,,,,,MID,3,,,a,0,0,497606.jpg,,2026-02-02 13:41:26.666899,12234
+226,180736,8,Trevoh,Chalobah,Trevoh Chalobah,Iroegbunam,,,,,DEF,2,,,i,100,100,180736.jpg,Groin Injury - Expected back 01 Jun,2026-03-17 23:30:09.487098,6615
+227,460028,8,Levi,Samuels Colwill,Levi Samuels Colwill,J.Virginia,,,,,DEF,2,,,a,100,100,460028.jpg,,2025-08-08 14:30:04.25516,10805
+228,482609,8,Malo,Gusto,Malo Gusto,Keane,,,,,DEF,2,,,a,100,75,482609.jpg,,2026-05-20 12:00:09.005199,9017
+229,242880,8,Benoît,Badiashile Mukinayi,Benoît Badiashile Mukinayi,Maupay,,,,,DEF,2,,,u,100,100,242880.jpg,Transferred to Marseille,2026-03-17 23:30:09.519518,7240
+230,444463,8,Wesley,Fofana,Wesley Fofana,McNeil,,,,,DEF,2,,,a,0,100,444463.jpg,,2026-05-24 21:30:14.198808,7589
+231,574458,8,Mamadou,Sarr,Mamadou Sarr,Mykolenko,,,,,DEF,2,,,a,100,100,574458.jpg,,2025-08-11 01:09:37.642396,11253
+232,109646,8,Tosin,Adarabioyo,Tosin Adarabioyo,Ndiaye,,,,,DEF,2,,,a,100,100,109646.jpg,,2026-02-09 15:30:09.138219,5590
+234,622758,8,Aarón,Anselmino,Aarón Anselmino,Patterson,,,,,DEF,2,,,a,0,0,622758.jpg,,2026-02-02 23:19:25.503392,
+238,624773,8,Estêvão,Almeida de Oliveira Gonçalves,Estêvão Almeida de Oliveira Gonçalves,Young,,,,,MID,3,,,a,0,0,624773.jpg,,2026-04-20 13:30:08.787573,13775
+239,463936,9,Jamie,Bynoe-Gittens,Jamie Bynoe-Gittens,Adama,,,,,MID,3,,,a,25,25,463936.jpg,,2026-04-04 21:00:10.295173,10542
+240,213198,9,Christopher,Nkunku,Christopher Nkunku,Andreas,,,,,MID,3,,,a,0,0,213198.jpg,,2025-09-02 11:35:16.323578,
+244,514356,9,Roméo,Lavia,Roméo Lavia,Castagne,,,,,MID,3,,,i,75,75,514356.jpg,Ankle injury - Expected back 01 Jun,2026-05-20 12:00:09.022712,10004
+765,553746,13,Leo,Shahar,Leo Shahar,N.Gonzalez,,,,,DEF,2,,,a,,,553746.jpg,,,
+779,629068,14,Braiden,Graham,Braiden Graham,Koné,,,,,FWD,4,,,a,,,629068.jpg,,,
+788,576637,14,Godwill,Kukonki,Godwill Kukonki,Dermot Mee,,,,,DEF,2,,,a,,,576637.jpg,,,
+400,88248,15,Stefan,Ortega Moreno,Stefan Ortega Moreno,Hayden,,,,,GK,1,,,u,100,100,88248.jpg,Loaned to Portsmouth,2026-03-01 22:00:07.672573,8786
+401,122074,15,Marcus,Bettinelli,Marcus Bettinelli,Isak,,,,,GK,1,,,a,100,100,122074.jpg,,2025-08-22 12:00:07.134628,
+402,448514,15,Rayan,Aït-Nouri,Rayan Aït-Nouri,J.Murphy,,,,,DEF,2,,,a,100,100,448514.jpg,,2025-12-13 14:30:11.538845,6674
+403,477424,15,Joško,Gvardiol,Joško Gvardiol,Joelinton,,,,,DEF,2,,,i,100,100,477424.jpg,Knee injury - Expected back 01 Jun,2026-01-04 21:30:12.663651,9790
+405,126184,15,Nathan,Aké,Nathan Aké,Krafth,,,,,DEF,2,,,a,,,126184.jpg,,,579
+406,578153,15,Abdukodir,Khusanov,Abdukodir Khusanov,Kuol,,,,,DEF,2,,,a,100,100,578153.jpg,,2026-02-08 22:00:09.344782,11763
+841,687076,9,Lamin,Sillah,Lamin Sillah,Warrington,,,,,FWD,4,,,a,,,687076.jpg,,,
+407,465351,15,Matheus,Nunes,Matheus Nunes,Lascelles,,,,,DEF,2,,,a,100,100,465351.jpg,,2026-01-20 00:30:08.597207,11000
+408,171314,15,Rúben,dos Santos Gato Alves Dias,Rúben dos Santos Gato Alves Dias,Lewis,,,,,DEF,2,,,u,100,100,171314.jpg,Loaned to  Sao Paulo,2026-03-27 11:30:11.791091,8961
+409,97299,15,John,Stones,John Stones,Livramento,,,,,DEF,2,,,a,100,100,97299.jpg,,2026-03-30 10:00:11.073963,586
+410,477064,15,Rico,Lewis,Rico Lewis,Longstaff,,,,,DEF,2,,,a,100,100,477064.jpg,,2026-03-11 00:00:09.34079,10847
+411,472769,15,Nico,O'Reilly,Nico O'Reilly,Miley,,,,,DEF,2,,,a,100,100,472769.jpg,,2026-04-12 21:30:08.337535,11592
+835,568159,14,Archie,Whitehall,Archie Whitehall,Mee,,,,,MID,3,,,a,,,568159.jpg,,,
+809,685628,16,Jerome,Abbey,Jerome Abbey,Ribeiro,,,,,MID,3,,,a,,,685628.jpg,,,14394
+836,590040,20,Jimmy,Sinclair,Jimmy Sinclair,Chiwome,,,,,MID,3,,,i,,,590040.jpg,Ankle injury - Expected back 01 Jun,,
+412,616222,15,Vitor,de Oliveira Nunes dos Reis,Vitor de Oliveira Nunes dos Reis,Odysseas,,,,,DEF,2,,,a,0,0,616222.jpg,,2025-08-11 01:23:23.836966,
+413,438234,15,Omar,Marmoush,Omar Marmoush,Pope,,,,,MID,3,,,a,100,100,438234.jpg,,2025-12-13 14:30:11.571466,8393
+638,441271,1,Ki-Jana,Hoever,Ki-Jana Hoever,Oulad M'hand,,,,,DEF,2,,,a,0,0,441271.jpg,,2026-01-15 12:48:19.136376,8351
+801,614574,1,Alex,Tóth,Alex Tóth,Clarke,,,,,MID,3,,,a,,,614574.jpg,,,14374
+640,641221,2,Pedro,Cardoso de Lima,Pedro Cardoso de Lima,Swinkels,,,,,DEF,2,,,u,100,100,641221.jpg,Loaned to Bristol Rovers,2025-09-02 13:11:07.466362,13156
+90,503139,4,Alex,Scott,Alex Scott,Dasilva,,,,,MID,3,,,i,100,100,503139.jpg,Knee injury - Expected back 01 Jun,2025-12-29 19:30:08.900947,12149
+696,465680,6,Arnaud,Kalimuendo,Arnaud Kalimuendo,George,,,,,FWD,4,,,a,0,0,465680.jpg,,2026-01-08 10:36:01.900811,8056
+646,448089,7,João Victor,Gomes da Silva,João Victor Gomes da Silva,Agbinone,,,,,MID,3,,,u,100,100,448089.jpg,Loaned to Gillingham,2026-01-05 19:30:09.679999,11384
+627,101982,8,Sam,Johnstone,Sam Johnstone,Dixon,,,,,GK,1,,,a,0,0,101982.jpg,,2026-04-09 16:30:11.14373,978
+821,570929,8,Jack,Whittaker,Jack Whittaker,Umeh-Chibueze,,,,,MID,3,,,a,,,570929.jpg,,,
+775,604211,8,Tymur,Tutierov,Tymur Tutierov,Coby Ebere,,,,,MID,3,,,a,0,0,604211.jpg,,2026-01-16 15:18:30.390103,
+248,611134,9,Kendry,Páez Andrade,Kendry Páez Andrade,Leno,,,,,MID,3,,,a,0,0,611134.jpg,,2025-08-11 01:09:37.664358,
+249,475168,9,João Pedro,Junqueira de Jesus,João Pedro Junqueira de Jesus,Lukić,,,,,FWD,4,,,a,100,75,475168.jpg,,2026-05-20 12:00:09.034899,8272
+250,463034,9,Liam,Delap,Liam Delap,Mbabu,,,,,FWD,4,,,u,100,100,463034.jpg,Transferred to FC Midtjylland,2026-01-15 00:00:09.689137,8868
+251,517052,9,Nicolas,Jackson,Nicolas Jackson,Muniz,,,,,FWD,4,,,i,0,0,517052.jpg,Achilles injury - Expected back 01 Jun,2025-09-02 11:35:16.339917,
+414,209244,15,Phil,Foden,Phil Foden,Ruddy,,,,,MID,3,,,a,100,100,209244.jpg,,2025-08-10 23:00:06.53851,6055
+415,510281,15,Sávio,Moreira de Oliveira,Sávio Moreira de Oliveira,Schär,,,,,MID,3,,,a,100,100,510281.jpg,,2026-01-02 00:30:11.916072,11735
+416,165809,15,Bernardo,Mota Veiga de Carvalho e Silva,Bernardo Mota Veiga de Carvalho e Silva,Targett,,,,,MID,3,,,d,100,100,165809.jpg,Hamstring injury - 50% chance of playing,2026-02-05 02:00:09.786263,3635
+417,466052,15,Rayan,Cherki,Rayan Cherki,Tonali,,,,,MID,3,,,a,100,100,466052.jpg,,2026-02-02 00:30:10.807603,8094
+418,248875,15,Jérémy,Doku,Jérémy Doku,Trippier,,,,,MID,3,,,a,100,100,248875.jpg,,2026-01-29 00:00:09.498877,8981
+419,114283,15,Jack,Grealish,Jack Grealish,White,,,,,MID,3,,,u,0,0,114283.jpg,Loaned to MK Dons,2026-01-21 15:00:08.892371,675
+420,59859,15,İlkay,Gündoğan,İlkay Gündoğan,Willock,,,,,MID,3,,,a,0,0,59859.jpg,,2025-09-05 08:55:41.702765,
+421,220566,15,Rodrigo 'Rodri',Hernandez Cascante,Rodrigo 'Rodri' Hernandez Cascante,Wilson,,,,,MID,3,,,a,100,100,220566.jpg,,2026-04-24 17:30:09.57404,2496
+574,487053,15,Destiny,Udogie,Destiny Udogie,Pivas,,,,,DEF,2,,,u,100,100,487053.jpg,Loaned to Willem II,2026-04-24 14:30:09.164014,8831
+789,518335,15,Max,Merrick,Max Merrick,Neave,,,,,GK,1,,,a,,,518335.jpg,,,
+26,481655,16,Martín,Zubimendi Ibáñez,Martín Zubimendi Ibáñez,Alex Moreno,,,,,MID,3,,,a,100,100,481655.jpg,,2026-03-30 10:00:10.681664,7526
+422,91651,16,Mateo,Kovačić,Mateo Kovačić,Aina,,,,,MID,3,,,a,100,100,91651.jpg,,2025-11-03 09:30:08.601064,2254
+423,465694,16,Nico,González Iglesias,Nico González Iglesias,Anderson,,,,,MID,3,,,a,100,100,465694.jpg,,2026-01-16 16:30:09.63651,9802
+424,477555,16,Oscar,Bobb,Oscar Bobb,Awoniyi,,,,,MID,3,,,i,100,100,477555.jpg,Abdominal injury - Expected back 01 Jun,2025-12-18 01:30:09.837246,11903
+425,575204,16,Claudio,Echeverri,Claudio Echeverri,Boly,,,,,MID,3,,,a,0,0,575204.jpg,,2025-08-21 14:03:07.217793,
+426,432714,16,James,McAtee,James McAtee,Bowler,,,,,MID,3,,,u,,,432714.jpg,Loaned to  Preston North End,,10126
+427,433036,16,Tijjani,Reijnders,Tijjani Reijnders,C.Miguel,,,,,MID,3,,,a,,,433036.jpg,,,11965
+822,571087,17,Jaydon,Jones,Jaydon Jones,Blacker,,,,,MID,3,,,a,,,571087.jpg,,,
+428,566164,16,Sverre,Nypan,Sverre Nypan,Da Silva Moreira,,,,,MID,3,,,a,100,100,566164.jpg,,2025-08-19 13:38:08.307876,
+429,155405,16,Kalvin,Phillips,Kalvin Phillips,Danilo,,,,,MID,3,,,a,0,0,155405.jpg,,2026-02-02 23:15:40.975573,
+430,223094,16,Erling,Haaland,Erling Haaland,Dennis,,,,,FWD,4,,,u,100,100,223094.jpg,Loaned to Blackburn Rovers,2026-02-28 22:00:08.277592,8260
+431,451302,16,Altay,Bayındır,Altay Bayındır,Dominguez,,,,,GK,1,,,a,,,451302.jpg,,,12054
+432,202641,16,André,Onana,André Onana,Elanga,,,,,GK,1,,,a,0,0,202641.jpg,,2025-09-12 15:53:11.993916,13022
+433,588555,16,Elyh,Harrison,Elyh Harrison,Gibbs-White,,,,,GK,1,,,a,0,0,588555.jpg,,2025-07-23 18:48:43.383466,
+434,21205,16,Tom,Heaton,Tom Heaton,Hudson-Odoi,,,,,GK,1,,,a,,,21205.jpg,,,
+436,209365,16,Matthijs,de Ligt,Matthijs de Ligt,Murillo,,,,,DEF,2,,,a,0,0,209365.jpg,,2025-12-05 00:30:07.892711,7902
+790,611917,1,Lucá,Williams-Barnett,Lucá Williams-Barnett,Gower,,,,,MID,3,,,a,,,611917.jpg,,,
+818,613232,2,James,Wilson,James Wilson,Gauci,,,,,FWD,4,,,a,,,613232.jpg,,,
+33,72147,2,Marco,Bizot,Marco Bizot,Dendoncker,,,,,GK,1,,,u,100,100,72147.jpg,On loan to Anderlecht for the rest of the season,2026-02-15 00:30:06.693638,9614
+72,221466,3,Marcos,Senesi Barón,Marcos Senesi Barón,Mepham,,,,,DEF,2,,,u,100,100,221466.jpg,On loan to Sunderland for the season,2025-12-06 22:00:07.547408,10864
+77,463981,3,James,Hill,James Hill,Scott,,,,,DEF,2,,,a,,,463981.jpg,,,10747
+80,575901,3,Julio,Soler Barreto,Julio Soler Barreto,Sinisterra,,,,,DEF,2,,,i,100,100,575901.jpg,Hamstring injury - Expected back 01 Jun,2026-01-22 01:30:06.830891,13474
+81,222683,3,Justin,Kluivert,Justin Kluivert,Smith,,,,,MID,3,,,a,100,100,222683.jpg,,2026-01-06 12:00:09.64656,6963
+84,201658,3,Marcus,Tavernier,Marcus Tavernier,Travers,,,,,MID,3,,,u,100,100,201658.jpg,Loaned to Middlesbrough,2026-01-20 00:30:08.247682,10741
+86,111317,4,David,Brooks,David Brooks,Ajer,,,,,MID,3,,,a,100,100,111317.jpg,,2026-01-15 19:30:09.403523,6820
+88,155408,4,Lewis,Cook,Lewis Cook,Collins,,,,,MID,3,,,a,100,100,155408.jpg,,2026-02-23 13:30:09.159271,1789
+96,606775,4,Ben,Winterburn,Ben Winterburn,Ji-soo,,,,,MID,3,,,a,0,0,606775.jpg,,2025-09-02 12:54:34.5994,13242
+97,444102,4,Francisco Evanilson,de Lima Barbosa,Francisco Evanilson de Lima Barbosa,Konak,,,,,FWD,4,,,a,100,100,444102.jpg,,2026-02-28 22:00:07.795563,12963
+98,168636,4,Enes,Ünal,Enes Ünal,Lewis-Potter,,,,,FWD,4,,,a,100,100,168636.jpg,,2026-01-11 18:30:10.266239,6219
+100,560262,4,Junior,Kroupi,Junior Kroupi,Mee,,,,,FWD,4,,,a,100,100,560262.jpg,,2026-03-27 12:00:09.305198,11504
+252,499309,9,Marc,Guiu Paz,Marc Guiu Paz,Raúl,,,,,FWD,4,,,a,100,100,499309.jpg,,2025-09-24 11:30:08.351112,11633
+253,172649,9,Dean,Henderson,Dean Henderson,Ream,,,,,GK,1,,,u,,,172649.jpg,Permanent transfer to Charlotte FC,,7702
+254,121709,9,Walter,Benítez,Walter Benítez,Reed,,,,,GK,1,,,i,100,100,121709.jpg,Calf injury - Expected back 01 Jun,2025-09-19 14:49:12.216385,5652
+255,169593,9,Remi,Matthews,Remi Matthews,Robinson,,,,,GK,1,,,a,,,169593.jpg,,,
+256,247348,9,Daniel,Muñoz Mejía,Daniel Muñoz Mejía,Stansfield,,,,,DEF,2,,,u,100,100,247348.jpg,Transferred to Birmingham City,2026-03-06 05:30:07.970827,12408
+257,437499,9,Maxence,Lacroix,Maxence Lacroix,Tete,,,,,DEF,2,,,a,100,100,437499.jpg,,2026-04-17 15:00:07.583431,8853
+590,436234,15,Bryan,Gil Salvatierra,Bryan Gil Salvatierra,Osula,,,,,MID,3,,,a,0,0,436234.jpg,,2025-09-22 09:26:56.310666,
+811,536134,3,Rio,Kyerematen,Rio Kyerematen,Sadi,,,,,MID,3,,,a,,,536134.jpg,,,
+437,221820,16,Lisandro,Martínez,Lisandro Martínez,N.Williams,,,,,DEF,2,,,a,100,100,221820.jpg,,2026-02-24 10:30:07.882997,10802
+438,230001,16,Noussair,Mazraoui,Noussair Mazraoui,O.Richards,,,,,DEF,2,,,u,100,100,230001.jpg,Loaned to Rio Ave,2026-03-18 16:00:08.380823,10696
+439,661712,16,Diego,León Blanco,Diego León Blanco,O'Brien,,,,,DEF,2,,,u,,,661712.jpg,On loan to Los Angeles Football Club for the rest of the season,,
+440,216051,16,Diogo,Dalot Teixeira,Diogo Dalot Teixeira,Omobamidele,,,,,DEF,2,,,u,100,100,216051.jpg,Loaned to Strasbourg,2025-12-05 17:00:09.775964,7281
+441,596777,16,Patrick,Dorgu,Patrick Dorgu,Panzo,,,,,DEF,2,,,u,100,100,596777.jpg,On a season long loan to Rio Ave,2026-01-26 04:00:08.08215,11944
+442,95658,16,Harry,Maguire,Harry Maguire,Sangaré,,,,,DEF,2,,,a,100,100,95658.jpg,,2026-04-16 13:00:09.76135,1687
+443,106760,16,Luke,Shaw,Luke Shaw,Sels,,,,,DEF,2,,,a,100,100,106760.jpg,,2026-04-28 00:00:08.111534,1006
+444,550864,16,Leny,Yoro,Leny Yoro,Toffolo,,,,,DEF,2,,,a,100,100,550864.jpg,,2026-04-18 22:30:08.596769,10564
+446,547676,16,Tyler,Fredricson,Tyler Fredricson,Ui-jo,,,,,DEF,2,,,u,,,547676.jpg,Transferred to Alanyaspor,,13467
+447,606745,16,Ayden,Heaven,Ayden Heaven,Wood,,,,,DEF,2,,,a,100,100,606745.jpg,,2025-10-14 13:00:06.698643,13080
+448,222690,16,Tyrell,Malacia,Tyrell Malacia,Worrall,,,,,DEF,2,,,u,,,222690.jpg,Transferred to Burnley,,10803
+449,141746,16,Bruno,Borges Fernandes,Bruno Borges Fernandes,Yates,,,,,MID,3,,,a,100,100,141746.jpg,,2025-12-21 21:30:09.265444,1228
+573,232859,16,Djed,Spence,Djed Spence,Milenković,,,,,DEF,2,,,a,100,100,232859.jpg,,2026-03-01 22:00:07.861085,10764
+14,588793,17,Maldini,Kacurri,Maldini Kacurri,Ramsdale,,,,,DEF,2,,,a,0,0,588793.jpg,,2025-09-22 21:14:30.857843,
+188,247245,17,Hannes,Delcroix,Hannes Delcroix,Ugochukwu,,,,,DEF,2,,,a,0,0,247245.jpg,,2026-01-07 10:23:30.09525,
+83,533463,3,Dango,Ouattara,Dango Ouattara,Tavernier,,,,,MID,3,,,a,100,100,533463.jpg,,2025-12-13 14:30:10.953675,9662
+85,200785,3,Tyler,Adams,Tyler Adams,Zabarnyi,,,,,MID,3,,,a,100,100,200785.jpg,,2026-03-15 12:30:09.989744,7352
+738,37096,3,Lukasz,Fabianski,Lukasz Fabianski,Iraola,,,,,GK,1,,,a,100,100,37096.jpg,,2026-01-05 18:30:10.223348,
+87,158499,4,Ryan,Christie,Ryan Christie,Brierley,,,,,MID,3,,,a,0,0,158499.jpg,,2026-05-09 20:30:09.034647,10744
+101,200720,4,Caoimhín,Kelleher,Caoimhín Kelleher,Nørgaard,,,,,GK,1,,,a,100,100,200720.jpg,,2025-08-09 14:00:04.798673,7904
+106,432830,4,Nathan,Collins,Nathan Collins,Schade,,,,,DEF,2,,,a,,,432830.jpg,,,9733
+107,249231,4,Keane,Lewis-Potter,Keane Lewis-Potter,Thiago,,,,,DEF,2,,,a,,,249231.jpg,,,10809
+108,191866,4,Kristoffer,Ajer,Kristoffer Ajer,Toney,,,,,DEF,2,,,u,100,100,191866.jpg,Transferred to Al-Ahli,2026-01-26 04:00:07.526158,9677
+110,607464,4,Michael,Kayode,Michael Kayode,Wissa,,,,,DEF,2,,,a,100,100,607464.jpg,,2026-02-21 19:30:08.790968,11281
+752,643473,4,Airidas,Golambeckis,Airidas Golambeckis,Frank,,,,,DEF,2,,,a,,,643473.jpg,,,
+651,596054,8,Tom,Edozie,Tom Edozie,Mangala,,,,,MID,3,,,i,,,596054.jpg,Knee injury - Expected back 01 Jun,,13220
+272,152551,10,Jefferson,Lerma Solís,Jefferson Lerma Solís,Hirst,,,,,MID,3,,,a,100,100,152551.jpg,,2026-02-19 02:00:07.824298,2182
+797,593174,11,Kaye,Furo,Kaye Furo,Jake Evans,,,,,FWD,4,,,a,100,100,593174.jpg,,2026-04-17 15:00:07.930549,14356
+802,572702,11,Keiber,Lamadrid,Keiber Lamadrid,Braybrooke,,,,,MID,3,,,a,,,572702.jpg,,,
+807,499604,8,Rayan Vitor,Simplício Rocha,Rayan Vitor Simplício Rocha,Wharton,,,,,MID,3,,,a,,,499604.jpg,,,14395
+653,240299,16,Joe,Hodge,Joe Hodge,Morato,,,,,MID,3,,,a,0,0,240299.jpg,,2025-07-23 18:50:21.231185,
+27,200641,17,Reiss,Nelson,Reiss Nelson,Archer,,,,,MID,3,,,a,100,100,200641.jpg,,2026-03-02 13:30:07.438484,6492
+825,553742,8,Finlay,Herrick,Finlay Herrick,Rodney,,,,,GK,1,,,a,,,553742.jpg,,,
+451,176297,17,Marcus,Rashford,Marcus Rashford,Amo-Ameyaw,,,,,MID,3,,,u,0,0,176297.jpg,Loaned to Strasbourg,2025-07-24 10:12:59.455702,
+452,493250,17,Amad,Diallo,Amad Diallo,Aribo,,,,,MID,3,,,a,100,100,493250.jpg,,2025-12-13 14:30:11.64742,8127
+453,493105,17,Alejandro,Garnacho Ferreyra,Alejandro Garnacho Ferreyra,Armstrong,,,,,MID,3,,,u,100,100,493105.jpg,Loaned to West Bromwich Albion,2026-05-04 21:30:09.421504,10552
+454,467169,17,Antony,dos Santos,Antony dos Santos,Bazunu,,,,,MID,3,,,u,0,0,467169.jpg,Loaned to Standard Liège,2025-09-02 13:30:59.559397,
+455,184341,17,Mason,Mount,Mason Mount,Bednarek,,,,,MID,3,,,d,100,100,184341.jpg,Knee injury - 25% chance of playing,2026-03-14 13:00:10.247081,7768
+456,209243,17,Jadon,Sancho,Jadon Sancho,Bella-Kotchap,,,,,MID,3,,,a,100,100,209243.jpg,,2026-03-27 21:00:10.454595,6345
+457,61256,17,Carlos Henrique,Casimiro,Carlos Henrique Casimiro,Bree,,,,,MID,3,,,a,100,0,61256.jpg,,2026-05-22 05:30:09.065739,2248
+458,516895,17,Kobbie,Mainoo,Kobbie Mainoo,Charles,,,,,MID,3,,,u,100,100,516895.jpg,Has joined Sheffield Wednesday on a season-long loan,2026-04-13 23:30:10.001898,11174
+459,232112,17,Manuel,Ugarte Ribeiro,Manuel Ugarte Ribeiro,Edozie,,,,,MID,3,,,u,100,100,232112.jpg,Loaned to Anderlecht,2026-05-09 21:30:09.638441,11766
+460,490881,17,Toby,Collyer,Toby Collyer,Edwards,,,,,MID,3,,,u,0,0,490881.jpg,Season-long loan to QPR,2026-02-02 13:41:44.37702,
+461,556639,17,Jayce,Fitzgerald,Jayce Fitzgerald,Harwood-Bellis,,,,,MID,3,,,i,,,556639.jpg,Ankle injury - Expected back 01 Jun,,
+462,547037,17,Jack,Fletcher,Jack Fletcher,Kamaldeen,,,,,MID,3,,,a,,,547037.jpg,,,13150
+463,618873,17,Sékou,Koné,Sékou Koné,Lallana,,,,,MID,3,,,a,0,0,618873.jpg,,2026-02-06 22:52:39.101311,
+464,559684,17,Jack,Moorhouse,Jack Moorhouse,Larios,,,,,MID,3,,,a,0,0,559684.jpg,,2025-09-22 21:21:54.592776,
+465,497894,17,Rasmus,Højlund,Rasmus Højlund,Lis,,,,,FWD,4,,,u,0,0,497894.jpg,Transferred to Göztepe,2025-09-02 13:30:59.575548,
+466,458249,17,Joshua,Zirkzee,Joshua Zirkzee,Lumley,,,,,FWD,4,,,a,100,100,458249.jpg,,2026-01-22 13:30:10.394946,8044
+467,596047,17,Chido,Obi,Chido Obi,Manning,,,,,FWD,4,,,a,,,596047.jpg,,,
+468,575034,17,Ethan,Wheatley,Ethan Wheatley,Mara,,,,,FWD,4,,,u,0,0,575034.jpg,Transferred to Strasbourg,2026-02-02 23:17:05.663726,
+469,98747,17,Nick,Pope,Nick Pope,McCarthy,,,,,GK,1,,,a,100,100,98747.jpg,,2025-11-30 11:00:09.029807,5552
+3,463748,1,Karl,Hein,Karl Hein,Gabriel,,,,,GK,1,,,i,0,0,463748.jpg,Hamstring injury - Expected back 01 Jun,2025-08-26 13:44:02.357864,
+4,551221,1,Tommy,Setford,Tommy Setford,Havertz,,,,,GK,1,,,a,,,551221.jpg,,,
+9,440854,1,Jakub,Kiwior,Jakub Kiwior,Martinelli,,,,,DEF,2,,,a,0,0,440854.jpg,,2025-09-02 13:37:25.929594,
+13,563324,1,Brayden,Clarke,Brayden Clarke,Ødegaard,,,,,DEF,2,,,a,,,563324.jpg,,,
+15,499167,1,Josh,Nichols,Josh Nichols,Raya,,,,,DEF,2,,,a,,,499167.jpg,,,
+21,204480,1,Declan,Rice,Declan Rice,Tierney,,,,,MID,3,,,a,100,100,204480.jpg,,2026-03-30 10:00:10.659246,5553
+23,438098,1,Fábio,Ferreira Vieira,Fábio Ferreira Vieira,Trossard,,,,,MID,3,,,a,0,0,438098.jpg,,2025-09-02 13:38:06.128321,
+662,500040,1,Cristhian,Mosquera,Cristhian Mosquera,Nichols,,,,,DEF,2,,,a,100,100,500040.jpg,,2025-12-04 09:00:09.512338,10024
+665,201595,1,Lucas Estella,Perri,Lucas Estella Perri,Butler-Oyedeji,,,,,GK,1,,,a,100,100,201595.jpg,,2025-09-11 17:30:07.176029,12369
+28,588796,2,Ismeal,Kabia,Ismeal Kabia,Bailey,,,,,MID,3,,,a,0,0,588796.jpg,,2025-09-02 13:24:41.013511,
+29,437742,2,Albert,Sambi Lokonga,Albert Sambi Lokonga,Barkley,,,,,MID,3,,,a,0,0,437742.jpg,,2025-09-02 13:40:53.094922,
+471,81441,17,Mark,Gillespie,Mark Gillespie,Smallbone,,,,,GK,1,,,a,,,81441.jpg,,,
+472,111452,17,Odysseas,Vlachodimos,Odysseas Vlachodimos,Stephens,,,,,GK,1,,,a,0,0,111452.jpg,,2025-08-13 15:41:50.078613,
+473,487838,17,Lewis,Hall,Lewis Hall,Stewart,,,,,DEF,2,,,a,100,100,487838.jpg,,2026-01-02 13:00:09.395222,10216
+474,119471,17,Fabian,Schär,Fabian Schär,Sugawara,,,,,DEF,2,,,a,0,0,119471.jpg,,2026-01-09 17:30:12.168949,76
+476,78916,17,Dan,Burn,Dan Burn,Walker-Peters,,,,,DEF,2,,,d,100,100,78916.jpg,Illness - 25% chance of playing,2025-12-15 01:30:08.656752,7382
+477,441191,17,Tino,Livramento,Tino Livramento,Wood,,,,,DEF,2,,,a,0,0,441191.jpg,,2026-04-18 18:00:09.221277,9512
+1,154561,1,David,Raya Martín,David Raya Martín,Fábio Vieira,,,,,GK,1,,,u,,,154561.jpg,Has joined Portuguese side FC Porto on loan for the 2024/25 season,,9676
+16,223340,1,Bukayo,Saka,Bukayo Saka,Rice,,,,,MID,3,,,a,100,100,223340.jpg,,2026-03-30 10:00:10.614078,7322
+24,128295,1,Christian,Nørgaard,Christian Nørgaard,White,,,,,MID,3,,,a,100,100,128295.jpg,,2025-08-18 08:00:05.297235,7083
+167,535301,2,Carlos,Baleba,Carlos Baleba,Disasi,,,,,MID,3,,,a,100,100,535301.jpg,,2026-01-15 20:30:09.550299,10527
+152,111478,3,Joël,Veltman,Joël Veltman,Arrizabalaga,,,,,DEF,2,,,a,100,100,111478.jpg,,2025-10-02 13:00:07.706508,8780
+139,489639,5,Bart,Verbruggen,Bart Verbruggen,Offiah,,,,,GK,1,,,u,,,489639.jpg,Loaned to Blackpool,,11711
+143,204120,5,Olivier,Boscagli,Olivier Boscagli,Undav,,,,,DEF,2,,,u,,,204120.jpg,Transferred to Stuttgart,,3645
+144,550090,5,Diego,Coppola,Diego Coppola,Van Hecke,,,,,DEF,2,,,a,0,0,550090.jpg,,2026-01-30 15:58:36.007916,10169
+146,83299,5,Lewis,Dunk,Lewis Dunk,Verbruggen,,,,,DEF,2,,,a,100,100,83299.jpg,,2026-03-21 19:00:09.902391,6048
+148,231416,5,Ferdi,Kadıoğlu,Ferdi Kadıoğlu,Welbeck,,,,,DEF,2,,,a,,,231416.jpg,,,13066
+151,469142,6,Jan Paul,van Hecke,Jan Paul van Hecke,Ângelo,,,,,DEF,2,,,u,100,100,469142.jpg,Transferred to Al-Nassr,2026-02-08 22:00:09.013159,10807
+157,451340,6,Mitoma,Kaoru,Mitoma Kaoru,Caicedo,,,,,MID,3,,,a,0,0,451340.jpg,,2026-05-09 21:30:09.356823,10806
+158,463067,6,Georginio,Rutter,Georginio Rutter,Casadei,,,,,MID,3,,,u,100,100,463067.jpg,Loaned to Torino,2025-11-30 22:30:09.146377,6937
+162,513433,6,Brajan,Gruda,Brajan Gruda,Colwill,,,,,MID,3,,,a,0,0,513433.jpg,,2026-02-02 13:42:58.370286,11310
+163,532529,6,Jack,Hinshelwood,Jack Hinshelwood,Cucurella,,,,,MID,3,,,a,100,100,532529.jpg,,2025-09-13 21:30:08.019508,11269
+164,219249,6,Matt,O'Riley,Matt O'Riley,D.D.Fofana,,,,,MID,3,,,u,100,100,219249.jpg,Transferred to AEK Athens,2025-09-02 12:06:29.272628,13206
+169,514254,6,Diego,Gómez Amarilla,Diego Gómez Amarilla,Gallagher,,,,,MID,3,,,u,100,100,514254.jpg,Transferred to Atletico Madrid,2026-04-20 12:00:07.818437,13364
+170,15157,6,James,Milner,James Milner,Gilchrist,,,,,MID,3,,,u,100,100,15157.jpg,Has joined Sheffield United on a season-long,2026-04-11 20:30:08.760792,489
+173,467779,6,Mats,Wieffer,Mats Wieffer,Kellyman,,,,,MID,3,,,i,100,100,467779.jpg,Hamstring injury - Expected back 01 Jun,2026-05-02 23:30:09.953939,12758
+175,567121,6,Joe,Knight,Joe Knight,Lukaku,,,,,MID,3,,,u,0,0,567121.jpg,Permanent transfer to Napoli,2026-02-06 22:48:38.233784,13399
+178,50175,6,Danny,Welbeck,Danny Welbeck,Marc Guiu,,,,,FWD,4,,,a,100,100,50175.jpg,,2025-12-19 14:00:08.695558,501
+11,198869,7,Benjamin,White,Benjamin White,Nketiah,,,,,DEF,2,,,a,0,0,198869.jpg,,2026-05-11 00:00:10.901815,7298
+744,556637,12,Nehemiah,Oriola,Nehemiah Oriola,Slot,,,,,MID,3,,,a,,,556637.jpg,,,14127
+766,601956,14,Saheed,Olagunju,Saheed Olagunju,Dorgu,,,,,DEF,2,,,a,,,601956.jpg,,,
+778,589121,14,Ethan,Sutherland,Ethan Sutherland,Moorhouse,,,,,MID,3,,,a,,,589121.jpg,,,
+783,60307,14,Pascal,Groß,Pascal Groß,Graczyk,,,,,MID,3,,,a,,,60307.jpg,,,239
+518,510500,17,João Pedro,Ferreira da Silva,João Pedro Ferreira da Silva,Downes,,,,,MID,3,,,a,0,0,510500.jpg,,2025-09-12 15:53:40.376767,12766
+693,503301,17,Omari,Hutchinson,Omari Hutchinson,O'Brien-Whitmarsh,,,,,MID,3,,,u,,,503301.jpg,Loaned to Accrington Stanley,,10348
+719,184667,17,Victor,Lindelöf,Victor Lindelöf,Kayi Sanda,,,,,DEF,2,,,a,100,100,184667.jpg,,2025-09-18 04:00:08.43312,6080
+831,627888,12,Josh,Gracey,Josh Gracey,Piesold,,,,,GK,1,,,a,,,627888.jpg,,,
+707,496661,3,Tyler,Dibling,Tyler Dibling,Rees-Dottin,,,,,MID,3,,,a,,,496661.jpg,,,10586
+145,465730,5,Maxim,De Cuyper,Maxim De Cuyper,Veltman,,,,,DEF,2,,,a,100,100,465730.jpg,,2025-09-13 21:30:07.99838,13711
+697,489888,6,Amine,Adli,Amine Adli,Acheampong,,,,,MID,3,,,a,,,489888.jpg,,,8211
+313,536241,12,Martin,Sherif,Martin Sherif,Bradley,,,,,FWD,4,,,a,0,0,536241.jpg,,2026-02-06 22:49:41.878846,
+829,619734,19,Jesse,Derry,Jesse Derry,Earthy,,,,,MID,3,,,a,100,100,619734.jpg,,2026-05-04 20:30:09.91291,14584
+734,476887,17,Dilane,Bakwa,Dilane Bakwa,Grønbæk,,,,,MID,3,,,d,100,100,476887.jpg,Achilles injury - 25% chance of playing,2025-10-24 09:00:08.676633,8920
+748,183656,17,Josh,Dasilva,Josh Dasilva,Rusk,,,,,MID,3,,,a,100,100,183656.jpg,,2025-11-20 12:00:10.592439,10405
+798,502988,17,Danny,Imray,Danny Imray,Jay Robinson,,,,,DEF,2,,,a,0,0,502988.jpg,,2026-02-06 22:49:05.135509,
+82,437730,18,Antoine,Semenyo,Antoine Semenyo,Solanke,,,,,MID,3,,,a,100,100,437730.jpg,,2025-11-17 13:00:08.045504,11363
+478,77794,18,Kieran,Trippier,Kieran Trippier,A.Phillips,,,,,DEF,2,,,u,100,100,77794.jpg,Loaned to Stoke City,2025-11-28 18:30:07.183281,652
+479,111773,18,Emil,Krafth,Emil Krafth,Austin,,,,,DEF,2,,,a,0,0,111773.jpg,,2025-11-28 19:00:08.647206,1545
+480,101148,18,Jamaal,Lascelles,Jamaal Lascelles,Bentancur,,,,,DEF,2,,,a,0,0,101148.jpg,,2025-12-19 14:00:09.135296,766
+481,545477,18,Alex,Murphy,Alex Murphy,Bergvall,,,,,DEF,2,,,i,,,545477.jpg,Ankle injury - Expected back 01 Jun,,12199
+482,441024,18,Harrison,Ashby,Harrison Ashby,Bissouma,,,,,DEF,2,,,a,0,0,441024.jpg,,2026-01-15 12:50:45.925899,
+483,578512,18,Miodrag,Pivaš,Miodrag Pivaš,Bryan,,,,,DEF,2,,,u,,,578512.jpg,On loan to Girona for the season,,
+484,169359,18,Matt,Targett,Matt Targett,Davies,,,,,DEF,2,,,a,0,0,169359.jpg,,2025-09-02 12:49:12.555659,
+485,232826,18,Anthony,Gordon,Anthony Gordon,Devine,,,,,MID,3,,,u,100,100,232826.jpg,Loaned to Westerlo,2026-04-18 18:00:09.233762,8150
+486,449434,18,Anthony,Elanga,Anthony Elanga,Dragusin,,,,,MID,3,,,i,100,100,449434.jpg,Knee injury - Expected back 01 Jun,2026-01-15 19:30:10.210181,9524
+487,201666,18,Harvey,Barnes,Harvey Barnes,E.Royal,,,,,MID,3,,,u,,,201666.jpg,Transferred to AC Milan,,6681
+488,208706,18,Bruno,Guimarães Rodriguez Moura,Bruno Guimarães Rodriguez Moura,Forster,,,,,MID,3,,,a,100,100,208706.jpg,,2026-02-11 13:00:10.101461,8327
+489,114243,18,Jacob,Murphy,Jacob Murphy,Gray,,,,,MID,3,,,a,100,100,114243.jpg,,2026-01-14 01:00:09.974413,6063
+490,180974,18,Joelinton Cássio,Apolinário de Lira,Joelinton Cássio Apolinário de Lira,Højbjerg,,,,,MID,3,,,u,0,0,180974.jpg,On loan to Marseille for the season,2026-05-15 09:30:09.697934,87
+491,432422,18,Sandro,Tonali,Sandro Tonali,Johnson,,,,,MID,3,,,a,75,75,432422.jpg,,2026-05-17 22:00:09.690694,7958
+492,640108,18,Antoñito,Cordero Campillo,Antoñito Cordero Campillo,Kulusevski,,,,,MID,3,,,i,0,0,640108.jpg,Knee injury - Expected back 01 Jun,2025-09-22 21:20:47.006379,
+493,180135,18,Sean,Longstaff,Sean Longstaff,Lo Celso,,,,,MID,3,,,u,100,100,180135.jpg,Transferred to Real Betis,2025-11-27 15:30:07.230475,7078
+494,200089,18,Joe,Willock,Joe Willock,Maddison,,,,,MID,3,,,i,100,100,200089.jpg,Knee injury - Expected back 01 Jun,2025-08-10 23:30:07.13669,6630
+496,564510,18,Garang,Kuol,Garang Kuol,Reguilón,,,,,MID,3,,,a,0,0,564510.jpg,,2025-09-22 21:20:47.021681,
+497,547719,18,Lewis,Miley,Lewis Miley,Richarlison,,,,,MID,3,,,a,0,0,547719.jpg,,2026-05-06 11:00:09.926175,11386
+498,461484,18,Joe,White,Joe White,Romero,,,,,MID,3,,,i,0,0,461484.jpg,Toe Injury - Expected back 01 Jun,2026-01-15 12:50:45.940034,
+499,219168,18,Alexander,Isak,Alexander Isak,P.M.Sarr,,,,,FWD,4,,,a,100,75,219168.jpg,,2026-05-16 17:00:09.636721,5232
+500,538207,18,William,Osula,William Osula,Scarlett,,,,,FWD,4,,,a,100,100,538207.jpg,,2025-11-06 09:30:08.761577,9556
+502,85633,18,Matz,Sels,Matz Sels,Solomon,,,,,GK,1,,,u,100,100,85633.jpg,Season long loan to Leeds United,2026-02-02 00:30:11.021589,6903
+503,475123,18,Carlos Miguel,dos Santos Pereira,Carlos Miguel dos Santos Pereira,Son,,,,,GK,1,,,d,0,0,475123.jpg,Foot injury - 25% chance of playing,2025-08-20 13:32:34.630338,
+504,224068,18,Matt,Turner,Matt Turner,Spence,,,,,GK,1,,,a,0,0,224068.jpg,,2025-08-11 01:18:09.881299,
+505,227444,18,Nikola,Milenković,Nikola Milenković,Udogie,,,,,DEF,2,,,a,,,227444.jpg,,,6174
+506,575476,18,Murillo,Costa dos Santos,Murillo Costa dos Santos,Van de Ven,,,,,DEF,2,,,a,0,0,575476.jpg,,2026-04-17 15:00:07.756447,12123
+507,159506,18,Ola,Aina,Ola Aina,Veliz,,,,,DEF,2,,,u,75,75,159506.jpg,Loaned to Espanyol,2026-05-01 15:00:10.424158,725
+509,451432,18,David,Mota Veiga Teixeira do Carmo,David Mota Veiga Teixeira do Carmo,Werner,,,,,DEF,2,,,d,0,0,451432.jpg,Hamstring injury - 25% chance of playing,2025-09-02 13:08:17.187888,
+510,575458,18,Jair,Paula da Cunha Filho,Jair Paula da Cunha Filho,Whiteman,,,,,DEF,2,,,a,100,100,575458.jpg,,2026-04-25 11:00:08.798557,13779
+609,462116,18,Jean-Clair,Todibo,Jean-Clair Todibo,Lankshear,,,,,DEF,2,,,u,100,100,462116.jpg,Loaned to West Bromwich Albion,2026-03-23 08:30:08.757802,6816
+683,201895,18,Omar,Alderete,Omar Alderete,Olusesi,,,,,DEF,2,,,a,50,50,201895.jpg,,2026-05-17 22:00:09.922866,8986
+684,465642,18,Malick,Thiaw,Malick Thiaw,Hardy,,,,,DEF,2,,,a,,,465642.jpg,,,8378
+699,230046,18,Douglas Luiz,Soares de Paulo,Douglas Luiz Soares de Paulo,Dorrington,,,,,MID,3,,,u,100,100,230046.jpg,Loaned to Aberdeen,2025-11-01 18:30:08.443766,6122
+700,616077,18,Max,Dowman,Max Dowman,King,,,,,MID,3,,,a,100,100,616077.jpg,,2025-12-10 00:00:08.266774,13872
+716,500151,18,Nicolò,Savona,Nicolò Savona,Kinsky,,,,,DEF,2,,,a,0,0,500151.jpg,,2026-01-29 23:00:10.460624,12905
+717,493362,18,Xavi,Simons,Xavi Simons,Yang,,,,,MID,3,,,u,0,0,493362.jpg,Loaned to Queens Park Rangers,2026-04-25 22:30:09.604362,8700
+729,560441,18,Luis Eduardo,Soares da Silva,Luis Eduardo Soares da Silva,Ajayi,,,,,DEF,2,,,a,0,0,560441.jpg,,2026-02-08 15:58:23.390743,
+760,519440,18,Wellity,Lucky,Wellity Lucky,Cassanova,,,,,DEF,2,,,a,,,519440.jpg,,,
+767,605319,18,Luke,Rawlings,Luke Rawlings,Danso,,,,,MID,3,,,a,,,605319.jpg,,,
+768,664015,18,Leon,Routh,Leon Routh,Tel,,,,,DEF,2,,,a,,,664015.jpg,,,
+123,244858,19,Fábio,Freitas Gouveia Carvalho,Fábio Freitas Gouveia Carvalho,Ferguson,,,,,MID,3,,,a,0,0,244858.jpg,,2025-11-28 19:00:08.330112,9501
+511,485047,19,Felipe,Rodrigues da Silva,Felipe Rodrigues da Silva,Álvarez,,,,,DEF,2,,,a,,,485047.jpg,,,13068
+512,204822,19,Omar,Richards,Omar Richards,Antonio,,,,,DEF,2,,,i,0,0,204822.jpg,Leg injury - Unknown return date,2025-09-02 12:23:02.662537,
+513,549067,19,Zach,Abbott,Zach Abbott,Areola,,,,,DEF,2,,,a,100,100,549067.jpg,,2026-05-04 20:30:09.679391,13306
+580,242898,3,Brennan,Johnson,Brennan Johnson,Huijsen,,,,,MID,3,,,a,,,242898.jpg,,,10760
+649,476502,4,Boubacar,Traoré,Boubacar Traoré,Meghoma,,,,,MID,3,,,u,0,0,476502.jpg,Loaned to Preston North End,2025-07-25 14:53:52.740212,
+516,209046,19,Callum,Hudson-Odoi,Callum Hudson-Odoi,Coufal,,,,,MID,3,,,a,0,0,209046.jpg,,2026-04-17 15:00:07.779445,6456
+517,215379,19,Elliot,Anderson,Elliot Anderson,Cresswell,,,,,MID,3,,,a,100,100,215379.jpg,,2026-04-17 22:00:08.137765,9154
+519,250199,19,Nicolás,Domínguez,Nicolás Domínguez,Earthy,,,,,MID,3,,,u,100,100,250199.jpg,Loaned to Bristol City,2025-12-15 01:30:08.723436,8252
+521,210462,19,Ibrahim,Sangaré,Ibrahim Sangaré,Fabianski,,,,,MID,3,,,a,100,100,210462.jpg,,2026-04-25 11:00:08.815293,5722
+523,569014,19,Eric,da Silva Moreira,Eric da Silva Moreira,Ings,,,,,MID,3,,,a,100,100,569014.jpg,,2025-09-02 12:23:02.683095,
+524,495161,19,Marko,Stamenić,Marko Stamenić,Kilman,,,,,MID,3,,,a,0,0,495161.jpg,,2025-08-20 13:32:34.645399,
+525,60689,19,Chris,Wood,Chris Wood,Kudus,,,,,FWD,4,,,a,100,100,60689.jpg,,2026-04-17 15:00:07.788346,4456
+526,482973,19,Igor Jesus,Maciel da Cruz,Igor Jesus Maciel da Cruz,L.Guilherme,,,,,FWD,4,,,a,100,100,482973.jpg,,2026-01-23 16:00:07.578702,13778
+527,210156,19,Taiwo,Awoniyi,Taiwo Awoniyi,L.Paquetá,,,,,FWD,4,,,a,100,100,210156.jpg,,2025-11-20 17:00:08.462155,7814
+528,232571,19,Anthony,Patterson,Anthony Patterson,Mavropanos,,,,,GK,1,,,a,0,0,232571.jpg,,2026-02-02 13:42:27.821481,
+529,74854,19,Simon,Moore,Simon Moore,N.Aguerd,,,,,GK,1,,,u,100,100,74854.jpg,On loan to Real Sociedad for the season,2026-04-10 14:00:09.100432,
+530,490000,19,Blondy,Nna Noukeu,Blondy Nna Noukeu,Souček,,,,,GK,1,,,a,0,0,490000.jpg,,2026-01-19 15:39:01.997919,
+531,223827,19,Daniel,Ballard,Daniel Ballard,Ward-Prowse,,,,,DEF,2,,,a,100,0,223827.jpg,,2026-05-02 17:00:09.308083,13715
+576,548308,19,Ashley,Phillips,Ashley Phillips,Irving,,,,,DEF,2,,,a,0,0,548308.jpg,,2025-07-25 14:55:41.438809,
+587,227127,19,Yves,Bissouma,Yves Bissouma,Summerville,,,,,MID,3,,,i,100,100,227127.jpg,Hamstring injury - Expected back 01 Jun,2026-03-13 15:00:09.881349,5609
+588,550839,19,Wilson,Odobert,Wilson Odobert,G.Rodríguez,,,,,MID,3,,,a,0,0,550839.jpg,,2026-02-11 13:00:10.283271,10822
+589,235674,19,Manor,Solomon,Manor Solomon,Füllkrug,,,,,MID,3,,,a,0,0,235674.jpg,,2025-09-02 13:17:42.731308,
+654,247412,19,Jørgen,Strand Larsen,Jørgen Strand Larsen,C.Soler,,,,,FWD,4,,,a,100,100,247412.jpg,,2025-10-03 14:00:09.236895,11070
+677,485337,19,Evann,Guessand,Evann Guessand,Scarles,,,,,MID,3,,,a,100,100,485337.jpg,,2026-04-10 14:30:09.300491,8006
+204,250735,20,Darko,Churlinov,Darko Churlinov,Johnstone,,,,,MID,3,,,i,0,0,250735.jpg,Knock - Unknown return date,2025-09-02 12:51:25.524903,
+533,220684,20,Aji,Alese,Aji Alese,Aït-Nouri,,,,,DEF,2,,,a,0,0,220684.jpg,,2025-07-21 10:00:05.007315,
+534,232820,20,Joe,Anderson,Joe Anderson,B.Traore,,,,,DEF,2,,,a,0,0,232820.jpg,,2026-01-19 15:39:02.01663,
+535,461195,20,Dennis,Cirkin,Dennis Cirkin,Bellegarde,,,,,DEF,2,,,a,100,100,461195.jpg,,2026-02-23 01:30:11.067246,8537
+536,477547,20,Leo Fuhr,Hjelde,Leo Fuhr Hjelde,Bentley,,,,,DEF,2,,,a,0,0,477547.jpg,,2026-02-02 23:16:50.069434,
+537,492066,20,Niall,Huggins,Niall Huggins,Chiquinho,,,,,DEF,2,,,u,0,0,492066.jpg,Season long loan to RCD Mallorca,2025-09-02 13:34:00.250364,
+538,514613,20,Zak,Johnson,Zak Johnson,Chirewa,,,,,DEF,2,,,u,0,0,514613.jpg,Loaened to Derby County,2026-01-15 12:51:52.939823,
+539,167512,20,Luke,O'Nien,Luke O'Nien,Chiwome,,,,,DEF,2,,,i,100,100,167512.jpg,Knee injury - Expected back 01 Jun,2025-12-06 20:30:09.638471,14099
+540,465702,20,Timothée,Pembélé,Timothée Pembélé,Cundle,,,,,DEF,2,,,u,0,0,465702.jpg,Loaned to Millwall,2026-01-07 10:24:08.787432,
+541,434399,20,Reinildo,Mandava,Reinildo Mandava,Cunha,,,,,DEF,2,,,a,100,100,434399.jpg,,2026-02-20 16:00:09.473685,7432
+542,519634,20,Jenson,Seelt,Jenson Seelt,Dawson,,,,,DEF,2,,,a,0,0,519634.jpg,,2025-09-02 13:40:22.421351,13714
+543,535818,20,Simon,Adingra,Simon Adingra,Doherty,,,,,MID,3,,,a,0,0,535818.jpg,,2026-02-02 23:16:50.111189,11710
+544,547027,20,Habib,Diarra,Habib Diarra,Doyle,,,,,MID,3,,,a,100,100,547027.jpg,,2025-12-20 23:30:08.955091,9767
+545,124165,20,Patrick,Roberts,Patrick Roberts,Fábio Silva,,,,,MID,3,,,u,0,0,124165.jpg,Season long loan to Las Palmas,2025-09-02 13:33:32.438579,925
+546,626844,20,Milan,Aleksić,Milan Aleksić,Fraser,,,,,MID,3,,,u,100,100,626844.jpg,Loaned to Zulte Waregem,2025-09-08 09:11:30.805435,
+547,484420,20,Enzo,Le Fée,Enzo Le Fée,Gonzalez,,,,,MID,3,,,i,100,100,484420.jpg,Knee injury - Unknown return date,2026-03-14 22:00:10.393282,8651
+548,461199,20,Romaine,Mundle,Romaine Mundle,Guedes,,,,,MID,3,,,a,0,0,461199.jpg,,2026-02-23 01:30:11.163434,11461
+549,223336,20,Dan,Neil,Dan Neil,H.Bueno,,,,,MID,3,,,u,0,0,223336.jpg,Loaned to Feyenoord,2026-01-27 16:48:20.506094,13720
+550,215460,20,Ian,Poveda-Ocampo,Ian Poveda-Ocampo,Hee Chan,,,,,MID,3,,,a,,,215460.jpg,,,
+551,554197,20,Chris,Rigg,Chris Rigg,Hodge,,,,,MID,3,,,u,,,554197.jpg,Season long to Huddersfield Town,,13719
+552,577669,20,Noah,Sadiki,Noah Sadiki,Hoever,,,,,MID,3,,,u,100,100,577669.jpg,Loaned to Auxerre,2025-12-13 14:30:11.905086,13716
+553,549912,20,Chemsdine,Talbi,Chemsdine Talbi,J.Gomes,,,,,MID,3,,,a,0,0,549912.jpg,,2026-05-22 18:00:09.668006,13717
+554,477851,20,Abdoullah,Ba,Abdoullah Ba,José Sá,,,,,MID,3,,,a,,,477851.jpg,,,
+555,171422,20,Alan,Browne,Alan Browne,Kalajdžić,,,,,MID,3,,,i,0,0,171422.jpg,Knee injury - Unknown return date,2025-09-02 13:31:41.354124,
+556,458297,20,Pierre,Ekwah Elimby,Pierre Ekwah Elimby,King,,,,,MID,3,,,a,0,0,458297.jpg,,2025-08-14 14:03:00.702056,
+557,547410,20,Harrison,Jones,Harrison Jones,Mario Jr.,,,,,MID,3,,,u,,,547410.jpg,Loaned to Galatasaray,,
+558,493837,20,Jay,Matete,Jay Matete,Mosquera,,,,,MID,3,,,i,0,0,493837.jpg,Knee injury - Expected back 01 Jun,2026-01-15 12:51:24.5263,
+559,500696,20,Nectarios,Triantis,Nectarios Triantis,N.Semedo,,,,,MID,3,,,a,0,0,500696.jpg,,2025-09-22 21:19:57.15751,
+561,564406,20,Eliezer,Mayenda Dossou,Eliezer Mayenda Dossou,Pedro Lima,,,,,FWD,4,,,a,,,564406.jpg,,,13718
+562,611975,20,Ahmed,Abdullahi,Ahmed Abdullahi,Podence,,,,,FWD,4,,,u,,,611975.jpg,Transferred to Al-Shabab,,
+563,551153,20,Luís Hemir,Silva Semedo,Luís Hemir Silva Semedo,R.Gomes,,,,,FWD,4,,,a,0,0,551153.jpg,,2025-09-22 21:17:57.534387,
+564,440955,20,Nazarii,Rusyn,Nazarii Rusyn,S.Bueno,,,,,FWD,4,,,a,0,0,440955.jpg,,2025-09-05 08:56:38.449926,
+565,184254,20,Guglielmo,Vicario,Guglielmo Vicario,Sarabia,,,,,GK,1,,,a,100,100,184254.jpg,,2026-03-23 08:30:08.692447,8858
+840,567119,20,Shumaira,Mheuka,Shumaira Mheuka,Holman,,,,,FWD,4,,,a,,,567119.jpg,,,13476
+566,214572,20,Brandon,Austin,Brandon Austin,Strand Larsen,,,,,GK,1,,,a,,,214572.jpg,,,
+597,212319,1,Richarlison,de Andrade,Richarlison de Andrade,Lewis-Skelly,,,,,FWD,4,,,a,100,100,212319.jpg,,2026-01-11 18:30:11.144475,6026
+598,552427,2,Will,Lankshear,Will Lankshear,Bogarde,,,,,FWD,4,,,a,0,0,552427.jpg,,2025-08-11 01:18:54.659436,
+120,513418,5,Kevin,Schade,Kevin Schade,Dunk,,,,,MID,3,,,a,100,100,513418.jpg,,2026-02-02 00:30:10.30343,9156
+668,84450,5,Granit,Xhaka,Granit Xhaka,Cahill,,,,,MID,3,,,a,100,100,84450.jpg,,2026-01-24 19:00:09.277794,204
+714,470313,5,Nick,Woltemade,Nick Woltemade,Gómez,,,,,FWD,4,,,a,100,100,470313.jpg,,2026-03-03 10:30:08.702662,8117
+520,243345,19,Lewis,O'Brien,Lewis O'Brien,Emerson,,,,,MID,3,,,a,0,0,243345.jpg,,2025-07-25 14:55:12.030109,
+567,485055,20,Antonín,Kinský,Antonín Kinský,Toti,,,,,GK,1,,,a,,,485055.jpg,,,13348
+642,184754,20,Hwang,Hee-chan,Hwang Hee-chan,André,,,,,MID,3,,,a,100,100,184754.jpg,,2026-02-07 22:00:09.311834,8845
+655,449988,20,Fábio,Soares Silva,Fábio Soares Silva,Forbs,,,,,FWD,4,,,a,0,0,449988.jpg,,2025-09-02 13:11:07.488555,
+664,86873,20,Benjamin,Lecomte,Benjamin Lecomte,Pond,,,,,GK,1,,,a,,,86873.jpg,,,
+682,497949,20,David,Møller Wolfe,David Møller Wolfe,Edozie,,,,,DEF,2,,,a,,,497949.jpg,,,13740
+711,646243,20,Andre,Harriman-Annous,Andre Harriman-Annous,Okoduwa,,,,,MID,3,,,a,,,646243.jpg,,,
+720,488213,20,Tolu,Arokodare,Tolu Arokodare,Agbadou,,,,,FWD,4,,,a,,,488213.jpg,,,8875
+751,590035,20,Yusuf,Akhamrich,Yusuf Akhamrich,Pereira,,,,,MID,3,,,a,0,0,590035.jpg,,2026-01-26 15:57:58.935998,
+784,704232,20,George,Brierley,George Brierley,Mané,,,,,MID,3,,,a,,,704232.jpg,,,
+794,494307,5,Max,Alleyne,Max Alleyne,Freddie Simmonds,,,,,DEF,2,,,a,100,100,494307.jpg,,2026-02-15 00:30:07.266104,13298
+12,206325,1,Oleksandr,Zinchenko,Oleksandr Zinchenko,Nwaneri,,,,,DEF,2,,,a,0,0,206325.jpg,,2026-02-04 16:19:07.883535,2958
+805,469130,6,Lorenzo,Lucca,Lorenzo Lucca,Assignon,,,,,FWD,4,,,a,,,469130.jpg,,,11936
+58,226944,2,Boubacar,Kamara,Boubacar Kamara,Watkins,,,,,MID,3,,,a,0,0,226944.jpg,,2026-05-08 15:30:09.019486,5789
+737,631786,2,Jonah,Kusi-Asare,Jonah Kusi-Asare,Emery,,,,,FWD,4,,,a,0,0,631786.jpg,,2026-05-22 19:00:08.300926,13262
+687,606774,3,Remy,Rees-Dottin,Remy Rees-Dottin,Winterburn,,,,,MID,3,,,a,,,606774.jpg,,,
+109,194010,4,Rico,Henry,Rico Henry,Valdimarsson,,,,,DEF,2,,,a,0,0,194010.jpg,,2026-03-04 10:30:07.977466,9679
+661,510663,4,Hugo,Ekitiké,Hugo Ekitiké,Yogane,,,,,FWD,4,,,u,0,0,510663.jpg,Loaned to Exeter City,2026-04-15 00:30:07.637512,8995
+685,242882,5,Bafodé,Diakité,Bafodé Diakité,Slater,,,,,DEF,2,,,a,100,100,242882.jpg,,2025-09-13 21:30:08.47299,7268
+19,444145,9,Gabriel,Martinelli Silva,Gabriel Martinelli Silva,Smith Rowe,,,,,MID,3,,,a,100,100,444145.jpg,,2025-12-24 02:30:10.584394,7752
+800,699989,10,Djiamgone Jocelin Ta,Bi,Djiamgone Jocelin Ta Bi,Tom Taylor,,,,,MID,3,,,a,100,100,699989.jpg,,2026-02-22 23:00:10.20731,14460
+292,224967,11,Vitalii,Mykolenko,Vitalii Mykolenko,Golding,,,,,DEF,2,,,a,100,100,224967.jpg,,2026-01-31 20:30:09.340646,10291
+293,512462,11,Jake,O'Brien,Jake O'Brien,Hermansen,,,,,DEF,2,,,i,100,100,512462.jpg,Groin Injury - Expected back 01 Jun,2026-02-11 13:00:09.843762,12014
+294,59949,11,Séamus,Coleman,Séamus Coleman,Iversen,,,,,DEF,2,,,a,100,100,59949.jpg,,2026-03-02 16:30:08.454682,585
+296,243571,11,Nathan,Patterson,Nathan Patterson,Kristiansen,,,,,DEF,2,,,a,100,100,243571.jpg,,2025-10-17 14:30:10.578096,10292
+297,496178,11,Roman,Dixon,Roman Dixon,Marcal,,,,,DEF,2,,,u,0,0,496178.jpg,Loaned to De Graafschap,2026-02-06 22:52:17.815306,
+298,474907,11,Reece,Welch,Reece Welch,Mavididi,,,,,DEF,2,,,i,,,474907.jpg,Muscle injury - Expected back 01 Jun,,
+299,440993,11,Iliman,Ndiaye,Iliman Ndiaye,McAteer,,,,,MID,3,,,a,100,100,440993.jpg,,2026-03-28 10:30:09.575067,9307
+300,433154,11,Dwight,McNeil,Dwight McNeil,Ndidi,,,,,MID,3,,,a,,,433154.jpg,,,6756
+635,483081,11,Rodrigo,Martins Gomes,Rodrigo Martins Gomes,El Khannouss,,,,,DEF,2,,,a,100,100,483081.jpg,,2025-10-31 09:00:09.735105,12756
+435,461537,16,Dermot,Mee,Dermot Mee,Mighten,,,,,GK,1,,,u,,,461537.jpg,Season long loan to Port Vale,,
+689,623110,18,Seung-Soo,Park,Seung-Soo Park,Williams-Barnett,,,,,MID,3,,,u,,,623110.jpg,U18 team,,
+686,611922,19,Rio,Ngumoha,Rio Ngumoha,Mayers,,,,,MID,3,,,a,,,611922.jpg,,,13692
+812,515046,11,Melker,Ellborg,Melker Ellborg,Koumas,,,,,GK,1,,,a,,,515046.jpg,,,14425
+813,536661,11,Nilson,Angulo,Nilson Angulo,Mrozek,,,,,MID,3,,,a,100,100,536661.jpg,,2026-03-14 22:00:10.584103,14424
+814,470315,13,Luca,Netz,Luca Netz,Wright,,,,,DEF,2,,,a,,,470315.jpg,,,8401
+633,490721,1,Hugo,Bueno López,Hugo Bueno López,Merino,,,,,DEF,2,,,a,100,100,490721.jpg,,2025-12-19 14:30:09.734923,10140
+762,672492,2,Joél,Drakes-Thomas,Joél Drakes-Thomas,M.Asensio,,,,,MID,3,,,a,,,672492.jpg,,,14263
+128,428580,5,Frank,Onyeka,Frank Onyeka,Igor,,,,,MID,3,,,a,0,0,428580.jpg,,2026-02-02 23:18:34.199775,9681
+135,216646,5,Yoane,Wissa,Yoane Wissa,Minteh,,,,,FWD,4,,,a,100,100,216646.jpg,,2026-02-15 00:30:06.766337,5786
+137,533710,5,Iwan,Morgan,Iwan Morgan,Moder,,,,,FWD,4,,,u,0,0,533710.jpg,Loaned to Feyenoord,2026-01-02 18:38:50.184481,
+595,499726,5,Callum,Olusesi,Callum Olusesi,Gruda,,,,,MID,3,,,a,,,499726.jpg,,,13224
+161,474120,6,Julio,Enciso Espínola,Julio Enciso Espínola,Chukwuemeka,,,,,MID,3,,,u,0,0,474120.jpg,Loaned to Borussia Dortmund,2025-08-10 18:00:05.470138,
+168,536916,6,Facundo,Buonanotte,Facundo Buonanotte,Enzo,,,,,MID,3,,,a,100,100,536916.jpg,,2026-05-09 21:00:09.692031,11362
+771,519913,6,Tyler,Fletcher,Tyler Fletcher,Amougou,,,,,MID,3,,,a,,,519913.jpg,,,14272
+160,592031,7,Yankuba,Minteh,Yankuba Minteh,Chilwell,,,,,MID,3,,,d,100,100,592031.jpg,Illness - 75% chance of playing,2025-12-31 00:00:09.377936,12759
+724,247955,8,Lutsharel,Geertruida,Lutsharel Geertruida,Sherif,,,,,DEF,2,,,a,,,247955.jpg,,,13064
+586,570526,9,Lucas,Bergvall,Lucas Bergvall,J.Cuenca,,,,,MID,3,,,a,100,100,570526.jpg,,2026-01-21 21:30:07.66344,12912
+604,109533,9,Emerson,Palmieri dos Santos,Emerson Palmieri dos Santos,King,,,,,DEF,2,,,a,0,0,109533.jpg,,2025-09-02 13:30:06.113081,
+304,490094,11,Tim,Iroegbunam,Tim Iroegbunam,Stolarczyk,,,,,MID,3,,,a,100,100,490094.jpg,,2026-01-13 19:00:09.517466,9554
+796,232787,11,Conor,Gallagher,Conor Gallagher,Olabade Aluko,,,,,MID,3,,,a,100,100,232787.jpg,,2026-03-13 15:00:09.984,9040
+755,576628,13,Shea,Lacey,Shea Lacey,Marmoush,,,,,MID,3,,,a,100,100,576628.jpg,,2026-01-11 22:30:11.118984,14198
+673,154296,14,João Maria,Lobo Alves Palhares Costa Palhinha Gonçalves,João Maria Lobo Alves Palhares Costa Palhinha Gonçalves,Fitzgerald,,,,,MID,3,,,a,100,100,154296.jpg,,2026-03-11 00:30:09.904194,10715
+745,640419,14,Jun'ai,Byfield,Jun'ai Byfield,Amorim,,,,,DEF,2,,,a,,,640419.jpg,,,14134
+404,211975,15,Manuel,Akanji,Manuel Akanji,Kelly,,,,,DEF,2,,,u,0,0,211975.jpg,Loaned to Juventus,2025-09-02 13:32:35.738667,
+596,154566,16,Dominic,Solanke-Mitchell,Dominic Solanke-Mitchell,Jota Silva,,,,,FWD,4,,,a,100,100,154566.jpg,,2026-04-25 22:30:09.551266,1679
+515,222531,17,Morgan,Gibbs-White,Morgan Gibbs-White,Cornet,,,,,MID,3,,,u,100,100,222531.jpg,Loaned to Genoa,2026-05-04 20:30:09.700005,6857
+804,616221,17,João Victor,de Souza Menezes,João Victor de Souza Menezes,Moore,,,,,DEF,2,,,a,,,616221.jpg,,,14410
+495,153127,18,Isaac,Hayden,Isaac Hayden,Pedro Porro,,,,,MID,3,,,a,0,0,153127.jpg,,2025-08-11 01:17:33.103826,
+514,90585,19,Willy,Boly,Willy Boly,Bowen,,,,,DEF,2,,,a,0,0,90585.jpg,,2026-02-12 13:30:09.114918,
+2,109745,1,Kepa,Arrizabalaga Revuelta,Kepa Arrizabalaga Revuelta,G.Jesus,,,,,GK,1,,,i,,,109745.jpg,Knee injury - Expected back 01 Jun,,5061
+6,462424,1,William,Saliba,William Saliba,J.Timber,,,,,DEF,2,,,i,100,100,462424.jpg,Ankle injury - Expected back 01 Jun,2026-03-23 13:00:10.244912,6888
+7,466075,1,Riccardo,Calafiori,Riccardo Calafiori,Jorginho,,,,,DEF,2,,,a,100,100,466075.jpg,,2026-05-11 00:00:10.879576,8129
+8,445122,1,Jurriën,Timber,Jurriën Timber,Kiwior,,,,,DEF,2,,,a,25,25,445122.jpg,,2026-03-23 13:00:10.259821,11707
+17,184029,1,Martin,Ødegaard,Martin Ødegaard,Saka,,,,,MID,3,,,a,100,100,184029.jpg,,2026-05-01 14:00:09.623702,2517
+18,248857,1,Noni,Madueke,Noni Madueke,Saliba,,,,,MID,3,,,i,100,100,248857.jpg,Hamstring injury - Expected back 01 Jun,2026-04-16 13:00:09.580957,11357
+20,116216,1,Leandro,Trossard,Leandro Trossard,Thomas,,,,,MID,3,,,a,100,100,116216.jpg,,2026-03-24 00:00:10.597737,7698
+25,499175,1,Ethan,Nwaneri,Ethan Nwaneri,Zinchenko,,,,,MID,3,,,a,0,0,499175.jpg,,2026-01-23 17:18:55.073277,11132
+38,199798,2,Ezri,Konsa Ngoyo,Ezri Konsa Ngoyo,Duran,,,,,DEF,2,,,u,100,100,199798.jpg,Loaned to Al-Nassr,2025-11-18 09:30:07.536725,7726
+39,441302,2,Ian,Maatsen,Ian Maatsen,Gauci,,,,,DEF,2,,,u,,,441302.jpg,Loaned to Barnsley,,11807
+42,606798,2,Andrés,García,Andrés García,Kamara,,,,,DEF,2,,,a,100,100,606798.jpg,,2026-01-29 12:00:08.835746,13392
+44,515597,2,Lamare,Bogarde,Lamare Bogarde,Konsa,,,,,DEF,2,,,a,100,100,515597.jpg,,2025-11-20 10:30:09.224047,10025
+53,204646,2,Donyell,Malen,Donyell Malen,Ramsey,,,,,MID,3,,,a,0,0,204646.jpg,,2026-01-16 15:17:04.828016,9749
+54,122806,2,John,McGinn,John McGinn,Rogers,,,,,MID,3,,,a,100,100,122806.jpg,,2026-05-03 23:00:09.124947,7723
+725,448104,2,Piero,Hincapié,Piero Hincapié,Malen,,,,,DEF,2,,,a,100,100,448104.jpg,,2026-03-30 10:00:11.369303,9911
+59,449871,3,Amadou,Onana,Amadou Onana,Aarons,,,,,MID,3,,,u,100,100,449871.jpg,Season-long loan to Valencia,2026-04-26 22:30:07.719459,9667
+105,507433,4,Hákon Rafn,Valdimarsson,Hákon Rafn Valdimarsson,Roerslev,,,,,GK,1,,,u,,,507433.jpg,Loaned to VfL Wolfsburg,,12595
+618,197024,5,Guido,Rodríguez,Guido Rodríguez,Georginio,,,,,MID,3,,,i,0,0,197024.jpg,Ankle injury - Expected back 01 Jun,2026-01-27 16:46:42.877713,8267
+614,101178,8,James,Ward-Prowse,James Ward-Prowse,Metcalfe,,,,,MID,3,,,u,100,100,101178.jpg,Season long loan to Chesterfield,2026-02-06 15:00:09.506764,843
+678,105717,8,Arthur,Masuaku,Arthur Masuaku,Bates,,,,,DEF,2,,,a,0,0,105717.jpg,,2026-01-15 20:00:09.716289,1760
+10,499169,9,Myles,Lewis-Skelly,Myles Lewis-Skelly,Nelson,,,,,DEF,2,,,i,,,499169.jpg,Hamstring injury - Expected back 01 Jun,,12272
+346,113564,13,Sam,Byram,Sam Byram,Doku,,,,,DEF,2,,,a,,,113564.jpg,,,902
+667,499300,14,Adam,Aznou,Adam Aznou,Fletcher,,,,,DEF,2,,,a,100,100,499300.jpg,,2025-08-29 10:30:08.71523,
+532,487676,19,Trai,Hume,Trai Hume,Zouma,,,,,DEF,2,,,u,,,487676.jpg,On loan to Al-Orobah for the rest of the season,,13713
+591,547701,19,Archie,Gray,Archie Gray,Todibo,,,,,MID,3,,,a,100,100,547701.jpg,,2025-10-31 09:00:09.658347,10184
+815,220362,1,Axel,Disasi,Axel Disasi,Bandeira,,,,,DEF,2,,,a,,,220362.jpg,,,6885
+637,510362,20,Toti,Gomes,Toti Gomes,Meupiyou,,,,,DEF,2,,,a,100,100,510362.jpg,,2025-12-23 17:30:09.064024,10293
+817,155511,1,Adam,Armstrong,Adam Armstrong,Sweet,,,,,FWD,4,,,a,,,155511.jpg,,,4419
+723,651426,3,Jaydee,Canvot,Jaydee Canvot,Sadi,,,,,DEF,2,,,a,100,100,651426.jpg,,2025-12-10 22:00:10.518689,13091
+149,223434,5,Igor Julio,dos Santos de Paulo,Igor Julio dos Santos de Paulo,Wieffer,,,,,DEF,2,,,a,100,100,223434.jpg,,2025-12-29 18:00:08.845429,7943
+791,247670,5,Valentín,Castellanos,Valentín Castellanos,Charlie Tasker,,,,,FWD,4,,,a,,,247670.jpg,,,10948
+258,244723,9,Tyrick,Mitchell,Tyrick Mitchell,Vinicius,,,,,DEF,2,,,a,,,244723.jpg,,,8214
+259,218364,9,Borna,Sosa,Borna Sosa,Wilson,,,,,DEF,2,,,a,75,75,218364.jpg,,2026-05-03 23:00:09.215754,7075
+605,214048,9,Maximilian,Kilman,Maximilian Kilman,Godo,,,,,DEF,2,,,a,,,214048.jpg,,,7332
+260,209036,10,Marc,Guéhi,Marc Guéhi,Al-Hamadi,,,,,DEF,2,,,u,100,100,209036.jpg,Loaned to Stoke City,2026-01-17 10:30:09.463372,7603
+261,427623,10,Chris,Richards,Chris Richards,Baggott,,,,,DEF,2,,,u,0,0,427623.jpg,Season long loan to Blackpool,2026-05-17 22:00:09.46628,8430
+816,209041,5,Angel,Gomes,Angel Gomes,Barco,,,,,MID,3,,,a,100,100,209041.jpg,,2026-04-18 18:00:09.391625,5598
+262,515621,10,Chadi,Riad Dnanou,Chadi Riad Dnanou,Broadhead,,,,,DEF,2,,,a,100,100,515621.jpg,,2025-12-10 22:30:09.761507,11167
+263,57328,10,Nathaniel,Clyne,Nathaniel Clyne,Burgess,,,,,DEF,2,,,a,100,100,57328.jpg,,2026-04-24 11:00:07.752747,603
+264,156074,10,Rob,Holding,Rob Holding,Burns,,,,,DEF,2,,,i,0,0,156074.jpg,Knee injury - Expected back 01 Jun,2025-08-11 01:12:01.613357,
+265,590012,10,Caleb,Kporha,Caleb Kporha,Chaplin,,,,,DEF,2,,,a,100,100,590012.jpg,,2026-02-19 15:30:07.798673,
+266,232413,10,Eberechi,Eze,Eberechi Eze,H.Clarke,,,,,MID,3,,,u,100,100,232413.jpg,Loaned to Sheffield United,2026-04-25 22:30:09.375724,8706
+268,438464,10,Cheick,Doucouré,Cheick Doucouré,Delap,,,,,MID,3,,,a,0,0,438464.jpg,,2026-04-08 15:00:09.353525,
+269,606921,10,Romain,Esse,Romain Esse,Edmundson,,,,,MID,3,,,u,0,0,606921.jpg,Loaned to Middlesbrough,2026-01-08 10:36:37.803156,13387
+270,108413,10,Will,Hughes,Will Hughes,Greaves,,,,,MID,3,,,a,100,100,108413.jpg,,2026-01-01 21:30:11.748759,6104
+606,233963,11,Konstantinos,Mavropanos,Konstantinos Mavropanos,Alves,,,,,DEF,2,,,u,100,100,233963.jpg,Loaned to Cardiff City,2026-04-05 23:00:09.898611,6722
+708,551226,11,Mateus Gonçalo,Espanha Fernandes,Mateus Gonçalo Espanha Fernandes,Wilson-Brown,,,,,MID,3,,,u,100,100,551226.jpg,Loaned to Kilmarnock,2026-01-15 20:30:10.600167,12948
+726,247693,11,Randal,Kolo Muani,Randal Kolo Muani,Coulibaly,,,,,FWD,4,,,a,100,100,247693.jpg,,2025-11-14 12:00:08.068318,5743
+607,210494,13,Nayef,Aguerd,Nayef Aguerd,O’Reilly,,,,,DEF,2,,,a,0,0,210494.jpg,,2025-09-02 12:20:05.254985,6935
+613,215439,14,Tomáš,Souček,Tomáš Souček,Collyer,,,,,MID,3,,,a,100,100,215439.jpg,,2025-09-13 21:30:08.395458,8288
+706,220627,16,James,Justin,James Justin,Abbott,,,,,DEF,2,,,a,100,100,220627.jpg,,2026-03-02 16:30:09.035827,7753
+747,602903,16,Ezra,Mayers,Ezra Mayers,Nuno,,,,,DEF,2,,,a,,,602903.jpg,,,13247
+718,564940,17,Soungoutou,Magassa,Soungoutou Magassa,Welington,,,,,MID,3,,,a,,,564940.jpg,,,10770
+584,511499,17,Mathys,Tel,Mathys Tel,Brereton Díaz,,,,,MID,3,,,u,100,100,511499.jpg,Loaned to Sheffield United,2026-03-23 08:30:08.72453,9780
+612,224024,18,Lucas,Tolentino Coelho de Lima,Lucas Tolentino Coelho de Lima,Odobert,,,,,MID,3,,,a,0,0,224024.jpg,,2026-01-15 20:30:10.468843,7365
+600,84182,5,Alphonse,Areola,Alphonse Areola,Ayari,,,,,GK,1,,,a,100,100,84182.jpg,,2026-04-05 23:00:09.889906,2310
+182,432720,6,James,Trafford,James Trafford,Palmer,,,,,GK,1,,,a,,,432720.jpg,,,9077
+772,666607,9,Sam,Alabi,Sam Alabi,Willian,,,,,MID,3,,,a,,,666607.jpg,,,
+309,491557,11,Jenson,Metcalfe,Jenson Metcalfe,Winks,,,,,MID,3,,,a,0,0,491557.jpg,,2025-07-25 14:54:45.196473,
+310,586309,12,Thierno,Barry,Thierno Barry,A.Becker,,,,,FWD,4,,,a,,,586309.jpg,,,12916
+311,486385,12,Norberto Bercique,Gomes Betuncal,Norberto Bercique Gomes Betuncal,Alexander-Arnold,,,,,FWD,4,,,a,100,100,486385.jpg,,2026-04-19 22:30:08.169416,9983
+312,491012,12,Youssef,Ramalho Chermiti,Youssef Ramalho Chermiti,Bajcetic,,,,,FWD,4,,,u,0,0,491012.jpg,Loaned to RB Salzburg,2025-09-02 12:26:54.689038,
+736,204936,13,Gianluigi,Donnarumma,Gianluigi Donnarumma,Guardiola,,,,,GK,1,,,a,,,204936.jpg,,,1116
+660,466525,12,Anton,Stach,Anton Stach,Jaros,,,,,MID,3,,,a,0,0,466525.jpg,,2026-05-17 22:00:09.874245,9910
+594,623095,14,Yang,Min-hyeok,Yang Min-hyeok,Mazraoui,,,,,MID,3,,,a,0,0,623095.jpg,,2025-08-11 01:24:33.782871,
+643,509291,19,André,Trindade da Costa Neto,André Trindade da Costa Neto,Casey,,,,,MID,3,,,a,100,100,509291.jpg,,2026-02-07 22:00:09.326016,
+701,569577,19,Triston,Rowe,Triston Rowe,Orford,,,,,DEF,2,,,a,0,0,569577.jpg,,2025-09-22 21:15:59.825051,
+31,205651,2,Gabriel,Fernando de Jesus,Gabriel Fernando de Jesus,Buendia,,,,,FWD,4,,,u,100,100,205651.jpg,Loaned to Bayer Leverkusen,2025-07-21 10:00:04.697564,5543
+599,490145,3,Dane,Scarlett,Dane Scarlett,Dennis,,,,,FWD,4,,,a,0,0,490145.jpg,,2026-02-02 13:40:54.997559,9332
+385,223541,2,Federico,Chiesa,Federico Chiesa,Rashford,,,,,MID,3,,,a,100,100,223541.jpg,,2026-03-24 10:30:10.649645,1433
+617,149519,3,Maxwel,Cornet,Maxwel Cornet,Evanilson,,,,,MID,3,,,a,0,0,149519.jpg,,2025-09-02 12:21:17.687537,
+634,501837,4,Yerson,Mosquera Valdelamar,Yerson Mosquera Valdelamar,G.Nunes,,,,,DEF,2,,,a,100,100,501837.jpg,,2026-04-10 23:00:10.249892,9958
+386,243016,6,Alexis,Mac Allister,Alexis Mac Allister,Sancho,,,,,MID,3,,,a,100,100,243016.jpg,,2025-08-28 17:30:07.82211,8379
+644,231057,7,Jean-Ricner,Bellegarde,Jean-Ricner Bellegarde,Umeh-Chibueze,,,,,MID,3,,,a,100,100,231057.jpg,,2025-12-09 13:00:10.361407,7762
+611,518438,10,Kaelan,Casey,Kaelan Casey,Szmodics,,,,,DEF,2,,,a,0,0,518438.jpg,,2025-08-11 01:20:17.436361,
+383,244731,14,Luis,Díaz Marulanda,Luis Díaz Marulanda,Onana,,,,,MID,3,,,a,0,0,244731.jpg,,2025-07-30 14:05:01.491481,
+399,121160,15,Ederson,Santana de Moraes,Ederson Santana de Moraes,Hall,,,,,GK,1,,,i,0,0,121160.jpg,Foot injury - Expected back 01 Jun,2025-09-02 13:32:35.715838,
+397,447203,17,Darwin,Núñez Ribeiro,Darwin Núñez Ribeiro,Fraser,,,,,FWD,4,,,a,0,0,447203.jpg,,2025-08-11 11:06:59.061616,
+470,67089,17,Martin,Dúbravka,Martin Dúbravka,Onuachu,,,,,GK,1,,,a,100,100,67089.jpg,,2025-08-11 10:30:07.723845,6532
+475,220237,17,Sven,Botman,Sven Botman,Taylor,,,,,DEF,2,,,a,100,100,220237.jpg,,2026-03-24 00:00:11.040133,8635
+388,206915,19,Curtis,Jones,Curtis Jones,Wan-Bissaka,,,,,MID,3,,,a,100,100,206915.jpg,,2026-04-12 02:30:09.264075,6665
+578,610799,1,Luka,Vušković,Luka Vušković,Calafiori,,,,,DEF,2,,,a,0,0,610799.jpg,,2025-09-02 13:17:42.706711,
+659,158534,1,Kyle,Walker-Peters,Kyle Walker-Peters,Kabia,,,,,DEF,2,,,a,,,158534.jpg,,,885
+30,219847,2,Kai,Havertz,Kai Havertz,Barrenechea,,,,,FWD,4,,,u,100,100,219847.jpg,Loaned to Valencia CF,2026-04-25 22:30:09.266637,5220
+680,440323,3,Armando,Broja,Armando Broja,Kinsey,,,,,FWD,4,,,a,100,100,440323.jpg,,2026-03-12 16:30:09.98421,8384
+615,450070,5,Crysencio,Summerville,Crysencio Summerville,Rushworth,,,,,MID,3,,,a,100,100,450070.jpg,,2026-03-10 01:30:11.941511,9492
+758,630699,5,Mohamadou,Kanté,Mohamadou Kanté,Knight,,,,,MID,3,,,a,,,630699.jpg,,,14219
+621,229384,6,Andy,Irving,Andy Irving,João Félix,,,,,MID,3,,,u,0,0,229384.jpg,Loaned to Milan,2026-01-19 15:40:15.184233,12774
+585,202993,7,Rodrigo,Bentancur,Rodrigo Bentancur,I.Sarr,,,,,MID,3,,,a,100,100,202993.jpg,,2026-01-08 18:30:11.36539,6108
+236,247632,8,Pedro,Lomba Neto,Pedro Lomba Neto,Tarkowski,,,,,MID,3,,,i,100,100,247632.jpg,Hamstring injury - Expected back 01 Jun,2026-05-04 21:30:09.20955,6382
+241,486672,9,Moisés,Caicedo Corozo,Moisés Caicedo Corozo,Bassey,,,,,MID,3,,,a,100,100,486672.jpg,,2025-12-31 00:00:09.550966,9453
+242,215413,9,Kiernan,Dewsbury-Hall,Kiernan Dewsbury-Hall,Benda,,,,,MID,3,,,a,100,100,215413.jpg,,2025-12-13 19:30:10.843882,9739
+243,550615,9,Tyrique,George,Tyrique George,Cairney,,,,,MID,3,,,a,100,100,550615.jpg,,2026-03-14 22:30:10.033574,12573
+245,465920,9,Mykhailo,Mudryk,Mykhailo Mudryk,Diop,,,,,MID,3,,,a,0,0,465920.jpg,,2025-07-21 10:00:04.82421,
+619,577114,10,Luis Guilherme,Lira dos Santos,Luis Guilherme Lira dos Santos,Cajuste,,,,,MID,3,,,a,0,0,577114.jpg,,2026-01-07 10:24:45.612642,13026
+764,580921,10,Reigan,Heskey,Reigan Heskey,Palmer,,,,,MID,3,,,a,,,580921.jpg,,,
+362,235826,13,Joël,Piroe,Joël Piroe,Stones,,,,,FWD,4,,,i,100,100,235826.jpg,Thigh injury - Expected back 01 Jun,2025-09-11 17:30:06.758854,13835
+671,75115,13,Callum,Wilson,Callum Wilson,Wright,,,,,FWD,4,,,u,100,100,75115.jpg,Loaned to Norwich City,2026-04-08 15:00:09.529188,468
+733,465247,13,Senne,Lammens,Senne Lammens,Vitor Reis,,,,,GK,1,,,a,,,465247.jpg,,,14056
+746,596042,15,Kieran,Morrison,Kieran Morrison,Howe,,,,,MID,3,,,a,,,596042.jpg,,,
+620,490885,16,George,Earthy,George Earthy,Sosa,,,,,MID,3,,,a,0,0,490885.jpg,,2026-01-15 12:52:30.193987,12474
+842,,8,Roshaun,Mathurin,Roshaun Mathurin,Mathurin,,,,,MID,3,,,a,,,,,,
+721,620487,16,Veljko,Milosavljevic,Veljko Milosavljevic,Hennessey,,,,,DEF,2,,,a,100,100,620487.jpg,,2026-01-06 17:00:10.479922,14027
+608,536109,17,Ollie,Scarles,Ollie Scarles,Dibling,,,,,DEF,2,,,a,100,100,536109.jpg,,2026-03-10 01:30:11.890314,12358
+623,490142,17,Freddie,Potts,Freddie Potts,M.Fernandes,,,,,MID,3,,,a,100,100,490142.jpg,,2026-02-14 16:00:06.838115,13724
+508,215136,18,Neco,Williams,Neco Williams,Vicario,,,,,DEF,2,,,a,100,100,215136.jpg,,2026-02-02 00:30:11.039075,8204
+863,,9,Billy,Crellin,Billy Crellin,Crellin,,,,,GK,1,,,a,,,,,,
+844,,12,Christian,Chigozie,Christian Chigozie,Chigozie,,,,,DEF,2,,,a,,,,,,
+848,,12,Taylan,Harris,Taylan Harris,Harris,,,,,FWD,4,,,a,,,,,,
+330,207189,12,Sander,Berge,Sander Berge,McConnell,,,,,MID,3,,,a,,,207189.jpg,,,8285
+826,547671,14,Riley,Owen,Riley Owen,Collyer,,,,,MID,3,,,a,,,547671.jpg,,,
+846,,14,Harry,Amass,Harry Amass,Amass,,,,,DEF,2,,,a,,,,,,
+850,,14,Ethan,Wheatley,Ethan Wheatley,Wheatley,,,,,FWD,4,,,a,,,,,,
+856,,14,Louis,Jackson,Louis Jackson,Jackson,,,,,DEF,2,,,a,,,,,,
+823,649240,17,Joshua,Stephenson,Joshua Stephenson,Arblaster,,,,,DEF,2,,,a,,,649240.jpg,,,
+828,491460,17,Alfie,Brooks,Alfie Brooks,Curtis,,,,,GK,1,,,a,,,491460.jpg,,,
+857,,17,Owen,Hampson,Owen Hampson,Hampson,,,,,MID,3,,,a,,,,,,
+860,,18,Mikey,Moore,Mikey Moore,Moore,,,,,MID,3,,,a,,,,,,
+862,,18,Tyrese,Hall,Tyrese Hall,Hall,,,,,MID,3,,,a,,,,,,
+853,,20,Temple,Ojinnaka,Temple Ojinnaka,Ojinnaka,,,,,MID,3,,,a,,,,,,
+715,221389,10,John Victor,Maciel Furtado,John Victor Maciel Furtado,Godfrey,,,,,GK,1,,,a,100,100,221389.jpg,,2026-01-04 21:30:13.580158,14017
+698,435997,13,Noah,Okafor,Noah Okafor,Mubama,,,,,MID,3,,,a,0,0,435997.jpg,,2026-05-08 15:30:09.371276,11966
+704,461446,13,Tyler,Onyango,Tyler Onyango,Brits,,,,,MID,3,,,a,0,0,461446.jpg,,2025-09-02 12:26:54.674165,
+749,647671,18,Mateus,Mané,Mateus Mané,Postecoglou,,,,,FWD,4,,,a,,,647671.jpg,,,13484
+750,499716,19,James,Rowswell,James Rowswell,Potter,,,,,DEF,2,,,a,,,499716.jpg,,,14176
+769,576620,20,Bendito,Mantato,Bendito Mantato,Djiga,,,,,MID,3,,,a,,,576620.jpg,,,14266
+770,619536,20,Seth,Ridgeon,Seth Ridgeon,Munetsi,,,,,MID,3,,,a,,,619536.jpg,,,
+34,462492,2,Joe,Gauci,Joe Gauci,Diaby,,,,,GK,1,,,u,0,0,462492.jpg,Permanent transfer to Al Ittihad,2025-08-12 07:40:37.843391,
+35,462381,2,Filip,Marschall,Filip Marschall,Diego Carlos,,,,,GK,1,,,u,0,0,462381.jpg,loaned to Fenerbahçe,2025-07-30 14:08:21.698398,
+43,106468,2,Álex,Moreno Lopera,Álex Moreno Lopera,Kesler-Hayden,,,,,DEF,2,,,u,0,0,106468.jpg,Has joined Preston North End for the rest of the season,2025-08-26 13:45:03.013808,
+45,514315,2,Lino,da Cruz Sousa,Lino da Cruz Sousa,Maatsen,,,,,DEF,2,,,a,0,0,514315.jpg,,2026-02-06 22:51:55.055374,
+46,587178,2,Yasin,Özcan,Yasin Özcan,Marschall,,,,,DEF,2,,,u,0,0,587178.jpg,Has joined MK Dons for the rest of the season,2025-09-22 21:15:59.805053,
+51,469247,2,Samuel,Iling-Junior,Samuel Iling-Junior,Olsen,,,,,MID,3,,,a,0,0,469247.jpg,,2025-09-22 21:15:59.838578,
+641,517179,2,Alfie,Pond,Alfie Pond,Zych,,,,,DEF,2,,,a,0,0,517179.jpg,,2026-01-07 20:20:32.67164,
+656,429414,2,Saša,Kalajdžić,Saša Kalajdžić,Young,,,,,FWD,4,,,u,0,0,429414.jpg,Loaned to Royal Antwerp,2025-09-08 09:11:55.060395,8812
+679,467189,2,Mads,Hermansen,Mads Hermansen,Broggio,,,,,GK,1,,,a,,,467189.jpg,,,12910
+710,534836,2,Travis,Patterson,Travis Patterson,Jimoh,,,,,DEF,2,,,a,,,534836.jpg,,,
+630,138001,10,Tom,King,Tom King,O'Shea,,,,,GK,1,,,a,,,138001.jpg,,,
+753,19236,9,John,Ruddy,John Ruddy,Silva,,,,,GK,1,,,a,,,19236.jpg,,,
+522,204968,19,Ryan,Yates,Ryan Yates,Foderingham,,,,,MID,3,,,a,100,100,204968.jpg,,2025-12-06 20:30:09.569234,11003
+610,214590,18,Aaron,Wan-Bissaka,Aaron Wan-Bissaka,Moore,,,,,DEF,2,,,a,100,100,214590.jpg,,2025-12-13 14:30:12.044504,5584
+195,549329,7,Lucas,Pires Silva,Lucas Pires Silva,Chadi Riad,,,,,DEF,2,,,i,100,100,549329.jpg,Knee injury - Expected back 01 Jun,2025-12-06 20:30:09.199109,11824
+384,243298,14,Cody,Gakpo,Cody Gakpo,Pellistri,,,,,MID,3,,,u,100,100,243298.jpg,Transferred to Panathinaikos,2025-12-09 02:00:07.849895,11296
+387,424876,14,Dominik,Szoboszlai,Dominik Szoboszlai,Shaw,,,,,MID,3,,,a,100,100,424876.jpg,,2026-02-08 22:00:09.299317,9788
+389,444884,14,Harvey,Elliott,Harvey Elliott,Zirkzee,,,,,MID,3,,,a,100,100,444884.jpg,,2026-05-09 21:00:09.89228,7546
+652,593001,14,Enso,González Medina,Enso González Medina,Ugarte,,,,,MID,3,,,a,,,593001.jpg,,,
+390,441266,15,Ryan,Gravenberch,Ryan Gravenberch,A.Murphy,,,,,MID,3,,,u,100,100,441266.jpg,Loaned to Bolton Wanderers,2025-10-20 00:30:09.747338,10697
+391,496208,15,Ben,Gannon-Doak,Ben Gannon-Doak,Almirón,,,,,MID,3,,,u,100,100,496208.jpg,Loaned to Atlanta United,2025-11-20 10:30:09.618152,11231
+392,158983,15,Endo,Wataru,Endo Wataru,Barnes,,,,,MID,3,,,a,50,50,158983.jpg,,2026-02-12 13:30:08.951599,8808
+393,535928,15,Stefan,Bajčetić Maquieira,Stefan Bajčetić Maquieira,Botman,,,,,MID,3,,,a,0,0,535928.jpg,,2025-09-12 10:00:06.938334,
+394,491501,15,James,McConnell,James McConnell,Bruno G.,,,,,MID,3,,,a,0,0,491501.jpg,,2025-09-22 21:23:24.738341,
+395,440148,15,Tyler,Morton,Tyler Morton,Burn,,,,,MID,3,,,a,0,0,440148.jpg,,2025-08-11 01:13:11.403187,
+396,591386,15,Trey,Nyoni,Trey Nyoni,Dúbravka,,,,,MID,3,,,a,,,591386.jpg,,,12203
+398,500058,15,Jayden,Danns,Jayden Danns,Gordon,,,,,FWD,4,,,a,0,0,500058.jpg,,2025-10-17 01:00:10.583515,
+742,616288,8,Ryan,McAidoo,Ryan McAidoo,Moyes,,,,,MID,3,,,a,,,616288.jpg,,,

@@ -1,52 +1,65 @@
-# Fantasy XI OpenFPL-Inspired Points Predictor
+# FantasyXI — FPL Points Prediction
 
-This project builds a standalone FPL player-points prediction layer using the already-audited Supabase `processed` tables as the primary data source.
+## Overview
 
-## Data Route
+FantasyXI uses machine learning to predict FPL player points
+for upcoming gameweeks.
 
-Route A was selected: Supabase is sufficient. The local audit found historical player match stats, fixtures/difficulty fields, market/value transfer data, player status/availability, teams, identity history, and Understat-linked fields. The database was treated as read-only.
-
-Local extracted raw data lives in `data/raw/`. The feature matrix is `data/processed/model_features.csv`.
+The prediction layer is designed primarily to rank players
+rather than perfectly predict the exact number of points.
 
 ## Model
 
-- Chronological train/validation/test split:
-  - train: seasons through `2023-24`
-  - validation: `2024-25`
-  - test: `2025-26`
-- Position-specific models for `GK`, `DEF`, `MID`, `FWD`
-- XGBoost candidate search with high-score-aware sample weighting
-- Random Forest component per position
-- Validation-selected XGBoost/RF blend per position
-- Required target-range evaluation: `0-2`, `3-5`, `6-9`, `10+`
+We use position-specific XGBoost regressors for:
 
-## Reproduce
+- Goalkeepers
+- Defenders
+- Midfielders
+- Forwards
 
-Use the Python 3.12 training environment:
+Historical FPL, player, fixture, team and Understat-derived
+information is transformed into engineered features.
 
-```powershell
-py -3.12 -m venv .train_venv
-.\.train_venv\Scripts\python.exe -m pip install -r requirements.txt --index-url https://pypi.org/simple
-```
+## Pipeline
 
-The Supabase audit and extraction were already completed. To rebuild features from existing local CSVs:
+Supabase / historical data
+        ↓
+Data extraction
+        ↓
+Feature engineering
+        ↓
+Position-specific models
+        ↓
+XGBoost prediction
+        ↓
+Player ranking
+        ↓
+Downstream FantasyXI decision/RL layer
 
-```powershell
-.\.train_venv\Scripts\python.exe scripts\build_features.py
-```
+## Evaluation
 
-Train and evaluate:
+Test season: 2025–26
 
-```powershell
-.\.train_venv\Scripts\python.exe scripts\train.py
-.\.train_venv\Scripts\python.exe scripts\evaluate_components.py
-```
+Overall:
+- MAE: 1.2689
+- RMSE: 2.1067
+- Spearman correlation: 0.7947
 
-## Outputs
+Position-wise ranking:
+- GK: 0.7021
+- DEF: 0.7881
+- MID: 0.8133
+- FWD: 0.8115
 
-- Model bundle: `models/position_ensemble.joblib`
-- Training metadata: `models/training_metadata.json`
-- Main evaluation: `reports/evaluation_2025_26.csv`
-- Component comparison: `reports/evaluation_components_2025_26.csv`
-- Full 2025-26 test predictions: `predictions/test_2025_26_predictions.csv`
-- Latest available gameweek predictions: `predictions/final_predictions_latest_gameweek.csv`
+The model performs substantially better at ranking players
+than at reproducing extreme 10+ point hauls.
+
+## Limitations
+
+The dataset is heavily imbalanced toward low-point
+player-gameweeks. High-scoring performances are relatively
+rare, resulting in higher errors for the 10+ point range.
+
+The model is therefore intended as a player-ranking /
+prediction layer for the downstream FantasyXI system rather
+than a perfect point forecasting system.

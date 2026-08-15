@@ -107,7 +107,11 @@ if __name__ == "__main__":
     df = generate_season(seed=42)
 
     # Save the example season beside this script
-    output_path = Path(__file__).parent / "synthetic_fpl_data.csv"
+    ROOT = Path(__file__).resolve().parent.parent
+    DATA_DIR = ROOT / "data"
+    DATA_DIR.mkdir(exist_ok=True)
+
+    output_path = DATA_DIR / "synthetic_fpl_data.csv"
     df.to_csv(output_path, index=False)
 
     print("\nSynthetic FPL dataset created successfully.")

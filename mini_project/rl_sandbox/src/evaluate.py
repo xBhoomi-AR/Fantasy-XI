@@ -7,6 +7,17 @@ import matplotlib.pyplot as plt
 import random
 import os
 
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parent.parent
+RESULTS_DIR = ROOT / "results"
+RESULTS_DIR.mkdir(exist_ok=True)
+
+ROOT = Path(__file__).resolve().parent.parent
+RESULTS_DIR = ROOT / "results"
+RESULTS_DIR.mkdir(exist_ok=True)
+
 
 NUM_EPISODES = 30
 
@@ -25,7 +36,7 @@ agent = DQNAgent(
     action_size
 )
 
-agent.load_model("rl_sandbox/results/dqn_model.pth")
+agent.load_model(RESULTS_DIR / "dqn_model.pth")
 
 agent.epsilon = 0.0
 
@@ -134,7 +145,7 @@ results = pd.DataFrame({
 })
 
 results.to_csv(
-    "rl_sandbox/results/evaluation_results.csv",
+    RESULTS_DIR / "evaluation_results.csv",
     index=False
 )
 
@@ -155,7 +166,7 @@ plt.grid(axis="y")
 plt.tight_layout()
 
 plt.savefig(
-    "rl_sandbox/results/comparison.png"
+    RESULTS_DIR / "comparison.png"
 )
 
 plt.close()

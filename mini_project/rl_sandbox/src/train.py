@@ -7,12 +7,15 @@ import matplotlib.pyplot as plt
 import os
 import time
 
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+RESULTS_DIR = ROOT / "results"
+RESULTS_DIR.mkdir(exist_ok=True)
 
 NUM_EPISODES = 1000
 
 
-# Create results folder if it doesn't exist
-os.makedirs("results", exist_ok=True)
 
 
 env = FPLEnvironment(seed=42)
@@ -95,7 +98,7 @@ for episode in range(NUM_EPISODES):
 
 
 # Save model
-agent.save_model("rl_sandbox/results/dqn_model.pth")
+agent.save_model(RESULTS_DIR / "dqn_model.pth")
 
 
 # Save training log
@@ -107,7 +110,7 @@ training_log = pd.DataFrame({
 })
 
 training_log.to_csv(
-    "rl_sandbox/results/training_log.csv",
+    RESULTS_DIR / "training_log.csv",
     index=False
 )
 
@@ -120,7 +123,7 @@ plt.xlabel("Episode")
 plt.ylabel("Reward")
 plt.grid(True)
 plt.tight_layout()
-plt.savefig("rl_sandbox/results/reward_curve.png")
+plt.savefig(RESULTS_DIR / "reward_curve.png")
 plt.close()
 
 
@@ -132,7 +135,7 @@ plt.xlabel("Episode")
 plt.ylabel("Loss")
 plt.grid(True)
 plt.tight_layout()
-plt.savefig("rl_sandbox/results/loss_curve.png")
+plt.savefig(RESULTS_DIR / "loss_curve.png")
 plt.close()
 
 

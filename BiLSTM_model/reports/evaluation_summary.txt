@@ -1,0 +1,9 @@
+BiLSTM Gate Architecture - Evaluation Report (2025-26 Test Set)
+===============================================================
+Total Test Samples: 23,406
+Overall MAE: 2.2315 | RMSE: 3.6546 | Spearman: 0.7183
+
+Band 0-2   | Samples: 20,077  | MAE: 2.072 | RMSE: 3.634
+Band 3-5   | Samples: 1,715   | MAE: 3.998 | RMSE: 4.192
+Band 6-9   | Samples: 1,199   | MAE: 1.610 | RMSE: 2.171
+Band 10+   | Samples: 415     | MAE: 4.453 | RMSE: 5.318

@@ -1,13 +1,16 @@
-"""MILP baseline: picks the 15-player squad that maximizes predicted_points,
-subject to FPL's structural rules. No PPO input yet - this is the plain
-MILP-only baseline we'll later compare a PPO-guided version against.
+"""MILP squad selector.
 
-This is a fresh full-squad pick, not a transfer optimizer. It doesn't limit
-how many players differ from an existing squad or account for sell prices /
-transfer costs - the environment doesn't model those yet (see
-environment/historical_env.py), so we're not pretending to enforce rules we
-can't actually check. current_squad_ids is only used to flag which selected
-players were already owned.
+Two modes, both handled by select_squad():
+- fresh pick (current_squad_ids empty): the original baseline - best legal 15
+  under `budget` (defaults to the full £100m). No transfers or hits involved.
+- transfer-aware (current_squad_ids given): budget becomes bank + whatever the
+  current squad is worth at today's prices, and each transfer beyond
+  free_transfers costs 4 points in the objective, same as real FPL.
+
+We don't have any purchase-price/sell-price history anywhere in the data -
+only `value`, today's market price - so a "sold" player is valued at their
+current price, not FPL's real 50%-of-profit-on-rise rule. That's a
+simplification we're stating outright, not pretending is the real mechanic.
 """
 
 from __future__ import annotations
@@ -18,7 +21,7 @@ from dataclasses import dataclass, field
 import pandas as pd
 import pulp
 
-from ..environment.squad import BUDGET, MAX_PER_CLUB, POSITION_COUNTS, SQUAD_SIZE
+from ..environment.squad import BUDGET, MAX_PER_CLUB, POSITION_COUNTS, SQUAD_SIZE, squad_value
 
 
 @dataclass
@@ -30,12 +33,17 @@ class SquadResult:
     objective_value: float
     remaining_budget: float
     already_owned: list[int] = field(default_factory=list)
+    transfers_made: int = 0
+    hits: int = 0
 
 
 def select_squad(
     candidates: pd.DataFrame,
-    budget: float = BUDGET,
+    budget: float | None = None,
     current_squad_ids: Sequence[int] = (),
+    bank: float = 0.0,
+    free_transfers: int = 1,
+    hit_cost: float = 4.0,
 ) -> SquadResult:
     players = candidates.drop_duplicates("player_id").reset_index(drop=True)
     # a handful of players are missing `price` in the source data (e.g. a
@@ -43,10 +51,27 @@ def select_squad(
     # they're not selectable rather than guessing a price
     players = players.dropna(subset=["price", "predicted_points"])
 
+    transfer_aware = len(current_squad_ids) > 0
+    if budget is None:
+        # note: if a current squad member has no row this gameweek (no
+        # fixture, or missing price), squad_value() just skips them - their
+        # sell value effectively counts as 0, which understates the real bank
+        budget = bank + squad_value(players, current_squad_ids) if transfer_aware else BUDGET
+
     prob = pulp.LpProblem("squad_selection", pulp.LpMaximize)
     pick = {row.player_id: pulp.LpVariable(f"pick_{row.player_id}", cat="Binary") for row in players.itertuples()}
 
-    prob += pulp.lpSum(pick[row.player_id] * row.predicted_points for row in players.itertuples())
+    objective = pulp.lpSum(pick[row.player_id] * row.predicted_points for row in players.itertuples())
+
+    hits_var = None
+    if transfer_aware:
+        kept_ids = [pid for pid in current_squad_ids if pid in pick]
+        transfers = SQUAD_SIZE - pulp.lpSum(pick[pid] for pid in kept_ids)
+        hits_var = pulp.LpVariable("hits", lowBound=0, cat="Integer")
+        prob += hits_var >= transfers - free_transfers
+        objective -= hit_cost * hits_var
+
+    prob += objective
 
     prob += pulp.lpSum(pick.values()) == SQUAD_SIZE
 
@@ -70,6 +95,13 @@ def select_squad(
     by_position = {pos: selected.loc[selected["position"] == pos, "player_id"].tolist() for pos in POSITION_COUNTS}
     total_cost = float(selected["price"].sum())
 
+    transfers_made = 0
+    hits = 0
+    if transfer_aware:
+        kept = len(set(selected["player_id"]) & set(current_squad_ids))
+        transfers_made = SQUAD_SIZE - kept
+        hits = int(round(hits_var.value()))
+
     return SquadResult(
         status=status,
         selected_ids=selected["player_id"].tolist(),
@@ -78,4 +110,17 @@ def select_squad(
         objective_value=float(pulp.value(prob.objective)),
         remaining_budget=budget - total_cost,
         already_owned=[pid for pid in selected["player_id"] if pid in set(current_squad_ids)],
+        transfers_made=transfers_made,
+        hits=hits,
+    )
+
+
+def decide(state) -> SquadResult:
+    """Bridge from HistoricalEnv's DecisionState to a MILP decision - what
+    env.step() should be given, and what PPO will eventually call instead of."""
+    return select_squad(
+        state.candidates,
+        current_squad_ids=state.squad_ids,
+        bank=state.bank,
+        free_transfers=state.free_transfers,
     )

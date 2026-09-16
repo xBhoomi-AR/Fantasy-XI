@@ -1,0 +1,74 @@
+"""Picks a starting XI, captain and vice-captain from an already-selected
+15-man squad. Separate from squad_milp.py on purpose - transfers and starting
+XI are different decisions, and PPO will eventually want to influence
+captaincy without touching the squad-selection logic.
+
+FPL formation rules: 1 GK, 3-5 DEF, 2-5 MID, 1-3 FWD, 11 players total.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+import pandas as pd
+import pulp
+
+MIN_DEF, MAX_DEF = 3, 5
+MIN_MID, MAX_MID = 2, 5
+MIN_FWD, MAX_FWD = 1, 3
+XI_SIZE = 11
+
+
+@dataclass
+class StartingXIResult:
+    status: str
+    starting_ids: list[int]
+    bench_ids: list[int]
+    captain_id: int | None
+    vice_captain_id: int | None
+    predicted_points: float
+
+
+def pick_starting_xi(squad_rows: pd.DataFrame) -> StartingXIResult:
+    """squad_rows must have exactly the 15 selected players, with
+    player_id/position/predicted_points columns (same shape as a candidate
+    pool filtered down to a squad)."""
+    players = squad_rows.drop_duplicates("player_id").reset_index(drop=True)
+
+    prob = pulp.LpProblem("starting_xi", pulp.LpMaximize)
+    start = {row.player_id: pulp.LpVariable(f"start_{row.player_id}", cat="Binary") for row in players.itertuples()}
+
+    prob += pulp.lpSum(start[row.player_id] * row.predicted_points for row in players.itertuples())
+    prob += pulp.lpSum(start.values()) == XI_SIZE
+
+    by_position = {pos: players.loc[players["position"] == pos, "player_id"] for pos in ("GK", "DEF", "MID", "FWD")}
+    prob += pulp.lpSum(start[pid] for pid in by_position["GK"]) == 1
+    prob += pulp.lpSum(start[pid] for pid in by_position["DEF"]) >= MIN_DEF
+    prob += pulp.lpSum(start[pid] for pid in by_position["DEF"]) <= MAX_DEF
+    prob += pulp.lpSum(start[pid] for pid in by_position["MID"]) >= MIN_MID
+    prob += pulp.lpSum(start[pid] for pid in by_position["MID"]) <= MAX_MID
+    prob += pulp.lpSum(start[pid] for pid in by_position["FWD"]) >= MIN_FWD
+    prob += pulp.lpSum(start[pid] for pid in by_position["FWD"]) <= MAX_FWD
+
+    prob.solve(pulp.PULP_CBC_CMD(msg=False))
+    status = pulp.LpStatus[prob.status]
+
+    if status != "Optimal":
+        return StartingXIResult(status=status, starting_ids=[], bench_ids=[],
+                                 captain_id=None, vice_captain_id=None, predicted_points=0.0)
+
+    starting = players[players["player_id"].map(lambda pid: start[pid].value() == 1)]
+    bench = players[~players["player_id"].isin(starting["player_id"])]
+
+    by_points = starting.sort_values("predicted_points", ascending=False)
+    captain_id = int(by_points.iloc[0]["player_id"])
+    vice_captain_id = int(by_points.iloc[1]["player_id"])
+
+    return StartingXIResult(
+        status=status,
+        starting_ids=starting["player_id"].tolist(),
+        bench_ids=bench["player_id"].tolist(),
+        captain_id=captain_id,
+        vice_captain_id=vice_captain_id,
+        predicted_points=float(starting["predicted_points"].sum()),
+    )

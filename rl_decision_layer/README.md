@@ -1,8 +1,9 @@
 # RL decision layer
 
 Turns XGBoost's predictions into a candidate pool, steps a squad through
-historical gameweeks, and now has a MILP that picks a legal squad from the
-candidate pool. No PPO yet.
+historical gameweeks, and has a transfer-aware MILP that picks each
+gameweek's squad (plus a starting XI/captain picker) from the candidate
+pool. No PPO yet.
 
 Only consumes `models/xgboost_model`'s output files (predictions CSV, raw
 player/team data, pre-computed form columns) - never its training internals.
@@ -22,11 +23,14 @@ rl_decision_layer/
 │   ├── squad.py                 # 15-man squad rules + a deterministic test squad
 │   └── historical_env.py        # steps a squad through real historical gameweeks
 ├── optimization/
-│   └── squad_milp.py            # select_squad(): MILP-only baseline
+│   ├── squad_milp.py             # select_squad() + decide(state) bridge to HistoricalEnv
+│   └── starting_xi.py            # pick_starting_xi(): XI + captain/vice from a selected squad
 └── tests/
     ├── test_day1_pipeline.py
     ├── test_environment.py
-    └── test_milp.py
+    ├── test_milp.py
+    ├── test_starting_xi.py
+    └── test_decision_loop.py     # env + MILP wired together across real gameweeks
 ```
 
 ## Canonical prediction fields
@@ -99,30 +103,61 @@ don't have that data.
 
 ## MILP squad selection
 
-`select_squad(candidates)` in `optimization/squad_milp.py` picks the 15
-players that maximize total `predicted_points`, subject to:
-- exactly 15 players, 2 GK / 5 DEF / 5 MID / 3 FWD
-- max 3 players from one club
-- total price <= budget (defaults to the full 1000/£100m)
+`select_squad(candidates)` in `optimization/squad_milp.py` picks 15 players
+that maximize `predicted_points`, subject to: exactly 15 players, 2 GK / 5
+DEF / 5 MID / 3 FWD, max 3 players from one club, total price within budget.
 
-This is the MILP-only baseline - no PPO input yet. It's a fresh full-squad
-pick, not a transfer optimizer: it doesn't cap how many players differ from
-`current_squad_ids` or account for sell prices/transfer costs, since
-`HistoricalEnv` doesn't track those (see below). `current_squad_ids` is only
-used to report which selected players were already owned
-(`SquadResult.already_owned`).
+Two modes:
+- **fresh pick** (`current_squad_ids` empty) - the original baseline, budget
+  defaults to the full 1000/£100m. Unchanged from before.
+- **transfer-aware** (`current_squad_ids` given) - budget becomes
+  `bank + current squad's value at today's prices`, and each transfer beyond
+  `free_transfers` costs 4 points, subtracted straight from the objective
+  (via an integer `hits` variable, so the solver only takes hits when the
+  points gained are actually worth it). `SquadResult` gets `transfers_made`
+  and `hits` on top of the existing fields.
+
+We don't have purchase-price/sell-price history anywhere in the data - only
+`value`, today's price - so a sold player is valued at their current price,
+not FPL's real 50%-of-profit-on-rise rule. That's a stated simplification,
+not the real mechanic. If a current squad member has no row for the target
+gameweek (no fixture, or missing price), their contribution to the old
+squad's value is just skipped - understates the real bank in that edge case.
+
+`decide(state)` bridges a `DecisionState` straight to a MILP call - this is
+what `HistoricalEnv.step()` should be given:
+
+```python
+from rl_decision_layer.optimization.squad_milp import decide
+
+state = env.reset(start_gameweek=20, squad_ids=squad, bank=10.0, free_transfers=1)
+decision = decide(state)
+outcome, next_state = env.step(decision.selected_ids)
+```
+
+`env.step()` itself is unchanged - it still just takes a list of player IDs
+and doesn't know or care whether a human, the MILP, or (eventually) PPO
+produced it. That's deliberate: PPO will call `decide()`-like logic too,
+just with extra strategic parameters layered in later (a tighter/looser
+budget, a reweighted objective, etc.) rather than a different interface.
 
 A few players are occasionally missing `price` in the source data (a gap in
 `player_market_history` for that gameweek/player) - `select_squad` drops
-them rather than guessing a price, so they're just not selectable.
+them rather than guessing a price.
 
-Once PPO exists, it should influence this by adjusting what gets passed in -
-e.g. a smaller/reweighted candidate pool, a tighter budget, or a modified
-objective - not by bypassing the MILP's legality constraints.
+## Starting XI / captain
 
-**Still deferred**: transfer legality/cost, budget enforcement beyond
-reporting `bank`, starting XI / captain / vice-captain selection (a separate
-step once a 15-man squad exists), chips.
+`pick_starting_xi(squad_rows)` in `optimization/starting_xi.py` takes an
+already-selected 15-man squad and picks 11 starters (1 GK, 3-5 DEF, 2-5 MID,
+1-3 FWD - FPL's formation rules) that maximize predicted points, plus a
+captain and vice-captain (highest and second-highest predicted points among
+starters). Deliberately separate from squad selection - transfers and
+captaincy are different decisions, and PPO should eventually be able to
+influence captaincy without touching squad selection. Captain-doubling isn't
+wired into `Outcome`'s actual scoring yet - that's reward-calculation
+territory, not built here.
+
+**Still deferred**: chips, and the real FPL sell-price rule (see above).
 
 ## Running tests
 
@@ -130,9 +165,11 @@ step once a 15-man squad exists), chips.
 python rl_decision_layer/tests/test_day1_pipeline.py
 python rl_decision_layer/tests/test_environment.py
 python rl_decision_layer/tests/test_milp.py
+python rl_decision_layer/tests/test_starting_xi.py
+python rl_decision_layer/tests/test_decision_loop.py
 ```
 
-`test_milp.py` needs `pulp` (`pip install -r rl_decision_layer/requirements.txt`).
+The last three need `pulp` (`pip install -r rl_decision_layer/requirements.txt`).
 
 Needs `model_features.csv` to have real content, not a Git LFS pointer -
 regenerate locally with `python models/xgboost_model/scripts/build_features.py`

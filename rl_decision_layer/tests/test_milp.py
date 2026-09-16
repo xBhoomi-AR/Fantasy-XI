@@ -94,6 +94,53 @@ def test_already_owned_is_tracked() -> None:
     check(set(result.already_owned) <= set(result.selected_ids), "already_owned is a subset of the selected squad")
 
 
+def test_transfer_aware_no_slack_keeps_squad() -> None:
+    pool = make_pool({"GK": 4, "DEF": 10, "MID": 10, "FWD": 6})
+    fresh = select_squad(pool)
+    # budget = exactly what the current squad is worth, no bank - nothing to upgrade with
+    result = select_squad(pool, current_squad_ids=fresh.selected_ids, bank=0.0, free_transfers=1)
+    check(result.status == "Optimal", "transfer-aware: solvable with no slack")
+    check(result.transfers_made == 0, "transfer-aware: no transfers made when there's no budget slack")
+    check(result.hits == 0, "transfer-aware: no hits when no transfers are made")
+
+
+def test_transfer_aware_more_free_transfers_never_hurts() -> None:
+    pool = make_pool({"GK": 4, "DEF": 10, "MID": 10, "FWD": 6})
+    fresh = select_squad(pool)
+    low_ft = select_squad(pool, current_squad_ids=fresh.selected_ids, bank=100.0, free_transfers=1)
+    high_ft = select_squad(pool, current_squad_ids=fresh.selected_ids, bank=100.0, free_transfers=5)
+    check(low_ft.status == "Optimal" and high_ft.status == "Optimal", "transfer-aware: both solvable")
+    check(high_ft.objective_value >= low_ft.objective_value - 1e-6,
+          "transfer-aware: more free transfers never makes the objective worse")
+
+
+def test_transfer_aware_real_gameweek(start_gw: int, target_gw: int) -> None:
+    from rl_decision_layer.environment.squad import build_starting_squad, squad_value
+    from rl_decision_layer.predictions.interface import build_canonical_predictions
+
+    squad = build_starting_squad(build_canonical_predictions(gameweek=start_gw))
+    pool = get_candidates(target_gw, current_squad_ids=squad)
+    # build_starting_squad is deliberately the cheapest legal squad (see
+    # environment/squad.py), so it has very little value to sell - needs a
+    # real bank cushion here or this can genuinely go infeasible
+    bank = 200.0
+    result = select_squad(pool, current_squad_ids=squad, bank=bank, free_transfers=2)
+
+    print(f"\nGW{target_gw} transfer-aware (from GW{start_gw} squad): transfers={result.transfers_made} "
+          f"hits={result.hits} cost={result.total_cost:.1f} objective={result.objective_value:.2f} status={result.status}")
+
+    check(result.status == "Optimal", f"GW{target_gw} transfer-aware: solvable")
+    selected_rows = pool[pool["player_id"].isin(result.selected_ids)].drop_duplicates("player_id")
+    for position, expected in POSITION_COUNTS.items():
+        actual = (selected_rows["position"] == position).sum()
+        check(actual == expected, f"GW{target_gw} transfer-aware: {position} count correct")
+    club_counts = selected_rows["team_id"].value_counts()
+    check((club_counts <= MAX_PER_CLUB).all(), f"GW{target_gw} transfer-aware: club limit respected")
+
+    available = bank + squad_value(pool, squad)
+    check(result.total_cost <= available + 1e-6, f"GW{target_gw} transfer-aware: cost within bank+squad-value budget")
+
+
 def test_real_gameweek(gw: int) -> None:
     pool = get_candidates(gw, current_squad_ids=[])
     result = select_squad(pool)
@@ -123,9 +170,14 @@ def main() -> None:
     test_infeasible_not_enough_goalkeepers()
     test_infeasible_budget_too_low()
     test_already_owned_is_tracked()
+    test_transfer_aware_no_slack_keeps_squad()
+    test_transfer_aware_more_free_transfers_never_hurts()
 
     for gw in [5, 15, 26, 35]:  # spread across the season, 26 is a real double gameweek
         test_real_gameweek(gw)
+
+    for start_gw, target_gw in [(19, 20), (25, 26)]:  # 26 is a real double gameweek
+        test_transfer_aware_real_gameweek(start_gw, target_gw)
 
     print()
     if failures:

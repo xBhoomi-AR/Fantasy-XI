@@ -75,17 +75,20 @@ class HistoricalEnv:
             candidates=candidates,
         )
 
-    def step(self, new_squad_ids: list[int] | None = None) -> tuple[Outcome, DecisionState]:
+    def step(self, new_squad_ids: list[int] | None = None, new_bank: float | None = None) -> tuple[Outcome, DecisionState]:
         """Applies a decision (or leaves the squad unchanged if none is
         given), scores the current gameweek against actual results, then
-        advances to the next gameweek. `new_squad_ids` is a placeholder for
-        what MILP will eventually produce here.
+        advances to the next gameweek. `new_squad_ids`/`new_bank` are what
+        MILP's decide() produces - pass decision.selected_ids and
+        decision.remaining_budget here to carry the budget forward.
         """
         if self.gameweek is None:
             raise RuntimeError("call reset() first")
 
         if new_squad_ids is not None:
             self.squad_ids = list(new_squad_ids)
+        if new_bank is not None:
+            self.bank = new_bank
 
         gw_actuals = self._actuals[self._actuals["gameweek"] == self.gameweek].set_index("player_id")["total_points"]
         points = {pid: float(gw_actuals.get(pid, 0.0)) for pid in self.squad_ids}

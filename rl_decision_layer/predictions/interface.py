@@ -21,6 +21,7 @@ Source of each field:
 
 from __future__ import annotations
 
+import functools
 from pathlib import Path
 
 import pandas as pd
@@ -71,36 +72,49 @@ def _read_csv(path: Path, **kwargs) -> pd.DataFrame:
     return pd.read_csv(path, engine="python", **kwargs)
 
 
-def load_predictions(season: str = "2025-26", source: str = "test", gameweek: int | None = None) -> pd.DataFrame:
-    # "test" covers every gameweek of the 2025-26 test season, which is what we need
-    # for historical candidate generation. "latest" is just the final gameweek.
+@functools.lru_cache(maxsize=2)
+def _load_predictions_raw(source: str) -> pd.DataFrame:
     if source == "test":
         path = PREDICTIONS_DIR / "test_2025_26_predictions.csv"
     elif source == "latest":
         path = PREDICTIONS_DIR / "final_predictions_latest_gameweek.csv"
     else:
         raise ValueError(f"Unknown source {source!r}; expected 'test' or 'latest'")
+    return _read_csv(path)
 
-    df = _read_csv(path)
+
+def load_predictions(season: str = "2025-26", source: str = "test", gameweek: int | None = None) -> pd.DataFrame:
+    # "test" covers every gameweek of the 2025-26 test season, which is what we need
+    # for historical candidate generation. "latest" is just the final gameweek.
+    # the raw file is read once per process and cached - a full-season backtest
+    # would otherwise re-parse a ~250k row CSV on every single gameweek
+    df = _load_predictions_raw(source)
     df = df[df["season"].astype(str) == season]
     if gameweek is not None:
         df = df[df["gameweek"] == gameweek]
     return df.copy()
 
 
+@functools.lru_cache(maxsize=1)
 def load_player_metadata() -> pd.DataFrame:
     df = _read_csv(DATA_RAW_DIR / "players.csv", usecols=["player_id", "player_name", "web_name"])
     return df.drop_duplicates("player_id", keep="last")
 
 
+@functools.lru_cache(maxsize=1)
 def load_team_metadata() -> pd.DataFrame:
     df = _read_csv(DATA_RAW_DIR / "teams.csv", usecols=["team_id", "team_name"])
     return df.drop_duplicates("team_id", keep="last")
 
 
-def load_form_features(season: str = "2025-26", gameweek: int | None = None) -> pd.DataFrame:
+@functools.lru_cache(maxsize=1)
+def _load_form_features_raw() -> pd.DataFrame:
     cols = JOIN_KEYS + list(FORM_COLUMNS.keys())
-    df = _read_csv(DATA_PROCESSED_DIR / "model_features.csv", usecols=cols)
+    return _read_csv(DATA_PROCESSED_DIR / "model_features.csv", usecols=cols)
+
+
+def load_form_features(season: str = "2025-26", gameweek: int | None = None) -> pd.DataFrame:
+    df = _load_form_features_raw()
     df = df[df["season"].astype(str) == season]
     if gameweek is not None:
         df = df[df["gameweek"] == gameweek]

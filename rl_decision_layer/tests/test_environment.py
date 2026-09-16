@@ -92,11 +92,24 @@ def test_step_and_outcome(gw: int, squad: list[int]) -> None:
     check(outcome.gameweek != next_state.gameweek, f"GW{gw}: outcome gameweek and next decision gameweek are distinct")
 
 
+def test_bank_carries_forward(gw: int, squad: list[int]) -> None:
+    env = HistoricalEnv()
+    env.reset(start_gameweek=gw, squad_ids=squad, bank=15.0)
+
+    _, next_state = env.step(new_bank=42.0)
+    check(next_state.bank == 42.0, f"GW{gw}: bank updates to what step() was given")
+    check(env.bank == 42.0, f"GW{gw}: env's internal bank also updated")
+
+    _, next_state_2 = env.step()
+    check(next_state_2.bank == 42.0, f"GW{gw}: bank stays put when step() isn't given a new value")
+
+
 def main() -> None:
     for gw in START_GAMEWEEKS:
         squad = test_starting_squad(gw)
         test_reset_and_decision_state(gw, squad)
         test_step_and_outcome(gw, squad)
+        test_bank_carries_forward(gw, squad)
 
     print()
     if failures:

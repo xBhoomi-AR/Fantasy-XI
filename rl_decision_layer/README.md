@@ -2,8 +2,10 @@
 
 Turns XGBoost's predictions into a candidate pool, steps a squad through
 historical gameweeks, and has a transfer-aware MILP that picks each
-gameweek's squad (plus a starting XI/captain picker) from the candidate
-pool. No PPO yet.
+gameweek's squad, a starting XI/captain, and scores the actual outcome into
+a reward. `historical_loop.py` runs this chronologically across a season -
+the deterministic MILP-only baseline PPO will later be compared against. No
+PPO yet.
 
 Only consumes `models/xgboost_model`'s output files (predictions CSV, raw
 player/team data, pre-computed form columns) - never its training internals.
@@ -24,13 +26,17 @@ rl_decision_layer/
 │   └── historical_env.py        # steps a squad through real historical gameweeks
 ├── optimization/
 │   ├── squad_milp.py             # select_squad() + decide(state) bridge to HistoricalEnv
-│   └── starting_xi.py            # pick_starting_xi(): XI + captain/vice from a selected squad
+│   ├── starting_xi.py            # pick_starting_xi(): XI + captain/vice from a selected squad
+│   └── scoring.py                # score_outcome() + calculate_reward()
+├── historical_loop.py            # run_backtest(): chronological MILP-only backtest
 └── tests/
     ├── test_day1_pipeline.py
     ├── test_environment.py
     ├── test_milp.py
     ├── test_starting_xi.py
-    └── test_decision_loop.py     # env + MILP wired together across real gameweeks
+    ├── test_decision_loop.py     # env + MILP wired together across real gameweeks
+    ├── test_scoring.py
+    └── test_historical_loop.py
 ```
 
 ## Canonical prediction fields
@@ -101,6 +107,13 @@ for the gameweek that was just played, after the decision is locked in.
 from cheapest-per-position - not a real historical manager's team, since we
 don't have that data.
 
+`step(new_squad_ids, new_bank)` carries the decision's leftover budget into
+the next gameweek's `DecisionState.bank` - pass `decision.remaining_budget`
+from the MILP result. `free_transfers` does *not* roll over week to week
+yet (real FPL lets unused free transfers accumulate) - it stays fixed at
+whatever `reset()` was given for the whole run. That's a real limitation,
+not an oversight - see "Known limitations" below.
+
 ## MILP squad selection
 
 `select_squad(candidates)` in `optimization/squad_milp.py` picks 15 players
@@ -132,7 +145,7 @@ from rl_decision_layer.optimization.squad_milp import decide
 
 state = env.reset(start_gameweek=20, squad_ids=squad, bank=10.0, free_transfers=1)
 decision = decide(state)
-outcome, next_state = env.step(decision.selected_ids)
+outcome, next_state = env.step(decision.selected_ids, new_bank=decision.remaining_budget)
 ```
 
 `env.step()` itself is unchanged - it still just takes a list of player IDs
@@ -153,11 +166,54 @@ already-selected 15-man squad and picks 11 starters (1 GK, 3-5 DEF, 2-5 MID,
 captain and vice-captain (highest and second-highest predicted points among
 starters). Deliberately separate from squad selection - transfers and
 captaincy are different decisions, and PPO should eventually be able to
-influence captaincy without touching squad selection. Captain-doubling isn't
-wired into `Outcome`'s actual scoring yet - that's reward-calculation
-territory, not built here.
+influence captaincy without touching squad selection.
 
-**Still deferred**: chips, and the real FPL sell-price rule (see above).
+## Scoring and reward
+
+`optimization/scoring.py`. `score_outcome(outcome, xi)` turns an `Outcome`
+(actual points per squad player) into a `ScoredOutcome`: only the starting
+XI counts, and the captain's points are added a second time (real FPL
+captain doubling). No auto-subs (a starter who blanks isn't replaced by a
+bench player) and no vice-captain fallback (vice only matters in real FPL if
+the captain gets 0 minutes, which isn't tracked) - both are known gaps, not
+built.
+
+`calculate_reward(scored, hits)` is `scored.total_points - 4 * hits` - what
+a real manager's gameweek score would actually show, since FPL's own score
+is already net of transfer-cost deductions. Uses `decision.hits` from the
+MILP result, since `ScoredOutcome` itself has no notion of transfers.
+
+## Historical backtest loop
+
+`historical_loop.py`, function `run_backtest()`, run directly with
+`python -m rl_decision_layer.historical_loop`. Chains reset → decide → step
+→ score → reward across consecutive real gameweeks, stopping (not faking a
+result) if the MILP or starting XI ever comes back infeasible. This is the
+deterministic MILP-only baseline that a future PPO-guided version will be
+compared against.
+
+A full-season run (GW1-38, `free_transfers=1` throughout) actually hits
+genuine infeasibility at GW31 - not a bug. The MILP correctly detects it and
+stops. Root cause: by GW31 the squad's available budget (bank + current
+squad's value) is 597, but even the cheapest legal combination in that
+gameweek's candidate pool costs 631 - partly because one squad member had no
+fixture that gameweek and so contributed nothing to the squad's valuation
+(the documented "missing from pool" gap above), and partly because
+`free_transfers` never accumulates, so the squad has no slack built up over
+30 weeks of a budget-spending strategy. GW1-30 all completed cleanly with
+full legality/budget/leakage checks passing throughout.
+
+## Known limitations
+
+- Real FPL sell-price rule (50% of any price rise) - can't be reconstructed
+  honestly, no purchase-price history exists in the data. Sell value = the
+  player's current price instead.
+- `free_transfers` doesn't roll over between gameweeks.
+- Chips aren't implemented.
+- No vice-captain fallback / auto-subs in scoring.
+- A squad member missing from a gameweek's candidate pool (no fixture, or
+  missing price) contributes 0 to that squad's valuation for budget
+  purposes, understating the real available money.
 
 ## Running tests
 
@@ -167,10 +223,15 @@ python rl_decision_layer/tests/test_environment.py
 python rl_decision_layer/tests/test_milp.py
 python rl_decision_layer/tests/test_starting_xi.py
 python rl_decision_layer/tests/test_decision_loop.py
+python rl_decision_layer/tests/test_scoring.py
+python rl_decision_layer/tests/test_historical_loop.py
 ```
 
-The last three need `pulp` (`pip install -r rl_decision_layer/requirements.txt`).
+Most of these need `pulp` (`pip install -r rl_decision_layer/requirements.txt`).
 
 Needs `model_features.csv` to have real content, not a Git LFS pointer -
 regenerate locally with `python models/xgboost_model/scripts/build_features.py`
-if needed.
+if needed. `predictions/interface.py` caches the raw CSV/`model_features.csv`
+reads per process (`functools.lru_cache`) - without it, a full-season
+backtest re-parses a ~250k row CSV on every single gameweek and is
+unworkably slow; with it, a season completes in well under a minute.

@@ -36,7 +36,8 @@ rl_decision_layer/
     ├── test_starting_xi.py
     ├── test_decision_loop.py     # env + MILP wired together across real gameweeks
     ├── test_scoring.py
-    └── test_historical_loop.py
+    ├── test_historical_loop.py
+    └── test_free_transfers.py
 ```
 
 ## Canonical prediction fields
@@ -109,10 +110,22 @@ don't have that data.
 
 `step(new_squad_ids, new_bank)` carries the decision's leftover budget into
 the next gameweek's `DecisionState.bank` - pass `decision.remaining_budget`
-from the MILP result. `free_transfers` does *not* roll over week to week
-yet (real FPL lets unused free transfers accumulate) - it stays fixed at
-whatever `reset()` was given for the whole run. That's a real limitation,
-not an oversight - see "Known limitations" below.
+from the MILP result.
+
+`free_transfers` rolls over too: `step()` works out how many transfers were
+made by diffing `new_squad_ids` against the squad it already had (no extra
+parameter needed), then applies real FPL's rule - unused free transfers
+carry forward, capped at 5:
+
+```
+used = min(transfers_made, free_transfers)
+free_transfers = min(5, free_transfers - used + 1)
+```
+
+So making 0 transfers accrues one more (up to the cap), making exactly as
+many transfers as you had free resets you to 1 next week, and hits still
+come from `select_squad()`'s own count - the two stay in sync because both
+compute `transfers_made` the same way (squad members not kept).
 
 ## MILP squad selection
 
@@ -192,23 +205,34 @@ result) if the MILP or starting XI ever comes back infeasible. This is the
 deterministic MILP-only baseline that a future PPO-guided version will be
 compared against.
 
-A full-season run (GW1-38, `free_transfers=1` throughout) actually hits
-genuine infeasibility at GW31 - not a bug. The MILP correctly detects it and
-stops. Root cause: by GW31 the squad's available budget (bank + current
-squad's value) is 597, but even the cheapest legal combination in that
-gameweek's candidate pool costs 631 - partly because one squad member had no
-fixture that gameweek and so contributed nothing to the squad's valuation
-(the documented "missing from pool" gap above), and partly because
-`free_transfers` never accumulates, so the squad has no slack built up over
-30 weeks of a budget-spending strategy. GW1-30 all completed cleanly with
-full legality/budget/leakage checks passing throughout.
+A full-season run still hits genuine infeasibility partway through - not a
+bug, and not fixed by free-transfer rollover. With rollover in place the run
+gets to GW1-25 cleanly then goes infeasible at GW26 (a real double
+gameweek): available budget (bank + squad value) is 593, but even the
+cheapest legal combination in that gameweek's pool costs 641. Directly
+tested this is unrelated to `free_transfers` - re-ran the same squad/budget
+with free_transfers forced to 1, 3, and 5, all three come back `Infeasible`,
+since the budget constraint in `select_squad()` doesn't depend on
+`free_transfers` at all (only the hits penalty does).
+
+The real cause is structural: this MILP is myopic (maximizes this gameweek
+only, no notion of preserving budget for future gameweeks) and always
+spends right up to its budget each week since holding cash back has no
+value to it. Over a long enough run that can leave too little money to
+field a legal squad in whatever a particular gameweek's candidate pool
+happens to cost at the low end. Fixing this properly would mean giving the
+MILP some forward-looking budget preference, which is a MILP redesign, not
+a state-propagation fix - out of scope here.
 
 ## Known limitations
 
 - Real FPL sell-price rule (50% of any price rise) - can't be reconstructed
   honestly, no purchase-price history exists in the data. Sell value = the
   player's current price instead.
-- `free_transfers` doesn't roll over between gameweeks.
+- The MILP is myopic (single-gameweek only) and always spends its full
+  budget, which can eventually leave too little money to field a legal
+  squad in a cheap-at-the-low-end gameweek's pool. Not something
+  free-transfer rollover fixes - see "Historical backtest loop" above.
 - Chips aren't implemented.
 - No vice-captain fallback / auto-subs in scoring.
 - A squad member missing from a gameweek's candidate pool (no fixture, or
@@ -225,6 +249,7 @@ python rl_decision_layer/tests/test_starting_xi.py
 python rl_decision_layer/tests/test_decision_loop.py
 python rl_decision_layer/tests/test_scoring.py
 python rl_decision_layer/tests/test_historical_loop.py
+python rl_decision_layer/tests/test_free_transfers.py
 ```
 
 Most of these need `pulp` (`pip install -r rl_decision_layer/requirements.txt`).

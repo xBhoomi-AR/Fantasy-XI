@@ -16,6 +16,7 @@ import pandas as pd
 
 from ..candidates.pipeline import get_candidates
 from ..predictions.interface import DATA_RAW_DIR
+from .squad import FREE_TRANSFER_CAP, SQUAD_SIZE
 
 
 @dataclass
@@ -85,8 +86,17 @@ class HistoricalEnv:
         if self.gameweek is None:
             raise RuntimeError("call reset() first")
 
+        transfers_made = 0
         if new_squad_ids is not None:
+            kept = len(set(self.squad_ids) & set(new_squad_ids))
+            transfers_made = SQUAD_SIZE - kept
             self.squad_ids = list(new_squad_ids)
+
+        # unused free transfers roll over, capped at 5 - same rule select_squad()
+        # uses to decide hits, kept in sync here
+        used_free = min(transfers_made, self.free_transfers)
+        self.free_transfers = min(FREE_TRANSFER_CAP, self.free_transfers - used_free + 1)
+
         if new_bank is not None:
             self.bank = new_bank
 

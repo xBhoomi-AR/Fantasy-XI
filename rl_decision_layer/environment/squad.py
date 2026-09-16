@@ -11,6 +11,7 @@ POSITION_COUNTS = {"GK": 2, "DEF": 5, "MID": 5, "FWD": 3}
 SQUAD_SIZE = 15
 MAX_PER_CLUB = 3
 BUDGET = 1000  # tenths-of-a-million, i.e. FPL's usual 100.0m cap, same units as `price`
+FREE_TRANSFER_CAP = 5  # unused free transfers roll over, up to this cap
 
 
 def validate_squad(canonical_df: pd.DataFrame, squad_ids: list[int]) -> list[str]:

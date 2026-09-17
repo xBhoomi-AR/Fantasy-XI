@@ -15,6 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 import numpy as np
+from gymnasium.utils.env_checker import check_env
 
 from rl_decision_layer.environment.historical_env import HistoricalEnv
 from rl_decision_layer.environment.squad import build_starting_squad
@@ -88,25 +89,38 @@ def test_full_budget_action_reaches_env_step(gw: int) -> None:
     check(next_state.gameweek == gw + 1, f"GW{gw}: env advanced after the PPO-style decision")
 
 
+def test_gymnasium_compliance() -> None:
+    env = PPOEnv(start_gameweek=10, num_gameweeks=3)
+    try:
+        check_env(env, skip_render_check=True)
+        check(True, "PPOEnv passes gymnasium's own compliance checker")
+    except Exception as e:
+        check(False, f"PPOEnv fails gymnasium's compliance checker: {e}")
+
+    check(env.observation_space.shape == (OBSERVATION_SIZE,), "observation_space has the right shape")
+    check(tuple(env.action_space.nvec) == ACTION_SHAPE, "action_space matches ACTION_SHAPE")
+    check(env.action_space.contains(env.action_space.sample()), "a sampled action is valid")
+
+
 def test_env_reset_and_step() -> None:
     env = PPOEnv(start_gameweek=15, num_gameweeks=3)
-    obs = env.reset()
+    obs, reset_info = env.reset()
     check(obs.shape == (OBSERVATION_SIZE,), "PPOEnv.reset() returns the fixed-size observation")
+    check(isinstance(reset_info, dict), "reset() returns an info dict")
 
-    obs, reward, done, info = env.step((1, 2))  # normal, full budget - known feasible from a fresh squad
+    obs, reward, terminated, truncated, info = env.step([1, 2])  # normal, full budget - feasible from a fresh squad
     check(isinstance(reward, float), "step() returns a float reward")
-    check(reward != 0.0 or info.get("hits", 0) == 0, "reward is a real number, not a placeholder")
-    check(not done, "episode isn't done after 1 of 3 gameweeks")
+    check(not terminated and not truncated, "episode isn't done after 1 of 3 gameweeks")
     check("gameweek" in info, "info reports which gameweek was played")
 
 
 def test_episode_terminates() -> None:
     env = PPOEnv(start_gameweek=15, num_gameweeks=2)
     env.reset()
-    _, _, done1, _ = env.step((1, 2))
-    check(not done1, "not done after gameweek 1 of 2")
-    _, _, done2, _ = env.step((1, 2))
-    check(done2, "done after the last gameweek")
+    _, _, terminated1, truncated1, _ = env.step([1, 2])
+    check(not terminated1 and not truncated1, "not done after gameweek 1 of 2")
+    _, _, terminated2, truncated2, _ = env.step([1, 2])
+    check(truncated2 and not terminated2, "truncated (episode length reached) after the last gameweek")
 
 
 def test_infeasible_action_is_handled_safely() -> None:
@@ -116,8 +130,8 @@ def test_infeasible_action_is_handled_safely() -> None:
     # of fabricating an illegal squad.
     env = PPOEnv(start_gameweek=10, num_gameweeks=5)
     env.reset()
-    obs, reward, done, info = env.step((1, 0))
-    check(done, "an infeasible action ends the episode rather than faking a result")
+    obs, reward, terminated, truncated, info = env.step([1, 0])
+    check(terminated and not truncated, "an infeasible action terminates the episode rather than faking a result")
     check(reward < 0, "an infeasible action is penalized")
     check(obs.shape == (OBSERVATION_SIZE,), "observation shape stays valid even on the terminal step")
 
@@ -129,6 +143,7 @@ def main() -> None:
     test_action_to_milp_kwargs()
     for gw in [10, 20]:
         test_full_budget_action_reaches_env_step(gw)
+    test_gymnasium_compliance()
     test_env_reset_and_step()
     test_episode_terminates()
     test_infeasible_action_is_handled_safely()

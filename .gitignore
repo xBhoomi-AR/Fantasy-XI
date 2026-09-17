@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 
 models/xgboost_model/models/*.joblib
+
+RL_STUDY/
+
+rl_decision_layer/ppo/models/

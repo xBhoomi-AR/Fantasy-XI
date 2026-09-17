@@ -31,10 +31,14 @@ rl_decision_layer/
 │   ├── starting_xi.py            # pick_starting_xi(): XI + captain/vice from a selected squad
 │   └── scoring.py                # score_outcome() + calculate_reward()
 ├── historical_loop.py            # run_backtest(): chronological MILP-only backtest
+├── run_baseline.py                # small manual smoke test for the MILP-only baseline
 ├── ppo/
 │   ├── observation.py            # build_observation(state) -> fixed-size vector
 │   ├── action.py                 # action_to_milp_kwargs(): strategic action -> MILP kwargs
-│   └── env.py                    # PPOEnv: reset()/step(action) wrapper
+│   ├── env.py                    # PPOEnv(gymnasium.Env)
+│   ├── train.py                  # trains and saves a PPO model
+│   ├── evaluate.py               # loads a saved model, runs a short episode
+│   └── models/                   # saved models (gitignored)
 └── tests/
     ├── test_day1_pipeline.py
     ├── test_environment.py
@@ -44,7 +48,8 @@ rl_decision_layer/
     ├── test_scoring.py
     ├── test_historical_loop.py
     ├── test_free_transfers.py
-    └── test_ppo_interface.py
+    ├── test_ppo_interface.py
+    └── test_ppo_training.py
 ```
 
 ## Canonical prediction fields
@@ -231,12 +236,11 @@ happens to cost at the low end. Fixing this properly would mean giving the
 MILP some forward-looking budget preference, which is a MILP redesign, not
 a state-propagation fix - out of scope here.
 
-## PPO interfaces
+## PPO
 
-`ppo/` - no agent is trained here, this is the observation/action/env
-scaffolding a future PPO agent will use. PPO doesn't pick players - the
-existing MILP still does that (unchanged) - it picks a small strategic
-action that changes what gets passed into `select_squad()`.
+`ppo/` - a real, trainable PPO agent (stable-baselines3), but PPO still
+doesn't pick players - the existing MILP does that, unchanged. PPO picks a
+small strategic action that changes what gets passed into `select_squad()`.
 
 **Observation** (`observation.py`, `build_observation(state) -> np.ndarray`,
 fixed size 67): 4 features (price, predicted_points, form_avg5,
@@ -257,13 +261,15 @@ transfers. Positional priority and captaincy strategy aren't implemented -
 they'd need a per-position objective weight in `select_squad()` that
 doesn't exist and wasn't added.
 
-**Env** (`env.py`, `PPOEnv`): plain `reset()`/`step(action)` wrapper around
-`HistoricalEnv` + `select_squad()` + `pick_starting_xi()` +
-`score_outcome()`/`calculate_reward()` - all reused unmodified. An
-infeasible action (see below) ends the episode with a -100 reward rather
-than faking a squad. Not a `gymnasium.Env` yet - no RL library is installed
-in this project; wrapping it is a trivial follow-up once a training library
-is chosen.
+**Env** (`env.py`, `PPOEnv(gymnasium.Env)`): `reset()`/`step(action)` wrapper
+around `HistoricalEnv` + `select_squad()` + `pick_starting_xi()` +
+`score_outcome()`/`calculate_reward()` - all reused unmodified. Follows the
+real Gymnasium API (`reset()` returns `(obs, info)`, `step()` returns
+`(obs, reward, terminated, truncated, info)`) and passes gymnasium's own
+`check_env()`. An infeasible action (see below) terminates the episode with
+a -100 reward rather than faking a squad; reaching the episode's
+`num_gameweeks` truncates it instead - that distinction matters to
+stable-baselines3's bootstrapping.
 
 **Known interaction, not a bug**: `build_starting_squad()` already builds
 the cheapest legal squad for its gameweek's pool. Asking for `budget_level`
@@ -275,6 +281,40 @@ squad exactly as minimal as it started. The budget-saving actions only make
 sense once a squad's value has grown past the bare minimum through real
 transfers over a season - `test_infeasible_action_is_handled_safely` uses
 this exact case to prove the episode-ending safeguard works.
+
+**Training** (`train.py`): builds a `PPOEnv`, a small stable-baselines3 PPO
+(`net_arch=[32, 32]`, CPU), and calls `model.learn(total_timesteps=...)`.
+
+```
+python -m rl_decision_layer.ppo.train --timesteps 500
+```
+
+`--timesteps` is the only thing you should change for a real run - there's
+no "right" number yet, this is a fresh implementation and hasn't been tuned.
+Start small and increase it yourself; training is timesteps-based (each
+timestep is one gameweek decision), not episode-based, since
+stable-baselines3 PPO counts in timesteps. `--start-gameweek`/
+`--num-gameweeks` control the training episode's historical window,
+`--device` defaults to `cpu` (this machine has no CUDA torch build anyway).
+Real training (thousands+ timesteps) should be run by you, locally, not by
+Claude - it can be left running in the background/overnight.
+
+Models save to `ppo/models/<name>.zip` (gitignored - these are generated
+artifacts, not source). Load and run one with:
+
+```
+python -m rl_decision_layer.ppo.evaluate --model ppo_fpl
+```
+
+which steps a saved model through a short historical episode and prints
+each gameweek's action/reward - not a real evaluation, just proof the
+saved-model -> PPOEnv -> MILP -> legal squad chain works.
+
+The MILP-only baseline (no PPO at all) still runs independently:
+
+```
+python -m rl_decision_layer.run_baseline
+```
 
 ## Known limitations
 
@@ -303,9 +343,12 @@ python rl_decision_layer/tests/test_scoring.py
 python rl_decision_layer/tests/test_historical_loop.py
 python rl_decision_layer/tests/test_free_transfers.py
 python rl_decision_layer/tests/test_ppo_interface.py
+python rl_decision_layer/tests/test_ppo_training.py
 ```
 
-Most of these need `pulp` (`pip install -r rl_decision_layer/requirements.txt`).
+Most of these need `pulp`, `gymnasium` and `stable-baselines3`
+(`pip install -r rl_decision_layer/requirements.txt`). `test_ppo_training.py`
+runs a real (tiny, ~64 timestep) training loop, so it's slower than the rest.
 
 Needs `model_features.csv` to have real content, not a Git LFS pointer -
 regenerate locally with `python models/xgboost_model/scripts/build_features.py`

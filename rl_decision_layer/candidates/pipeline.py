@@ -1,10 +1,4 @@
-"""Single entry point for candidate generation: target gameweek + squad in,
-candidate pool out. This is what the historical environment will call once
-it exists - it shouldn't need to know about interface.py or ranking.py directly.
-"""
-
-from __future__ import annotations
-
+import functools
 from collections.abc import Sequence
 
 import pandas as pd
@@ -18,25 +12,34 @@ from .candidate_pool import (
 )
 
 
+@functools.lru_cache(maxsize=128)
+def _get_canonical_predictions_cached(season: str, model: str, gameweek: int) -> pd.DataFrame:
+    return build_canonical_predictions(season=season, model=model, gameweek=gameweek)
+
+
 def get_candidates(
     target_gameweek: int,
     current_squad_ids: Sequence[int] = (),
     season: str = "2025-26",
+    model: str = "bilstm",
     prediction_top_k: int | dict[str, int] = DEFAULT_PREDICTION_TOP_K,
     form_top_k: int | dict[str, int] = DEFAULT_FORM_TOP_K,
     form_window: str = DEFAULT_FORM_WINDOW,
 ) -> pd.DataFrame:
-    """Build the candidate pool for target_gameweek from scratch.
+    """Build the candidate pool for target_gameweek.
 
-    Only loads data for target_gameweek, so it's inherently using
-    information available before that gameweek - see predictions/interface.py
-    for how the form/prediction columns are kept leakage-safe upstream.
+    Loads cached canonical predictions for the chosen model ('bilstm' or 'xgboost')
+    and builds the candidate pool.
     """
-    predictions = build_canonical_predictions(season=season, gameweek=target_gameweek)
+    predictions = _get_canonical_predictions_cached(season, model, target_gameweek)
+    
+    # Convert squad_ids to tuple for hashing if passed as list
+    squad_tuple = tuple(current_squad_ids) if not isinstance(current_squad_ids, tuple) else current_squad_ids
+    
     return build_candidate_pool(
         predictions,
         target_gameweek=target_gameweek,
-        current_squad_ids=current_squad_ids,
+        current_squad_ids=squad_tuple,
         prediction_top_k=prediction_top_k,
         form_top_k=form_top_k,
         form_window=form_window,

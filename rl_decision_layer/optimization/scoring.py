@@ -26,8 +26,40 @@ class ScoredOutcome:
 
 
 def score_outcome(outcome: Outcome, xi: StartingXIResult) -> ScoredOutcome:
-    starting_points = sum(outcome.actual_points.get(pid, 0.0) for pid in xi.starting_ids)
-    captain_points = outcome.actual_points.get(xi.captain_id, 0.0) if xi.captain_id is not None else 0.0
+    starting_ids = list(xi.starting_ids)
+    bench_ids = list(xi.bench_ids)
+    
+    # 1. Determine active captain (if captain played 0 mins, fallback to vice-captain)
+    captain_id = xi.captain_id
+    vice_id = xi.vice_captain_id
+    
+    active_captain = captain_id
+    if captain_id is not None and outcome.actual_minutes.get(captain_id, 0.0) == 0:
+        if vice_id is not None and outcome.actual_minutes.get(vice_id, 0.0) > 0:
+            active_captain = vice_id
+
+    # 2. Auto-substitutions: replace starting XI players with 0 mins from bench
+    active_starters = []
+    bench_available = list(bench_ids)
+    
+    for pid in starting_ids:
+        if outcome.actual_minutes.get(pid, 0.0) > 0:
+            active_starters.append(pid)
+        else:
+            # Substitute with first eligible bench player who played >0 mins
+            sub_found = False
+            for b_idx, b_pid in enumerate(bench_available):
+                if outcome.actual_minutes.get(b_pid, 0.0) > 0:
+                    active_starters.append(b_pid)
+                    bench_available.pop(b_idx)
+                    sub_found = True
+                    break
+            if not sub_found:
+                active_starters.append(pid)  # No bench player available, keep 0-min starter
+
+    starting_points = sum(outcome.actual_points.get(pid, 0.0) for pid in active_starters)
+    captain_points = outcome.actual_points.get(active_captain, 0.0) if active_captain is not None else 0.0
+
     return ScoredOutcome(
         gameweek=outcome.gameweek,
         starting_points=starting_points,

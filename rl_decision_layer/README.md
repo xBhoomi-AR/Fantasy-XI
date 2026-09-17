@@ -4,8 +4,10 @@ Turns XGBoost's predictions into a candidate pool, steps a squad through
 historical gameweeks, and has a transfer-aware MILP that picks each
 gameweek's squad, a starting XI/captain, and scores the actual outcome into
 a reward. `historical_loop.py` runs this chronologically across a season -
-the deterministic MILP-only baseline PPO will later be compared against. No
-PPO yet.
+the deterministic MILP-only baseline a PPO-guided version will be compared
+against. The `ppo/` package has the observation/action/environment
+interfaces a PPO agent will eventually use, but no agent is trained yet -
+see "PPO interfaces" below.
 
 Only consumes `models/xgboost_model`'s output files (predictions CSV, raw
 player/team data, pre-computed form columns) - never its training internals.
@@ -29,6 +31,10 @@ rl_decision_layer/
 │   ├── starting_xi.py            # pick_starting_xi(): XI + captain/vice from a selected squad
 │   └── scoring.py                # score_outcome() + calculate_reward()
 ├── historical_loop.py            # run_backtest(): chronological MILP-only backtest
+├── ppo/
+│   ├── observation.py            # build_observation(state) -> fixed-size vector
+│   ├── action.py                 # action_to_milp_kwargs(): strategic action -> MILP kwargs
+│   └── env.py                    # PPOEnv: reset()/step(action) wrapper
 └── tests/
     ├── test_candidate_pool.py
     ├── test_environment.py
@@ -37,7 +43,8 @@ rl_decision_layer/
     ├── test_decision_loop.py     # env + MILP wired together across real gameweeks
     ├── test_scoring.py
     ├── test_historical_loop.py
-    └── test_free_transfers.py
+    ├── test_free_transfers.py
+    └── test_ppo_interface.py
 ```
 
 ## Canonical prediction fields
@@ -224,6 +231,51 @@ happens to cost at the low end. Fixing this properly would mean giving the
 MILP some forward-looking budget preference, which is a MILP redesign, not
 a state-propagation fix - out of scope here.
 
+## PPO interfaces
+
+`ppo/` - no agent is trained here, this is the observation/action/env
+scaffolding a future PPO agent will use. PPO doesn't pick players - the
+existing MILP still does that (unchanged) - it picks a small strategic
+action that changes what gets passed into `select_squad()`.
+
+**Observation** (`observation.py`, `build_observation(state) -> np.ndarray`,
+fixed size 67): 4 features (price, predicted_points, form_avg5,
+fixture_difficulty) per squad player in position order (always 15, since
+the squad is fixed size - the part of the state that varies, the candidate
+pool, isn't flattened directly, see below), plus bank/free_transfers/
+gameweek (3), plus the best available predicted_points per position among
+non-squad candidates (4). No actual points anywhere in it.
+
+**Action** (`action.py`, `(aggressiveness, budget_level)`, each 0/1/2, a
+3x3 space): aggressiveness sets `hit_cost` passed to `select_squad()` -
+lower cost, more willing to take transfer hits. budget_level sets what
+fraction (0.85/0.95/1.0) of the squad's full value+bank gets passed as
+`budget`. Both are existing `select_squad()` parameters - nothing about the
+MILP's formulation changed. "Roll vs transfer" isn't a separate action, it
+falls out of a conservative/low-budget setting naturally making 0
+transfers. Positional priority and captaincy strategy aren't implemented -
+they'd need a per-position objective weight in `select_squad()` that
+doesn't exist and wasn't added.
+
+**Env** (`env.py`, `PPOEnv`): plain `reset()`/`step(action)` wrapper around
+`HistoricalEnv` + `select_squad()` + `pick_starting_xi()` +
+`score_outcome()`/`calculate_reward()` - all reused unmodified. An
+infeasible action (see below) ends the episode with a -100 reward rather
+than faking a squad. Not a `gymnasium.Env` yet - no RL library is installed
+in this project; wrapping it is a trivial follow-up once a training library
+is chosen.
+
+**Known interaction, not a bug**: `build_starting_squad()` already builds
+the cheapest legal squad for its gameweek's pool. Asking for `budget_level`
+0 or 1 (i.e. less than 100% of that squad's own value) from a fresh minimal
+squad is often genuinely infeasible, since there's no legal squad cheaper
+than the cheapest one already found - confirmed directly, and it doesn't
+resolve after a step or two either, since a 0-transfer decision leaves the
+squad exactly as minimal as it started. The budget-saving actions only make
+sense once a squad's value has grown past the bare minimum through real
+transfers over a season - `test_infeasible_action_is_handled_safely` uses
+this exact case to prove the episode-ending safeguard works.
+
 ## Known limitations
 
 - Real FPL sell-price rule (50% of any price rise) - can't be reconstructed
@@ -250,6 +302,7 @@ python rl_decision_layer/tests/test_decision_loop.py
 python rl_decision_layer/tests/test_scoring.py
 python rl_decision_layer/tests/test_historical_loop.py
 python rl_decision_layer/tests/test_free_transfers.py
+python rl_decision_layer/tests/test_ppo_interface.py
 ```
 
 Most of these need `pulp` (`pip install -r rl_decision_layer/requirements.txt`).

@@ -30,7 +30,7 @@ rl_decision_layer/
 │   └── scoring.py                # score_outcome() + calculate_reward()
 ├── historical_loop.py            # run_backtest(): chronological MILP-only backtest
 └── tests/
-    ├── test_day1_pipeline.py
+    ├── test_candidate_pool.py
     ├── test_environment.py
     ├── test_milp.py
     ├── test_starting_xi.py
@@ -242,7 +242,7 @@ a state-propagation fix - out of scope here.
 ## Running tests
 
 ```
-python rl_decision_layer/tests/test_day1_pipeline.py
+python rl_decision_layer/tests/test_candidate_pool.py
 python rl_decision_layer/tests/test_environment.py
 python rl_decision_layer/tests/test_milp.py
 python rl_decision_layer/tests/test_starting_xi.py

@@ -133,24 +133,28 @@ def predict(data_path=None, output_path=None, eval_mode=True):
             out_df["player_name"] = df[col].values
             break
 
+    if "season" in df.columns:
+        out_df["season"] = df["season"].values
+
     for col in ["target_gameweek", "gameweek", "gw", "event"]:
         if col in df.columns:
             out_df["gameweek"] = df[col].values
             break
 
-    for col in ["position", "position_code", "pos"]:
+    for col in ["position", "gw_minus_1_position", "position_code", "pos"]:
         if col in df.columns:
             out_df["position"] = df[col].values
             break
 
-    for col in ["team_id", "team", "current_team_id"]:
+    for col in ["team_id", "gw_minus_1_team_id", "team", "current_team_id"]:
         if col in df.columns:
             out_df["team_id"] = df[col].values
             break
 
-    for col in ["value", "price", "now_cost", "current_cost"]:
+    for col in ["value", "gw_minus_1_value", "price", "now_cost", "current_cost"]:
         if col in df.columns:
-            out_df["price"] = (pd.to_numeric(df[col], errors="coerce").fillna(0.0) / 10.0).round(1)
+            # Keep FPL's standard tenths-of-a-million integer/float price (e.g. 55 = £5.5m)
+            out_df["price"] = pd.to_numeric(df[col], errors="coerce").fillna(0.0)
             break
 
     out_df["predicted_points"] = np.round(final_points, 2)

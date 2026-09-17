@@ -40,7 +40,7 @@ rl_decision_layer/
 │   ├── evaluate.py               # loads a saved model, runs a short episode
 │   └── models/                   # saved models (gitignored)
 └── tests/
-    ├── test_day1_pipeline.py
+    ├── test_candidate_pool.py
     ├── test_environment.py
     ├── test_milp.py
     ├── test_starting_xi.py
@@ -334,7 +334,7 @@ python -m rl_decision_layer.run_baseline
 ## Running tests
 
 ```
-python rl_decision_layer/tests/test_day1_pipeline.py
+python rl_decision_layer/tests/test_candidate_pool.py
 python rl_decision_layer/tests/test_environment.py
 python rl_decision_layer/tests/test_milp.py
 python rl_decision_layer/tests/test_starting_xi.py

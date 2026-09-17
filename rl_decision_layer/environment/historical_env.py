@@ -33,19 +33,20 @@ class Outcome:
     gameweek: int
     squad_ids: list[int]
     actual_points: dict[int, float]
+    actual_minutes: dict[int, float] = field(default_factory=dict)
     squad_total_points: float = field(init=False)
 
     def __post_init__(self):
         self.squad_total_points = sum(self.actual_points.values())
 
 
-def _load_actual_points(season: str) -> pd.DataFrame:
-    df = pd.read_csv(DATA_RAW_DIR / "player_match_stats.csv", engine="python")
+def _load_actual_stats(season: str) -> pd.DataFrame:
+    df = pd.read_csv(DATA_RAW_DIR / "player_match_stats.csv", low_memory=False)
     df = df[df["season"].astype(str) == season].copy()
     df["total_points"] = pd.to_numeric(df["total_points"], errors="coerce").fillna(0)
-    # a DGW player has two rows for the same gameweek - sum them, same as
-    # real FPL scoring and the same treatment candidate_pool.py applies to predictions
-    return df.groupby(["player_id", "gameweek"], as_index=False)["total_points"].sum()
+    df["minutes"] = pd.to_numeric(df["minutes"], errors="coerce").fillna(0)
+    # Sum across double gameweeks if a player played twice
+    return df.groupby(["player_id", "gameweek"], as_index=False).agg({"total_points": "sum", "minutes": "sum"})
 
 
 class HistoricalEnv:
@@ -53,7 +54,7 @@ class HistoricalEnv:
 
     def __init__(self, season: str = "2025-26"):
         self.season = season
-        self._actuals = _load_actual_points(season)
+        self._actuals = _load_actual_stats(season)
         self.gameweek: int | None = None
         self.squad_ids: list[int] = []
         self.bank = 0.0
@@ -79,9 +80,7 @@ class HistoricalEnv:
     def step(self, new_squad_ids: list[int] | None = None, new_bank: float | None = None) -> tuple[Outcome, DecisionState]:
         """Applies a decision (or leaves the squad unchanged if none is
         given), scores the current gameweek against actual results, then
-        advances to the next gameweek. `new_squad_ids`/`new_bank` are what
-        MILP's decide() produces - pass decision.selected_ids and
-        decision.remaining_budget here to carry the budget forward.
+        advances to the next gameweek.
         """
         if self.gameweek is None:
             raise RuntimeError("call reset() first")
@@ -92,17 +91,16 @@ class HistoricalEnv:
             transfers_made = SQUAD_SIZE - kept
             self.squad_ids = list(new_squad_ids)
 
-        # unused free transfers roll over, capped at 5 - same rule select_squad()
-        # uses to decide hits, kept in sync here
         used_free = min(transfers_made, self.free_transfers)
         self.free_transfers = min(FREE_TRANSFER_CAP, self.free_transfers - used_free + 1)
 
         if new_bank is not None:
             self.bank = new_bank
 
-        gw_actuals = self._actuals[self._actuals["gameweek"] == self.gameweek].set_index("player_id")["total_points"]
-        points = {pid: float(gw_actuals.get(pid, 0.0)) for pid in self.squad_ids}
-        outcome = Outcome(gameweek=self.gameweek, squad_ids=list(self.squad_ids), actual_points=points)
+        gw_actuals = self._actuals[self._actuals["gameweek"] == self.gameweek].set_index("player_id")
+        points = {pid: float(gw_actuals["total_points"].get(pid, 0.0)) for pid in self.squad_ids}
+        minutes = {pid: float(gw_actuals["minutes"].get(pid, 0.0)) for pid in self.squad_ids}
+        outcome = Outcome(gameweek=self.gameweek, squad_ids=list(self.squad_ids), actual_points=points, actual_minutes=minutes)
 
         self.gameweek += 1
         return outcome, self._decision_state()

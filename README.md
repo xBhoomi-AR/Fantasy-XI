@@ -36,17 +36,32 @@ human-readable output (show_squad.py)
 
 ### 3. Install dependencies
 
+For the complete pipeline (both prediction models + the RL/PPO/MILP layer), from the repo root:
+```bash
+pip install -r requirements.txt
+```
+If you only need the RL/PPO/MILP layer against already-generated predictions (no retraining
+of either prediction model), the lighter, scoped file is enough:
 ```bash
 pip install -r rl_decision_layer/requirements.txt
 ```
-(For retraining the prediction models, see their own `requirements.txt` under
-`models/BiLSTM_model/` and `models/xgboost_model/` — heavier, only needed if retraining.)
+`models/BiLSTM_model/requirements.txt` and `models/xgboost_model/requirements.txt` remain
+as the minimal, authoritative dependency lists for each component individually.
 
-### 4–5. Use what's already generated — recommended path for most users
+### 4–5. Use what's already generated
 
-Every prediction file, PPO model, and metadata file needed for a recommendation is already
-committed to this repository. No retraining is required.
+The prediction files (BiLSTM and XGBoost outputs) and all raw/processed data are already
+committed to this repository — no retraining of either prediction model is required to use
+them.
 
+**The trained PPO model (`ppo_fpl.zip`) is currently `.gitignored` and is NOT committed to
+this repository.** A fresh `git clone` will *not* contain it — confirmed via
+`git ls-files`/`git check-ignore`. You must either train one yourself (§9 below, a few
+minutes for a small run) or obtain the specific 66,048-timestep frozen model file separately
+from whoever ran the original training, then place it at
+`rl_decision_layer/ppo/models/ppo_fpl.zip` yourself.
+
+Once a `ppo_fpl.zip` exists at that path:
 ```bash
 python -m rl_decision_layer.ppo.show_squad --model ppo_fpl --start-gameweek 1
 ```
@@ -81,23 +96,26 @@ already-validated prediction files the whole pipeline is tested against, so this
 structurally verified (clean imports, correct output schema, correct write targets) rather
 than freshly executed.
 
-### 9. Train PPO (optional — a trained model already exists)
+### 9. Train PPO (required on a fresh clone — see §4-5)
 
 ```bash
 python -m rl_decision_layer.ppo.train --timesteps 500
 ```
 Sensible defaults (`--start-gameweek 1 --num-gameweeks 3 --device cpu`). Saves to
-`rl_decision_layer/ppo/models/ppo_fpl.zip`. **The currently frozen model
-(`ppo_fpl.zip`, 66,048 lifetime timesteps) was not retrained or modified this session.**
+`rl_decision_layer/ppo/models/ppo_fpl.zip`. Since that path is gitignored (§4-5), this is
+the only way a fresh clone gets a working PPO model on its own, unless the specific frozen
+66,048-timestep file is copied in separately. A model trained this way will **not** be the
+same frozen model this project's evaluation results describe — it will be freshly, randomly
+initialized. The currently frozen model was not retrained or modified this session.
 
 ### 10–11. Where outputs go / what consumes them
 
-| Output | Location | Consumed by |
-|---|---|---|
-| BiLSTM predictions | `models/BiLSTM_model/predicted_points.csv` | `predictions/interface.py` |
-| XGBoost predictions | `models/xgboost_model/predictions/*.csv` | `predictions/interface.py` |
-| PPO model | `rl_decision_layer/ppo/models/*.zip` | `evaluate.py`, `show_squad.py` |
-| Final recommendation | printed to terminal | end user |
+| Output | Location | Tracked in Git? | Consumed by |
+|---|---|---|---|
+| BiLSTM predictions | `models/BiLSTM_model/predicted_points.csv` | Yes | `predictions/interface.py` |
+| XGBoost predictions | `models/xgboost_model/predictions/*.csv` | Yes | `predictions/interface.py` |
+| PPO model | `rl_decision_layer/ppo/models/*.zip` | **No — gitignored** | `evaluate.py`, `show_squad.py` |
+| Final recommendation | printed to terminal | — | end user |
 
 ### 12. Important limitations
 

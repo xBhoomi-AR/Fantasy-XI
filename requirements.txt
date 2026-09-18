@@ -1,0 +1,68 @@
+# Root requirements.txt - installs everything needed to run the complete
+# FantasyXI pipeline (BiLSTM + XGBoost prediction models, plus the
+# rl_decision_layer RL/PPO/MILP decision layer) with a single command.
+#
+# This is a de-duplicated union of the three component-specific files below -
+# nothing here was added that isn't already required by one of them. Those
+# files remain the authoritative, minimal source if you only need one part of
+# the project (e.g. only the RL layer, without retraining either prediction
+# model):
+#   rl_decision_layer/requirements.txt
+#   models/BiLSTM_model/requirements.txt
+#   models/xgboost_model/requirements.txt
+#
+# Not included: mini_projects/ (standalone exploratory notebooks, unrelated
+# to the production pipeline - each has its own requirements.txt).
+
+# --- Core data/math (shared) ---
+pandas>=2.3
+numpy>=2.0
+scipy>=1.10.0
+
+# --- rl_decision_layer: RL/PPO/MILP decision layer ---
+pulp>=2.8
+gymnasium>=1.0
+stable-baselines3>=2.0
+
+# --- BiLSTM prediction model ---
+torch
+torchvision
+torchaudio
+lightgbm>=4.0.0
+scikit-learn>=1.5
+xgboost>=2.1
+matplotlib>=3.7.0
+seaborn>=0.12.0
+tqdm>=4.67.0
+
+# --- Database / environment (both prediction models) ---
+SQLAlchemy>=2.0
+psycopg2-binary>=2.9.10
+psycopg[binary]>=3.2
+pg8000>=1.31
+python-dotenv>=1.0
+python-dateutil>=2.9.0
+
+# --- XGBoost prediction model ---
+optuna>=4.0
+joblib>=1.4
+
+# --- BiLSTM data collection/scraping (only needed to regenerate raw data) ---
+requests>=2.32.0
+beautifulsoup4==4.11.1
+lxml>=5.0.0
+selenium
+webdriver-manager
+aiohttp==3.8.3
+async-timeout==4.0.3
+attrs==26.1.0
+charset-normalizer==2.1.1
+multidict==6.7.1
+yarl==1.24.5
+understat==0.1.14
+unidecode==1.3.6
+rapidfuzz>=3.13.0
+
+# --- Notebooks (only needed for BiLSTM's notebook-based workflow) ---
+jupyter
+ipykernel

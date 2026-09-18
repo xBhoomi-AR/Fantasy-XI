@@ -54,12 +54,18 @@ The prediction files (BiLSTM and XGBoost outputs) and all raw/processed data are
 committed to this repository — no retraining of either prediction model is required to use
 them.
 
-**The trained PPO model (`ppo_fpl.zip`) is currently `.gitignored` and is NOT committed to
-this repository.** A fresh `git clone` will *not* contain it — confirmed via
-`git ls-files`/`git check-ignore`. You must either train one yourself (§9 below, a few
-minutes for a small run) or obtain the specific 66,048-timestep frozen model file separately
-from whoever ran the original training, then place it at
-`rl_decision_layer/ppo/models/ppo_fpl.zip` yourself.
+**The repository includes the frozen PPO model `ppo_fpl.zip` used for the documented
+evaluation results.** `.gitignore` explicitly tracks this one file
+(`rl_decision_layer/ppo/models/ppo_fpl.zip`) while still ignoring internal/experimental
+artifacts in that directory (e.g. `ppo_fpl_2k_backup.zip`, future checkpoints) — once
+committed and pushed, a fresh `git clone` will contain it. If for some reason it's absent
+from your checkout, you can train a new one yourself (§9 below, a few minutes for a small
+run), though that will **not** be the same frozen 66,048-timestep model this project's
+results describe — it will be freshly, randomly initialized.
+
+⚠️ **If you run the training command against the default save path, it will silently
+overwrite the shipped `ppo_fpl.zip`** (see §9) — use a different `--save-name` if you want
+to experiment without touching the shipped model.
 
 Once a `ppo_fpl.zip` exists at that path:
 ```bash
@@ -96,17 +102,23 @@ already-validated prediction files the whole pipeline is tested against, so this
 structurally verified (clean imports, correct output schema, correct write targets) rather
 than freshly executed.
 
-### 9. Train PPO (required on a fresh clone — see §4-5)
+### 9. Train PPO (optional — a frozen trained model is already shipped)
 
 ```bash
 python -m rl_decision_layer.ppo.train --timesteps 500
 ```
 Sensible defaults (`--start-gameweek 1 --num-gameweeks 3 --device cpu`). Saves to
-`rl_decision_layer/ppo/models/ppo_fpl.zip`. Since that path is gitignored (§4-5), this is
-the only way a fresh clone gets a working PPO model on its own, unless the specific frozen
-66,048-timestep file is copied in separately. A model trained this way will **not** be the
-same frozen model this project's evaluation results describe — it will be freshly, randomly
-initialized. The currently frozen model was not retrained or modified this session.
+`rl_decision_layer/ppo/models/ppo_fpl.zip` by default.
+
+⚠️ **This command always trains a brand-new, randomly-initialized model and unconditionally
+overwrites whatever file is already at that save path — including the shipped frozen model**
+(verified from `train.py`: without `--resume` it builds a fresh `PPO(...)` regardless of
+what's already there, and `model.save(path)` has no existence check). If you want to
+experiment without losing the shipped model, use `--save-name <something-else>`.
+
+`--resume` (continue the *existing* model at `--save-name` instead of starting fresh) also
+saves back to the same path when finished — it extends the lineage rather than replacing it
+with a random one, but still overwrites the file on disk with the newly-extended version.
 
 ### 10–11. Where outputs go / what consumes them
 
@@ -114,7 +126,8 @@ initialized. The currently frozen model was not retrained or modified this sessi
 |---|---|---|---|
 | BiLSTM predictions | `models/BiLSTM_model/predicted_points.csv` | Yes | `predictions/interface.py` |
 | XGBoost predictions | `models/xgboost_model/predictions/*.csv` | Yes | `predictions/interface.py` |
-| PPO model | `rl_decision_layer/ppo/models/*.zip` | **No — gitignored** | `evaluate.py`, `show_squad.py` |
+| PPO model (frozen, shipped) | `rl_decision_layer/ppo/models/ppo_fpl.zip` | **Yes** (this file only) | `evaluate.py`, `show_squad.py` |
+| PPO backup/experimental artifacts | `rl_decision_layer/ppo/models/*` (other files) | No — gitignored | internal development only |
 | Final recommendation | printed to terminal | — | end user |
 
 ### 12. Important limitations

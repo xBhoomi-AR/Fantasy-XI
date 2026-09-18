@@ -48,20 +48,6 @@ The final production system is a **Deep Learning Dual-Expert Gate Architecture**
 | **`expert1_high_band.pkl`** | Serialized Checkpoint | Stage 2: High Band ($y \ge 3.0$) | Expert 1 ceiling specialist predicting starter expected returns ($3.0\text{--}15+$ pts). |
 | **`haul_calibrator.pkl`** | Serialized Checkpoint | Stage 3: Haul Potential ($\tau=0.85$) | Upper-percentile specialist predicting double-digit ceiling potential. |
 
-### How Checkpoints are Ensembled:
-1. **Backbone Feature Extraction**: The 3D sequence tensors are passed through `backbone_bilstm.pt` to extract 128-dimensional dynamic trajectory embeddings.
-2. **Context Fusion**: Embeddings are concatenated with contextual features (`current_gate_probability`, `haul_potential_index`, `xg_momentum`).
-3. **Continuous Soft-Gate Blending**:
-   $$g_{\text{smooth}} = \frac{1}{1 + \exp\left(-\frac{\text{gate} - 0.52}{0.12}\right)}$$
-   $$\hat{y}_{\text{base}} = (1 - g_{\text{smooth}}) \cdot \hat{y}_{\text{floor}} + g_{\text{smooth}} \cdot \hat{y}_{\text{ceiling}}$$
-4. **Monotonically Escalating Haul Boost**:
-   $$\text{lift} = \max(0, \hat{y}_{\text{haul}} - \hat{y}_{\text{base}})$$
-   $$\hat{y} = \hat{y}_{\text{base}} + 0.48 \cdot \min(\text{lift}, 5.0) + 0.25 \cdot \max(0, \text{lift} - 5.0) \quad \text{for } \text{gate} \ge 0.58$$
-5. **Continuous Micro-Rank Tie-Breaker (Floor Protection)**:
-   For non-playing reserves ($\text{gate} < 0.45$), a smooth polynomial decay replaces discrete zero-clamping:
-   $$\hat{y} = \hat{y} \cdot \left(\frac{\text{gate}}{0.45}\right)^{1.5} + (0.15 \cdot \text{gate} + 0.10 \cdot \frac{\text{mins}_{gw-1}}{90})$$
-   This guarantees high Spearman rank correlation by preventing rank ties.
-
 ---
 
 ## 3. Scalers & Preprocessing Artifacts

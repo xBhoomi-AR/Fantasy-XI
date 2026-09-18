@@ -9,7 +9,7 @@ import numpy as np
 from gymnasium import spaces
 
 from ..environment.historical_env import HistoricalEnv
-from ..environment.squad import build_starting_squad
+from ..environment.squad import build_starting_squad, validate_squad
 from ..optimization.scoring import calculate_reward, score_outcome
 from ..optimization.squad_milp import select_squad
 from ..optimization.starting_xi import pick_starting_xi
@@ -62,7 +62,8 @@ class PPOEnv(gym.Env):
         if decision.status != "Optimal":
             # no legal squad at this budget - end the episode rather than fake one
             obs = build_observation(self._state)
-            return obs, INFEASIBLE_PENALTY, True, False, {"status": decision.status}
+            info = {"status": decision.status, "gameweek": self._state.gameweek}
+            return obs, INFEASIBLE_PENALTY, True, False, info
 
         squad_rows = self._state.candidates[self._state.candidates["player_id"].isin(decision.selected_ids)]
         xi = pick_starting_xi(squad_rows)
@@ -73,7 +74,24 @@ class PPOEnv(gym.Env):
 
         self._steps_taken += 1
         truncated = self._steps_taken >= self.num_gameweeks
-        self._state = next_state
 
-        info = {"transfers": decision.transfers_made, "hits": decision.hits, "gameweek": outcome.gameweek}
+        # additive evaluation detail only - doesn't change obs/reward/done semantics.
+        # validated against self._state (this gameweek's own candidate pool) before
+        # it gets reassigned below - otherwise this would check the squad against
+        # NEXT gameweek's candidates instead of the ones it was actually picked from.
+        info = {
+            "transfers": decision.transfers_made,
+            "hits": decision.hits,
+            "gameweek": outcome.gameweek,
+            "squad_ids": decision.selected_ids,
+            "squad_size": len(decision.selected_ids),
+            "legality_violations": validate_squad(self._state.candidates, decision.selected_ids),
+            "starting_ids": xi.starting_ids,
+            "bench_ids": xi.bench_ids,
+            "captain_id": xi.captain_id,
+            "vice_captain_id": xi.vice_captain_id,
+            "bank": next_state.bank,
+            "free_transfers": next_state.free_transfers,
+        }
+        self._state = next_state
         return build_observation(next_state), reward, False, truncated, info

@@ -21,6 +21,7 @@ from stable_baselines3 import PPO
 
 from rl_decision_layer.environment.squad import MAX_PER_CLUB, POSITION_COUNTS, SQUAD_SIZE
 from rl_decision_layer.optimization.squad_milp import select_squad
+from rl_decision_layer.ppo import train as train_module
 from rl_decision_layer.ppo.action import action_to_milp_kwargs
 from rl_decision_layer.ppo.env import PPOEnv
 
@@ -78,10 +79,32 @@ def test_loaded_model_action_reaches_milp(action) -> None:
         check((rows["team_id"].value_counts() <= MAX_PER_CLUB).all(), "MILP still enforces the club limit")
 
 
+def test_checkpointing_and_resume() -> None:
+    """Tiny (32-timestep) smoke test for train.py's checkpoint_freq/resume
+    options, redirected to a temp MODELS_DIR so it never touches the real
+    ppo/models/ppo_fpl.zip."""
+    with tempfile.TemporaryDirectory() as tmp:
+        original_models_dir = train_module.MODELS_DIR
+        train_module.MODELS_DIR = Path(tmp)
+        try:
+            train_module.train(timesteps=32, start_gameweek=10, num_gameweeks=2,
+                                save_name="ckpt_test", checkpoint_freq=16)
+            checkpoint_dir = Path(tmp) / "checkpoints"
+            checkpoints = list(checkpoint_dir.glob("ckpt_test_*.zip")) if checkpoint_dir.exists() else []
+            check(len(checkpoints) > 0, "checkpoint_freq produces at least one checkpoint file")
+
+            train_module.train(timesteps=16, start_gameweek=10, num_gameweeks=2,
+                                save_name="ckpt_test", resume=True)
+            check(True, "resume=True continues training from the saved model without error")
+        finally:
+            train_module.MODELS_DIR = original_models_dir
+
+
 def main() -> None:
     test_model_instantiates()
     action = test_tiny_training_and_save_load()
     test_loaded_model_action_reaches_milp(action)
+    test_checkpointing_and_resume()
 
     print()
     if failures:

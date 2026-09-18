@@ -4,6 +4,6 @@ __pycache__/
 
 models/xgboost_model/models/*.joblib
 
-RL_STUDY/
+rl_study/
 
 rl_decision_layer/ppo/models/

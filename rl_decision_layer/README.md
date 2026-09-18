@@ -9,10 +9,12 @@ against. The `ppo/` package has the observation/action/environment
 interfaces a PPO agent will eventually use, but no agent is trained yet -
 see "PPO interfaces" below.
 
-Only consumes `models/xgboost_model`'s output files (predictions CSV, raw
-player/team data, pre-computed form columns) - never its training internals.
-That keeps this swappable if the BiLSTM model becomes the prediction source
-later.
+`predictions/interface.py` supports two prediction sources - BiLSTM
+(`models/BiLSTM_model/predicted_points.csv`, the default) and XGBoost
+(`models/xgboost_model/predictions/`), selected via `model="bilstm"` /
+`model="xgboost"` wherever predictions are loaded. Only each model's output
+files are consumed, never their training internals - the two are swappable
+because both are joined into the same canonical schema below.
 
 ## Layout
 
@@ -196,12 +198,12 @@ influence captaincy without touching squad selection.
 ## Scoring and reward
 
 `optimization/scoring.py`. `score_outcome(outcome, xi)` turns an `Outcome`
-(actual points per squad player) into a `ScoredOutcome`: only the starting
-XI counts, and the captain's points are added a second time (real FPL
-captain doubling). No auto-subs (a starter who blanks isn't replaced by a
-bench player) and no vice-captain fallback (vice only matters in real FPL if
-the captain gets 0 minutes, which isn't tracked) - both are known gaps, not
-built.
+(actual points and actual minutes per squad player) into a `ScoredOutcome`:
+only the starting XI counts, and the captain's points are added a second
+time (real FPL captain doubling). A starter with 0 actual minutes is
+auto-substituted by the first bench player with >0 minutes; if the captain
+played 0 minutes, the armband falls back to the vice-captain (only if the
+vice actually played) - both mirror real FPL's own rules.
 
 `calculate_reward(scored, hits)` is `scored.total_points - 4 * hits` - what
 a real manager's gameweek score would actually show, since FPL's own score
@@ -299,6 +301,12 @@ stable-baselines3 PPO counts in timesteps. `--start-gameweek`/
 Real training (thousands+ timesteps) should be run by you, locally, not by
 Claude - it can be left running in the background/overnight.
 
+`--checkpoint-freq N` saves a snapshot to `ppo/models/checkpoints/` every N
+timesteps (0/default = off) - cheap insurance for a long unattended run.
+`--resume` continues training `--save-name`'s existing saved model instead
+of starting fresh (its internal timestep count keeps incrementing rather
+than resetting).
+
 Models save to `ppo/models/<name>.zip` (gitignored - these are generated
 artifacts, not source). Load and run one with:
 
@@ -326,7 +334,6 @@ python -m rl_decision_layer.run_baseline
   squad in a cheap-at-the-low-end gameweek's pool. Not something
   free-transfer rollover fixes - see "Historical backtest loop" above.
 - Chips aren't implemented.
-- No vice-captain fallback / auto-subs in scoring.
 - A squad member missing from a gameweek's candidate pool (no fixture, or
   missing price) contributes 0 to that squad's valuation for budget
   purposes, understating the real available money.

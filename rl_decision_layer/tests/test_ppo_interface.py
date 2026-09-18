@@ -112,6 +112,11 @@ def test_env_reset_and_step() -> None:
     check(isinstance(reward, float), "step() returns a float reward")
     check(not terminated and not truncated, "episode isn't done after 1 of 3 gameweeks")
     check("gameweek" in info, "info reports which gameweek was played")
+    check(info.get("squad_size") == 15, "info reports the resulting squad size")
+    check(info.get("legality_violations") == [], "info confirms the resulting squad is legal")
+    check(len(info.get("starting_ids", [])) == 11, "info reports the starting XI")
+    check(info.get("captain_id") is not None and info.get("vice_captain_id") is not None,
+          "info reports captain and vice-captain")
 
 
 def test_episode_terminates() -> None:

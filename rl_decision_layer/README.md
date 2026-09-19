@@ -324,6 +324,26 @@ The MILP-only baseline (no PPO at all) still runs independently:
 python -m rl_decision_layer.run_baseline
 ```
 
+`ppo/show_squad.py` prints one gameweek's recommendation (squad, XI, captain/vice) with real
+player/team names instead of bare IDs:
+
+```
+python -m rl_decision_layer.ppo.show_squad --model ppo_fpl --start-gameweek 1
+```
+
+`ppo/season_controller.py` is the actual sequential product: it runs several consecutive
+gameweeks in one pass, carrying the squad/bank/free-transfers forward from each gameweek into
+the next (PPOEnv already does this internally - this just adds the outer loop, transfer
+IN/OUT display, and optional JSON state persistence via `--save-state`/`--load-state` so a
+run can be resumed across separate process invocations):
+
+```
+python -m rl_decision_layer.ppo.season_controller --model ppo_fpl --start-gameweek 1 --num-gameweeks 5
+```
+
+See the root `README.md`'s "Sequential Gameweek Recommendation" section for the full
+explanation and example output.
+
 ## Known limitations
 
 - Real FPL sell-price rule (50% of any price rise) - can't be reconstructed
@@ -351,6 +371,7 @@ python rl_decision_layer/tests/test_historical_loop.py
 python rl_decision_layer/tests/test_free_transfers.py
 python rl_decision_layer/tests/test_ppo_interface.py
 python rl_decision_layer/tests/test_ppo_training.py
+python rl_decision_layer/tests/test_season_controller.py
 ```
 
 Most of these need `pulp`, `gymnasium` and `stable-baselines3`

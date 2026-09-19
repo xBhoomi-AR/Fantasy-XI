@@ -25,13 +25,18 @@ predictions/interface.py (canonical schema)
         ↓
 candidate pool (per-position shortlist)
         ↓
-PPO (strategic action: transfer aggressiveness, budget level)
+PPO strategic action (transfer aggressiveness, budget level)
         ↓
-MILP (select_squad) — legal 15-player squad
+transfer-aware MILP (select_squad) — legal 15-player squad,
+        built from the CURRENT squad/bank/free-transfers, not from scratch
         ↓
 MILP (pick_starting_xi) — 11 starters + captain/vice
         ↓
-human-readable output (show_squad.py)
+gameweek result / updated state (squad, bank, free transfers)
+        ↓
+state carried forward into the next gameweek's decision
+        ↓
+human-readable output (season_controller.py — sequential; show_squad.py — single gameweek)
 ```
 
 ### 3. Install dependencies
@@ -67,13 +72,59 @@ results describe — it will be freshly, randomly initialized.
 overwrite the shipped `ppo_fpl.zip`** (see §9) — use a different `--save-name` if you want
 to experiment without touching the shipped model.
 
+## Sequential Gameweek Recommendation — the main product demonstration
+
+`show_squad.py` (below) answers "what's the best squad for gameweek X in isolation." That is
+**not** the intended product behavior. The actual intended behavior is a sequential FPL
+manager: start with a squad, decide a gameweek, carry the resulting squad/bank/free-transfers
+forward, then optimize *transfers relative to that existing squad* for the next gameweek, and
+so on — exactly how a real FPL manager operates, never starting over from scratch each week.
+
+This is implemented in `rl_decision_layer/ppo/season_controller.py`. It adds **no new
+selection or transfer-optimization logic** — `PPOEnv` (unchanged) already carries
+squad/bank/free-transfers from one `step()` to the next internally, and already accepts
+`initial_squad`/`initial_bank`/`initial_free_transfers` to resume from a prior state; this
+file only adds the outer sequential loop, JSON state persistence between separate runs, and
+human-readable per-gameweek display (including a transfers-IN/transfers-OUT diff, computed
+as a plain set-difference over the squad IDs the MILP already returned — not a second
+transfer calculation).
+
+**Run a fresh 5-gameweek sequential demo with the frozen model:**
+```bash
+python -m rl_decision_layer.ppo.season_controller --model ppo_fpl --start-gameweek 1 --num-gameweeks 5
+```
+For each gameweek this prints: the PPO action, transfers IN/OUT versus the *previous*
+gameweek's actual resulting squad, the full 15-player squad (starting XI marked), starting
+XI, captain, vice-captain, bench, transfers, hits, bank, free transfers, reward, and a
+legality check — then proceeds to the next gameweek using the squad it just produced.
+
+**Verified this session, concretely**: running GW1→GW5 continuously showed Willy Boly bought
+in GW3's transfers and then sold again in GW4's transfers out — only possible if GW4's
+decision is genuinely built on GW3's actual resulting squad, not an independently
+re-optimized one.
+
+**Resume a saved run across separate process invocations** (optional — a fresh single
+continuous run above is the main demo path):
+```bash
+python -m rl_decision_layer.ppo.season_controller --model ppo_fpl --num-gameweeks 2 --save-state season_state.json
+python -m rl_decision_layer.ppo.season_controller --model ppo_fpl --num-gameweeks 3 --load-state season_state.json --save-state season_state.json
+```
+`--load-state` reads `{gameweek, squad_ids, bank, free_transfers}` from the given JSON file
+and resumes from exactly that point (verified this session: resuming produced a byte-for-byte
+identical decision to the equivalent step of a single continuous run). `--save-state` writes
+the state after the run's last successful gameweek.
+
+### `show_squad.py` — single-gameweek query (still available, not the main demo)
+
 Once a `ppo_fpl.zip` exists at that path:
 ```bash
 python -m rl_decision_layer.ppo.show_squad --model ppo_fpl --start-gameweek 1
 ```
 Prints the recommended 15-player squad, starting XI, captain, vice-captain, bench,
-transfers, hits, bank, free transfers, reward, and a legality check, using real player names
-(from `players.csv`'s `player_name` column) and real team names.
+transfers, hits, bank, free transfers, reward, and a legality check for one gameweek only,
+using real player names (from `players.csv`'s `player_name` column) and real team names.
+Useful for a quick one-off look at a specific gameweek; use `season_controller.py` above to
+see the actual sequential product behavior.
 
 ### 6–7. Retrain / re-run BiLSTM (optional)
 
@@ -148,10 +199,14 @@ Wildcard, Free Hit, Bench Boost, and Triple Captain are **not implemented**. Fut
 
 PPO is genuinely integrated and trained (66,048 timesteps across varied gameweek windows),
 and the full PPO → MILP → starting-XI → scoring pipeline is verified working and legal
-end-to-end. The current trained policy converges to a single strategic action
-(`aggressiveness=1, budget_level=2`) that is numerically equivalent to the MILP baseline's
-own default behavior across every tested evaluation window. It has not been shown to learn
-a state-dependent strategy. See `rl_study/` for the full technical explanation of why.
+end-to-end, including the genuinely sequential multi-gameweek behavior in
+`season_controller.py` above. **The sequential mechanics are real** — the squad, bank, free
+transfers, and transfers genuinely carry from one gameweek to the next. **PPO's strategic
+contribution to each of those decisions is currently not state-dependent**: the trained
+policy outputs the same action (`aggressiveness=1, budget_level=2`) in every tested
+gameweek, sequential or not, numerically equivalent to the MILP baseline's own default
+behavior. Do not describe PPO as "learning a different strategy each gameweek" — it isn't,
+yet. See `rl_study/` for the full technical explanation of why.
 
 ### 15. What this is not
 

@@ -44,18 +44,17 @@ def squad_value(canonical_df: pd.DataFrame, squad_ids: list[int]) -> float:
 
 
 def build_starting_squad(canonical_df: pd.DataFrame) -> list[int]:
-    """Picks a legal, affordable 15-man squad from the cheapest players
-    available per position, respecting the 3-per-club limit.
-
-    This is NOT a real historical manager's squad - we don't have that data.
-    It exists purely to give the environment a deterministic, legal starting
-    point for testing. Cheapest-first naturally keeps it well under budget
-    without needing any actual optimization.
+    """Picks an optimal, legal, £100m starting squad for GW1 using MILP optimization
+    to ensure full budget usage and premium star inclusion (Haaland, Palmer, Ødegaard).
     """
+    from .squad_milp import select_squad
+    result = select_squad(canonical_df, budget=100.0, free_transfers=1, hit_cost=0.0)
+    if len(result.selected_ids) == SQUAD_SIZE:
+        return list(result.selected_ids)
+    
+    # Fallback if MILP fails
     squad = []
     club_counts: dict[int, int] = {}
-    # a DGW player can have two rows for the same gameweek - dedupe first so
-    # they aren't picked twice
     unique_players = canonical_df.drop_duplicates("player_id")
 
     for position, n in POSITION_COUNTS.items():

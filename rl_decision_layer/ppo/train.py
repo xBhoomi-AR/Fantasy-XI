@@ -10,23 +10,42 @@ and scale up yourself, not something Claude should run for real training.
 from __future__ import annotations
 
 import argparse
+import warnings
 from pathlib import Path
 
 from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import CheckpointCallback
 
+warnings.filterwarnings("ignore", message=".*You are trying to run PPO on the GPU.*")
+
+from .action import ACTION_SHAPE
 from .env import PPOEnv
+from .observation import OBSERVATION_SIZE
 
 MODELS_DIR = Path(__file__).resolve().parent / "models"
 
 
-def train(timesteps=500, start_gameweek=1, num_gameweeks=3, device="cpu", save_name="ppo_fpl",
+def train(timesteps=20000, start_gameweek=1, num_gameweeks=15, device="cpu", save_name="ppo_fpl",
           checkpoint_freq=0, resume=False):
     """checkpoint_freq: if > 0, save a snapshot to ppo/models/checkpoints/ every
-    that many timesteps - cheap insurance for an unattended run that might get
-    interrupted. resume: if True, continue training save_name's existing model
-    (its saved timestep count keeps incrementing) instead of starting fresh."""
+    that many timesteps. resume: if True, continue training save_name's existing model."""
     env = PPOEnv(start_gameweek=start_gameweek, num_gameweeks=num_gameweeks)
+
+    print("\n" + "=" * 65)
+    print("PPO TRAINING CONFIGURATION & HYPERPARAMETERS")
+    print("=" * 65)
+    print(f" Execution Device       : {device.upper()}")
+    print(f" Observation Dimension  : {OBSERVATION_SIZE} (incl. 4 chip availability flags)")
+    print(f" Action Space Shape     : {ACTION_SHAPE} (Aggressiveness x Budget x PosBias x Chips)")
+    print(f" Total Timesteps        : {timesteps:,}")
+    print(f" Rollout Horizon        : 512 steps per rollout update")
+    print(f" Mini-Batch Size        : 128")
+    print(f" Episode Gameweeks      : {num_gameweeks} GWs per rollout episode")
+    print(f" Policy Network Arch    : MLP [128, 128]")
+    print(f" Learning Rate          : 3e-4")
+    print(f" Entropy Coef           : 0.05 (Sustained Action Space Exploration)")
+    print(f" MILP Cache Status      : {'ACTIVE (0ms step lookup)' if env.milp_cache is not None else 'DISABLED'}")
+    print("=" * 65 + "\n")
 
     MODELS_DIR.mkdir(exist_ok=True)
     path = MODELS_DIR / save_name
@@ -38,9 +57,11 @@ def train(timesteps=500, start_gameweek=1, num_gameweeks=3, device="cpu", save_n
             "MlpPolicy",
             env,
             device=device,
-            n_steps=64,
-            batch_size=32,
-            policy_kwargs=dict(net_arch=[32, 32]),
+            n_steps=512,
+            batch_size=128,
+            ent_coef=0.05,
+            learning_rate=3e-4,
+            policy_kwargs=dict(net_arch=[128, 128]),
             verbose=1,
         )
 

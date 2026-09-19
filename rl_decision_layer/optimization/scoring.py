@@ -25,7 +25,13 @@ class ScoredOutcome:
     total_points: float
 
 
-def score_outcome(outcome: Outcome, xi: StartingXIResult) -> ScoredOutcome:
+def score_outcome(
+    outcome: Outcome,
+    xi: StartingXIResult,
+    bench_boost: bool = False,
+    triple_captain: bool = False,
+    **kwargs,
+) -> ScoredOutcome:
     starting_ids = list(xi.starting_ids)
     bench_ids = list(xi.bench_ids)
     
@@ -60,11 +66,22 @@ def score_outcome(outcome: Outcome, xi: StartingXIResult) -> ScoredOutcome:
     starting_points = sum(outcome.actual_points.get(pid, 0.0) for pid in active_starters)
     captain_points = outcome.actual_points.get(active_captain, 0.0) if active_captain is not None else 0.0
 
+    # Chip modifiers:
+    # Triple Captain: captain bonus is 2x additional points (3x total)
+    # Bench Boost: points from all bench players who actually played are also included
+    captain_bonus = captain_points * (2.0 if triple_captain else 1.0)
+    bench_boost_points = 0.0
+    if bench_boost:
+        # Include remaining bench players who played
+        bench_boost_points = sum(outcome.actual_points.get(b_pid, 0.0) for b_pid in bench_ids if outcome.actual_minutes.get(b_pid, 0.0) > 0)
+
+    total_points = starting_points + captain_bonus + bench_boost_points
+
     return ScoredOutcome(
         gameweek=outcome.gameweek,
         starting_points=starting_points,
         captain_points=captain_points,
-        total_points=starting_points + captain_points,  # captain counted twice overall
+        total_points=total_points,
     )
 
 

@@ -19,12 +19,10 @@ import pandas as pd
 
 from .ranking import FPL_POSITIONS, rank_by_position
 
-# An FPL squad is 2 GK / 5 DEF / 5 MID / 3 FWD. These defaults give each
-# position roughly 3-4x its squad-slot count worth of prediction candidates,
-# which should be enough transfer options for MILP without blowing up its
-# problem size. Not empirically tuned - override per experiment.
-DEFAULT_PREDICTION_TOP_K = {"GK": 8, "DEF": 15, "MID": 15, "FWD": 10}
-DEFAULT_FORM_TOP_K = {"GK": 3, "DEF": 5, "MID": 5, "FWD": 4}
+# An FPL squad is 2 GK / 5 DEF / 5 MID / 3 FWD. We expand defaults to ensure
+# premium star players (Haaland, Salah, Saka, Palmer, etc.) are always in pool.
+DEFAULT_PREDICTION_TOP_K = {"GK": 12, "DEF": 30, "MID": 30, "FWD": 20}
+DEFAULT_FORM_TOP_K = {"GK": 5, "DEF": 10, "MID": 10, "FWD": 8}
 DEFAULT_FORM_WINDOW = "form_avg5"
 
 
@@ -81,6 +79,8 @@ def build_candidate_pool(
     form_k = _per_position(form_top_k, FPL_POSITIONS)
     squad_ids = set(current_squad_ids)
 
+    top_league_haulers = set(gw_df.sort_values("predicted_points", ascending=False).head(15)["player_id"])
+
     ranked = rank_by_position(gw_df, top_k=None)
 
     pool_frames = []
@@ -89,6 +89,14 @@ def build_candidate_pool(
 
         for pid in pos_df.head(pred_k[position])["player_id"]:
             source.setdefault(pid, set()).add("prediction_topk")
+
+        for pid in pos_df[pos_df["player_id"].isin(top_league_haulers)]["player_id"]:
+            source.setdefault(pid, set()).add("league_top_hauler")
+
+        # Guarantee top 3 highest-priced premium players per position are in candidate pool
+        if "price" in pos_df.columns:
+            for pid in pos_df.sort_values("price", ascending=False).head(3)["player_id"]:
+                source.setdefault(pid, set()).add("premium_star")
 
         for pid in pos_df[pos_df["player_id"].isin(squad_ids)]["player_id"]:
             source.setdefault(pid, set()).add("current_squad")

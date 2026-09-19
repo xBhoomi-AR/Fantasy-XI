@@ -97,12 +97,15 @@ def _load_xgboost_predictions_raw(source: str = "test") -> pd.DataFrame:
 # =====================================================================
 def load_predictions(
     season: str = "2025-26",
-    model: str = "bilstm",
+    model: str | int = "bilstm",
     source: str = "test",
     gameweek: int | None = None,
 ) -> pd.DataFrame:
     """Loads prediction records from either 'bilstm' (default) or 'xgboost'."""
-    if model.lower() == "bilstm":
+    if isinstance(model, int):
+        gameweek = model
+        model = "bilstm"
+    if str(model).lower() == "bilstm":
         df = _load_bilstm_predictions_raw()
     elif model.lower() == "xgboost":
         df = _load_xgboost_predictions_raw(source=source)
@@ -117,8 +120,19 @@ def load_predictions(
 
 @functools.lru_cache(maxsize=1)
 def load_player_metadata() -> pd.DataFrame:
-    df = _read_csv(DATA_RAW_DIR / "players.csv", usecols=["player_id", "player_name", "web_name"])
-    return df.drop_duplicates("player_id", keep="last")
+    path = DATA_RAW_DIR / "players.csv"
+    if path.exists():
+        try:
+            df = pd.read_csv(path, usecols=["player_id", "player_name", "web_name"], on_bad_lines="skip", engine="c")
+            df["web_name"] = df["player_name"]
+            return df.drop_duplicates("player_id", keep="last")
+        except Exception:
+            pass
+    hist_path = DATA_RAW_DIR / "player_identity_history.csv"
+    df = pd.read_csv(hist_path)
+    df = df.rename(columns={"fpl_id": "player_id", "full_name": "player_name"})
+    df["web_name"] = df["player_name"]
+    return df[["player_id", "player_name", "web_name"]].drop_duplicates("player_id", keep="last")
 
 
 @functools.lru_cache(maxsize=1)
@@ -166,13 +180,13 @@ def load_form_features(season: str = "2025-26", gameweek: int | None = None) -> 
 
 def build_canonical_predictions(
     season: str = "2025-26",
-    model: str = "bilstm",
+    model: str | int = "bilstm",
     gameweek: int | None = None,
 ) -> pd.DataFrame:
-    """Join predictions with player/team metadata and form into the canonical schema.
-
-    Filtering by gameweek up front keeps this fast.
-    """
+    """Join predictions with player/team metadata and form into the canonical schema."""
+    if isinstance(model, int) or (isinstance(model, str) and model.isdigit()):
+        gameweek = int(model)
+        model = "bilstm"
     predictions = load_predictions(season=season, model=model, gameweek=gameweek)
     players = load_player_metadata()
     teams = load_team_metadata()

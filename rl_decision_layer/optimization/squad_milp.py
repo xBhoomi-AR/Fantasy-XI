@@ -44,24 +44,29 @@ def select_squad(
     bank: float = 0.0,
     free_transfers: int = 1,
     hit_cost: float = 4.0,
+    position_weights: dict[str, float] | None = None,
+    free_hit_or_wildcard: bool = False,
+    chip_name: str = "none",
+    **kwargs,
 ) -> SquadResult:
+    # If chip is wildcard or free_hit, treat as zero hits
+    if chip_name in ("wildcard", "free_hit"):
+        free_hit_or_wildcard = True
     players = candidates.drop_duplicates("player_id").reset_index(drop=True)
-    # a handful of players are missing `price` in the source data (e.g. a
-    # gap in player_market_history for that gameweek) - can't cost them, so
-    # they're not selectable rather than guessing a price
     players = players.dropna(subset=["price", "predicted_points"])
 
-    transfer_aware = len(current_squad_ids) > 0
+    transfer_aware = len(current_squad_ids) > 0 and not free_hit_or_wildcard
     if budget is None:
-        # note: if a current squad member has no row this gameweek (no
-        # fixture, or missing price), squad_value() just skips them - their
-        # sell value effectively counts as 0, which understates the real bank
-        budget = bank + squad_value(players, current_squad_ids) if transfer_aware else BUDGET
+        budget = bank + squad_value(players, current_squad_ids) if len(current_squad_ids) > 0 else BUDGET
 
     prob = pulp.LpProblem("squad_selection", pulp.LpMaximize)
     pick = {row.player_id: pulp.LpVariable(f"pick_{row.player_id}", cat="Binary") for row in players.itertuples()}
 
-    objective = pulp.lpSum(pick[row.player_id] * row.predicted_points for row in players.itertuples())
+    pos_w = position_weights or {}
+    objective = pulp.lpSum(
+        pick[row.player_id] * (row.predicted_points * pos_w.get(row.position, 1.0))
+        for row in players.itertuples()
+    )
 
     hits_var = None
     if transfer_aware:
@@ -84,7 +89,8 @@ def select_squad(
 
     prob += pulp.lpSum(pick[row.player_id] * row.price for row in players.itertuples()) <= budget
 
-    prob.solve(pulp.PULP_CBC_CMD(msg=False))
+    solver = pulp.PULP_CBC_CMD(msg=False, timeLimit=1.0)
+    prob.solve(solver)
     status = pulp.LpStatus[prob.status]
 
     if status != "Optimal":

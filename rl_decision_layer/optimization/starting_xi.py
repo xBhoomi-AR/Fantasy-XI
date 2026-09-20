@@ -54,8 +54,27 @@ def pick_starting_xi(squad_rows: pd.DataFrame) -> StartingXIResult:
     status = pulp.LpStatus[prob.status]
 
     if status != "Optimal":
-        return StartingXIResult(status=status, starting_ids=[], bench_ids=[],
-                                 captain_id=None, vice_captain_id=None, predicted_points=0.0)
+        # Safe heuristic fallback: select valid formation (1 GK, 3 DEF, 4 MID, 3 FWD) by predicted points
+        gk = players[players["position"] == "GK"].sort_values("predicted_points", ascending=False).head(1)
+        defn = players[players["position"] == "DEF"].sort_values("predicted_points", ascending=False).head(3)
+        mid = players[players["position"] == "MID"].sort_values("predicted_points", ascending=False).head(4)
+        fwd = players[players["position"] == "FWD"].sort_values("predicted_points", ascending=False).head(3)
+        starting = pd.concat([gk, defn, mid, fwd]).drop_duplicates("player_id")
+        if len(starting) < XI_SIZE:
+            rem = players[~players["player_id"].isin(starting["player_id"])].sort_values("predicted_points", ascending=False)
+            starting = pd.concat([starting, rem.head(XI_SIZE - len(starting))])
+        bench = players[~players["player_id"].isin(starting["player_id"])]
+        sorted_s = starting.sort_values("predicted_points", ascending=False)
+        cap = int(sorted_s.iloc[0]["player_id"]) if len(sorted_s) > 0 else None
+        vc = int(sorted_s.iloc[1]["player_id"]) if len(sorted_s) > 1 else cap
+        return StartingXIResult(
+            status="HeuristicFallback",
+            starting_ids=starting["player_id"].tolist(),
+            bench_ids=bench["player_id"].tolist(),
+            captain_id=cap,
+            vice_captain_id=vc,
+            predicted_points=float(starting["predicted_points"].sum()),
+        )
 
     starting = players[players["player_id"].map(lambda pid: start[pid].value() == 1)]
     bench = players[~players["player_id"].isin(starting["player_id"])]

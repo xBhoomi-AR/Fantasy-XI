@@ -98,6 +98,16 @@ class PPOEnv(gym.Env):
                 hit_cost=4.0,
                 chip_name="none",
             )
+            if decision.status != "Optimal":
+                from ..optimization.squad_milp import Decision
+                decision = Decision(
+                    status="FallbackKeep",
+                    selected_ids=list(self._state.squad_ids),
+                    transfers_made=0,
+                    hits=0,
+                    remaining_budget=self._state.bank,
+                    predicted_points=0.0,
+                )
 
 
         squad_rows = self._state.candidates[self._state.candidates["player_id"].isin(decision.selected_ids)]

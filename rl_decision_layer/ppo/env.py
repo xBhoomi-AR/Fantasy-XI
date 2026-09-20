@@ -66,6 +66,10 @@ class PPOEnv(gym.Env):
         return build_observation(self._state, self.available_chips), {}
 
     def step(self, action):
+        if self._state is None:
+            obs, _ = self.reset()
+            return obs, 0.0, False, True, {}
+
         act_tuple = tuple(action)
         decision = None
         if self.milp_cache is not None:
@@ -115,7 +119,6 @@ class PPOEnv(gym.Env):
                     hits=0,
                 )
 
-
         squad_rows = self._state.candidates[self._state.candidates["player_id"].isin(decision.selected_ids)]
         xi = pick_starting_xi(squad_rows)
 
@@ -150,9 +153,8 @@ class PPOEnv(gym.Env):
         scored = score_outcome(outcome, xi, bench_boost=bench_boost, triple_captain=triple_captain)
         reward = calculate_reward(scored, decision.hits)
 
-
         self._steps_taken += 1
-        truncated = self._steps_taken >= self.num_gameweeks
+        truncated = (self._steps_taken >= self.num_gameweeks) or (next_state is None)
 
         info = {
             "transfers": decision.transfers_made,

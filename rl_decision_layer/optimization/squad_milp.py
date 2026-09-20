@@ -91,7 +91,7 @@ def select_squad(
 
     prob += pulp.lpSum(pick[row.player_id] * row.price for row in players.itertuples()) <= budget
 
-    solver = pulp.PULP_CBC_CMD(msg=False, timeLimit=1.0)
+    solver = pulp.PULP_CBC_CMD(msg=False, timeLimit=3.0)
     prob.solve(solver)
     status = pulp.LpStatus[prob.status]
 

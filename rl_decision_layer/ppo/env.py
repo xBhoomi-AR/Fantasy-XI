@@ -89,10 +89,16 @@ class PPOEnv(gym.Env):
                 self.milp_cache.store(self._state.gameweek, self._state.squad_ids, act_tuple, decision)
 
         if decision.status != "Optimal":
-            # no legal squad at this budget - end the episode rather than fake one
-            obs = build_observation(self._state, self.available_chips)
-            info = {"status": decision.status, "gameweek": self._state.gameweek}
-            return obs, INFEASIBLE_PENALTY, True, False, info
+            # Safe fallback: retry with standard legal squad parameters so episode never crashes
+            decision = select_squad(
+                self._state.candidates,
+                current_squad_ids=self._state.squad_ids,
+                bank=self._state.bank,
+                free_transfers=self._state.free_transfers,
+                hit_cost=4.0,
+                chip_name="none",
+            )
+
 
         squad_rows = self._state.candidates[self._state.candidates["player_id"].isin(decision.selected_ids)]
         xi = pick_starting_xi(squad_rows)

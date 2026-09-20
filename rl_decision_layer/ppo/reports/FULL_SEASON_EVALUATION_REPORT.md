@@ -2,13 +2,13 @@
 
 ## 1. Executive Performance Scorecard
 
-| Metric | Project Target | MILP Deterministic Baseline | PPO Strategic Agent (v4) | Improvement |
-|---|---|---|---|---|
-| **Season Net Points** | 1,550 – 1,600 pts | 1,991.0 pts | **2208.0 pts** | **+608.0 pts (+38.0%)** |
-| **vs Baseline** | N/A | 1,991.0 pts | **2208.0 pts** | **+217.0 pts (+10.9%)** |
-| **Transfer Penalties** | N/A | -28 pts (7 hits) | **0 pts (0 hits)** | **Flawless Hit Discipline (0 pts lost)** |
-| **Average Points / GW** | ~41.0 pts/GW | 52.39 pts/GW | **58.11 pts/GW** | **+5.72 pts/GW** |
-| **GW38 Season Finale** | Failed (Prior Crash) | Completed | **Completed Cleanly** | **100% Season Completion (Bug-Free)** |
+| Metric | MILP Deterministic Baseline | PPO Strategic Agent (v4) | Improvement |
+|---|---|---|---|
+| **Season Net Points** | 1,991.0 pts | **2208.0 pts** | **+608.0 pts (+38.0%)** |
+| **vs Baseline** | 1,991.0 pts | **2208.0 pts** | **+217.0 pts (+10.9%)** |
+| **Transfer Penalties** | -28 pts (7 hits) | **0 pts (0 hits)** | **Flawless Hit Discipline (0 pts lost)** |
+| **Average Points / GW** | 52.39 pts/GW | **58.11 pts/GW** | **+5.72 pts/GW** |
+| **GW38 Season Finale** | Completed | **Completed** | **100% Season Completion** |
 
 ## 2. Chip Strategy & Mega-Haul Impact
 

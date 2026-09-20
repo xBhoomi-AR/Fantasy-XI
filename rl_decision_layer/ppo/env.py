@@ -97,6 +97,21 @@ class PPOEnv(gym.Env):
         squad_rows = self._state.candidates[self._state.candidates["player_id"].isin(decision.selected_ids)]
         xi = pick_starting_xi(squad_rows)
 
+        # Rule-based chip override if PPO did not specify a chip
+        if chip_name == "none":
+            from ..optimization.chip_strategy import get_recommended_chip
+            rec_chip = get_recommended_chip(
+                gameweek=self._state.gameweek,
+                squad_rows=squad_rows,
+                xi_starting_ids=xi.starting_ids,
+                xi_bench_ids=xi.bench_ids,
+                captain_id=xi.captain_id,
+                available_chips=self.available_chips,
+            )
+            if rec_chip != "none" and self.available_chips.get(rec_chip, False):
+                chip_name = rec_chip
+                self.available_chips[chip_name] = False
+
         # Apply chip modifiers in scoring:
         bench_boost = (chip_name == "bench_boost")
         triple_captain = (chip_name == "triple_captain")
@@ -112,6 +127,7 @@ class PPOEnv(gym.Env):
 
         scored = score_outcome(outcome, xi, bench_boost=bench_boost, triple_captain=triple_captain)
         reward = calculate_reward(scored, decision.hits)
+
 
         self._steps_taken += 1
         truncated = self._steps_taken >= self.num_gameweeks

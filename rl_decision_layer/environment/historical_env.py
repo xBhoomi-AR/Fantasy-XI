@@ -103,4 +103,7 @@ class HistoricalEnv:
         outcome = Outcome(gameweek=self.gameweek, squad_ids=list(self.squad_ids), actual_points=points, actual_minutes=minutes)
 
         self.gameweek += 1
+        if self.gameweek > 38:
+            return outcome, None
         return outcome, self._decision_state()
+

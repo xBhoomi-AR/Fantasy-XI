@@ -58,6 +58,8 @@ def select_squad(
     transfer_aware = len(current_squad_ids) > 0 and not free_hit_or_wildcard
     if budget is None:
         budget = bank + squad_value(players, current_squad_ids) if len(current_squad_ids) > 0 else BUDGET
+    elif budget <= 100.0:
+        budget = budget * 10.0
 
     prob = pulp.LpProblem("squad_selection", pulp.LpMaximize)
     pick = {row.player_id: pulp.LpVariable(f"pick_{row.player_id}", cat="Binary") for row in players.itertuples()}

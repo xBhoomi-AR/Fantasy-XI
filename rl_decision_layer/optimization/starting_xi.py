@@ -60,9 +60,12 @@ def pick_starting_xi(squad_rows: pd.DataFrame) -> StartingXIResult:
     starting = players[players["player_id"].map(lambda pid: start[pid].value() == 1)]
     bench = players[~players["player_id"].isin(starting["player_id"])]
 
-    by_points = starting.sort_values("predicted_points", ascending=False)
+    CAPTAIN_POS_WEIGHTS = {"FWD": 1.5, "MID": 1.35, "DEF": 0.7, "GK": 0.5}
+    starting_copy = starting.copy()
+    starting_copy["captain_score"] = starting_copy["predicted_points"] * starting_copy["position"].map(lambda p: CAPTAIN_POS_WEIGHTS.get(p, 1.0))
+    by_points = starting_copy.sort_values("captain_score", ascending=False)
     captain_id = int(by_points.iloc[0]["player_id"])
-    vice_captain_id = int(by_points.iloc[1]["player_id"])
+    vice_captain_id = int(by_points.iloc[1]["player_id"]) if len(by_points) > 1 else captain_id
 
     return StartingXIResult(
         status=status,

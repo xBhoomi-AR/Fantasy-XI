@@ -198,7 +198,10 @@ def build_canonical_predictions(
     if "value" in df.columns:
         df = df.rename(columns={"value": "price"})
 
-    return df[CANONICAL_COLUMNS].reset_index(drop=True)
+    canonical = df[CANONICAL_COLUMNS].reset_index(drop=True)
+    from .recalibrate import recalibrate_predictions
+    return recalibrate_predictions(canonical)
+
 
 
 if __name__ == "__main__":

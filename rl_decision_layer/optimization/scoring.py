@@ -85,9 +85,8 @@ def score_outcome(
     )
 
 
-def calculate_reward(scored: ScoredOutcome, hits: int, hit_cost: float = DEFAULT_HIT_COST) -> float:
-    """Reward = actual gameweek score minus points given up for transfer
-    hits - what a real manager's gameweek score would show. hits comes from
-    the MILP decision (SquadResult.hits), not from the scored outcome, since
-    the outcome itself has no notion of transfers."""
-    return scored.total_points - hit_cost * hits
+def calculate_reward(scored: ScoredOutcome, hits: int, hit_cost: float = DEFAULT_HIT_COST, baseline_points: float = 0.0) -> float:
+    """Reward = actual gameweek score minus hits cost minus baseline expectation."""
+    raw = scored.total_points - hit_cost * hits
+    return raw - baseline_points
+

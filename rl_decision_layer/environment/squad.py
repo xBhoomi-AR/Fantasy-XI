@@ -47,8 +47,8 @@ def build_starting_squad(canonical_df: pd.DataFrame) -> list[int]:
     """Picks an optimal, legal, £100m starting squad for GW1 using MILP optimization
     to ensure full budget usage and premium star inclusion (Haaland, Palmer, Ødegaard).
     """
-    from .squad_milp import select_squad
-    result = select_squad(canonical_df, budget=100.0, free_transfers=1, hit_cost=0.0)
+    from ..optimization.squad_milp import select_squad
+    result = select_squad(canonical_df, budget=BUDGET, free_transfers=1, hit_cost=0.0)
     if len(result.selected_ids) == SQUAD_SIZE:
         return list(result.selected_ids)
     

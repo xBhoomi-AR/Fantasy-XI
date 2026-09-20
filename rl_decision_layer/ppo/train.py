@@ -25,11 +25,12 @@ from .observation import OBSERVATION_SIZE
 MODELS_DIR = Path(__file__).resolve().parent / "models"
 
 
-def train(timesteps=80000, start_gameweek=1, num_gameweeks=10, device="cpu", save_name="ppo_fpl",
+def train(timesteps=50000, start_gameweek=1, num_gameweeks=38, device="cpu", save_name="ppo_fpl_pure_rl",
           checkpoint_freq=0, resume=False):
     """checkpoint_freq: if > 0, save a snapshot to ppo/models/checkpoints/ every
     that many timesteps. resume: if True, continue training save_name's existing model."""
-    env = PPOEnv(start_gameweek=start_gameweek, num_gameweeks=num_gameweeks)
+    env = PPOEnv(start_gameweek=start_gameweek, num_gameweeks=num_gameweeks,
+                 use_heuristic_chips=False, randomize_start_gw=True)
 
     print("\n" + "=" * 65)
     print("PPO TRAINING CONFIGURATION & HYPERPARAMETERS")

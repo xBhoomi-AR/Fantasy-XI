@@ -30,7 +30,8 @@ class PPOEnv(gym.Env):
 
     def __init__(self, start_gameweek, num_gameweeks, season="2025-26",
                  initial_squad=None, initial_bank=0.0, initial_free_transfers=1,
-                 milp_cache: MILPCache | None = None, use_cache: bool = True):
+                 milp_cache: MILPCache | None = None, use_cache: bool = True,
+                 use_heuristic_chips: bool = False, randomize_start_gw: bool = False):
         super().__init__()
         self.start_gameweek = start_gameweek
         self.num_gameweeks = num_gameweeks
@@ -38,6 +39,8 @@ class PPOEnv(gym.Env):
         self.initial_squad = initial_squad
         self.initial_bank = initial_bank
         self.initial_free_transfers = initial_free_transfers
+        self.use_heuristic_chips = use_heuristic_chips
+        self.randomize_start_gw = randomize_start_gw
 
         if use_cache:
             self.milp_cache = milp_cache or MILPCache.load(DEFAULT_CACHE_PATH)
@@ -55,9 +58,10 @@ class PPOEnv(gym.Env):
     def reset(self, *, seed=None, options=None):
         super().reset(seed=seed)
         self.available_chips = {"wildcard": True, "free_hit": True, "bench_boost": True, "triple_captain": True}
+        start_gw = int(np.random.randint(1, 29)) if self.randomize_start_gw else self.start_gameweek
         squad = self.initial_squad or build_starting_squad(
-            build_canonical_predictions(season=self.season, gameweek=self.start_gameweek))
-        self._state = self._env.reset(self.start_gameweek, squad, self.initial_bank, self.initial_free_transfers)
+            build_canonical_predictions(season=self.season, gameweek=start_gw))
+        self._state = self._env.reset(start_gw, squad, self.initial_bank, self.initial_free_transfers)
         self._steps_taken = 0
         return build_observation(self._state, self.available_chips), {}
 
@@ -115,8 +119,8 @@ class PPOEnv(gym.Env):
         squad_rows = self._state.candidates[self._state.candidates["player_id"].isin(decision.selected_ids)]
         xi = pick_starting_xi(squad_rows)
 
-        # Rule-based chip override if PPO did not specify a chip
-        if chip_name == "none":
+        # Rule-based chip override if PPO did not specify a chip and heuristic chips are enabled
+        if chip_name == "none" and self.use_heuristic_chips:
             from ..optimization.chip_strategy import get_recommended_chip
             rec_chip = get_recommended_chip(
                 gameweek=self._state.gameweek,

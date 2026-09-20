@@ -149,9 +149,11 @@ class PPOEnv(gym.Env):
             "bench_ids": xi.bench_ids,
             "captain_id": xi.captain_id,
             "vice_captain_id": xi.vice_captain_id,
-            "bank": next_state.bank,
-            "free_transfers": next_state.free_transfers,
+            "bank": next_state.bank if next_state is not None else 0.0,
+            "free_transfers": next_state.free_transfers if next_state is not None else 1,
             "chip_used": chip_name,
         }
+        obs = build_observation(next_state, self.available_chips) if next_state is not None else build_observation(self._state, self.available_chips)
         self._state = next_state
-        return build_observation(next_state, self.available_chips), reward, False, truncated, info
+        return obs, reward, False, truncated, info
+

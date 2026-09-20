@@ -127,7 +127,7 @@ class PPOEnv(gym.Env):
         outcome, next_state = self._env.step(decision.selected_ids, new_bank=decision.remaining_budget)
         
         # If Free Hit was played, squad reverts back to prev_squad for next gameweek
-        if chip_name == "free_hit":
+        if chip_name == "free_hit" and next_state is not None:
             next_state.squad_ids = prev_squad
             self._env.squad_ids = prev_squad
 

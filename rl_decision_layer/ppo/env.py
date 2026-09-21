@@ -93,7 +93,11 @@ class PPOEnv(gym.Env):
             if self.available_chips.get(chip_name, False):
                 self.available_chips[chip_name] = False
             else:
+                # chip already used this season - reject it, and make sure no
+                # stale chip state leaks into select_squad(): a rejected
+                # wildcard/free_hit must not disable normal hit accounting
                 chip_name = "none"
+                kwargs["free_hit_or_wildcard"] = False
 
         decision = None
         if self.milp_cache is not None and not self.use_heuristic_chips:

@@ -3,6 +3,135 @@ Repository for documentation and implementation of the Fantasy XI project.
 
 ---
 
+## Getting Started — Run the Full-Stack Demo Locally
+
+This section is everything a new developer needs to clone the repo and run the complete
+local demo (prediction pipeline → PPO → MILP → sequential season → web UI) with no further
+explanation. Detailed background on every component follows further down this file.
+
+### 1. Prerequisites
+
+- **Python** — this repository has no pinned version file (`pyproject.toml`/`.python-version`);
+  it was developed and tested against **Python 3.12**. Any recent Python 3.10+ should work.
+- **pip** (comes with Python).
+- **No Node.js, npm, Vite, or React are required.** The frontend is plain HTML/CSS/vanilla
+  JavaScript with no build step, served directly by the Python backend.
+
+### 2. Installation
+
+From the repository root, install the RL/decision-layer dependencies and the backend
+dependencies:
+```bash
+pip install -r rl_decision_layer/requirements.txt -r backend/requirements.txt
+```
+This is enough to run the demo, since all prediction outputs and the trained PPO model are
+already committed to the repository — nothing needs to be regenerated first.
+
+If you also want to retrain/regenerate the BiLSTM or XGBoost prediction models (optional,
+not needed for the demo), install everything instead:
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Running the complete localhost demo
+
+**One command, one terminal.** There is no separate frontend dev server to start.
+```bash
+uvicorn backend.app:app --reload --port 8000
+```
+Then open **http://localhost:8000** in a browser. The FastAPI backend serves the frontend
+directly from the same process/port.
+
+### 4. Demo flow
+
+1. Click **Start Season** — this calls `POST /season/start`, which builds a fresh legal
+   15-player squad using `ppo_fpl_v4.zip` and displays **Gameweek 1**.
+2. Click **Next Gameweek** — this calls `POST /season/{session_id}/next`. The backend loads
+   that exact session's saved `SeasonState` (squad, bank, free transfers, chip availability)
+   from the previous gameweek and makes **Gameweek 2**'s decision *on top of it* — this is a
+   genuinely sequential season, not independent "best squad" optimization run five separate
+   times.
+3. Keep clicking **Next Gameweek** to progress through Gameweek 3, 4, 5, … up to **Gameweek
+   38** (the last gameweek the historical 2025-26 season data covers), at which point the
+   button disables and a **Season Complete** summary is shown.
+
+State is preserved *server-side* between requests via the `session_id` returned by
+`/season/start` — the frontend just remembers that ID and passes it back on every
+`/next` call; it never computes a decision itself.
+
+### 5. Backend API reference
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/health` | GET | Liveness check |
+| `/season/start` | POST | Starts a new sequential season, returns a `session_id` + Gameweek 1's full result |
+| `/season/{session_id}/next` | POST | Advances that session by exactly one gameweek, continuing from its saved state |
+| `/season/{session_id}/state` | GET | Returns the session's current saved state (next gameweek, bank, free transfers, chip availability) without advancing it |
+| `/docs` | GET | Auto-generated interactive API documentation (Swagger UI) |
+
+### 6. About the RL model
+
+**`rl_decision_layer/ppo/models/ppo_fpl_v4.zip` is the final, frozen, trained model** that
+the backend and frontend use for every decision in the demo (see `backend/rl_bridge.py`).
+An older file, `ppo_fpl.zip`, is also present in the same directory for historical reference
+only — it uses an incompatible, earlier observation/action format and **is not used by any
+part of the running demo**.
+
+### 7. Retraining / reproducing the RL model (optional — not needed for the demo)
+
+The exact, currently-correct training command and configuration are documented in the
+**"9. Train PPO"** section further down this file (under "Temporary Section — Third-Party
+Reproducibility / Quick Test") — see that section for the full command, the matching V4
+observation/action architecture (71-dim observation, `MultiDiscrete(3,3,3,5)` action,
+`[64,64]` MLP, 38-gameweek episodes), and the warning about never overwriting
+`ppo_fpl_v4.zip`. Nothing here is duplicated or reinvented — that section is the single
+source of truth for retraining.
+
+### 8. Architecture at a glance
+
+```
+Predictions (BiLSTM / XGBoost)
+        ↓
+PPO strategic action (aggressiveness, budget, position bias, chip choice)
+        ↓
+MILP squad selection (select_squad)
+        ↓
+Starting XI + Captain/Vice-Captain (pick_starting_xi)
+        ↓
+Historical result / scoring (score_outcome, calculate_reward)
+        ↓
+SeasonState (squad, bank, free transfers, chip availability — carried to the next gameweek)
+        ↓
+Backend API (backend/app.py, backend/rl_bridge.py)
+        ↓
+Frontend (frontend/index.html, styles.css, app.js)
+```
+
+### 9. Stopping the server
+
+Press **Ctrl+C** in the terminal running `uvicorn`.
+
+### 10. Troubleshooting
+
+- **`Address already in use` / port 8000 busy** — another process is using that port; run
+  `uvicorn backend.app:app --reload --port 8001` (or any free port) instead.
+- **`ModuleNotFoundError` for `fastapi`, `uvicorn`, `pulp`, `gymnasium`, `stable_baselines3`,
+  etc.** — the install command in step 2 wasn't run, or was run in a different Python
+  environment than the one used to start `uvicorn`. Re-run step 2 in the same environment.
+- **Server fails to start / a season fails to start with a model-loading error** — confirm
+  `rl_decision_layer/ppo/models/ppo_fpl_v4.zip` exists in your checkout (it's the one PPO
+  model file explicitly tracked in Git — see §6); if it's missing, your checkout is
+  incomplete and should be re-cloned.
+- **The page loads but "Start Season"/"Next Gameweek" show an error** — check the terminal
+  running `uvicorn` for the actual Python traceback; the browser only shows the backend's
+  error message, not the full stack trace.
+- **A browser refresh loses your in-progress season** — the `session_id` is only held in the
+  page's JavaScript memory, not saved by the browser. Click **Start Season** again to begin
+  a new one (the previous session's saved state file on disk is unaffected, just no longer
+  referenced by the page).
+
+---
+
 ## ⚠️ Temporary Section — Third-Party Reproducibility / Quick Test
 
 **This section is a temporary, factual reproducibility note, not the final project README.**

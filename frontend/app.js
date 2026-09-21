@@ -10,11 +10,27 @@ let seasonLog = [];
 
 const el = (id) => document.getElementById(id);
 
+// Guards against double-clicks causing two in-flight requests at once -
+// checked (not just button.disabled) because a very fast double-click can
+// fire before the browser repaints the disabled state.
+let requestInFlight = false;
+
 function setLoading(isLoading) {
+  requestInFlight = isLoading;
   el("loading").classList.toggle("hidden", !isLoading);
-  el("start-btn").disabled = isLoading;
+
+  const startBtn = el("start-btn");
+  startBtn.disabled = isLoading;
+
   const nextBtn = el("next-btn");
-  if (nextBtn) nextBtn.disabled = isLoading || nextBtn.dataset.seasonOver === "true";
+  if (!nextBtn) return;
+  const seasonOver = nextBtn.dataset.seasonOver === "true";
+  nextBtn.disabled = isLoading || seasonOver;
+  if (isLoading) {
+    nextBtn.textContent = "Loading…";
+  } else if (!seasonOver) {
+    nextBtn.textContent = "Next Gameweek →";
+  }
 }
 
 async function callApi(path, options) {
@@ -26,23 +42,48 @@ async function callApi(path, options) {
   return res.json();
 }
 
-function playerCard(p) {
+const POSITION_ORDER = { GK: 0, DEF: 1, MID: 2, FWD: 3 };
+const sortByPosition = (players) =>
+  [...players].sort((a, b) => (POSITION_ORDER[a.position] ?? 9) - (POSITION_ORDER[b.position] ?? 9));
+
+function playerCard(p, isNew) {
   const tag = p.is_captain ? '<span class="tag tag-c">C</span>'
             : p.is_vice_captain ? '<span class="tag tag-vc">VC</span>' : "";
   return `
-    <div class="player-card">
+    <div class="player-card${isNew ? " is-new" : ""}">
       ${tag}
       <div class="pos pos-${p.position}">${p.position}</div>
       <div class="name">${p.name}</div>
       <div class="team">${p.team}</div>
+      ${isNew ? '<div class="new-flag">NEW</div>' : ""}
     </div>`;
 }
 
-function renderChips(availableChips) {
+function fullSquadRow(p, isNew) {
+  const role = p.is_captain ? "Captain"
+             : p.is_vice_captain ? "Vice-Captain"
+             : p.is_starting ? "Starting XI" : "Bench";
+  const roleClass = p.is_starting ? "role-xi" : "role-bench";
+  return `
+    <tr>
+      <td><span class="pos pos-${p.position}">${p.position}</span></td>
+      <td>${p.name}${isNew ? ' <span class="new-flag inline">NEW</span>' : ""}</td>
+      <td class="muted">${p.team}</td>
+      <td class="${roleClass}">${role}</td>
+    </tr>`;
+}
+
+// "Available" (never used), "used" (already played this season), or
+// "active" (the chip actually used THIS gameweek) - three distinct states,
+// all read directly from the backend response, nothing computed here.
+function renderChips(availableChips, chipUsedThisGw) {
   const entries = Object.entries(availableChips || {});
-  el("chips-remaining").innerHTML = entries.map(([name, avail]) =>
-    `<span class="chip-pill ${avail ? "available" : "used"}">${name.replace("_", " ")}</span>`
-  ).join("");
+  el("chips-remaining").innerHTML = entries.map(([name, avail]) => {
+    const isActive = name === chipUsedThisGw;
+    const cls = isActive ? "active" : avail ? "available" : "used";
+    const label = name.replace("_", " ");
+    return `<span class="chip-pill ${cls}">${label}${isActive ? " ★" : ""}</span>`;
+  }).join("");
 }
 
 function renderGameweek(data) {
@@ -66,6 +107,9 @@ function renderGameweek(data) {
   }
 
   el("gw-number").textContent = `Gameweek ${data.gameweek}`;
+  el("gw-subtitle").textContent = data.transfers_in.length === 0 && data.transfers_out.length === 0
+    ? "Initial squad for the season"
+    : `Built from Gameweek ${data.gameweek - 1}'s squad + this gameweek's transfers`;
   el("session-id-label").textContent = `session: ${sessionId}`;
 
   const legalBadge = el("legality-badge");
@@ -77,7 +121,7 @@ function renderGameweek(data) {
   el("state-ft").textContent = data.free_transfers;
   el("state-chip-used").textContent = data.chip_used;
   el("state-chip-requested").textContent = data.ppo_action.chip_requested;
-  renderChips(data.available_chips);
+  renderChips(data.available_chips, data.chip_used);
 
   el("transfer-count").textContent = data.transfers;
   el("hit-count").textContent = data.hits;
@@ -88,9 +132,13 @@ function renderGameweek(data) {
     ? data.transfers_out.map((n) => `<li>- ${n}</li>`).join("")
     : "<li class='muted'>None (initial squad)</li>";
 
+  const newNames = new Set(data.transfers_in);
+  const sortedSquad = sortByPosition(data.squad);
+
+  el("full-squad").innerHTML = sortedSquad.map((p) => fullSquadRow(p, newNames.has(p.name))).join("");
   el("xi-count").textContent = `(${data.starting_xi.length}/11)`;
-  el("starting-xi").innerHTML = data.starting_xi.map(playerCard).join("");
-  el("bench").innerHTML = data.bench.map(playerCard).join("");
+  el("starting-xi").innerHTML = sortByPosition(data.starting_xi).map((p) => playerCard(p, newNames.has(p.name))).join("");
+  el("bench").innerHTML = sortByPosition(data.bench).map((p) => playerCard(p, newNames.has(p.name))).join("");
 
   seasonLog.push({ gw: data.gameweek, reward: data.reward, chip: data.chip_used });
   el("season-log").innerHTML = seasonLog
@@ -98,18 +146,28 @@ function renderGameweek(data) {
     .join("");
 
   const nextBtn = el("next-btn");
+  const completeBanner = el("complete-banner");
   if (data.gameweek >= FINAL_GAMEWEEK) {
     nextBtn.disabled = true;
     nextBtn.dataset.seasonOver = "true";
     nextBtn.textContent = "Season Complete";
+    const total = seasonLog.reduce((sum, g) => sum + g.reward, 0);
+    const chipsPlayed = seasonLog.filter((g) => g.chip !== "none").map((g) => `GW${g.gw}: ${g.chip}`);
+    completeBanner.classList.remove("hidden");
+    completeBanner.innerHTML =
+      `<strong>Season Complete</strong> &mdash; ${seasonLog.length} gameweeks played, ` +
+      `total reward ${total.toFixed(1)}. ` +
+      (chipsPlayed.length ? `Chips played: ${chipsPlayed.join(", ")}.` : "No chips played.");
   } else {
     nextBtn.disabled = false;
     nextBtn.dataset.seasonOver = "false";
     nextBtn.textContent = "Next Gameweek →";
+    completeBanner.classList.add("hidden");
   }
 }
 
 async function startSeason() {
+  if (requestInFlight) return;
   el("start-error").classList.add("hidden");
   setLoading(true);
   try {
@@ -130,6 +188,7 @@ async function startSeason() {
 }
 
 async function nextGameweek() {
+  if (requestInFlight) return;
   el("next-error").classList.add("hidden");
   setLoading(true);
   try {

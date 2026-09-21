@@ -48,6 +48,7 @@
     <div class="gw-header panel">
       <div>
         <div class="gw-number" id="gw-number">Gameweek 1</div>
+        <div class="gw-subtitle" id="gw-subtitle"></div>
         <div class="muted" id="session-id-label"></div>
       </div>
       <div class="gw-badges">
@@ -57,23 +58,24 @@
     </div>
 
     <div id="infeasible-banner" class="panel banner-warning hidden"></div>
+    <div id="complete-banner" class="panel banner-complete hidden"></div>
 
     <div class="grid">
 
       <div class="panel">
         <h2>Season State</h2>
         <div class="state-row"><span>Bank</span><strong id="state-bank"></strong></div>
-        <div class="state-row"><span>Free Transfers</span><strong id="state-ft"></strong></div>
-        <div class="state-row"><span>Chip Used This GW</span><strong id="state-chip-used"></strong></div>
+        <div class="state-row"><span>Free Transfers Available</span><strong id="state-ft"></strong></div>
         <div class="state-row"><span>Chip Requested by PPO</span><strong id="state-chip-requested"></strong></div>
-        <h3>Remaining Chips</h3>
+        <div class="state-row"><span>Chip Actually Used</span><strong id="state-chip-used"></strong></div>
+        <h3>Chips (available / used / active this GW)</h3>
         <div id="chips-remaining" class="chip-list"></div>
       </div>
 
       <div class="panel">
         <h2>Transfers</h2>
         <div class="state-row"><span>Transfers Made</span><strong id="transfer-count"></strong></div>
-        <div class="state-row"><span>Hits</span><strong id="hit-count"></strong></div>
+        <div class="state-row"><span>Hits Taken</span><strong id="hit-count"></strong></div>
         <div class="transfer-cols">
           <div>
             <h3 class="in">IN</h3>
@@ -84,6 +86,16 @@
             <ul id="transfers-out" class="player-list"></ul>
           </div>
         </div>
+      </div>
+
+      <div class="panel span-2">
+        <h2>Full 15-Player Squad <span class="muted">(this gameweek's actual squad, grouped by position)</span></h2>
+        <table class="squad-table">
+          <thead>
+            <tr><th>Pos</th><th>Player</th><th>Team</th><th>Role</th></tr>
+          </thead>
+          <tbody id="full-squad"></tbody>
+        </table>
       </div>
 
       <div class="panel span-2">

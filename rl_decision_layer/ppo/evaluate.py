@@ -1,7 +1,7 @@
 """Loads a saved PPO model and runs it through a short historical episode.
 
 Run with:
-    python -m rl_decision_layer.ppo.evaluate --model ppo_fpl
+    python -m rl_decision_layer.ppo.evaluate --model ppo_fpl_v4
 """
 
 from __future__ import annotations
@@ -14,7 +14,7 @@ from .env import PPOEnv
 from .train import MODELS_DIR
 
 
-def evaluate(model_name="ppo_fpl", start_gameweek=1, num_gameweeks=3):
+def evaluate(model_name="ppo_fpl_v4", start_gameweek=1, num_gameweeks=3):
     """Steps a saved model through PPOEnv (same call chain training used - no
     separate selection logic) and prints per-gameweek detail plus a summary.
     Returns a small results dict for programmatic reuse (e.g. comparisons)."""
@@ -70,7 +70,7 @@ def evaluate(model_name="ppo_fpl", start_gameweek=1, num_gameweeks=3):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="ppo_fpl")
+    parser.add_argument("--model", default="ppo_fpl_v4")
     parser.add_argument("--start-gameweek", type=int, default=1)
     parser.add_argument("--num-gameweeks", type=int, default=3)
     args = parser.parse_args()

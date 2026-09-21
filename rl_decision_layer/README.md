@@ -240,83 +240,96 @@ a state-propagation fix - out of scope here.
 
 ## PPO
 
-`ppo/` - a real, trainable PPO agent (stable-baselines3), but PPO still
-doesn't pick players - the existing MILP does that, unchanged. PPO picks a
-small strategic action that changes what gets passed into `select_squad()`.
+`ppo/` - a real, trained PPO agent (stable-baselines3), but PPO still doesn't
+pick players - the existing MILP does that. PPO picks a small strategic
+action that changes what gets passed into `select_squad()`. **The final,
+authoritative trained model is `ppo_fpl_v4.zip`** - an older `ppo_fpl.zip`
+also exists for historical reference but is no longer compatible with the
+current observation/action code and should not be used.
 
-**Observation** (`observation.py`, `build_observation(state) -> np.ndarray`,
-fixed size 67): 4 features (price, predicted_points, form_avg5,
-fixture_difficulty) per squad player in position order (always 15, since
-the squad is fixed size - the part of the state that varies, the candidate
-pool, isn't flattened directly, see below), plus bank/free_transfers/
-gameweek (3), plus the best available predicted_points per position among
-non-squad candidates (4). No actual points anywhere in it.
+**Observation** (`observation.py`, `build_observation(state, available_chips) ->
+np.ndarray`, fixed size **71**): 4 features (price, predicted_points,
+form_avg5, fixture_difficulty) per squad player in position order (always
+15), plus bank/free_transfers/gameweek (3), plus the best available
+predicted_points per position among non-squad candidates (4), plus 4 chip
+availability flags (wildcard/free_hit/bench_boost/triple_captain, 1.0 if
+still unused this season, 0.0 if already used). No actual points anywhere
+in it. (A later, since-reverted experiment added 3 more "fixture signal"
+features for a 74-dim observation - that version is not what `ppo_fpl_v4.zip`
+was trained on and has been removed from the inference path; see `rl_study/`
+for the full compatibility investigation.)
 
-**Action** (`action.py`, `(aggressiveness, budget_level)`, each 0/1/2, a
-3x3 space): aggressiveness sets `hit_cost` passed to `select_squad()` -
-lower cost, more willing to take transfer hits. budget_level sets what
-fraction (0.85/0.95/1.0) of the squad's full value+bank gets passed as
-`budget`. Both are existing `select_squad()` parameters - nothing about the
-MILP's formulation changed. "Roll vs transfer" isn't a separate action, it
-falls out of a conservative/low-budget setting naturally making 0
-transfers. Positional priority and captaincy strategy aren't implemented -
-they'd need a per-position objective weight in `select_squad()` that
-doesn't exist and wasn't added.
+**Action** (`action.py`, `(aggressiveness, budget_level, position_bias,
+chip_choice)`, `MultiDiscrete(3,3,3,5)`): aggressiveness sets `hit_cost`
+passed to `select_squad()` (0/1/2 → 8.0/4.0/2.0 - lower cost, more willing
+to take transfer hits). budget_level sets what fraction (0.85/0.95/1.0) of
+the squad's full value+bank gets passed as `budget`. position_bias
+reweights the objective toward attack (MID/FWD ×1.3) or defense (GK/DEF
+×1.3), or stays neutral. chip_choice (0-4) picks none/wildcard/free_hit/
+bench_boost/triple_captain - `PPOEnv` enforces each chip as usable at most
+once per season (tracked in `self.available_chips`, reset each episode,
+consumed on use); requesting an already-used chip is silently downgraded to
+"none" rather than erroring.
 
 **Env** (`env.py`, `PPOEnv(gymnasium.Env)`): `reset()`/`step(action)` wrapper
 around `HistoricalEnv` + `select_squad()` + `pick_starting_xi()` +
-`score_outcome()`/`calculate_reward()` - all reused unmodified. Follows the
-real Gymnasium API (`reset()` returns `(obs, info)`, `step()` returns
-`(obs, reward, terminated, truncated, info)`) and passes gymnasium's own
-`check_env()`. An infeasible action (see below) terminates the episode with
-a -100 reward rather than faking a squad; reaching the episode's
-`num_gameweeks` truncates it instead - that distinction matters to
-stable-baselines3's bootstrapping.
+`score_outcome()`/`calculate_reward()`, plus chip-availability tracking and
+an optional `MILPCache` (`optimization/milp_cache.py`) that memoizes
+`(gameweek, squad, action) -> SquadResult` so repeated/training-time steps
+over the same state don't re-solve the MILP. Follows the real Gymnasium API.
+Unlike earlier versions, an infeasible MILP decision no longer ends the
+episode (`terminated` is always `False`) - it falls back first to a
+standard re-solve, then to keeping the existing squad unchanged, so a long
+training episode is never killed by one bad action.
 
-**Known interaction, not a bug**: `build_starting_squad()` already builds
-the cheapest legal squad for its gameweek's pool. Asking for `budget_level`
-0 or 1 (i.e. less than 100% of that squad's own value) from a fresh minimal
-squad is often genuinely infeasible, since there's no legal squad cheaper
-than the cheapest one already found - confirmed directly, and it doesn't
-resolve after a step or two either, since a 0-transfer decision leaves the
-squad exactly as minimal as it started. The budget-saving actions only make
-sense once a squad's value has grown past the bare minimum through real
-transfers over a season - `test_infeasible_action_is_handled_safely` uses
-this exact case to prove the episode-ending safeguard works.
+**Chip decision path**: by default (`use_heuristic_chips=False`, what
+`show_squad.py`/`season_controller.py`/`evaluate.py` use), chip choice comes
+directly from PPO's own action. A separate, rule-based chip-timing heuristic
+(`optimization/chip_strategy.py::get_recommended_chip()`, e.g. reserving
+Free Hit for blank gameweeks, Bench Boost for fixture-congested weeks) exists
+and is wired into `PPOEnv.step()`, but only takes over if `PPOEnv` is
+constructed with `use_heuristic_chips=True` - an alternate mode, not PPO's
+default behavior.
 
-**Training** (`train.py`): builds a `PPOEnv`, a small stable-baselines3 PPO
-(`net_arch=[32, 32]`, CPU), and calls `model.learn(total_timesteps=...)`.
+**Training** (`train.py`): builds a `PPOEnv` (38-gameweek episodes,
+randomized start gameweek), a stable-baselines3 PPO (`net_arch=[64, 64]`,
+`n_steps=1024`, `batch_size=128`, CPU), and calls
+`model.learn(total_timesteps=...)` - these defaults match `ppo_fpl_v4.zip`'s
+own training recipe exactly.
 
 ```
-python -m rl_decision_layer.ppo.train --timesteps 500
+python -m rl_decision_layer.ppo.train --timesteps 50000
 ```
 
-`--timesteps` is the only thing you should change for a real run - there's
-no "right" number yet, this is a fresh implementation and hasn't been tuned.
-Start small and increase it yourself; training is timesteps-based (each
-timestep is one gameweek decision), not episode-based, since
-stable-baselines3 PPO counts in timesteps. `--start-gameweek`/
-`--num-gameweeks` control the training episode's historical window,
-`--device` defaults to `cpu` (this machine has no CUDA torch build anyway).
-Real training (thousands+ timesteps) should be run by you, locally, not by
-Claude - it can be left running in the background/overnight.
+Training is timesteps-based (each timestep is one gameweek decision), not
+episode-based, since stable-baselines3 PPO counts in timesteps.
+`--start-gameweek`/`--num-gameweeks` control the training episode's
+historical window, `--device` defaults to `cpu`. Default `--save-name` is
+`ppo_fpl_pure_rl`, deliberately **not** `ppo_fpl_v4` - that name is reserved
+for the final, frozen, evaluated model, so retraining never silently
+overwrites it. Real training should be run by you, locally, not by Claude.
 
 `--checkpoint-freq N` saves a snapshot to `ppo/models/checkpoints/` every N
-timesteps (0/default = off) - cheap insurance for a long unattended run.
-`--resume` continues training `--save-name`'s existing saved model instead
-of starting fresh (its internal timestep count keeps incrementing rather
-than resetting).
+timesteps (0/default = off). `--resume` continues training `--save-name`'s
+existing saved model instead of starting fresh.
 
-Models save to `ppo/models/<name>.zip` (gitignored - these are generated
-artifacts, not source). Load and run one with:
+Models save to `ppo/models/<name>.zip` (gitignored, except `ppo_fpl_v4.zip`
+and `ppo_fpl.zip` which are explicitly un-ignored - see the root
+`.gitignore`). Load and run one with:
 
 ```
-python -m rl_decision_layer.ppo.evaluate --model ppo_fpl
+python -m rl_decision_layer.ppo.evaluate --model ppo_fpl_v4
+python -m rl_decision_layer.ppo.show_squad --model ppo_fpl_v4 --start-gameweek 1
+python -m rl_decision_layer.ppo.season_controller --model ppo_fpl_v4 --start-gameweek 1 --num-gameweeks 5
 ```
 
-which steps a saved model through a short historical episode and prints
-each gameweek's action/reward - not a real evaluation, just proof the
-saved-model -> PPOEnv -> MILP -> legal squad chain works.
+`evaluate.py` steps a saved model through a short historical episode and
+prints each gameweek's action/reward. `show_squad.py` prints one gameweek's
+full human-readable recommendation (names, not IDs). `season_controller.py`
+is the actual sequential product - it carries the squad/bank/free-transfers/
+chip-availability state from each gameweek into the next within one run, and
+can optionally save/resume that state across separate process invocations
+via `--save-state`/`--load-state`.
 
 The MILP-only baseline (no PPO at all) still runs independently:
 
@@ -331,9 +344,11 @@ python -m rl_decision_layer.run_baseline
   player's current price instead.
 - The MILP is myopic (single-gameweek only) and always spends its full
   budget, which can eventually leave too little money to field a legal
-  squad in a cheap-at-the-low-end gameweek's pool. Not something
-  free-transfer rollover fixes - see "Historical backtest loop" above.
-- Chips aren't implemented.
+  squad in a cheap-at-the-low-end gameweek's pool - see "Historical backtest
+  loop" above. `PPOEnv` works around this at inference time with a
+  keep-existing-squad fallback rather than ending the episode.
+- Chips are implemented (see "PPO" above) but PPO's own choice of which
+  chip to use has not been shown to adapt to the situation.
 - A squad member missing from a gameweek's candidate pool (no fixture, or
   missing price) contributes 0 to that squad's valuation for budget
   purposes, understating the real available money.
@@ -351,6 +366,9 @@ python rl_decision_layer/tests/test_historical_loop.py
 python rl_decision_layer/tests/test_free_transfers.py
 python rl_decision_layer/tests/test_ppo_interface.py
 python rl_decision_layer/tests/test_ppo_training.py
+python rl_decision_layer/tests/test_season_controller.py
+python rl_decision_layer/tests/test_milp_cache.py
+python -m rl_decision_layer.tests.test_full_season   # run as a module - needs the repo root on sys.path
 ```
 
 Most of these need `pulp`, `gymnasium` and `stable-baselines3`

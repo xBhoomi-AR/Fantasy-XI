@@ -1,10 +1,12 @@
 """Trains a PPO agent on the historical FPL environment.
 
-Run with:
-    python -m rl_decision_layer.ppo.train --timesteps 500
+Run with (defaults match ppo_fpl_v4.zip's actual training recipe - 71-dim
+observation, MultiDiscrete(3,3,3,5) action, [64,64] MLP, 38-GW episodes):
+    python -m rl_decision_layer.ppo.train --timesteps 50000
 
-Defaults are deliberately tiny and CPU-only - meant for you to run manually
-and scale up yourself, not something Claude should run for real training.
+This is meant for you to run manually, not something Claude should run for
+real training. The default --save-name is deliberately NOT "ppo_fpl_v4" -
+that name is reserved for the final, frozen, evaluated model.
 """
 
 from __future__ import annotations
@@ -42,7 +44,7 @@ def train(timesteps=50000, start_gameweek=1, num_gameweeks=38, device="cpu", sav
     print(f" Rollout Horizon        : 1024 steps per rollout update")
     print(f" Mini-Batch Size        : 128")
     print(f" Episode Gameweeks      : {num_gameweeks} GWs per rollout episode")
-    print(f" Policy Network Arch    : MLP [128, 128]")
+    print(f" Policy Network Arch    : MLP [64, 64] (matches ppo_fpl_v4.zip)")
     print(f" Learning Rate          : 3e-4")
     print(f" Entropy Coef           : 0.03 (Sustained Action Space Exploration)")
     print(f" MILP Cache Status      : {'ACTIVE (0ms step lookup)' if env.milp_cache is not None else 'DISABLED'}")
@@ -62,7 +64,7 @@ def train(timesteps=50000, start_gameweek=1, num_gameweeks=38, device="cpu", sav
             batch_size=128,
             ent_coef=0.03,
             learning_rate=3e-4,
-            policy_kwargs=dict(net_arch=[128, 128]),
+            policy_kwargs=dict(net_arch=[64, 64]),
             verbose=1,
         )
 
@@ -81,11 +83,14 @@ def train(timesteps=50000, start_gameweek=1, num_gameweeks=38, device="cpu", sav
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--timesteps", type=int, default=80000)
+    parser.add_argument("--timesteps", type=int, default=50000)
     parser.add_argument("--start-gameweek", type=int, default=1)
-    parser.add_argument("--num-gameweeks", type=int, default=10)
+    parser.add_argument("--num-gameweeks", type=int, default=38)
     parser.add_argument("--device", default="cpu")
-    parser.add_argument("--save-name", default="ppo_fpl")
+    parser.add_argument("--save-name", default="ppo_fpl_pure_rl",
+                         help="do not use 'ppo_fpl_v4' here - that name is reserved for the "
+                              "final, frozen, evaluated model; retraining under a different "
+                              "name avoids silently overwriting it")
     parser.add_argument("--checkpoint-freq", type=int, default=0,
                          help="save a checkpoint every N timesteps (0 = disabled)")
     parser.add_argument("--resume", action="store_true",

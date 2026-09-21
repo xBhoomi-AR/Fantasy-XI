@@ -57,7 +57,7 @@ def _format_player(pid, candidates, players, teams, captain_id, vice_captain_id)
     return f"  {pos:<4} {_name(pid, players):<28} {team:<18}{tag}"
 
 
-def run_season(model_name: str = "ppo_fpl", start_gameweek: int = 1, num_gameweeks: int = 5,
+def run_season(model_name: str = "ppo_fpl_v4", start_gameweek: int = 1, num_gameweeks: int = 5,
                season: str = "2025-26", load_state: str | None = None,
                save_state: str | None = None) -> SeasonState | None:
     players = load_player_metadata().set_index("player_id")
@@ -90,7 +90,9 @@ def run_season(model_name: str = "ppo_fpl", start_gameweek: int = 1, num_gamewee
         print(f"\n{'=' * 60}")
         print(f"GAMEWEEK {gw_label}")
         print(f"{'=' * 60}")
-        print(f"PPO ACTION: aggressiveness={int(action[0])}  budget_level={int(action[1])}")
+        act = tuple(int(a) for a in action)
+        print(f"PPO ACTION: aggressiveness={act[0]}  budget_level={act[1]}"
+              + (f"  position_bias={act[2]}  chip_choice={act[3]}" if len(act) == 4 else ""))
 
         if terminated and info.get("status") not in (None, "Optimal"):
             print(f"\nNo legal squad found under this action (status={info.get('status')}).")
@@ -132,7 +134,8 @@ def run_season(model_name: str = "ppo_fpl", start_gameweek: int = 1, num_gamewee
         for pid in bench_ids:
             print(_format_player(pid, pre_candidates, players, teams, info["captain_id"], info["vice_captain_id"]))
 
-        print(f"\nTRANSFERS: {info['transfers']}   HITS: {info['hits']}")
+        print(f"\nCHIP USED: {info.get('chip_used', 'none')}")
+        print(f"TRANSFERS: {info['transfers']}   HITS: {info['hits']}")
         print(f"BANK: {info['bank']}   FREE TRANSFERS: {info['free_transfers']}")
         print(f"REWARD: {reward:.1f}")
         print(f"LEGALITY: {'LEGAL' if info['legality_violations'] == [] else info['legality_violations']}")
@@ -153,7 +156,7 @@ def run_season(model_name: str = "ppo_fpl", start_gameweek: int = 1, num_gamewee
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="ppo_fpl")
+    parser.add_argument("--model", default="ppo_fpl_v4")
     parser.add_argument("--start-gameweek", type=int, default=1,
                          help="ignored if --load-state is given (resumes from the saved gameweek instead)")
     parser.add_argument("--num-gameweeks", type=int, default=5)

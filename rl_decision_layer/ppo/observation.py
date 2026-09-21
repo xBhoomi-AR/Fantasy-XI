@@ -10,8 +10,11 @@ SQUAD_SIZE = 15
 PLAYER_FEATURES = 4  # price, predicted_points, form_avg5, fixture_difficulty
 POSITIONS = ["GK", "DEF", "MID", "FWD"]
 
-# 60 player features + 3 team state + 4 position best + 4 chip availability + 3 fixture signals = 74
-OBSERVATION_SIZE = SQUAD_SIZE * PLAYER_FEATURES + 3 + len(POSITIONS) + 4 + 3
+# 60 player features + 3 team state + 4 position best + 4 chip availability = 71
+# (matches ppo_fpl_v4.zip's trained observation space exactly - the 3 "fixture
+# signals" (DGW/BGW/cap-ceiling) added post-v4 are not part of what v4 was
+# trained on and are intentionally excluded here; see rl_study/ for detail)
+OBSERVATION_SIZE = SQUAD_SIZE * PLAYER_FEATURES + 3 + len(POSITIONS) + 4
 
 
 def build_observation(state, available_chips: dict[str, bool] | None = None) -> np.ndarray:
@@ -44,11 +47,5 @@ def build_observation(state, available_chips: dict[str, bool] | None = None) -> 
         1.0 if chips.get("triple_captain", True) else 0.0,
     ]
 
-    # Future fixture signals to allow neural PPO to learn DGW/BGW chip reservation
-    max_dgw = float(squad_rows["fixture_count"].max()) if "fixture_count" in squad_rows.columns and len(squad_rows) else 1.0
-    bgw_ratio = float((squad_rows["fixture_difficulty"].isna()).sum()) / 15.0 if "fixture_difficulty" in squad_rows.columns and len(squad_rows) else 0.0
-    cap_ceil = float(squad_rows["predicted_points"].max()) / 10.0 if len(squad_rows) else 0.0
-    fixture_signals = [max_dgw / 2.0, bgw_ratio, cap_ceil]
-
-    obs = np.array(player_features + team_state + position_best + chip_flags + fixture_signals, dtype=np.float32)
+    obs = np.array(player_features + team_state + position_best + chip_flags, dtype=np.float32)
     return np.nan_to_num(obs, nan=0.0)

@@ -3,7 +3,7 @@ sequential (GW2 built on GW1's actual resulting squad) rather than
 independent per-gameweek optimization, and that saving/resuming state
 reproduces the same result as one continuous run.
 
-Uses the real frozen ppo_fpl.zip (never modified or retrained here) and
+Uses the real frozen ppo_fpl_v4.zip (never modified or retrained here) and
 real historical data - no synthetic/mocked pipeline.
 
 Run with:
@@ -39,7 +39,7 @@ def test_sequential_not_independent() -> None:
 
     buf = io.StringIO()
     with redirect_stdout(buf):
-        state = run_season(model_name="ppo_fpl", start_gameweek=1, num_gameweeks=3)
+        state = run_season(model_name="ppo_fpl_v4", start_gameweek=1, num_gameweeks=3)
     output = buf.getvalue()
 
     check(state is not None, "a 3-gameweek run completes and returns a final state")
@@ -60,15 +60,15 @@ def test_resume_matches_continuous_run() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         state_path = str(Path(tmp) / "state.json")
 
-        continuous_state = run_season(model_name="ppo_fpl", start_gameweek=1, num_gameweeks=3)
+        continuous_state = run_season(model_name="ppo_fpl_v4", start_gameweek=1, num_gameweeks=3)
 
-        run_season(model_name="ppo_fpl", start_gameweek=1, num_gameweeks=2, save_state=state_path)
+        run_season(model_name="ppo_fpl_v4", start_gameweek=1, num_gameweeks=2, save_state=state_path)
         check(Path(state_path).exists(), "--save-state writes a state file")
 
         loaded = SeasonState.load(state_path)
         check(loaded.gameweek == 3, "saved state points at the correct next gameweek")
 
-        resumed_state = run_season(model_name="ppo_fpl", num_gameweeks=1, load_state=state_path)
+        resumed_state = run_season(model_name="ppo_fpl_v4", num_gameweeks=1, load_state=state_path)
 
         check(sorted(resumed_state.squad_ids) == sorted(continuous_state.squad_ids),
               "resuming from saved state reaches the same final squad as one continuous run")
@@ -82,7 +82,7 @@ def test_no_second_selection_logic() -> None:
     """The transfer IN/OUT diff must come from the same squad_ids select_squad()
     already returned - confirm by checking every transferred-in player is
     actually part of the final squad and every transferred-out player isn't."""
-    state = run_season(model_name="ppo_fpl", start_gameweek=1, num_gameweeks=2)
+    state = run_season(model_name="ppo_fpl_v4", start_gameweek=1, num_gameweeks=2)
     check(state is not None and len(state.squad_ids) == 15,
           "controller reuses select_squad()'s own result rather than computing a separate squad")
 

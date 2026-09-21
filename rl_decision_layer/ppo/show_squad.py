@@ -47,7 +47,7 @@ def _format_player(pid: int, candidates, players, teams, captain_id, vice_captai
     return f"  {pos:<4} {name:<28} {team:<18}{tag}"
 
 
-def show_squad(model_name: str = "ppo_fpl", start_gameweek: int = 1, season: str = "2025-26") -> dict:
+def show_squad(model_name: str = "ppo_fpl_v4", start_gameweek: int = 1, season: str = "2025-26") -> dict:
     """Runs one PPO decision for start_gameweek and prints the resulting
     squad/XI/captain/vice in human-readable form. Returns the raw info dict
     (as produced by PPOEnv.step()) for programmatic use."""
@@ -62,8 +62,10 @@ def show_squad(model_name: str = "ppo_fpl", start_gameweek: int = 1, season: str
     action, _ = model.predict(obs, deterministic=True)
     obs, reward, terminated, truncated, info = env.step(action)
 
+    act = tuple(int(a) for a in action)
     print(f"GAMEWEEK: {info.get('gameweek', start_gameweek)}")
-    print(f"PPO ACTION: aggressiveness={int(action[0])}  budget_level={int(action[1])}")
+    print(f"PPO ACTION: aggressiveness={act[0]}  budget_level={act[1]}"
+          + (f"  position_bias={act[2]}  chip_choice={act[3]}" if len(act) == 4 else ""))
 
     if terminated and info.get("status") not in (None, "Optimal"):
         print(f"\nNo legal squad found under this action (status={info.get('status')}).")
@@ -94,7 +96,8 @@ def show_squad(model_name: str = "ppo_fpl", start_gameweek: int = 1, season: str
     for pid in bench_ids:
         print(_format_player(pid, candidates, players, teams, info["captain_id"], info["vice_captain_id"]))
 
-    print(f"\nTRANSFERS: {info['transfers']}")
+    print(f"\nCHIP USED: {info.get('chip_used', 'none')}")
+    print(f"TRANSFERS: {info['transfers']}")
     print(f"HITS: {info['hits']}")
     print(f"BANK: {info['bank']}")
     print(f"FREE TRANSFERS: {info['free_transfers']}")
@@ -106,7 +109,7 @@ def show_squad(model_name: str = "ppo_fpl", start_gameweek: int = 1, season: str
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="ppo_fpl")
+    parser.add_argument("--model", default="ppo_fpl_v4")
     parser.add_argument("--start-gameweek", type=int, default=1)
     parser.add_argument("--season", default="2025-26")
     args = parser.parse_args()

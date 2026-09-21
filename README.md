@@ -25,13 +25,18 @@ predictions/interface.py (canonical schema)
         ↓
 candidate pool (per-position shortlist)
         ↓
-PPO (strategic action: transfer aggressiveness, budget level)
+PPO strategic action (aggressiveness, budget level, position bias, chip choice)
         ↓
-MILP (select_squad) — legal 15-player squad
+transfer-aware MILP (select_squad) — legal 15-player squad, built from
+        the CURRENT squad/bank/free-transfers, not from scratch
         ↓
 MILP (pick_starting_xi) — 11 starters + captain/vice
         ↓
-human-readable output (show_squad.py)
+gameweek result / updated state (squad, bank, free transfers, chip used)
+        ↓
+state carried forward into the next gameweek's decision
+        ↓
+human-readable output (season_controller.py — sequential; show_squad.py — single gameweek)
 ```
 
 ### 3. Install dependencies
@@ -54,26 +59,41 @@ The prediction files (BiLSTM and XGBoost outputs) and all raw/processed data are
 committed to this repository — no retraining of either prediction model is required to use
 them.
 
-**The repository includes the frozen PPO model `ppo_fpl.zip` used for the documented
-evaluation results.** `.gitignore` explicitly tracks this one file
-(`rl_decision_layer/ppo/models/ppo_fpl.zip`) while still ignoring internal/experimental
-artifacts in that directory (e.g. `ppo_fpl_2k_backup.zip`, future checkpoints) — once
-committed and pushed, a fresh `git clone` will contain it. If for some reason it's absent
-from your checkout, you can train a new one yourself (§9 below, a few minutes for a small
-run), though that will **not** be the same frozen 66,048-timestep model this project's
-results describe — it will be freshly, randomly initialized.
+**The final, authoritative trained PPO model is `ppo_fpl_v4.zip`** — a 71-dimensional
+observation, `MultiDiscrete(3,3,3,5)` action (aggressiveness, budget level, position bias,
+chip choice), `[64,64]` MLP policy trained for 50,176 timesteps over 38-gameweek episodes.
+`.gitignore` explicitly tracks this file (`rl_decision_layer/ppo/models/ppo_fpl_v4.zip`)
+while still ignoring internal/experimental artifacts in that directory — once committed and
+pushed, a fresh `git clone` will contain it.
 
-⚠️ **If you run the training command against the default save path, it will silently
-overwrite the shipped `ppo_fpl.zip`** (see §9) — use a different `--save-name` if you want
-to experiment without touching the shipped model.
+An older model, `ppo_fpl.zip` (67-dim observation, 2-action `(aggressiveness, budget_level)`
+only, no chips), is also still present for historical reference but is **no longer
+compatible with the current code** and should not be used — pass `--model ppo_fpl_v4`
+(now the default for every script below) if you ever need to be explicit.
 
-Once a `ppo_fpl.zip` exists at that path:
+⚠️ **If you retrain, use a `--save-name` other than `ppo_fpl_v4`** (see §9) — the training
+command always overwrites whatever file is already at its save path, and `ppo_fpl_v4.zip` is
+the one you don't want to lose.
+
+**Sequential multi-gameweek recommendation (the main product demo)**:
 ```bash
-python -m rl_decision_layer.ppo.show_squad --model ppo_fpl --start-gameweek 1
+python -m rl_decision_layer.ppo.season_controller --start-gameweek 1 --num-gameweeks 5
 ```
-Prints the recommended 15-player squad, starting XI, captain, vice-captain, bench,
-transfers, hits, bank, free transfers, reward, and a legality check, using real player names
-(from `players.csv`'s `player_name` column) and real team names.
+Runs 5 consecutive gameweeks in one pass, carrying the squad, bank, free transfers, and chip
+availability forward from each gameweek into the next — genuinely sequential, not
+independent per-gameweek optimization (verified: a player bought in one gameweek's demo run
+was sold again the very next gameweek, only possible if the system remembered what it just
+did). For each gameweek it prints the PPO action (including chip choice), transfers IN/OUT
+versus the previous gameweek's actual resulting squad, the full 15-player squad, starting XI,
+captain, vice-captain, bench, chip used, transfers, hits, bank, free transfers, reward, and a
+legality check.
+
+**Single-gameweek query** (quick look at one gameweek, not the sequential product):
+```bash
+python -m rl_decision_layer.ppo.show_squad --start-gameweek 1
+```
+Prints the same per-gameweek detail as above for one isolated gameweek, using real player
+names (from `players.csv`'s `player_name` column) and real team names.
 
 ### 6–7. Retrain / re-run BiLSTM (optional)
 
@@ -102,23 +122,30 @@ already-validated prediction files the whole pipeline is tested against, so this
 structurally verified (clean imports, correct output schema, correct write targets) rather
 than freshly executed.
 
-### 9. Train PPO (optional — a frozen trained model is already shipped)
+### 9. Train PPO (optional — the final trained model, `ppo_fpl_v4.zip`, is already shipped)
 
 ```bash
-python -m rl_decision_layer.ppo.train --timesteps 500
+python -m rl_decision_layer.ppo.train --timesteps 50000
 ```
-Sensible defaults (`--start-gameweek 1 --num-gameweeks 3 --device cpu`). Saves to
-`rl_decision_layer/ppo/models/ppo_fpl.zip` by default.
+Defaults now match `ppo_fpl_v4.zip`'s own recipe exactly: `--start-gameweek 1
+--num-gameweeks 38 --device cpu`, 71-dim observation, `MultiDiscrete(3,3,3,5)` action,
+`[64,64]` MLP, `n_steps=1024`, `batch_size=128`. Saves to
+`rl_decision_layer/ppo/models/<save-name>.zip`, default save-name **`ppo_fpl_pure_rl`**
+(deliberately not `ppo_fpl_v4` — that name is reserved for the final, frozen, evaluated
+model, so retraining never silently overwrites it).
 
 ⚠️ **This command always trains a brand-new, randomly-initialized model and unconditionally
-overwrites whatever file is already at that save path — including the shipped frozen model**
-(verified from `train.py`: without `--resume` it builds a fresh `PPO(...)` regardless of
-what's already there, and `model.save(path)` has no existence check). If you want to
-experiment without losing the shipped model, use `--save-name <something-else>`.
+overwrites whatever file is already at its save path** (verified from `train.py`: without
+`--resume` it builds a fresh `PPO(...)` regardless of what's already there, and
+`model.save(path)` has no existence check). Never pass `--save-name ppo_fpl_v4`.
 
 `--resume` (continue the *existing* model at `--save-name` instead of starting fresh) also
 saves back to the same path when finished — it extends the lineage rather than replacing it
 with a random one, but still overwrites the file on disk with the newly-extended version.
+
+A model retrained this way will **not** be the same `ppo_fpl_v4.zip` this project's results
+describe — training is stochastic and there is no guarantee of reproducing the same learned
+behavior, even with identical hyperparameters.
 
 ### 10–11. Where outputs go / what consumes them
 
@@ -126,7 +153,8 @@ with a random one, but still overwrites the file on disk with the newly-extended
 |---|---|---|---|
 | BiLSTM predictions | `models/BiLSTM_model/predicted_points.csv` | Yes | `predictions/interface.py` |
 | XGBoost predictions | `models/xgboost_model/predictions/*.csv` | Yes | `predictions/interface.py` |
-| PPO model (frozen, shipped) | `rl_decision_layer/ppo/models/ppo_fpl.zip` | **Yes** (this file only) | `evaluate.py`, `show_squad.py` |
+| PPO model (final, shipped) | `rl_decision_layer/ppo/models/ppo_fpl_v4.zip` | **Yes** | `show_squad.py`, `season_controller.py`, `evaluate.py` |
+| PPO model (old, incompatible) | `rl_decision_layer/ppo/models/ppo_fpl.zip` | Yes (historical reference only — do not use) | — |
 | PPO backup/experimental artifacts | `rl_decision_layer/ppo/models/*` (other files) | No — gitignored | internal development only |
 | Final recommendation | printed to terminal | — | end user |
 
@@ -142,16 +170,30 @@ with a random one, but still overwrites the file on disk with the newly-extended
 
 ### 13. Chips
 
-Wildcard, Free Hit, Bench Boost, and Triple Captain are **not implemented**. Future scope only.
+**Implemented and verified end-to-end with `ppo_fpl_v4.zip`.** Wildcard, Free Hit, Bench
+Boost, and Triple Captain are all real: chip availability (one-shot-per-season, per chip) is
+part of the observation PPO sees, chip choice is the 4th component of PPO's action, and the
+choice actually reaches the MILP (`chip_name`/`free_hit_or_wildcard` passed into
+`select_squad()`) and scoring (`bench_boost`/`triple_captain` flags into `score_outcome()`).
+Verified by direct execution: a wildcard used in one gameweek was correctly shown as
+unavailable (silently downgraded to "none") when the policy tried to request it again in a
+later gameweek of the same sequential run — chip state genuinely carries forward. A separate,
+rule-based chip-timing heuristic also exists (`optimization/chip_strategy.py`) but is only
+active if `PPOEnv` is constructed with `use_heuristic_chips=True` — the default path (used by
+`show_squad.py`/`season_controller.py`) takes chip choice from PPO's own action, not the
+heuristic.
 
 ### 14. PPO's current learned behavior — stated honestly
 
-PPO is genuinely integrated and trained (66,048 timesteps across varied gameweek windows),
-and the full PPO → MILP → starting-XI → scoring pipeline is verified working and legal
-end-to-end. The current trained policy converges to a single strategic action
-(`aggressiveness=1, budget_level=2`) that is numerically equivalent to the MILP baseline's
-own default behavior across every tested evaluation window. It has not been shown to learn
-a state-dependent strategy. See `rl_study/` for the full technical explanation of why.
+PPO is genuinely integrated and trained (`ppo_fpl_v4.zip`, 50,176 timesteps over 38-gameweek
+episodes), and the full PPO → MILP → starting-XI → scoring pipeline, including chips and the
+sequential multi-gameweek controller, is verified working and legal end-to-end. In the
+gameweeks checked, the core strategic action (aggressiveness, budget level, position bias)
+stayed fixed across the run, and chip choice repeated a request that had already been used
+(and was correctly blocked) rather than switching to a different chip — i.e., it has not been
+shown to adapt its strategy to the situation. This is stated plainly, not hidden: the
+sequential squad/transfer/chip-state *mechanics* are real and verified; PPO's own strategic
+*adaptiveness* is not yet demonstrated. See `rl_study/` for the full technical explanation.
 
 ### 15. What this is not
 

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fantasy XI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Fantasy&nbsp;XI</div>
+  <div class="pipeline" title="This is the actual decision pipeline behind every gameweek shown below">
+    <span>Predictions</span><span class="arrow">&rarr;</span>
+    <span>PPO strategy</span><span class="arrow">&rarr;</span>
+    <span>MILP squad</span><span class="arrow">&rarr;</span>
+    <span>Starting XI</span><span class="arrow">&rarr;</span>
+    <span>Captain/VC</span><span class="arrow">&rarr;</span>
+    <span>Result</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- LANDING VIEW -->
+  <section id="landing" class="panel">
+    <h1>A sequential, AI-assisted Fantasy Premier League manager</h1>
+    <p class="lede">
+      This demo runs a real, trained reinforcement-learning agent (PPO) on top of a
+      constraint solver (MILP) across a real historical Premier League season, one
+      gameweek at a time. Each gameweek's squad is built <strong>on top of the previous
+      gameweek's actual result</strong> &mdash; transfers, bank, free transfers, and chip
+      usage all carry forward, exactly like a real manager's season.
+    </p>
+    <p class="lede">
+      PPO does not pick your 15 players directly. It chooses a small strategic setting
+      (how aggressive to be with transfers, how much budget to spend, whether to play a
+      chip) which is then handed to a MILP solver that selects the actual legal squad,
+      starting XI, and captain.
+    </p>
+    <button id="start-btn" class="btn btn-primary">Start Season</button>
+    <p id="start-error" class="error hidden"></p>
+  </section>
+
+  <!-- SEASON VIEW -->
+  <section id="season" class="hidden">
+
+    <div class="gw-header panel">
+      <div>
+        <div class="gw-number" id="gw-number">Gameweek 1</div>
+        <div class="muted" id="session-id-label"></div>
+      </div>
+      <div class="gw-badges">
+        <span id="legality-badge" class="badge"></span>
+        <span id="reward-badge" class="badge badge-reward"></span>
+      </div>
+    </div>
+
+    <div id="infeasible-banner" class="panel banner-warning hidden"></div>
+
+    <div class="grid">
+
+      <div class="panel">
+        <h2>Season State</h2>
+        <div class="state-row"><span>Bank</span><strong id="state-bank"></strong></div>
+        <div class="state-row"><span>Free Transfers</span><strong id="state-ft"></strong></div>
+        <div class="state-row"><span>Chip Used This GW</span><strong id="state-chip-used"></strong></div>
+        <div class="state-row"><span>Chip Requested by PPO</span><strong id="state-chip-requested"></strong></div>
+        <h3>Remaining Chips</h3>
+        <div id="chips-remaining" class="chip-list"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Transfers</h2>
+        <div class="state-row"><span>Transfers Made</span><strong id="transfer-count"></strong></div>
+        <div class="state-row"><span>Hits</span><strong id="hit-count"></strong></div>
+        <div class="transfer-cols">
+          <div>
+            <h3 class="in">IN</h3>
+            <ul id="transfers-in" class="player-list"></ul>
+          </div>
+          <div>
+            <h3 class="out">OUT</h3>
+            <ul id="transfers-out" class="player-list"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel span-2">
+        <h2>Starting XI <span class="muted" id="xi-count"></span></h2>
+        <div id="starting-xi" class="xi-grid"></div>
+      </div>
+
+      <div class="panel span-2">
+        <h2>Bench</h2>
+        <div id="bench" class="bench-row"></div>
+      </div>
+
+    </div>
+
+    <div class="panel next-panel">
+      <button id="next-btn" class="btn btn-primary">Next Gameweek &rarr;</button>
+      <p id="next-error" class="error hidden"></p>
+      <div id="season-log" class="season-log"></div>
+    </div>
+
+  </section>
+
+  <div id="loading" class="loading hidden">Running RL pipeline&hellip;</div>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

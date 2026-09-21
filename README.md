@@ -95,38 +95,48 @@ python -m rl_decision_layer.ppo.show_squad --start-gameweek 1
 Prints the same per-gameweek detail as above for one isolated gameweek, using real player
 names (from `players.csv`'s `player_name` column) and real team names.
 
-### 5b. Localhost backend (`backend/`) — API for the future frontend
+### 5b. Localhost full-stack demo (`backend/` + `frontend/`)
 
-A minimal FastAPI service that exposes the same sequential pipeline above over HTTP, for a
-web frontend to drive gameweek-by-gameweek instead of reading a terminal. It contains **no**
-squad-selection/transfer/chip/scoring logic of its own — every endpoint calls
-`backend/rl_bridge.py`, which calls the exact same `PPOEnv` + `SeasonState` machinery
-`season_controller.py` already uses and `rl_decision_layer/tests/test_season_controller.py`
-already validates. One saved `SeasonState` JSON file per demo session
-(`backend/sessions/<session_id>.json`, gitignored) is the state store — the same file format
-`--save-state`/`--load-state` already produce.
+A small FastAPI backend plus a plain HTML/CSS/JS frontend (no build step, no Node
+dependency — the repo had no existing frontend tooling, so this is the simplest thing that
+works) that together turn the sequential pipeline above into a clickable local demo:
+"Start Season" → see Gameweek 1's squad/XI/captain/transfers/chips → click "Next Gameweek" →
+see Gameweek 2, built on Gameweek 1's actual result → and so on.
 
+**Neither file contains any squad-selection/transfer/chip/scoring logic.** Every screen is
+built directly from the JSON `backend/rl_bridge.py` returns, which itself just calls the
+exact same `PPOEnv` + `SeasonState` machinery `season_controller.py` already uses and
+`rl_decision_layer/tests/test_season_controller.py` already validates. One saved
+`SeasonState` JSON file per demo session (`backend/sessions/<session_id>.json`, gitignored)
+is the state store — the same file format `--save-state`/`--load-state` already produce.
+
+**Run it** (one command, one terminal — the backend serves the frontend too):
 ```bash
 pip install -r rl_decision_layer/requirements.txt -r backend/requirements.txt
 uvicorn backend.app:app --reload --port 8000
 ```
+Then open **http://localhost:8000** in a browser. Click **Start Season**, then **Next
+Gameweek** repeatedly to walk through the real historical season one gameweek at a time.
 
-Endpoints:
+(A permissive CORS policy is enabled in `backend/app.py` purely as a safety net in case the
+frontend is ever served separately, e.g. via `python -m http.server` inside `frontend/` — not
+needed for the one-command setup above, where frontend and API are same-origin.)
+
+API endpoints (used by `frontend/app.js`, also usable directly):
 - `POST /season/start` — starts a brand-new sequential season (fresh squad, GW1), returns a
   `session_id` plus GW1's full result (squad, starting XI, captain/vice, bench, transfers,
-  bank, free transfers, chip used, reward, legality).
+  bank, free transfers, remaining chips, reward, legality).
 - `POST /season/{session_id}/next` — continues that exact session from its saved state and
   returns the next gameweek's full result. Squad/bank/free-transfers/chip-availability are
-  carried forward from the previous call, not recomputed independently — calling this
-  repeatedly is how a frontend reveals "Gameweek 1 → click Next → Gameweek 2 → ..."
-- `GET /season/{session_id}/state` — the session's current saved state (next gameweek, bank,
-  free transfers, chip availability, squad size) without advancing it.
+  carried forward from the previous call, not recomputed independently.
+- `GET /season/{session_id}/state` — the session's current saved state without advancing it.
 - `GET /health` — liveness check.
 
-Verified this session against the real `ppo_fpl_v4.zip`: GW1→GW2→GW3 via the API produced
-numbers identical to the CLI's own known-good sequence (GW1 reward 65.0/free_hit, GW2 reward
-101.0/wildcard/11 transfers, GW3 reward 91.0/5 transfers/4 hits with both chips correctly
-shown as consumed) — the backend is a thin wrapper, not a second implementation.
+Verified this session against the real `ppo_fpl_v4.zip`, through the actual HTTP API (not
+just the CLI): GW1→GW2→GW3 produced numbers identical to every prior CLI validation (GW1
+reward 65.0/free_hit, GW2 reward 101.0/wildcard/11 transfers, GW3 reward 91.0/5 transfers/4
+hits, both chips correctly shown as consumed in `available_chips`) — the backend and frontend
+are a thin display layer, not a second implementation.
 
 ### 6–7. Retrain / re-run BiLSTM (optional)
 

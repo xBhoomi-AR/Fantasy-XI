@@ -24,11 +24,28 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from backend import rl_bridge
 
+FRONTEND_DIR = Path(__file__).resolve().parents[1] / "frontend"
+
 app = FastAPI(title="Fantasy XI RL Backend", version="0.1.0")
+
+# The frontend is normally served by this same app (mounted below) at "/",
+# so it's same-origin and CORS isn't actually needed for that path. This is
+# only here as a small, permissive safety net for local development if
+# someone instead serves frontend/ from a separate dev server/port (e.g.
+# `python -m http.server` in frontend/) - never used for anything beyond
+# this localhost demo.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class StartSeasonRequest(BaseModel):
@@ -70,3 +87,11 @@ def season_state(session_id: str) -> dict:
         return rl_bridge.get_session_state(session_id)
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+
+# Serves the static frontend (frontend/index.html + styles.css + app.js) at
+# "/" - mounted last so it never shadows the API routes above. This means
+# `uvicorn backend.app:app` alone serves the whole demo (API + UI) from one
+# process/port; no separate frontend dev server is required.
+if FRONTEND_DIR.exists():
+    app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")

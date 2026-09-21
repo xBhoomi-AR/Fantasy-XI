@@ -70,7 +70,7 @@ def _player_summary(pid: int, candidates, players, teams, captain_id, vice_capta
 
 
 def _build_gameweek_response(action, reward, info, pre_candidates, previous_squad_ids,
-                              players, teams, is_initial: bool) -> dict:
+                              players, teams, is_initial: bool, available_chips: dict) -> dict:
     """Pure formatting of env.step()'s own return values - no decisions made here."""
     act = tuple(int(a) for a in action)
     chip_names = {0: "none", 1: "wildcard", 2: "free_hit", 3: "bench_boost", 4: "triple_captain"}
@@ -116,6 +116,7 @@ def _build_gameweek_response(action, reward, info, pre_candidates, previous_squa
         "hits": info["hits"],
         "bank": info["bank"],
         "free_transfers": info["free_transfers"],
+        "available_chips": available_chips,
         "reward": reward,
         "legal": info["legality_violations"] == [],
         "legality_violations": info["legality_violations"],
@@ -137,7 +138,8 @@ def start_season(model_name: str = DEFAULT_MODEL, start_gameweek: int = 1, seaso
     action, _ = model.predict(obs, deterministic=True)
     obs, reward, terminated, truncated, info = env.step(action)
 
-    response = _build_gameweek_response(action, reward, info, pre_candidates, set(), players, teams, is_initial=True)
+    response = _build_gameweek_response(action, reward, info, pre_candidates, set(), players, teams,
+                                         is_initial=True, available_chips=dict(env.available_chips))
 
     session_id = str(uuid.uuid4())
     if response.get("legal", True):
@@ -176,7 +178,7 @@ def next_gameweek(session_id: str, model_name: str = DEFAULT_MODEL, season: str 
     obs, reward, terminated, truncated, info = env.step(action)
 
     response = _build_gameweek_response(action, reward, info, pre_candidates, previous_squad_ids,
-                                         players, teams, is_initial=False)
+                                         players, teams, is_initial=False, available_chips=dict(env.available_chips))
 
     if response.get("legal", True):
         state = SeasonState(gameweek=info["gameweek"] + 1, squad_ids=sorted(info["squad_ids"]),

@@ -2,7 +2,7 @@
 # FantasyXI pipeline (BiLSTM + XGBoost prediction models, plus the
 # rl_decision_layer RL/PPO/MILP decision layer) with a single command.
 #
-# This is a de-duplicated union of the three component-specific files below -
+# This is a de-duplicated union of the component-specific files below -
 # nothing here was added that isn't already required by one of them. Those
 # files remain the authoritative, minimal source if you only need one part of
 # the project (e.g. only the RL layer, without retraining either prediction
@@ -10,6 +10,7 @@
 #   rl_decision_layer/requirements.txt
 #   models/BiLSTM_model/requirements.txt
 #   models/xgboost_model/requirements.txt
+#   backend/requirements.txt (the localhost API wrapping the RL pipeline)
 #
 # Not included: mini_projects/ (standalone exploratory notebooks, unrelated
 # to the production pipeline - each has its own requirements.txt).
@@ -23,6 +24,10 @@ scipy>=1.10.0
 pulp>=2.8
 gymnasium>=1.0
 stable-baselines3>=2.0
+
+# --- backend: localhost API wrapping the sequential RL pipeline ---
+fastapi>=0.110
+uvicorn>=0.29
 
 # --- BiLSTM prediction model ---
 torch

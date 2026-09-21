@@ -9,3 +9,5 @@ rl_study/
 rl_decision_layer/ppo/models/*
 !rl_decision_layer/ppo/models/ppo_fpl.zip
 !rl_decision_layer/ppo/models/ppo_fpl_v4.zip
+
+backend/sessions/*.json

@@ -1,0 +1,7 @@
+# Backend API requirements - on top of rl_decision_layer/requirements.txt,
+# which this backend imports directly (PPOEnv, SeasonState, predictions
+# interface). Install both:
+#   pip install -r rl_decision_layer/requirements.txt -r backend/requirements.txt
+
+fastapi>=0.110
+uvicorn>=0.29

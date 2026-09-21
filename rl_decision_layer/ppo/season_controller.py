@@ -18,6 +18,9 @@ from .train import MODELS_DIR
 POSITION_ORDER = {"GK": 0, "DEF": 1, "MID": 2, "FWD": 3}
 
 
+DEFAULT_CHIPS = {"wildcard": True, "free_hit": True, "bench_boost": True, "triple_captain": True}
+
+
 @dataclass
 class SeasonState:
     """Minimal state needed to resume a sequential run."""
@@ -25,6 +28,7 @@ class SeasonState:
     squad_ids: list[int] = field(default_factory=list)
     bank: float = 0.0
     free_transfers: int = 1
+    available_chips: dict = field(default_factory=lambda: dict(DEFAULT_CHIPS))
 
     @classmethod
     def load(cls, path: str) -> "SeasonState":
@@ -70,9 +74,11 @@ def run_season(model_name: str = "ppo_fpl_v4", start_gameweek: int = 1, num_game
         prior = SeasonState.load(load_state)
         start_gameweek = prior.gameweek
         env_kwargs.update(initial_squad=prior.squad_ids, initial_bank=prior.bank,
-                           initial_free_transfers=prior.free_transfers)
+                           initial_free_transfers=prior.free_transfers,
+                           initial_available_chips=prior.available_chips)
         print(f"Resumed from {load_state}: GW{start_gameweek}, bank={prior.bank}, "
-              f"free_transfers={prior.free_transfers}, squad_size={len(prior.squad_ids)}\n")
+              f"free_transfers={prior.free_transfers}, squad_size={len(prior.squad_ids)}, "
+              f"available_chips={prior.available_chips}\n")
 
     env = PPOEnv(start_gameweek=start_gameweek, num_gameweeks=num_gameweeks, **env_kwargs)
     obs, _ = env.reset()
@@ -142,7 +148,8 @@ def run_season(model_name: str = "ppo_fpl_v4", start_gameweek: int = 1, num_game
 
         previous_squad_ids = squad_ids
         final_state = SeasonState(gameweek=info["gameweek"] + 1, squad_ids=sorted(squad_ids),
-                                   bank=info["bank"], free_transfers=info["free_transfers"])
+                                   bank=info["bank"], free_transfers=info["free_transfers"],
+                                   available_chips=dict(env.available_chips))
 
         if terminated or truncated:
             break

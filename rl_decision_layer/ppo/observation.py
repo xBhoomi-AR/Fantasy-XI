@@ -1,13 +1,4 @@
-"""Fixed-size observation built from a DecisionState.
-
-PPO never sees individual candidates here - its action is a strategic knob
-turn (see action.py), not a player pick, so it only needs its own squad's
-state plus a small per-position summary of what else is available. The
-squad is always exactly 15 players, which gives a naturally fixed-size
-block; the candidate pool's size varies week to week, so it's summarized
-into 4 numbers (best available predicted_points per position) instead of
-being flattened directly.
-"""
+# Builds a fixed-size observation vector from squad state for the PPO agent.
 
 from __future__ import annotations
 

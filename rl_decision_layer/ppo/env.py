@@ -1,6 +1,4 @@
-"""Gymnasium environment wrapping HistoricalEnv + the MILP for a strategic
-PPO agent.
-"""
+# Gymnasium environment wrapping HistoricalEnv + MILP for the PPO agent.
 
 from __future__ import annotations
 
@@ -71,12 +69,24 @@ class PPOEnv(gym.Env):
             return obs, 0.0, False, True, {}
 
         act_tuple = tuple(action)
-        decision = None
-        if self.milp_cache is not None:
-            decision = self.milp_cache.lookup(self._state.gameweek, self._state.squad_ids, act_tuple)
-
         kwargs = _action_to_milp_kwargs(action, self._state)
         chip_name = kwargs.pop("chip_name", "none")
+
+        # In heuristic mode, strategic rules govern chip timing to prevent premature dumping
+        if self.use_heuristic_chips:
+            from ..optimization.chip_strategy import get_recommended_chip
+            current_squad_rows = self._state.candidates[self._state.candidates["player_id"].isin(self._state.squad_ids)]
+            current_xi = pick_starting_xi(current_squad_rows) if len(current_squad_rows) else None
+            chip_name = get_recommended_chip(
+                gameweek=self._state.gameweek,
+                squad_rows=current_squad_rows,
+                xi_starting_ids=current_xi.starting_ids if current_xi else [],
+                xi_bench_ids=current_xi.bench_ids if current_xi else [],
+                captain_id=current_xi.captain_id if current_xi else None,
+                available_chips=self.available_chips,
+            )
+            if chip_name in ("wildcard", "free_hit"):
+                kwargs["free_hit_or_wildcard"] = True
 
         # Enforce single-use chip availability constraint
         if chip_name != "none":
@@ -84,6 +94,10 @@ class PPOEnv(gym.Env):
                 self.available_chips[chip_name] = False
             else:
                 chip_name = "none"
+
+        decision = None
+        if self.milp_cache is not None and not self.use_heuristic_chips:
+            decision = self.milp_cache.lookup(self._state.gameweek, self._state.squad_ids, act_tuple)
 
         if decision is None:
             decision = select_squad(
@@ -93,7 +107,7 @@ class PPOEnv(gym.Env):
                 free_transfers=self._state.free_transfers,
                 **kwargs,
             )
-            if self.milp_cache is not None and decision.status == "Optimal":
+            if self.milp_cache is not None and decision.status == "Optimal" and not self.use_heuristic_chips:
                 self.milp_cache.store(self._state.gameweek, self._state.squad_ids, act_tuple, decision)
 
         if decision.status != "Optimal":
@@ -121,21 +135,6 @@ class PPOEnv(gym.Env):
 
         squad_rows = self._state.candidates[self._state.candidates["player_id"].isin(decision.selected_ids)]
         xi = pick_starting_xi(squad_rows)
-
-        # Rule-based chip override if PPO did not specify a chip and heuristic chips are enabled
-        if chip_name == "none" and self.use_heuristic_chips:
-            from ..optimization.chip_strategy import get_recommended_chip
-            rec_chip = get_recommended_chip(
-                gameweek=self._state.gameweek,
-                squad_rows=squad_rows,
-                xi_starting_ids=xi.starting_ids,
-                xi_bench_ids=xi.bench_ids,
-                captain_id=xi.captain_id,
-                available_chips=self.available_chips,
-            )
-            if rec_chip != "none" and self.available_chips.get(rec_chip, False):
-                chip_name = rec_chip
-                self.available_chips[chip_name] = False
 
         # Apply chip modifiers in scoring:
         bench_boost = (chip_name == "bench_boost")

@@ -27,6 +27,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from starlette.types import Scope
 
 from backend import rl_bridge
 
@@ -89,9 +90,23 @@ def season_state(session_id: str) -> dict:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
 
 
+class NoCacheStaticFiles(StaticFiles):
+    """Starlette's StaticFiles sends ETag/Last-Modified but no Cache-Control,
+    so a browser is free to reuse a stale copy of index.html/styles.css/app.js
+    without even asking the server first. This is actively edited during
+    development, so every response is marked no-cache: the browser must
+    always revalidate with the server (a cheap 304 if unchanged) instead of
+    silently serving whatever it rendered last time."""
+
+    async def get_response(self, path: str, scope: Scope):
+        response = await super().get_response(path, scope)
+        response.headers["Cache-Control"] = "no-cache"
+        return response
+
+
 # Serves the static frontend (frontend/index.html + styles.css + app.js) at
 # "/" - mounted last so it never shadows the API routes above. This means
 # `uvicorn backend.app:app` alone serves the whole demo (API + UI) from one
 # process/port; no separate frontend dev server is required.
 if FRONTEND_DIR.exists():
-    app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
+    app.mount("/", NoCacheStaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")

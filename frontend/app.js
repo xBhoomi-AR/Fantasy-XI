@@ -59,6 +59,21 @@ function playerCard(p, isNew) {
     </div>`;
 }
 
+// A compact card styled to sit directly on the pitch graphic - same data as
+// playerCard(), just presented for the formation view (name/team/position/C-VC).
+function pitchPlayerCard(p, isNew) {
+  const tag = p.is_captain ? '<span class="tag tag-c">C</span>'
+            : p.is_vice_captain ? '<span class="tag tag-vc">VC</span>' : "";
+  return `
+    <div class="pitch-card${isNew ? " is-new" : ""}">
+      ${tag}
+      <div class="pos-dot">${p.position}</div>
+      <div class="name">${p.name}</div>
+      <div class="team">${p.team}</div>
+      ${isNew ? '<div class="new-flag">NEW</div>' : ""}
+    </div>`;
+}
+
 function fullSquadRow(p, isNew) {
   const role = p.is_captain ? "Captain"
              : p.is_vice_captain ? "Vice-Captain"
@@ -82,8 +97,94 @@ function renderChips(availableChips, chipUsedThisGw) {
     const isActive = name === chipUsedThisGw;
     const cls = isActive ? "active" : avail ? "available" : "used";
     const label = name.replace("_", " ");
-    return `<span class="chip-pill ${cls}">${label}${isActive ? " ★" : ""}</span>`;
+    return `<span class="chip-pill ${cls}">${label}</span>`;
   }).join("");
+}
+
+function statCard(label, value, accentClass) {
+  return `
+    <div class="stat-card ${accentClass || ""}">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}</div>
+    </div>`;
+}
+
+function renderStatStrip(data) {
+  el("stat-strip").innerHTML = [
+    statCard("Reward", data.reward.toFixed(1), "accent-blue"),
+    statCard("Bank", `£${data.bank.toFixed(1)}m`, "accent-green"),
+    statCard("Free Transfers", data.free_transfers, ""),
+    statCard("Hits", data.hits, data.hits > 0 ? "accent-red" : ""),
+    statCard("Transfers", data.transfers, ""),
+    statCard("Squad Size", data.squad.length, ""),
+    statCard("Starting XI", data.starting_xi.length, ""),
+  ].join("");
+}
+
+function captainCard(role, player) {
+  if (!player) {
+    return `<div class="captain-card"><div class="captain-role">${role}</div><div class="captain-meta">Unavailable</div></div>`;
+  }
+  const isCaptain = role === "CAPTAIN";
+  return `
+    <div class="captain-card ${isCaptain ? "is-captain" : "is-vice"}">
+      <div class="captain-icon">${isCaptain ? "★" : "VC"}</div>
+      <div>
+        <div class="captain-role">${isCaptain ? "Captain" : "Vice-Captain"}</div>
+        <div class="captain-name">${player.name}</div>
+        <div class="captain-meta">${player.team} &middot; ${player.position}</div>
+      </div>
+    </div>`;
+}
+
+function renderCaptainSpotlight(data) {
+  const captain = data.squad.find((p) => p.is_captain);
+  const vice = data.squad.find((p) => p.is_vice_captain);
+  el("captain-spotlight").innerHTML = captainCard("CAPTAIN", captain) + captainCard("VICE", vice);
+}
+
+// Builds the Starting XI formation directly from the real position counts in
+// data.starting_xi (however many GK/DEF/MID/FWD the MILP actually picked) -
+// never a hardcoded formation. Forwards are drawn nearest the "goal" (top),
+// goalkeeper nearest the bottom, matching how a formation is normally read.
+function renderPitch(data, newNames) {
+  const byPosition = { FWD: [], MID: [], DEF: [], GK: [] };
+  for (const p of data.starting_xi) {
+    if (byPosition[p.position]) byPosition[p.position].push(p);
+  }
+  const rows = ["FWD", "MID", "DEF", "GK"]
+    .filter((pos) => byPosition[pos].length > 0)
+    .map((pos) => `<div class="pitch-row">${byPosition[pos].map((p) => pitchPlayerCard(p, newNames.has(p.name))).join("")}</div>`)
+    .join("");
+  el("pitch").innerHTML = rows;
+}
+
+function renderSquadByPosition(data, newNames) {
+  const byPosition = { GK: [], DEF: [], MID: [], FWD: [] };
+  for (const p of data.squad) {
+    if (byPosition[p.position]) byPosition[p.position].push(p);
+  }
+  el("squad-by-position").innerHTML = ["GK", "DEF", "MID", "FWD"]
+    .map((pos) => `
+      <div class="pos-group">
+        <div class="pos-group-title">${pos} (${byPosition[pos].length})</div>
+        <div class="pos-group-cards">${byPosition[pos].map((p) => playerCard(p, newNames.has(p.name))).join("")}</div>
+      </div>`)
+    .join("");
+}
+
+function renderFlow(data) {
+  const flowEl = el("gw-flow");
+  if (data.gameweek <= 1 || (data.transfers_in.length === 0 && data.transfers_out.length === 0)) {
+    flowEl.innerHTML = `<span class="flow-step">Initial squad &mdash; no prior gameweek</span>`;
+    return;
+  }
+  flowEl.innerHTML =
+    `<span class="flow-step">GW${data.gameweek - 1} squad</span>` +
+    `<span class="flow-arrow">&rarr;</span>` +
+    `<span class="flow-step">${data.transfers} transfer${data.transfers === 1 ? "" : "s"}${data.hits > 0 ? ` (${data.hits} hit${data.hits === 1 ? "" : "s"})` : ""}</span>` +
+    `<span class="flow-arrow">&rarr;</span>` +
+    `<span class="flow-step">GW${data.gameweek} squad</span>`;
 }
 
 function renderGameweek(data) {
@@ -106,25 +207,23 @@ function renderGameweek(data) {
     return;
   }
 
+  el("gw-eyebrow").textContent = `Matchday · Season 2025-26`;
   el("gw-number").textContent = `Gameweek ${data.gameweek}`;
   el("gw-subtitle").textContent = data.transfers_in.length === 0 && data.transfers_out.length === 0
     ? "Initial squad for the season"
     : `Built from Gameweek ${data.gameweek - 1}'s squad + this gameweek's transfers`;
   el("session-id-label").textContent = `session: ${sessionId}`;
+  renderFlow(data);
 
   const legalBadge = el("legality-badge");
   legalBadge.textContent = data.legal ? "LEGAL SQUAD" : "ILLEGAL SQUAD";
   legalBadge.className = "badge " + (data.legal ? "badge-legal" : "badge-illegal");
   el("reward-badge").textContent = `Reward: ${data.reward.toFixed(1)}`;
 
-  el("state-bank").textContent = data.bank.toFixed(1);
-  el("state-ft").textContent = data.free_transfers;
   el("state-chip-used").textContent = data.chip_used;
   el("state-chip-requested").textContent = data.ppo_action.chip_requested;
   renderChips(data.available_chips, data.chip_used);
 
-  el("transfer-count").textContent = data.transfers;
-  el("hit-count").textContent = data.hits;
   el("transfers-in").innerHTML = data.transfers_in.length
     ? data.transfers_in.map((n) => `<li>+ ${n}</li>`).join("")
     : "<li class='muted'>None (initial squad)</li>";
@@ -135,9 +234,13 @@ function renderGameweek(data) {
   const newNames = new Set(data.transfers_in);
   const sortedSquad = sortByPosition(data.squad);
 
+  renderStatStrip(data);
+  renderCaptainSpotlight(data);
+  renderPitch(data, newNames);
+  renderSquadByPosition(data, newNames);
+
   el("full-squad").innerHTML = sortedSquad.map((p) => fullSquadRow(p, newNames.has(p.name))).join("");
   el("xi-count").textContent = `(${data.starting_xi.length}/11)`;
-  el("starting-xi").innerHTML = sortByPosition(data.starting_xi).map((p) => playerCard(p, newNames.has(p.name))).join("");
   el("bench").innerHTML = sortByPosition(data.bench).map((p) => playerCard(p, newNames.has(p.name))).join("");
 
   seasonLog.push({ gw: data.gameweek, reward: data.reward, chip: data.chip_used });
@@ -154,10 +257,17 @@ function renderGameweek(data) {
     const total = seasonLog.reduce((sum, g) => sum + g.reward, 0);
     const chipsPlayed = seasonLog.filter((g) => g.chip !== "none").map((g) => `GW${g.gw}: ${g.chip}`);
     completeBanner.classList.remove("hidden");
-    completeBanner.innerHTML =
-      `<strong>Season Complete</strong> &mdash; ${seasonLog.length} gameweeks played, ` +
-      `total reward ${total.toFixed(1)}. ` +
-      (chipsPlayed.length ? `Chips played: ${chipsPlayed.join(", ")}.` : "No chips played.");
+    completeBanner.innerHTML = `
+      <h2>Season Complete</h2>
+      <div class="stat-strip">
+        ${statCard("Gameweeks Played", seasonLog.length, "accent-green")}
+        ${statCard("Total Reward", total.toFixed(1), "accent-blue")}
+        ${statCard("Chips Used", chipsPlayed.length, "accent-gold")}
+        ${statCard("Final Squad Size", data.squad.length, "")}
+      </div>
+      <p class="muted" style="margin-top:12px;">
+        ${chipsPlayed.length ? `Chips played: ${chipsPlayed.join(", ")}.` : "No chips played this season."}
+      </p>`;
   } else {
     nextBtn.disabled = false;
     nextBtn.dataset.seasonOver = "false";

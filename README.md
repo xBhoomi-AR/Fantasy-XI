@@ -1,6 +1,6 @@
 # FantasyXI
 
-**An AI-powered decision-support system for Fantasy Premier League squad management**, built to predict player performance, reason strategically about transfers and chips, and turn that reasoning into a legal, optimal squad — one gameweek at a time.
+**AI-powered decision-support for Fantasy Premier League** — predicts player performance, reasons strategically about transfers and chips, and builds a legal, optimal squad, one gameweek at a time.
 
 *Project X, Community of Coders (COC) @ VJTI*
 
@@ -10,44 +10,36 @@
 
 ## Overview
 
-FantasyXI takes historical Premier League and FPL data and turns it into a full gameweek-by-gameweek squad recommendation: predicted player points, a strategic transfer/chip decision, a legally valid 15-player squad, a starting XI, and a captain — repeated sequentially across a season, with every gameweek building on the previous one's actual result.
+Historical FPL data → predicted player points → strategic decision → optimized legal squad → starting XI → gameweek result → next gameweek. Repeated sequentially across a season.
 
-It is not a single model. It's a pipeline of four distinct layers, each solving a different part of the problem:
-
-1. **Prediction** — how many points is each player likely to score?
-2. **Strategy (RL)** — how aggressive should this gameweek's transfers be, and is a chip worth playing?
-3. **Optimization (MILP)** — given that strategy, what is the best *legal* squad?
-4. **Sequential state** — carry the result (squad, bank, free transfers, chips used) into the next gameweek.
+1. **Prediction** — how many points will each player score?
+2. **Strategy (RL)** — how aggressive should this gameweek be, and is a chip worth playing?
+3. **Optimization (MILP)** — what's the best *legal* squad given that strategy?
+4. **Sequential state** — carry the result into the next gameweek.
 
 ## Problem
 
-Doing well in Fantasy Premier League means, every single week, for 38 weeks straight:
+Doing well in FPL means, every week for 38 weeks:
 
 - Picking a strong 15-man squad under a fixed budget.
 - Deciding when a transfer is worth a points hit.
 - Timing season-long chips correctly.
-- Doing all of this from incomplete, noisy information about how players will actually perform.
+- Doing all of this from incomplete, noisy information.
 
-FantasyXI explores whether this repeated, interdependent decision-making can be automated — predicting performance from data, then using a trained strategic policy plus a constraint solver to make legal, reasoned squad decisions gameweek after gameweek.
+FantasyXI automates this: predict performance, then use a trained strategic policy plus a constraint solver to make legal, reasoned decisions every gameweek.
 
 ## Our Approach
 
-FantasyXI splits the problem the way a real manager would, into three separate, swappable layers:
-
-- **Prediction** — who's going to play well.
-- **Strategy** — how aggressively to act on that (PPO).
-- **Optimization** — the best legal squad given that strategy (MILP).
-
-Keeping them separate means the prediction model can change (BiLSTM or XGBoost) without touching transfer logic, and PPO never has to enforce FPL's squad rules — that's the optimizer's job.
+Split the problem like a real manager would — prediction, strategy, and optimization as separate, swappable layers, so the prediction model, the strategic policy, and the squad-legality rules can each change independently.
 
 ## Key Features
 
-- **Two swappable prediction models** — a BiLSTM dual-expert network (current default) and a position-specific XGBoost ensemble (fallback/alternative), both producing the same canonical prediction schema.
-- **PPO-trained strategic decision layer** — learns how aggressive to be with transfers, how much of the budget to spend, whether to bias toward attack/defence, and when to play a chip.
-- **MILP squad optimizer** — turns that strategy into a legal 15-player squad and starting XI, enforcing FPL's real constraints (budget, position counts, club limits, transfer hits).
-- **Sequential season execution** — each gameweek's squad, bank, free transfers, and chip availability carry forward into the next, not independently recomputed from scratch.
-- **All four FPL chips implemented** — Wildcard, Free Hit, Bench Boost, Triple Captain — each usable once per season, tracked in the RL observation and enforced end-to-end.
-- **A working local demo** — a FastAPI backend and a plain HTML/CSS/JS frontend that visualize the real pipeline, gameweek by gameweek, in a browser.
+- **Two swappable prediction models** — BiLSTM (default) and XGBoost (fallback), same canonical output schema.
+- **PPO strategic layer** — learns transfer aggressiveness, budget usage, position bias, and chip timing.
+- **MILP squad optimizer** — legal 15-player squad + starting XI under real FPL constraints.
+- **Sequential season execution** — squad, bank, free transfers, and chips carry forward gameweek to gameweek.
+- **All four FPL chips** — Wildcard, Free Hit, Bench Boost, Triple Captain — implemented end-to-end.
+- **A working local demo** — FastAPI + browser UI visualizing the real pipeline.
 
 ## System Architecture
 
@@ -56,28 +48,24 @@ Historical FPL / player data
         ↓
 Prediction layer (BiLSTM default, XGBoost fallback)
         ↓
-Predicted player points
-        ↓
 RL decision layer (PPO) — strategic action
         ↓
-MILP optimization — legal 15-player squad
-        ↓
-Starting XI + captain/vice (part of the same squad decision)
+MILP optimization — legal squad + starting XI + captain
         ↓
 Gameweek result / reward
         ↓
-Sequential season state → feeds the next gameweek
+Sequential season state → next gameweek
 ```
 
 > **[TODO: Insert a polished version of this pipeline as a diagram/image here]**
 
 ## Prediction Layer
 
-The prediction layer estimates each player's expected FPL points for an upcoming gameweek from historical FPL, fixture, team, and Understat-derived data. Both models are built to **rank players well**, rather than reproduce exact scorelines — FPL decisions care much more about "who's likely to outscore whom" than an exact point value.
+Estimates expected FPL points per player per gameweek. Both models optimize for **ranking players well**, not exact scorelines.
 
-### BiLSTM (current default)
+### BiLSTM (default)
 
-A dual-expert gate architecture: a 2-layer BiLSTM with temporal attention converts each player's 5-gameweek history into a trajectory representation, which is then routed to one of two specialist regressors (a low-band expert for baseline appearances, a high-band expert for scoring returns) plus a haul-potential calibrator for explosive, double-digit gameweeks.
+Dual-expert gate architecture: a BiLSTM + attention encoder feeds a low-band and a high-band specialist regressor, plus a haul-potential calibrator for explosive gameweeks.
 
 | Metric (2025–26 test set) | Overall | 0–2 pts | 3–5 pts | 6–9 pts | 10+ pts |
 |---|---|---|---|---|---|
@@ -85,13 +73,11 @@ A dual-expert gate architecture: a 2-layer BiLSTM with temporal attention conver
 | RMSE | 3.6546 | 3.634 | 4.192 | 2.171 | 5.318 |
 | Spearman | 0.7183 | — | — | — | — |
 
-*(23,406 test samples. Source: `models/BiLSTM_model/reports/evaluation_summary.txt`.)*
-
 ![BiLSTM band-wise MAE/RMSE](models/BiLSTM_model/reports/bandwise_results.png)
 
-### XGBoost (fallback / alternative)
+### XGBoost (fallback)
 
-Position-specific XGBoost regressors (separate models for GK/DEF/MID/FWD), trained on engineered features from Supabase-hosted historical FPL, fixture, team, and Understat data.
+Position-specific regressors (GK/DEF/MID/FWD) on engineered historical FPL/fixture/team/Understat features.
 
 | Metric (2025–26 test set) | Overall | GK | DEF | MID | FWD |
 |---|---|---|---|---|---|
@@ -99,251 +85,184 @@ Position-specific XGBoost regressors (separate models for GK/DEF/MID/FWD), train
 | RMSE | 2.1067 | — | — | — | — |
 | Spearman (ranking) | 0.7947 | 0.7021 | 0.7881 | 0.8133 | 0.8115 |
 
-*(Source: `models/xgboost_model/README.md`.)*
-
-![XGBoost actual vs predicted](models/xgboost_model/reports/figures/actual_vs_predicted.png)
 ![XGBoost Spearman by position](models/xgboost_model/reports/figures/spearman_by_position.png)
 ![XGBoost range MAE/RMSE](models/xgboost_model/reports/xgboost_range_mae_rmse.png)
 
-Both models write predictions to a shared canonical schema (`rl_decision_layer/predictions/interface.py`), which is what makes them interchangeable — the decision layer downstream never needs to know which one produced a given number.
+Both write to the same canonical schema (`rl_decision_layer/predictions/interface.py`) — interchangeable downstream.
 
 ## Decision & Optimization Layer
 
-### PPO — the strategic layer
+### PPO — strategy
 
-A PPO agent (Stable-Baselines3) doesn't pick players — it picks a small **strategic action** that shapes how the optimizer behaves that gameweek:
+A PPO agent (Stable-Baselines3) doesn't pick players — it picks a small **strategic action** each gameweek:
 
 | Action component | What it controls |
 |---|---|
-| Aggressiveness | How willing the optimizer is to take a transfer hit for extra points (maps to the MILP's hit cost) |
-| Budget level | What fraction of available funds (85% / 95% / 100%) gets spent this gameweek |
-| Position bias | Whether the squad leans toward attack, defence, or stays neutral |
-| Chip choice | None, Wildcard, Free Hit, Bench Boost, or Triple Captain — each usable once per season |
+| Aggressiveness | Willingness to take a transfer hit for extra points |
+| Budget level | Fraction of available funds spent (85% / 95% / 100%) |
+| Position bias | Lean toward attack, defence, or neutral |
+| Chip choice | None, Wildcard, Free Hit, Bench Boost, Triple Captain |
 
-The agent observes a 71-dimensional state:
+PPO observes squad state, bank, free transfers, and chip availability, and its action feeds the MILP below. Trained artifact in use: `rl_decision_layer/ppo/models/ppo_fpl_v4.zip`.
 
-- Each squad player's price, predicted points, form, and fixture difficulty (15 players).
-- Bank, free transfers, gameweek.
-- Best available replacement per position.
-- Chip availability (4 flags).
+### MILP — optimization
 
-Its action feeds directly into the MILP call below. The trained artifact, `rl_decision_layer/ppo/models/ppo_fpl_v4.zip`, is used everywhere in this repository. An older `ppo_fpl.zip` is kept only for historical reference and is not compatible with current code.
-
-### MILP — the optimization layer
-
-A mixed-integer linear program (`select_squad`, via PuLP) turns PPO's strategic action into an actual legal squad, maximizing total predicted points subject to constraints taken directly from FPL's real rules:
+Turns PPO's strategy into a legal squad, maximizing predicted points under FPL's real constraints:
 
 - Exactly 15 players: 2 GK, 5 DEF, 5 MID, 3 FWD.
-- Maximum 3 players from any one club.
-- Total squad cost within budget (bank + current squad value, or the full £100m for a fresh squad).
-- Free transfers roll over (capped at 5); anything beyond that costs 4 points per transfer ("a hit"), and the solver only takes a hit when the predicted points gained outweigh the cost.
+- Max 3 players per club.
+- Total cost within budget (bank + current squad value).
+- Free transfers roll over (capped at 5); extra transfers cost 4 points each ("a hit"), only taken when worth it.
 
-A second MILP (`pick_starting_xi`) selects the starting XI from the 15-man squad:
-
-- Formation rules: 1 GK, 3–5 DEF, 2–5 MID, 1–3 FWD.
-- Captain/vice-captain = highest/second-highest predicted scorers among starters.
-- Downstream part of the same squad decision, not a separate architectural pillar.
-
-Scoring (`score_outcome`, `calculate_reward`) applies real FPL mechanics on the result:
-
-- Captain points are doubled.
-- A starter with 0 minutes is auto-substituted from the bench.
-- The reward is net of any transfer-hit penalty.
+A second MILP picks the starting XI (1 GK, 3–5 DEF, 2–5 MID, 1–3 FWD) and captain/vice (top two predicted scorers among starters). Captain points are doubled, and a 0-minute starter is auto-substituted — real FPL scoring rules.
 
 ### FPL Terminology
 
-| Term | Meaning in FantasyXI |
+| Term | Meaning |
 |---|---|
-| GW | Gameweek — one round of Premier League fixtures |
-| FT | Free Transfer — a transfer that doesn't cost points |
-| Hit | A transfer beyond available free transfers, costing 4 points |
-| Bank | Remaining budget after the current squad's value is accounted for |
-| Chip | A one-per-season special action: Wildcard, Free Hit, Bench Boost, Triple Captain |
-| Predicted Points | The prediction layer's estimated points for a player in a gameweek |
-| PPO | The reinforcement-learning strategic decision layer |
-| MILP | The mixed-integer optimizer that enforces squad legality |
-| Starting XI | The 11 of 15 squad players who actually score points that gameweek |
+| GW | Gameweek |
+| FT | Free Transfer |
+| Hit | Extra transfer, costs 4 points |
+| Bank | Remaining budget |
+| Chip | One-per-season special action |
+| PPO | Strategic decision layer |
+| MILP | Squad-legality optimizer |
 
 ### Sequential gameweek execution
 
-FantasyXI does not optimize each gameweek independently. Every gameweek's decision starts from the *actual outcome* of the previous one:
-
 ```
-GW1 squad, bank, free transfers, chips
-        ↓  (PPO strategy + MILP transfers)
-GW2 squad, bank, free transfers, chips
-        ↓
-GW3 …
+GW1 → decision → result/state → GW2 → decision → result/state → … → GW38
 ```
 
-`SeasonState` (`rl_decision_layer/ppo/season_controller.py`) carries this forward: squad IDs, bank, free-transfer count, and chips already used.
-
-This is what makes the system genuinely sequential rather than five independent "best squad" runs:
-
-- A player bought in one gameweek can be sold again the next.
-- Free transfers accumulate when unused (capped at 5).
-- A chip used once is unavailable for the rest of the season.
-
-The same mechanism lets the local demo (below) resume a season one click at a time.
+Squad, bank, free transfers, and chip usage carry forward — a player bought this week can be sold next week, and a used chip stays unavailable for the season.
 
 ## Project Journey / Mini Projects
 
-Before the full pipeline, two smaller projects were used to build up the RL/PPO skills the main system relies on:
+- **`mini_projects/rl_sandbox/`** — DQN on a synthetic FPL-like environment, to learn RL mechanics first.
+- **`mini_projects/PPO mini project/`** — PPO on portfolio management (not FPL), to learn PPO before applying it here.
 
-- **`mini_projects/rl_sandbox/`** — a DQN agent trained on a small, synthetic 10-gameweek FPL-like environment, used to learn the mechanics of an RL agent interacting with a budget/transfer environment before working with real data.
-- **`mini_projects/PPO mini project/`** — PPO applied to a portfolio-management environment (not FPL), used to learn PPO/Stable-Baselines3 itself before applying it to the FPL decision layer.
-
-Both are exploratory and separate from the production pipeline — each has its own `requirements.txt` and isn't part of the root install.
+Exploratory only, each with its own `requirements.txt` — not part of the root install.
 
 ## Results / Evaluation
 
-### Prediction layer
+**Prediction layer** — see BiLSTM/XGBoost tables above (both ranking-oriented, 2025–26 test season).
 
-See the BiLSTM and XGBoost tables above — both are evaluated on the real 2025–26 test season and are ranking-oriented (Spearman correlation), since FPL decisions care about relative player ordering more than exact point values.
-
-### PPO decision layer — 38-gameweek run
-
-Running the trained `ppo_fpl_v4.zip` sequentially across the full 2025–26 season (`rl_decision_layer/ppo/evaluate_full_report.py`, raw data in `rl_decision_layer/ppo/ppo_38gw_evaluation_results.csv` and `reports/ppo_38gw_detailed_breakdown.csv`):
+**PPO decision layer — 38-gameweek run** (`ppo_fpl_v4.zip`, real data from `rl_decision_layer/ppo/ppo_38gw_evaluation_results.csv`):
 
 | Metric | Value |
 |---|---|
 | Season net points (38 GW) | 2,208.0 |
 | Average points / GW | 58.11 |
 | Transfer hits taken | 0 |
-| Chips deployed | Free Hit (GW1, 65.0 pts) · Wildcard (GW2, 101.0 pts) · Triple Captain (GW3, 129.0 pts) · Bench Boost (GW4, 99.0 pts) |
+| Chips deployed | Free Hit (GW1) · Wildcard (GW2) · Triple Captain (GW3) · Bench Boost (GW4) |
 | Season completion | GW1 → GW38, no infeasible gameweeks |
 
-Captain choice rotated across the season (Haaland, Salah, Saka, Watkins, and others at different points) rather than staying fixed to one player throughout.
+> **[TODO: Insert RL training/results graph here]**
 
-> **[TODO: Insert RL training/results graph here]** — a season-progression chart (cumulative points per gameweek) would visualize the table above; not yet generated as an image.
+**How do we know a recommended team is actually good?**
 
-### How do we know a recommended team is actually good?
+- **Prediction** — evaluated against real outcomes (MAE/RMSE/Spearman above).
+- **Decision layer** — the run above is real and reproducible, but a single run, not yet baselined.
+- **Baseline** — a PPO-free MILP-only baseline is implemented (`run_baseline.py` / `historical_loop.py`) but hasn't yet been run and compared against the result above.
+- An earlier internal report claimed a specific baseline score, but that number is hardcoded in the report script, not a real run — not treated as verified evidence here.
 
-This is the evaluation question our mentors raised directly: if FantasyXI hands you a squad for a gameweek, what's the basis for trusting it, and what can it be compared against?
-
-Honestly, as of this README:
-
-- **Prediction layer** — evaluated against real historical outcomes (MAE/RMSE/Spearman, above). A clear, measurable answer.
-- **Decision layer** — the 38-gameweek run above is real and reproducible from the checked-in PPO model and historical data, but it's a single run, not yet compared against a validated baseline.
-- **Baseline** — a deterministic, PPO-free baseline is implemented (`rl_decision_layer/run_baseline.py` / `historical_loop.py`, MILP-only, no strategic layer) and is the natural comparison point for "did the RL strategy actually help." It hasn't yet been run and paired against the result above.
-- **A caveat worth flagging** — an earlier internal report (`rl_decision_layer/ppo/reports/FULL_SEASON_EVALUATION_REPORT.md`) claims a specific baseline score, but that number is a hardcoded constant in the report script, not the output of an actual baseline run captured anywhere in this repository. Not verified evidence.
-
-> **[TODO: Run `run_baseline.py`/`historical_loop.py` for the same 2025–26 season and record its real net-points total here, as a genuine, apples-to-apples comparison against the 2,208.0 PPO result above.]**
+> **[TODO: Run `run_baseline.py`/`historical_loop.py` and record a real baseline comparison here.]**
 
 ## Frontend / Demo
 
-A local, single-process demo visualizes the pipeline above as a clickable sequential season:
-
 ```
-Start Season → Gameweek 1 → Next Gameweek → Gameweek 2 → Next Gameweek → … → Season Complete
+Start Season → Gameweek 1 → Next Gameweek → Gameweek 2 → … → Season Complete
 ```
 
-Each screen is rendered directly from what the backend returns:
-
-- Squad, starting XI (pitch formation built from real position counts that gameweek), captain/vice.
-- Transfers, chips, bank/free transfers.
-
-**The frontend contains no prediction, RL, or optimization logic of its own** — it's a view onto the same `PPOEnv`/`SeasonState` machinery used by the CLI tools.
+Squad, pitch-formation starting XI, captain/vice, transfers, chips, bank/free transfers — all rendered straight from the backend. **No prediction/RL/optimization logic lives in the frontend.**
 
 > **[TODO: Insert final FantasyXI demo screenshot here]**
 
-See [Installation / Setup](#installation--setup) below for how to run it.
+See [Installation / Setup](#installation--setup) to run it.
 
 ## Project Structure
 
 ```text
 FantasyXI/
 ├── models/
-│   ├── BiLSTM_model/          # Dual-expert BiLSTM prediction model (current default)
-│   └── xgboost_model/         # Position-specific XGBoost prediction model (fallback)
+│   ├── BiLSTM_model/          # Dual-expert BiLSTM prediction model (default)
+│   └── xgboost_model/         # Position-specific XGBoost model (fallback)
 ├── rl_decision_layer/
-│   ├── predictions/           # Canonical prediction schema (joins BiLSTM/XGBoost output)
+│   ├── predictions/           # Canonical prediction schema
 │   ├── candidates/            # Per-position candidate shortlisting
 │   ├── environment/           # Squad rules + historical gameweek stepping
 │   ├── optimization/          # MILP squad selection, starting XI, scoring, chips
 │   ├── ppo/                   # PPO observation/action/env, training, trained models
-│   └── tests/                 # Test suite for the decision layer
-├── backend/                   # FastAPI backend wrapping the sequential pipeline
-├── frontend/                  # Plain HTML/CSS/JS demo UI (no build step)
-├── mini_projects/             # Exploratory RL projects that preceded the main pipeline
-├── requirements.txt           # Consolidated dependencies for the whole project
+│   └── tests/                 # Test suite
+├── backend/                   # FastAPI backend
+├── frontend/                  # Plain HTML/CSS/JS demo UI
+├── mini_projects/             # Exploratory RL projects
+├── requirements.txt           # Consolidated dependencies
 └── README.md
 ```
 
 ## Future Scope
 
-- **Live FPL data integration** — the system currently runs entirely on historical, already-collected data; there is no live price/fixture/gameweek fetching yet.
-- **A more adaptive decision layer** — PPO's strategic action has not yet been shown to vary its aggressiveness/budget/position-bias choices situationally; further training and evaluation is needed to demonstrate genuine adaptiveness rather than fixed behavior.
-- **Forward-looking optimization** — the MILP is myopic (optimizes one gameweek at a time and always spends its full budget), which can cause late-season infeasibility; a budget-aware, multi-gameweek-lookahead MILP is a natural next step.
-- **A validated baseline comparison** — see the Results/Evaluation section above.
+- **Live FPL data integration** — currently historical-data only.
+- **A more adaptive PPO** — strategic action hasn't yet been shown to vary situationally.
+- **Forward-looking MILP** — currently myopic (one gameweek at a time), which can cause late-season infeasibility.
+- **A validated baseline comparison** — see Results/Evaluation above.
 
 ## Installation / Setup
 
-### Prerequisites
+**Prerequisites** — Python 3.10+ (tested on 3.12). No Node.js/npm/React needed.
 
-- Python 3.10+ (developed and tested on 3.12).
-- No Node.js/npm/React — the frontend is plain HTML/CSS/JS served directly by the backend.
-
-### Install dependencies
-
-The whole project (both prediction models + the RL/MILP decision layer + backend) from one file:
+**Full project:**
 ```bash
 pip install -r requirements.txt
 ```
-If you only want to run the existing demo (no retraining), a lighter, scoped install is enough — everything the demo needs is already generated and committed:
+**Demo only (lighter, no retraining):**
 ```bash
 pip install -r rl_decision_layer/requirements.txt -r backend/requirements.txt
 ```
-Each component also keeps its own minimal `requirements.txt` (`models/BiLSTM_model/`, `models/xgboost_model/`, `rl_decision_layer/`, `backend/`) if you only need one part of the project.
+Each component also keeps its own minimal `requirements.txt` if you only need one part.
 
 ## Usage / Quick Start
 
-### Run the full local demo (recommended — uses the existing trained artifacts)
-
+**Run the full local demo:**
 ```bash
 uvicorn backend.app:app --reload --port 8000
 ```
-Open **http://localhost:8000**, click **Start Season**, then **Next Gameweek** to step through the real 2025–26 season one gameweek at a time, up to Gameweek 38.
+Open **http://localhost:8000** → Start Season → Next Gameweek, through Gameweek 38.
 
-### Run the sequential pipeline from the command line
-
+**Run the sequential pipeline from the CLI:**
 ```bash
 python -m rl_decision_layer.ppo.season_controller --start-gameweek 1 --num-gameweeks 5
 ```
-Runs 5 consecutive gameweeks, carrying squad/bank/free-transfers/chips forward each step, and prints the full decision each gameweek.
-
+**Single-gameweek query:**
 ```bash
 python -m rl_decision_layer.ppo.show_squad --start-gameweek 1
 ```
-Prints one gameweek's recommendation in isolation (not sequential).
-
+**PPO-free MILP-only baseline:**
 ```bash
 python -m rl_decision_layer.run_baseline
 ```
-Runs the deterministic, PPO-free MILP-only baseline.
 
 ## Training / Retraining Options
 
-The trained artifacts already in this repository (`ppo_fpl_v4.zip`, BiLSTM checkpoints, XGBoost models) are sufficient to run everything above — none of this is required for the demo.
+Existing artifacts (`ppo_fpl_v4.zip`, BiLSTM checkpoints, XGBoost models) are enough to run everything above — retraining is optional.
 
 **Retrain BiLSTM:**
 ```bash
 python models/BiLSTM_model/gate_architecture/train.py
 python models/BiLSTM_model/gate_architecture/predict.py
 ```
-
 **Retrain XGBoost:**
 ```bash
 python models/xgboost_model/scripts/train.py
 ```
-
 **Retrain PPO:**
 ```bash
 python -m rl_decision_layer.ppo.train --timesteps 50000
 ```
-⚠️ This always overwrites whatever file is at its save path (default `ppo_fpl_pure_rl.zip`, deliberately **not** `ppo_fpl_v4`). Never pass `--save-name ppo_fpl_v4` — that name is reserved for the frozen, evaluated model this README's results describe, and a freshly retrained model will not reproduce the same behavior even with identical hyperparameters.
+⚠️ Always overwrites its save path (default `ppo_fpl_pure_rl.zip`). Never pass `--save-name ppo_fpl_v4` — that's the frozen model this README's results describe.
 
-More detail on every command, test suite, and component-level design decision is in `rl_decision_layer/README.md` and `models/xgboost_model/README.md`.
+More detail: `rl_decision_layer/README.md`, `models/xgboost_model/README.md`.
 
 ## Contributors
 

@@ -11,3 +11,6 @@ rl_decision_layer/ppo/models/*
 !rl_decision_layer/ppo/models/ppo_fpl_v4.zip
 
 backend/sessions/*.json
+
+# MkDocs build output (regenerate with `mkdocs build`) - not source
+/site/

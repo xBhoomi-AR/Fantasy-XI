@@ -1,0 +1,78 @@
+site_name: FantasyXI
+site_description: AI-powered decision-support for Fantasy Premier League — Project X, Community of Coders (COC) @ VJTI
+repo_name: Fantasy-XI
+repo_url: https://github.com/xBhoomi-AR/Fantasy-XI
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.instant
+    - toc.follow
+    - content.code.copy
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - attr_list
+
+nav:
+  - Home: index.md
+  - Project:
+      - Overview: project/index.md
+      - Problem & Motivation: project/motivation.md
+      - Architecture: project/architecture.md
+  - Prediction:
+      - Overview: prediction/index.md
+      - BiLSTM: prediction/bilstm.md
+      - XGBoost: prediction/xgboost.md
+  - Decision & Optimization:
+      - Overview: decision/index.md
+      - PPO: decision/ppo.md
+      - MILP: decision/milp.md
+      - FPL Terminology: decision/terminology.md
+  - Implementation:
+      - Season Workflow: implementation/workflow.md
+      - Frontend & Demo: implementation/demo.md
+      - Project Structure: implementation/project-structure.md
+      - Mini Projects: implementation/mini-projects.md
+  - Evaluation:
+      - Results & Evaluation: evaluation/results.md
+  - Setup:
+      - Installation: setup/installation.md
+      - Running the Demo: setup/usage.md
+      - Training & Retraining: setup/training.md
+  - Future Scope: future-scope.md
+  - Contributors & Mentors: contributors.md

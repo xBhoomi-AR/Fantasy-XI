@@ -1,0 +1,7 @@
+# Dependencies for building/serving this documentation site only.
+# Not part of the FantasyXI application - install separately:
+#   pip install -r docs/requirements.txt
+#   mkdocs serve
+
+mkdocs>=1.6
+mkdocs-material>=9.5

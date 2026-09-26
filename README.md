@@ -4,8 +4,7 @@
 
 *Project X, Community of Coders (COC) @ VJTI*
 
-> **[TODO: Insert system architecture diagram here]*
-
+📖 [View full documentation](https://xbhoomi-ar.github.io/Fantasy-XI/)
 
 ---
 
@@ -59,9 +58,6 @@ Sequential season state → next gameweek
 ```
 <img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/adf0a129-ab64-42f7-8922-a107498b8132" />
 
-
-
-
 ## Prediction Layer
 
 Estimates expected FPL points per player per gameweek. Both models optimize for **ranking players well**, not exact scorelines.
@@ -76,7 +72,6 @@ Dual-expert gate architecture: a BiLSTM + attention encoder feeds a low-band and
 | RMSE | 3.6546 | 3.634 | 4.192 | 2.171 | 5.318 |
 | Spearman | 0.7183 | — | — | — | — |
 
-
 ### XGBoost (fallback)
 
 Position-specific regressors (GK/DEF/MID/FWD) on engineered historical FPL/fixture/team/Understat features.
@@ -89,7 +84,6 @@ Position-specific regressors (GK/DEF/MID/FWD) on engineered historical FPL/fixtu
 
 ## Evaluation & Results
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/8b82a6bd-e837-42e1-9b10-e08c1920ed61" /><img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/4a1a1ed3-69d3-4edd-9047-e9ad52242c84" />
-
 
 Both write to the same canonical schema (`rl_decision_layer/predictions/interface.py`) — interchangeable downstream.
 
@@ -162,8 +156,6 @@ Exploratory only, each with its own `requirements.txt` — not part of the root 
 
 <img width="4200" height="1800" alt="image" src="https://github.com/user-attachments/assets/64ed3dc2-702c-49d5-97d8-0c856ab79bc6" />
 
-
-
 **How do we know a recommended team is actually good?**
 
 - **Prediction** — evaluated against real outcomes (MAE/RMSE/Spearman above).
@@ -173,8 +165,6 @@ Exploratory only, each with its own `requirements.txt` — not part of the root 
 
 <img width="4200" height="1800" alt="image" src="https://github.com/user-attachments/assets/b487d365-0ab1-49b1-833d-5dc631d90f79" />
 
-
-
 ## Frontend / Demo
 
 ```
@@ -182,8 +172,6 @@ Start Season → Gameweek 1 → Next Gameweek → Gameweek 2 → … → Season 
 ```
 
 Squad, pitch-formation starting XI, captain/vice, transfers, chips, bank/free transfers — all rendered straight from the backend. **No prediction/RL/optimization logic lives in the frontend.**
-
-> **[TODO: Insert final FantasyXI demo screenshot here]**
 
 See [Installation / Setup](#installation--setup) to run it.
 
@@ -204,6 +192,8 @@ FantasyXI/
 ├── backend/                   # FastAPI backend
 ├── frontend/                  # Plain HTML/CSS/JS demo UI
 ├── mini_projects/             # Exploratory RL projects
+├── docs/                      # MkDocs documentation site source
+├── mkdocs.yml                 # Documentation site config
 ├── requirements.txt           # Consolidated dependencies
 └── README.md
 ```
@@ -267,18 +257,18 @@ python models/xgboost_model/scripts/train.py
 ```bash
 python -m rl_decision_layer.ppo.train --timesteps 50000
 ```
- Always overwrites its save path (default `ppo_fpl_pure_rl.zip`). Never pass `--save-name ppo_fpl_v4` — that's the frozen model this README's results describe.
+⚠️ Always overwrites its save path (default `ppo_fpl_pure_rl.zip`). Never pass `--save-name ppo_fpl_v4` — that's the frozen model this README's results describe.
 
 More detail: `rl_decision_layer/README.md`, `models/xgboost_model/README.md`.
 
 ## Contributors
 
-- **Bhoomi Vaity** - https://github.com/xBhoomi-AR
-- **Darshan Mahale** - https://github.com/d4rshnn
+- [**Bhoomi Vaity**](https://github.com/xBhoomi-AR)
+- [**Darshan Mahale**](https://github.com/d4rshnn)
 
 ## Mentors / Acknowledgements
 
-- **Ojas Alai** - https://github.com/ojasalai27
-- **Kavish Nasta** - https://github.com/kavishnasta
+- [**Ojas Alai**](https://github.com/ojasalai27)
+- [**Kavish Nasta**](https://github.com/kavishnasta)
 
 Built under **Project X, Community of Coders (COC) @ VJTI**.

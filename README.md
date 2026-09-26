@@ -57,7 +57,8 @@ Gameweek result / reward
         ↓
 Sequential season state → next gameweek
 ```
-<img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/19e77a2e-2d17-4b6f-89b4-2aa05d8f0ad7" />
+<img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/adf0a129-ab64-42f7-8922-a107498b8132" />
+
 
 
 
@@ -75,7 +76,6 @@ Dual-expert gate architecture: a BiLSTM + attention encoder feeds a low-band and
 | RMSE | 3.6546 | 3.634 | 4.192 | 2.171 | 5.318 |
 | Spearman | 0.7183 | — | — | — | — |
 
-![BiLSTM band-wise MAE/RMSE](models/BiLSTM_model/reports/bandwise_results.png)
 
 ### XGBoost (fallback)
 
@@ -87,8 +87,9 @@ Position-specific regressors (GK/DEF/MID/FWD) on engineered historical FPL/fixtu
 | RMSE | 2.1067 | — | — | — | — |
 | Spearman (ranking) | 0.7947 | 0.7021 | 0.7881 | 0.8133 | 0.8115 |
 
-![XGBoost Spearman by position](models/xgboost_model/reports/figures/spearman_by_position.png)
-![XGBoost range MAE/RMSE](models/xgboost_model/reports/xgboost_range_mae_rmse.png)
+## Evaluation & Results
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/8b82a6bd-e837-42e1-9b10-e08c1920ed61" /><img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/4a1a1ed3-69d3-4edd-9047-e9ad52242c84" />
+
 
 Both write to the same canonical schema (`rl_decision_layer/predictions/interface.py`) — interchangeable downstream.
 
@@ -159,7 +160,9 @@ Exploratory only, each with its own `requirements.txt` — not part of the root 
 | Chips deployed | Free Hit (GW1) · Wildcard (GW2) · Triple Captain (GW3) · Bench Boost (GW4) |
 | Season completion | GW1 → GW38, no infeasible gameweeks |
 
-> **[TODO: Insert RL training/results graph here]**
+<img width="4200" height="1800" alt="image" src="https://github.com/user-attachments/assets/64ed3dc2-702c-49d5-97d8-0c856ab79bc6" />
+
+
 
 **How do we know a recommended team is actually good?**
 
@@ -168,7 +171,9 @@ Exploratory only, each with its own `requirements.txt` — not part of the root 
 - **Baseline** — a PPO-free MILP-only baseline is implemented (`run_baseline.py` / `historical_loop.py`) but hasn't yet been run and compared against the result above.
 - An earlier internal report claimed a specific baseline score, but that number is hardcoded in the report script, not a real run — not treated as verified evidence here.
 
-> **[TODO: Run `run_baseline.py`/`historical_loop.py` and record a real baseline comparison here.]**
+<img width="4200" height="1800" alt="image" src="https://github.com/user-attachments/assets/b487d365-0ab1-49b1-833d-5dc631d90f79" />
+
+
 
 ## Frontend / Demo
 
@@ -262,7 +267,7 @@ python models/xgboost_model/scripts/train.py
 ```bash
 python -m rl_decision_layer.ppo.train --timesteps 50000
 ```
-⚠️ Always overwrites its save path (default `ppo_fpl_pure_rl.zip`). Never pass `--save-name ppo_fpl_v4` — that's the frozen model this README's results describe.
+ Always overwrites its save path (default `ppo_fpl_pure_rl.zip`). Never pass `--save-name ppo_fpl_v4` — that's the frozen model this README's results describe.
 
 More detail: `rl_decision_layer/README.md`, `models/xgboost_model/README.md`.
 

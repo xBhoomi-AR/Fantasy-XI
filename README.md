@@ -4,7 +4,8 @@
 
 *Project X, Community of Coders (COC) @ VJTI*
 
-> **[TODO: Insert system architecture diagram here]**
+> **[TODO: Insert system architecture diagram here]*
+
 
 ---
 
@@ -56,8 +57,9 @@ Gameweek result / reward
         ↓
 Sequential season state → next gameweek
 ```
+<img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/19e77a2e-2d17-4b6f-89b4-2aa05d8f0ad7" />
 
-> **[TODO: Insert a polished version of this pipeline as a diagram/image here]**
+
 
 ## Prediction Layer
 
@@ -266,12 +268,12 @@ More detail: `rl_decision_layer/README.md`, `models/xgboost_model/README.md`.
 
 ## Contributors
 
-- **Darshan Mahale**
-- **Bhoomi Vaity**
+- **Bhoomi Vaity** - https://github.com/xBhoomi-AR
+- **Darshan Mahale** - https://github.com/d4rshnn
 
 ## Mentors / Acknowledgements
 
-- **Ojas Alai**
-- **Kavish Nasta**
+- **Ojas Alai** - https://github.com/ojasalai27
+- **Kavish Nasta** - https://github.com/kavishnasta
 
 Built under **Project X, Community of Coders (COC) @ VJTI**.
